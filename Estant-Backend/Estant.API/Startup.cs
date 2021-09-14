@@ -1,3 +1,8 @@
+using Estant.Core.Handlers;
+using Estant.Material;
+using Estant.Service.FirebaseService;
+using Estant.Service.Interface;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -6,10 +11,12 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 
 namespace Estant.API
@@ -26,10 +33,38 @@ namespace Estant.API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            #region Config Constants
+            ConfigConstants.JwtKey = Configuration["JwtConfig:Key"];
+            ConfigConstants.JwtIssuer = Configuration["JwtConfig:Issuer"];
+            ConfigConstants.ApiKey = Configuration["FirebaseConfig:ApiKey"];
+            #endregion
+
+            //add authentication
+            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(jwtOptions =>
+            {
+                jwtOptions.TokenValidationParameters = new TokenValidationParameters
+                {
+                    ValidateIssuer = true,
+                    ValidateAudience = true,
+                    ValidateLifetime = true,
+                    ValidateIssuerSigningKey = true,
+                    ValidIssuer = ConfigConstants.JwtIssuer,
+                    ValidAudience = ConfigConstants.JwtIssuer,
+                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(ConfigConstants.JwtKey))
+                };
+            });
+
             services.AddControllers();
 
+
+            #region DI - Dependency Injection
+            services.AddSingleton<AuthHandler>();
+            services.AddSingleton<IAuthenticationService, AuthFirebaseService>();
+            #endregion
+
             // Register the Swagger generator, defining 1 or more Swagger documents
-            services.AddSwaggerGen(c => {
+            services.AddSwaggerGen(c =>
+            {
                 c.SwaggerDoc("v1", new OpenApiInfo
                 {
                     Title = "Estant API",
@@ -59,6 +94,8 @@ namespace Estant.API
             });
 
             app.UseRouting();
+
+            app.UseAuthentication();
 
             app.UseAuthorization();
 

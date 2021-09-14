@@ -1,0 +1,20 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Text;
+
+namespace Estant.Material.Model.EnumModel
+{
+    public enum ResponseError
+    {
+        [Description("No error")]
+        NoError,
+
+        #region Authentication Error
+        [Description("Incorrect username or password")]
+        IncorrectUser = 1001,
+        [Description("SignIn fail")]
+        SignInFail = 1002,
+        #endregion
+    }
+}
