@@ -13,8 +13,10 @@ namespace Estant.Material.Model.EnumModel
         #region Authentication Error
         [Description("Incorrect username or password")]
         IncorrectUser = 1001,
-        [Description("SignIn fail")]
+        [Description("Sign in fail")]
         SignInFail = 1002,
+        [Description("Sign up fail")]
+        SignUpFail = 1003,
         #endregion
     }
 }

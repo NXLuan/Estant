@@ -21,5 +21,10 @@ namespace Estant.API.Controllers
 
             return Json(model);
         }
+
+        protected JsonResult ReturnNoData(ResponseError responseError)
+        {
+           return ReturnData<object>(null, responseError);
+        }
     }
 }

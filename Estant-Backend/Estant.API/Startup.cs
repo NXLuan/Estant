@@ -37,6 +37,8 @@ namespace Estant.API
             ConfigConstants.JwtKey = Configuration["JwtConfig:Key"];
             ConfigConstants.JwtIssuer = Configuration["JwtConfig:Issuer"];
             ConfigConstants.ApiKey = Configuration["FirebaseConfig:ApiKey"];
+            ConfigConstants.ProjectID = Configuration["FirebaseConfig:ProjectID"];
+            ConfigConstants.PrivateKeyPath = Configuration["FirebaseConfig:PrivateKeyPath"];
             #endregion
 
             //add authentication
@@ -59,7 +61,9 @@ namespace Estant.API
 
             #region DI - Dependency Injection
             services.AddSingleton<AuthHandler>();
+            services.AddSingleton<VocabularyHandler>();
             services.AddSingleton<IAuthenticationService, AuthFirebaseService>();
+            services.AddSingleton<IVocabularyService, VocabularyFirestoreService>();
             #endregion
 
             // Register the Swagger generator, defining 1 or more Swagger documents

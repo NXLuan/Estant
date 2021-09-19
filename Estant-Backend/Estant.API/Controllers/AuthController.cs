@@ -25,15 +25,26 @@ namespace Estant.API.Controllers
         }
         #endregion
 
-        [HttpPost]
+        [HttpPost("SignIn")]
         public async Task<IActionResult> SignIn([FromBody] SignInRequestModel requestModel)
         {
             var responseError = ResponseError.NoError;
 
-            var data = await _authHandler.SignInHandle(requestModel);
+            var data = await _authHandler.SignInAsync(requestModel);
             if (data == null) responseError = ResponseError.SignInFail;
 
             return ReturnData<UserViewModel>(data, responseError);
+        }
+
+        [HttpPost("SignUp")]
+        public async Task<IActionResult> SignUp([FromBody] SignUpRequestModel requestModel)
+        {
+            var responseError = ResponseError.NoError;
+
+            var data = await _authHandler.SignUpAsync(requestModel);
+            if (!data) responseError = ResponseError.SignUpFail;
+
+            return ReturnNoData(responseError);
         }
     }
 }

@@ -36,6 +36,7 @@ namespace Estant.Service.FirebaseService
             }
             catch
             {
+                result = null;
             }
             return result;
         }
@@ -44,8 +45,20 @@ namespace Estant.Service.FirebaseService
         {
         }
 
-        public void SignUp()
+        public async Task<bool> SignUp(string email, string password, string displayname)
         {
+            bool result;
+            try
+            {
+                var auth = await AuthProvider.CreateUserWithEmailAndPasswordAsync(email, password, displayname);
+                result = (auth != null && auth.User != null);
+            }
+            catch
+            {
+                result = false;
+            }
+
+            return result;
         }
     }
 }

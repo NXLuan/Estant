@@ -17,7 +17,7 @@ namespace Estant.Core.Handlers
             _authService = authService;
         }
 
-        public async Task<UserViewModel> SignInHandle(SignInRequestModel requestModel)
+        public async Task<UserViewModel> SignInAsync(SignInRequestModel requestModel)
         {
             UserViewModel data = null;
 
@@ -25,6 +25,18 @@ namespace Estant.Core.Handlers
             {
                 var result = await _authService.SignInWithEmailAndPassword(requestModel.Email, requestModel.Password);
                 data = result?.ToViewModel();
+            }
+
+            return data;
+        }
+
+        public async Task<bool> SignUpAsync(SignUpRequestModel requestModel)
+        {
+            bool data = false;
+
+            if (requestModel != null)
+            {
+                data = await _authService.SignUp(requestModel.Email, requestModel.Password, requestModel.DisplayName);
             }
 
             return data;

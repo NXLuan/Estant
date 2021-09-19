@@ -5,6 +5,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Remove="estant-f0ad5-firebase-adminsdk-7n29d-cf13e40cf0.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="estant-f0ad5-firebase-adminsdk-7n29d-cf13e40cf0.json" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="3.1.18" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.3" />
   </ItemGroup>

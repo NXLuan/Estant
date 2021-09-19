@@ -13,6 +13,8 @@ namespace Estant.Material
 
         #region Firebase variables
         public static string ApiKey { get; set; }
+        public static string ProjectID { get; set; }
+        public static string PrivateKeyPath { get; set; }
         #endregion
     }
 }
