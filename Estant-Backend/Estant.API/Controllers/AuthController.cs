@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Estant.Material.Model.EnumModel;
+using Estant.Material.Utilities;
 
 namespace Estant.API.Controllers
 {
@@ -29,9 +30,16 @@ namespace Estant.API.Controllers
         public async Task<IActionResult> SignIn([FromBody] SignInRequestModel requestModel)
         {
             var responseError = ResponseError.NoError;
+            if (requestModel == null)
+                responseError = ResponseError.InputInvalid;
+            responseError = requestModel.ValidateParams();
 
-            var data = await _authHandler.SignInAsync(requestModel);
-            if (data == null) responseError = ResponseError.SignInFail;
+            UserViewModel data = null;
+            if (!responseError.HasError())
+            {
+                data = await _authHandler.SignInAsync(requestModel);
+                if (data == null) responseError = ResponseError.SignInFail;
+            }
 
             return ReturnData<UserViewModel>(data, responseError);
         }
@@ -40,9 +48,15 @@ namespace Estant.API.Controllers
         public async Task<IActionResult> SignUp([FromBody] SignUpRequestModel requestModel)
         {
             var responseError = ResponseError.NoError;
+            if (requestModel == null)
+                responseError = ResponseError.InputInvalid;
+            responseError = requestModel.ValidateParams();
 
-            var data = await _authHandler.SignUpAsync(requestModel);
-            if (!data) responseError = ResponseError.SignUpFail;
+            if (!responseError.HasError())
+            {
+                var data = await _authHandler.SignUpAsync(requestModel);
+                if (!data) responseError = ResponseError.SignUpFail;
+            }
 
             return ReturnNoData(responseError);
         }
