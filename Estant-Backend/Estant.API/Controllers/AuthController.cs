@@ -14,8 +14,6 @@ using Estant.Material.Utilities;
 
 namespace Estant.API.Controllers
 {
-    [Route("api/[controller]")]
-    [ApiController]
     public class AuthController : BaseController
     {
         #region Contructor

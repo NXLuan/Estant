@@ -21,7 +21,6 @@ namespace Estant.Core.Mappings
             {
                 vm = new UserViewModel()
                 {
-                    Uid = dto.UID,
                     DisplayName = dto.DISPLAYNAME,
                     Email = dto.EMAIL,
                     PhotoUrl = dto.PHOTOURL,
@@ -42,8 +41,7 @@ namespace Estant.Core.Mappings
                 var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
 
                 var claims = new[] {
-                new Claim(JwtRegisteredClaimNames.Email, dto.EMAIL),
-                new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
+                new Claim(JwtRegisteredClaimNames.Jti, dto.UID),
             };
 
                 var token = new JwtSecurityToken(

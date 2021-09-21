@@ -16,5 +16,7 @@ namespace Estant.Material
         public static string ProjectID { get; set; }
         public static string PrivateKeyPath { get; set; }
         #endregion
+
+        public static int WordCountPerTopic = 15;
     }
 }

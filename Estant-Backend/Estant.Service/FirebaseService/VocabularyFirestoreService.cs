@@ -9,11 +9,17 @@ namespace Estant.Service.FirebaseService
 {
     public class VocabularyFirestoreService : IVocabularyService
     {
-        FirestroreRepository<Vocabulary> repository;
+        FirestroreRepository<Topic> repository;
 
         public VocabularyFirestoreService()
         {
-            repository = new FirestroreRepository<Vocabulary>("Vocabulary");
+            repository = new FirestroreRepository<Topic>("Vocabulary");
+        }
+
+        public bool AddByTopic(Topic topic)
+        {
+            var result = repository.Add(topic);
+            return result != null;
         }
 
         public List<VocabularyDTO> GetAll()
@@ -23,7 +29,7 @@ namespace Estant.Service.FirebaseService
             var result = repository.GetAll();
             result.ForEach(e => list.Add(new VocabularyDTO()
             {
-                WORD = e.word,
+                //WORD = e.word,
             }));
 
             return list;

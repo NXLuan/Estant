@@ -1,6 +1,7 @@
 ﻿using Estant.Core.Handlers;
 using Estant.Material.Model.EnumModel;
 using Estant.Material.Model.ViewModel;
+using Estant.Service.Model;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -10,8 +11,6 @@ using System.Threading.Tasks;
 
 namespace Estant.API.Controllers
 {
-    [Route("api/[controller]")]
-    [ApiController]
     public class VocabularyController : BaseController
     {
         #region Contructor
@@ -27,7 +26,15 @@ namespace Estant.API.Controllers
         {
             var responseError = ResponseError.NoError;
             var data = _vocabularyHandler.GetAll();
+
             return ReturnData<List<VocabularyViewModel>>(data, responseError);
+        }
+
+        [HttpPost("AddTopic")]
+        public async Task<IActionResult> AddTopic(string title)
+        {
+            var data = await _vocabularyHandler.AddByTopic(title);
+            return Json(data);
         }
     }
 }

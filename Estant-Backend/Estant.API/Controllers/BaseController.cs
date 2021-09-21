@@ -4,11 +4,15 @@ using Estant.Material.Utilities;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
+using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 
 namespace Estant.API.Controllers
 {
+    [Route("api/[controller]")]
+    [ApiController]
     public class BaseController : Controller
     {
         protected JsonResult ReturnData<T>(T data, ResponseError responseError)
@@ -25,6 +29,14 @@ namespace Estant.API.Controllers
         protected JsonResult ReturnNoData(ResponseError responseError)
         {
            return ReturnData<object>(null, responseError);
+        }
+
+        protected string GetCurrentUID()
+        {
+            //var identity = HttpContext.User.Identity as ClaimsIdentity;
+            //IList<Claim> claim = identity.Claims.ToList();
+
+            return HttpContext.User.FindFirst(JwtRegisteredClaimNames.Jti)?.Value;
         }
     }
 }
