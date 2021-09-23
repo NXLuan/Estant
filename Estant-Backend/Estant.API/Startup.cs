@@ -63,6 +63,7 @@ namespace Estant.API
             services.AddSingleton<AuthHandler>();
             services.AddSingleton<VocabularyHandler>();
             services.AddSingleton<IAuthenticationService, AuthFirebaseService>();
+            services.AddSingleton<ITopicService, TopicFirestoreService>();
             services.AddSingleton<IVocabularyService, VocabularyFirestoreService>();
             #endregion
 

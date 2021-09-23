@@ -30,11 +30,22 @@ namespace Estant.API.Controllers
             return ReturnData<List<VocabularyViewModel>>(data, responseError);
         }
 
+        #region CRUD
         [HttpPost("AddTopic")]
-        public async Task<IActionResult> AddTopic(string title)
+        public async Task<IActionResult> AddTopic(string topic)
         {
-            var data = await _vocabularyHandler.AddByTopic(title);
+            if (string.IsNullOrWhiteSpace(topic)) return Content("Topic is empty");
+            var data = await _vocabularyHandler.AddByTopic(topic);
             return Json(data);
         }
+
+        [HttpPost("AddVocabulary")]
+        public async Task<IActionResult> AddVocabulary(string topic, string word)
+        {
+            if (string.IsNullOrWhiteSpace(topic) || string.IsNullOrWhiteSpace(word)) return Content("Input is empty");
+            var data = await _vocabularyHandler.AddByWord(topic, word);
+            return Json(data);
+        }
+        #endregion
     }
 }

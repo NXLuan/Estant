@@ -11,40 +11,31 @@ namespace Estant.Service.Model
     }
 
     [FirestoreData]
-    public class Topic: BaseFirestoreModel
+    public class Topic : BaseFirestoreModel
     {
         [FirestoreProperty]
-        public List<Vocabulary> vocabularies { get; set; }
-        [FirestoreProperty]
-        public string title { get; set; }
+        public List<DocumentReference> vocabularies { get; set; }
         [FirestoreProperty]
         public string imageUrl { get; set; }
-
         public Topic()
         {
-            vocabularies = new List<Vocabulary>();
+            vocabularies = new List<DocumentReference>();
         }
     }
 
-    public class Vocabulary
+    [FirestoreData]
+    public class Vocabulary : BaseFirestoreModel
     {
-        public string word { get; set; }
+        [FirestoreProperty]
         public string phonetic { get; set; }
+        [FirestoreProperty]
         public string audio { get; set; }
-        public List<Meaning> meanings { get; set; }
+        [FirestoreProperty]
+        public List<Dictionary<string, object>> meanings { get; set; }
 
-        public class Meaning
+        public Vocabulary()
         {
-            public string partOfSpeech { get; set; }
-            public List<Definition> definitions { get; set; }
-
-            public class Definition
-            {
-                public string definition { get; set; }
-                public string example { get; set; }
-                public List<string> synonyms { get; set; }
-                public List<string> antonyms { get; set; }
-            }
+            meanings = new List<Dictionary<string, object>>();
         }
     }
 }

@@ -18,47 +18,46 @@ namespace Estant.Core.Mappings
             {
                 vm = new VocabularyViewModel()
                 {
-                    Word = dto.WORD,
-                    LinkPronounce = "https://ssl.gstatic.com/dictionary/static/sounds/oxford/" + dto.WORD + "--_us_1.mp3",
+                    Word = dto.word,
+                    LinkPronounce = "https://ssl.gstatic.com/dictionary/static/sounds/oxford/" + dto.word + "--_us_1.mp3",
                 };
             }
 
             return vm;
         }
 
-        public static Topic ArrayJsonToTopic(this string json, string title)
+        public static TopicDTO ArrayJsonToTopic(this string json, string title)
         {
-            Topic topic = null;
+            TopicDTO topic = null;
             JArray arrJson = JArray.Parse(json);
 
             if (arrJson != null && arrJson.Count != 0)
             {
-                topic = new Topic()
+                topic = new TopicDTO()
                 {
                     title = title
                 };
 
                 foreach (var data in arrJson)
                 {
-                    topic.vocabularies.Add(new Vocabulary()
+                    topic.vocabularies.Add(new VocabularyDTO()
                     {
                         word = data["word"].ToString()
                     });
                 }
             }
-
             return topic;
         }
 
-        public static Vocabulary ArrayJsonToVocabulary(this string json)
+        public static VocabularyDTO ArrayJsonToVocabulary(this string json)
         {
-            Vocabulary vocabulary = null;
+            VocabularyDTO vocabulary = null;
 
             JArray arrJson = JArray.Parse(json);
             if (arrJson != null && arrJson.Count > 0)
             {
                 var objJson = arrJson[0];
-                vocabulary = objJson.ToObject<Vocabulary>();
+                vocabulary = objJson.ToObject<VocabularyDTO>();
 
                 #region gán lại thông tin cần lấy
                 var phonetic = objJson["phonetics"][0];

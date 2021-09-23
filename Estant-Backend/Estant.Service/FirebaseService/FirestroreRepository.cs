@@ -12,7 +12,7 @@ namespace Estant.Service.FirebaseService
     class FirestoreConfig
     {
         private static FirestoreConfig _inStance;
-        public  FirestoreDb CurrentFireStorDb { get; set; }
+        public FirestoreDb CurrentFireStorDb { get; set; }
         public static FirestoreConfig Instance
         {
             get
@@ -32,7 +32,7 @@ namespace Estant.Service.FirebaseService
     class FirestroreRepository<T> where T : BaseFirestoreModel
     {
         private static string _collectionName;
-        private FirestoreDb fireStoreDb;
+        public FirestoreDb fireStoreDb { get; }
         public FirestroreRepository(string collectionName)
         {
             fireStoreDb = FirestoreConfig.Instance.CurrentFireStorDb;
@@ -47,10 +47,19 @@ namespace Estant.Service.FirebaseService
             return record;
         }
 
-        public bool Update(T record)
+        public async Task<bool> Update(T record)
         {
-            DocumentReference recordRef = fireStoreDb.Collection(_collectionName).Document(record.id);
-            return recordRef.SetAsync(record, SetOptions.MergeAll).IsCompletedSuccessfully;
+            try
+            {
+                DocumentReference recordRef = fireStoreDb.Collection(_collectionName).Document(record.id);
+                var response = await recordRef.SetAsync(record, SetOptions.MergeAll);
+            }
+            catch
+            {
+                return false;
+            }
+
+            return true;
         }
         public bool Delete(T record)
         {
