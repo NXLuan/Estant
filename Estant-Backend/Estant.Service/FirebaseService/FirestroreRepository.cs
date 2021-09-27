@@ -39,10 +39,10 @@ namespace Estant.Service.FirebaseService
             _collectionName = collectionName;
         }
 
-        public T Add(T record)
+        public async Task<T> Add(T record)
         {
             CollectionReference colRef = fireStoreDb.Collection(_collectionName);
-            DocumentReference doc = colRef.AddAsync(record).GetAwaiter().GetResult();
+            DocumentReference doc = await colRef.AddAsync(record);
             record.id = doc.Id;
             return record;
         }
@@ -52,7 +52,7 @@ namespace Estant.Service.FirebaseService
             try
             {
                 DocumentReference recordRef = fireStoreDb.Collection(_collectionName).Document(record.id);
-                var response = await recordRef.SetAsync(record, SetOptions.MergeAll);
+                await recordRef.SetAsync(record, SetOptions.MergeAll);
             }
             catch
             {
@@ -61,16 +61,24 @@ namespace Estant.Service.FirebaseService
 
             return true;
         }
-        public bool Delete(T record)
+        public async Task<bool> Delete(T record)
         {
-            DocumentReference recordRef = fireStoreDb.Collection(_collectionName).Document(record.id);
-            return recordRef.DeleteAsync().IsCompletedSuccessfully;
+            try
+            {
+                DocumentReference recordRef = fireStoreDb.Collection(_collectionName).Document(record.id);
+                await recordRef.DeleteAsync();
+            }
+            catch
+            {
+                return false;
+            }
+            return true;
         }
 
-        public T Get(T record)
+        public async Task<T> Get(T record)
         {
             DocumentReference docRef = fireStoreDb.Collection(_collectionName).Document(record.id);
-            DocumentSnapshot snapshot = docRef.GetSnapshotAsync().GetAwaiter().GetResult();
+            DocumentSnapshot snapshot = await docRef.GetSnapshotAsync();
             if (snapshot.Exists)
             {
                 T result = snapshot.ConvertTo<T>();
@@ -83,10 +91,10 @@ namespace Estant.Service.FirebaseService
             }
         }
 
-        public List<T> GetAll()
+        public async Task<List<T>> GetAll()
         {
             Query query = fireStoreDb.Collection(_collectionName);
-            QuerySnapshot querySnapshot = query.GetSnapshotAsync().GetAwaiter().GetResult();
+            QuerySnapshot querySnapshot = await query.GetSnapshotAsync();
             List<T> list = new List<T>();
             foreach (DocumentSnapshot documentSnapshot in querySnapshot.Documents)
             {
@@ -102,9 +110,9 @@ namespace Estant.Service.FirebaseService
             return list;
         }
 
-        public List<T> QueryRecords(Query query)
+        public async Task<List<T>> QueryRecords(Query query)
         {
-            QuerySnapshot querySnapshot = query.GetSnapshotAsync().GetAwaiter().GetResult();
+            QuerySnapshot querySnapshot = await query.GetSnapshotAsync();
             List<T> list = new List<T>();
             foreach (DocumentSnapshot documentSnapshot in querySnapshot.Documents)
             {

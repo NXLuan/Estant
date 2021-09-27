@@ -14,18 +14,20 @@ namespace Estant.Service.Model
     public class Topic : BaseFirestoreModel
     {
         [FirestoreProperty]
-        public List<DocumentReference> vocabularies { get; set; }
+        public List<string> vocabularies { get; set; }
         [FirestoreProperty]
         public string imageUrl { get; set; }
         public Topic()
         {
-            vocabularies = new List<DocumentReference>();
+            vocabularies = new List<string>();
         }
     }
 
     [FirestoreData]
     public class Vocabulary : BaseFirestoreModel
     {
+        [FirestoreProperty]
+        public string topic { get; set; }
         [FirestoreProperty]
         public string phonetic { get; set; }
         [FirestoreProperty]

@@ -1,4 +1,5 @@
 ﻿using Estant.Material.Model.DTOModel;
+using Estant.Material.Model.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -8,6 +9,8 @@ namespace Estant.Service.Interface
 {
     public interface ITopicService
     {
+        public Task<TopicViewModel> GetTopic(string topic);
+        public Task<List<TopicViewModel>> GetAll();
         public void Add(TopicDTO dto);
     }
 }

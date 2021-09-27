@@ -21,13 +21,12 @@ namespace Estant.API.Controllers
         }
         #endregion
 
-        [HttpGet("GetAll")]
-        public IActionResult GetAll()
+        [HttpGet("GetAllTopic")]
+        public async Task<IActionResult> GetAllTopic()
         {
             var responseError = ResponseError.NoError;
-            var data = _vocabularyHandler.GetAll();
-
-            return ReturnData<List<VocabularyViewModel>>(data, responseError);
+            var data = await _vocabularyHandler.GetAllTopic();
+            return ReturnData<List<TopicViewModel>>(data, responseError);
         }
 
         #region CRUD
@@ -39,13 +38,24 @@ namespace Estant.API.Controllers
             return Json(data);
         }
 
-        [HttpPost("AddVocabulary")]
-        public async Task<IActionResult> AddVocabulary(string topic, string word)
+        [HttpPost("AddToTopic")]
+        public async Task<IActionResult> AddToTopic(string topic, string word)
         {
             if (string.IsNullOrWhiteSpace(topic) || string.IsNullOrWhiteSpace(word)) return Content("Input is empty");
-            var data = await _vocabularyHandler.AddByWord(topic, word);
+            var data = await _vocabularyHandler.AddWordToTopic(topic, word);
             return Json(data);
         }
+
+        [HttpPost("DeleteWord")]
+        public async Task<IActionResult> DeleteFromTopic(string word)
+        {
+            string message = string.Empty;
+            if (string.IsNullOrWhiteSpace(word)) message = "Input is empty";
+            else if (await _vocabularyHandler.DeleteWord(word)) message = "Success!";
+            else message = "Word not found";
+            return Content(message);
+        }
         #endregion
+
     }
 }

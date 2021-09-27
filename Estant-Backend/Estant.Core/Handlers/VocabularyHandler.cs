@@ -26,13 +26,9 @@ namespace Estant.Core.Handlers
         }
         #endregion
 
-        public List<VocabularyViewModel> GetAll()
+        public async Task<List<TopicViewModel>> GetAllTopic()
         {
-            List<VocabularyViewModel> data = new List<VocabularyViewModel>();
-
-            var result = _vocabularyService.GetAll();
-            result?.ForEach(e => data.Add(e.ToViewModel()));
-
+            List<TopicViewModel> data = await _topicService.GetAll();
             return data;
         }
 
@@ -60,22 +56,17 @@ namespace Estant.Core.Handlers
                     data.vocabularies.Clear();
 
                     #region handle add vocabulary
-                    MultiRequestHelper<VocabularyDTO> helperFirestore = new MultiRequestHelper<VocabularyDTO>();
                     foreach (var jsonVocabulary in responseCallApis)
                     {
                         if (jsonVocabulary != null)
                         {
-                            var vocabulary = jsonVocabulary.ArrayJsonToVocabulary();
+                            var vocabulary = jsonVocabulary.ArrayJsonToVocabulary(topic);
                             if (vocabulary != null)
                             {
-                                helperFirestore.AddRequest(_vocabularyService.Add(vocabulary));
+                                _vocabularyService.Add(vocabulary);
+                                data.vocabularies.Add(vocabulary);
                             }
                         }
-                    }
-                    var responseFirestores = await helperFirestore.Execute();
-                    foreach (var response in responseFirestores)
-                    {
-                        if (response != null) data.vocabularies.Add(response);
                     }
                     #endregion
 
@@ -91,35 +82,42 @@ namespace Estant.Core.Handlers
             return data;
         }
 
-        public async Task<TopicDTO> AddByWord(string topic, string word)
+        public async Task<TopicDTO> AddWordToTopic(string topic, string word)
         {
             TopicDTO data = new TopicDTO()
             {
                 title = topic,
             };
 
-            if (string.IsNullOrWhiteSpace(word))
+            if (!string.IsNullOrWhiteSpace(word))
             {
                 #region Lấy thông tin từ vựng theo Dictionary
                 var jsonVocabulary = await VocabularyApi.GetFromDictionary(word);
 
                 if (jsonVocabulary != null)
                 {
-                    var vocabulary = jsonVocabulary.ArrayJsonToVocabulary();
+                    var vocabulary = jsonVocabulary.ArrayJsonToVocabulary(topic);
                     if (vocabulary != null)
                     {
-                        var response = await _vocabularyService.Add(vocabulary);
-                        if (response != null)
-                        {
-                            data.vocabularies.Add(response);
-                            _topicService.Add(data);
-                        }      
+                        _vocabularyService.Add(vocabulary);
+                        data.vocabularies.Add(vocabulary);
+                        _topicService.Add(data);
                     }
                 }
                 #endregion
             }
 
             return data;
+        }
+
+        public async Task<bool> DeleteWord(string word)
+        {
+            bool result = false;
+            if (!string.IsNullOrWhiteSpace(word))
+            {
+                result = await _vocabularyService.Delete(word);
+            }
+            return result;
         }
     }
 }

@@ -17,6 +17,7 @@ namespace Estant.Material.Model.DTOModel
 
     public class VocabularyDTO
     {
+        public string topic { get; set; }
         public string word { get; set; }
         public string phonetic { get; set; }
         public string audio { get; set; }

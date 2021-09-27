@@ -1,4 +1,5 @@
 ﻿using Estant.Material.Model.DTOModel;
+using Estant.Material.Model.ViewModel;
 using Estant.Service.Interface;
 using Estant.Service.Model;
 using System;
@@ -17,11 +18,12 @@ namespace Estant.Service.FirebaseService
             repository = new FirestroreRepository<Vocabulary>("Vocabulary");
         }
 
-        public async Task<VocabularyDTO> Add(VocabularyDTO dto)
+        public void Add(VocabularyDTO dto)
         {
-            if (dto == null) return null;
+            if (dto == null) return;
             Vocabulary vocabulary = new Vocabulary()
             {
+                topic = dto.topic,
                 id = dto.word,
                 phonetic = dto.phonetic,
                 audio = dto.audio,
@@ -56,23 +58,50 @@ namespace Estant.Service.FirebaseService
                 vocabulary.meanings.Add(dicMeaning);
             }
 
-            var result = await repository.Update(vocabulary);
-
-            if (result) return dto;
-            return null;
+            repository.Update(vocabulary);
         }
 
-        public List<VocabularyDTO> GetAll()
+        public async Task<bool> Delete(string word)
         {
-            List<VocabularyDTO> list = new List<VocabularyDTO>();
-
-            var result = repository.GetAll();
-            result.ForEach(e => list.Add(new VocabularyDTO()
+            bool result = false;
+            Vocabulary vocabulary = new Vocabulary()
             {
-                //WORD = e.word,
-            }));
+                id = word
+            };
 
-            return list;
+            var vocabResult = await repository.Get(vocabulary);
+            if (vocabResult != null)
+            {
+                //delete in topic
+                //repository.fireStoreDb.Collection("Topic")
+                repository.Delete(vocabResult);
+                result = true;
+            }
+
+            return result;
+        }
+
+        public async Task<VocabularyViewModel> Get(string word)
+        {
+            VocabularyViewModel vm = null;
+            Vocabulary vocabulary = new Vocabulary()
+            {
+                id = word
+            };
+
+            var result = await repository.Get(vocabulary);
+            if (result != null)
+            {
+                vm = new VocabularyViewModel()
+                {
+                    word = result.id,
+                    phonetic = result.phonetic,
+                    audio = result.audio,
+                    meanings = result.meanings
+                };
+            }
+
+            return vm;
         }
     }
 }

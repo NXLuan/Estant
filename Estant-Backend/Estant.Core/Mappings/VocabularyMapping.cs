@@ -10,22 +10,6 @@ namespace Estant.Core.Mappings
 {
     public static class VocabularyMapping
     {
-        public static VocabularyViewModel ToViewModel(this VocabularyDTO dto)
-        {
-            VocabularyViewModel vm = null;
-
-            if (dto != null)
-            {
-                vm = new VocabularyViewModel()
-                {
-                    Word = dto.word,
-                    LinkPronounce = "https://ssl.gstatic.com/dictionary/static/sounds/oxford/" + dto.word + "--_us_1.mp3",
-                };
-            }
-
-            return vm;
-        }
-
         public static TopicDTO ArrayJsonToTopic(this string json, string title)
         {
             TopicDTO topic = null;
@@ -49,7 +33,7 @@ namespace Estant.Core.Mappings
             return topic;
         }
 
-        public static VocabularyDTO ArrayJsonToVocabulary(this string json)
+        public static VocabularyDTO ArrayJsonToVocabulary(this string json, string topic)
         {
             VocabularyDTO vocabulary = null;
 
@@ -58,6 +42,7 @@ namespace Estant.Core.Mappings
             {
                 var objJson = arrJson[0];
                 vocabulary = objJson.ToObject<VocabularyDTO>();
+                vocabulary.topic = topic;
 
                 #region gán lại thông tin cần lấy
                 var phonetic = objJson["phonetics"][0];

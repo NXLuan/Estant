@@ -1,4 +1,5 @@
 ﻿using Estant.Material.Model.DTOModel;
+using Estant.Material.Model.ViewModel;
 using Estant.Service.Model;
 using System;
 using System.Collections.Generic;
@@ -9,7 +10,8 @@ namespace Estant.Service.Interface
 {
     public interface IVocabularyService
     {
-        public List<VocabularyDTO> GetAll();
-        public Task<VocabularyDTO> Add(VocabularyDTO dto);
+        public Task<VocabularyViewModel> Get(string word);
+        public void Add(VocabularyDTO dto);
+        public Task<bool> Delete(string word);
     }
 }
