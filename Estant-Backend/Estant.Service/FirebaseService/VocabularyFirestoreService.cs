@@ -58,12 +58,12 @@ namespace Estant.Service.FirebaseService
                 vocabulary.meanings.Add(dicMeaning);
             }
 
-            repository.Update(vocabulary);
+            repository.Set(vocabulary);
         }
 
-        public async Task<bool> Delete(string word)
+        public async Task<string> Delete(string word)
         {
-            bool result = false;
+            string result = string.Empty;
             Vocabulary vocabulary = new Vocabulary()
             {
                 id = word
@@ -72,10 +72,8 @@ namespace Estant.Service.FirebaseService
             var vocabResult = await repository.Get(vocabulary);
             if (vocabResult != null)
             {
-                //delete in topic
-                //repository.fireStoreDb.Collection("Topic")
                 repository.Delete(vocabResult);
-                result = true;
+                result = vocabResult.topic;
             }
 
             return result;

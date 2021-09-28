@@ -12,6 +12,6 @@ namespace Estant.Service.Interface
     {
         public Task<VocabularyViewModel> Get(string word);
         public void Add(VocabularyDTO dto);
-        public Task<bool> Delete(string word);
+        public Task<string> Delete(string word);
     }
 }

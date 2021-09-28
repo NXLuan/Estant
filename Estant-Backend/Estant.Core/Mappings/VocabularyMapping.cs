@@ -37,25 +37,32 @@ namespace Estant.Core.Mappings
         {
             VocabularyDTO vocabulary = null;
 
-            JArray arrJson = JArray.Parse(json);
-            if (arrJson != null && arrJson.Count > 0)
+            try
             {
-                var objJson = arrJson[0];
-                vocabulary = objJson.ToObject<VocabularyDTO>();
-                vocabulary.topic = topic;
+                JArray arrJson = JArray.Parse(json);
+                if (arrJson != null && arrJson.Count > 0)
+                {
+                    var objJson = arrJson[0];
+                    vocabulary = objJson.ToObject<VocabularyDTO>();
+                    vocabulary.topic = topic;
 
-                #region gán lại thông tin cần lấy
-                var phonetic = objJson["phonetics"][0];
-                if (phonetic["audio"] == null)
-                {
-                    vocabulary.audio = "https://ssl.gstatic.com/dictionary/static/sounds/oxford/" + objJson["word"] + "--_us_1.mp3";
+                    #region gán lại thông tin cần lấy
+                    var phonetic = objJson["phonetics"][0];
+                    if (phonetic["audio"] == null)
+                    {
+                        vocabulary.audio = "https://ssl.gstatic.com/dictionary/static/sounds/oxford/" + objJson["word"] + "--_us_1.mp3";
+                    }
+                    else
+                    {
+                        vocabulary.phonetic = phonetic["text"].ToString();
+                        vocabulary.audio = phonetic["audio"].ToString();
+                    }
+                    #endregion
                 }
-                else
-                {
-                    vocabulary.phonetic = phonetic["text"].ToString();
-                    vocabulary.audio = phonetic["audio"].ToString();
-                }
-                #endregion
+            }
+            catch
+            {
+                vocabulary = null;
             }
 
             return vocabulary;

@@ -47,7 +47,7 @@ namespace Estant.Service.FirebaseService
             return record;
         }
 
-        public async Task<bool> Update(T record)
+        public async Task<bool> Set(T record)
         {
             try
             {
@@ -61,6 +61,22 @@ namespace Estant.Service.FirebaseService
 
             return true;
         }
+
+        public async Task<bool> Update(IDictionary<string, object> record, string documentID)
+        {
+            try
+            {
+                DocumentReference recordRef = fireStoreDb.Collection(_collectionName).Document(documentID);
+                await recordRef.UpdateAsync(record);
+            }
+            catch
+            {
+                return false;
+            }
+
+            return true;
+        }
+
         public async Task<bool> Delete(T record)
         {
             try

@@ -115,7 +115,12 @@ namespace Estant.Core.Handlers
             bool result = false;
             if (!string.IsNullOrWhiteSpace(word))
             {
-                result = await _vocabularyService.Delete(word);
+                var topic = await _vocabularyService.Delete(word);
+                if (!string.IsNullOrEmpty(topic))
+                {
+                    _topicService.DeleteWord(topic, word);
+                    result = true;
+                }
             }
             return result;
         }

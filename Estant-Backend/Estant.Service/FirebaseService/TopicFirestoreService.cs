@@ -88,7 +88,16 @@ namespace Estant.Service.FirebaseService
                 topic.vocabularies.Add(vocab.word);
             });
 
-            repository.Update(topic);
+            repository.Set(topic);
+        }
+
+        public async void DeleteWord(string topic, string word)
+        {
+            Dictionary<string, object> record = new Dictionary<string, object>()
+            {
+                {"vocabularies", FieldValue.ArrayRemove(word) }
+            };
+            repository.Update(record, topic);
         }
     }
 }
