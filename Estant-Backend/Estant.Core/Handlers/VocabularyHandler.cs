@@ -101,7 +101,7 @@ namespace Estant.Core.Handlers
                     {
                         _vocabularyService.Add(vocabulary);
                         data.vocabularies.Add(vocabulary);
-                        _topicService.Add(data);
+                        _topicService.AddWord(topic, vocabulary.word);
                     }
                 }
                 #endregion

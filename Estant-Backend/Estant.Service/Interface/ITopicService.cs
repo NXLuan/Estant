@@ -12,6 +12,7 @@ namespace Estant.Service.Interface
         public Task<TopicViewModel> GetTopic(string topic);
         public Task<List<TopicViewModel>> GetAll();
         public void Add(TopicDTO dto);
+        public void AddWord(string topic, string word);
         public void DeleteWord(string topic, string word);
     }
 }

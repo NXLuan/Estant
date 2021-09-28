@@ -99,5 +99,14 @@ namespace Estant.Service.FirebaseService
             };
             repository.Update(record, topic);
         }
+
+        public void AddWord(string topic, string word)
+        {
+            Dictionary<string, object> record = new Dictionary<string, object>()
+            {
+                {"vocabularies", FieldValue.ArrayUnion(word) }
+            };
+            repository.Update(record, topic);
+        }
     }
 }
