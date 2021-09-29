@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Estant.Material.Model.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -7,11 +8,20 @@ namespace Estant.Material.Model.DTOModel
     public class TopicDTO
     {
         public string title { get; set; }
-        public List<VocabularyDTO> vocabularies { get; set; }
+        public List<string> vocabularies { get; set; }
         public string imageUrl { get; set; }
         public TopicDTO()
         {
-            vocabularies = new List<VocabularyDTO>();
+            vocabularies = new List<string>();
+        }
+
+        public TopicViewModel ToViewModel()
+        {
+            return new TopicViewModel()
+            {
+                title = title,
+                imageUrl = imageUrl
+            };
         }
     }
 

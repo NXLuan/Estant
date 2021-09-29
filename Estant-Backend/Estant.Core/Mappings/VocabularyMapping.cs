@@ -24,10 +24,7 @@ namespace Estant.Core.Mappings
 
                 foreach (var data in arrJson)
                 {
-                    topic.vocabularies.Add(new VocabularyDTO()
-                    {
-                        word = data["word"].ToString()
-                    });
+                    topic.vocabularies.Add(data["word"].ToString());
                 }
             }
             return topic;

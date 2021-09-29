@@ -7,12 +7,7 @@ namespace Estant.Material.Model.ViewModel
     public class TopicViewModel
     {
         public string title { get; set; }
-        public List<VocabularyViewModel> vocabularies { get; set; }
         public string imageUrl { get; set; }
-        public TopicViewModel()
-        {
-            vocabularies = new List<VocabularyViewModel>();
-        }
     }
     public class VocabularyViewModel
     {

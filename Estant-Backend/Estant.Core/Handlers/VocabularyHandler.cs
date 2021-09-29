@@ -28,7 +28,48 @@ namespace Estant.Core.Handlers
 
         public async Task<List<TopicViewModel>> GetAllTopic()
         {
-            List<TopicViewModel> data = await _topicService.GetAll();
+            List<TopicViewModel> data = new List<TopicViewModel>();
+            var topicDTOs = await _topicService.GetAll();
+            if (topicDTOs != null && topicDTOs.Count > 0)
+            {
+                topicDTOs.ForEach(dto => data.Add(dto.ToViewModel()));
+            }
+
+            return data;
+        }
+
+        public async Task<List<VocabularyViewModel>> GetByTopic(string topic)
+        {
+            List<VocabularyViewModel> data = new List<VocabularyViewModel>();
+
+            var topicDTOs = await _topicService.GetTopic(topic);
+            if (topicDTOs != null)
+            {
+                #region Get all content vocabulary in topic
+                MultiRequestHelper<VocabularyViewModel> helper = new MultiRequestHelper<VocabularyViewModel>();
+
+                topicDTOs.vocabularies?.ForEach(word =>
+                {
+                    helper.AddRequest(_vocabularyService.Get(word));
+                });
+
+                var responses = await helper.Execute();
+
+                foreach (var response in responses)
+                {
+                    if (response != null)
+                        data.Add(response);
+                }
+                #endregion
+
+                //vm = new TopicViewModel()
+                //{
+                //    title = result.id,
+                //    imageUrl = result.imageUrl,
+                //    //vocabularies = vocabVMs
+                //};
+            }
+
             return data;
         }
 
@@ -48,7 +89,7 @@ namespace Estant.Core.Handlers
 
                     for (int i = 0; i < ConfigConstants.WordCountPerTopic; i++)
                     {
-                        helperCallApi.AddRequest(VocabularyApi.GetFromDictionary(data.vocabularies[i].word));
+                        helperCallApi.AddRequest(VocabularyApi.GetFromDictionary(data.vocabularies[i]));
                     }
                     var responseCallApis = await helperCallApi.Execute();
 
@@ -64,7 +105,7 @@ namespace Estant.Core.Handlers
                             if (vocabulary != null)
                             {
                                 _vocabularyService.Add(vocabulary);
-                                data.vocabularies.Add(vocabulary);
+                                data.vocabularies.Add(vocabulary.word);
                             }
                         }
                     }
@@ -100,7 +141,7 @@ namespace Estant.Core.Handlers
                     if (vocabulary != null)
                     {
                         _vocabularyService.Add(vocabulary);
-                        data.vocabularies.Add(vocabulary);
+                        data.vocabularies.Add(vocabulary.word);
                         _topicService.AddWord(topic, vocabulary.word);
                     }
                 }

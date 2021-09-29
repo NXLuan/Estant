@@ -1,4 +1,5 @@
-﻿using Google.Cloud.Firestore;
+﻿using Estant.Material.Model.DTOModel;
+using Google.Cloud.Firestore;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -20,6 +21,16 @@ namespace Estant.Service.Model
         public Topic()
         {
             vocabularies = new List<string>();
+        }
+
+        public TopicDTO ToDTO()
+        {
+            return new TopicDTO()
+            {
+                title = id,
+                imageUrl = imageUrl,
+                vocabularies = vocabularies
+            };
         }
     }
 

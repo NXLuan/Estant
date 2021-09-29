@@ -21,6 +21,7 @@ namespace Estant.API.Controllers
         }
         #endregion
 
+        #region GET DATA
         [HttpGet("GetAllTopic")]
         public async Task<IActionResult> GetAllTopic()
         {
@@ -28,6 +29,15 @@ namespace Estant.API.Controllers
             var data = await _vocabularyHandler.GetAllTopic();
             return ReturnData<List<TopicViewModel>>(data, responseError);
         }
+
+        [HttpGet("GetByTopic")]
+        public async Task<IActionResult> GetByTopic(string topic)
+        {
+            var responseError = ResponseError.NoError;
+            var data = await _vocabularyHandler.GetByTopic(topic);
+            return ReturnData<List<VocabularyViewModel>>(data, responseError);
+        }
+        #endregion
 
         #region CRUD
         [HttpPost("AddTopic")]

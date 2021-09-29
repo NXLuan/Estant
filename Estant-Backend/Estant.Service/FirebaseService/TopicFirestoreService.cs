@@ -14,62 +14,34 @@ namespace Estant.Service.FirebaseService
     public class TopicFirestoreService : ITopicService
     {
         FirestroreRepository<Topic> repository;
-        private readonly IVocabularyService _vocabularyService;
 
         public TopicFirestoreService(IVocabularyService vocabularyService)
         {
             repository = new FirestroreRepository<Topic>("Topic");
-            _vocabularyService = vocabularyService;
         }
 
-        public async Task<TopicViewModel> GetTopic(string topic)
+        public async Task<TopicDTO> GetTopic(string topic)
         {
-            TopicViewModel vm = null;
+            TopicDTO dto = null;
 
             var result = await repository.Get(new Topic() { id = topic });
-            MultiRequestHelper<VocabularyViewModel> helper = new MultiRequestHelper<VocabularyViewModel>();
             if (result != null)
             {
-                #region Get all vocabulary in topic
-                result.vocabularies?.ForEach(word =>
-                {
-                    helper.AddRequest(_vocabularyService.Get(word));
-                });
-
-                var responses = await helper.Execute();
-                List<VocabularyViewModel> vocabVMs = new List<VocabularyViewModel>();
-                foreach (var response in responses)
-                {
-                    if (response != null)
-                        vocabVMs.Add(response);
-                }
-                #endregion
-
-                vm = new TopicViewModel()
-                {
-                    title = result.id,
-                    imageUrl = result.imageUrl,
-                    vocabularies = vocabVMs
-                };
+                dto = result.ToDTO();
             }
 
-            return vm;
+            return dto;
         }
 
-        public async Task<List<TopicViewModel>> GetAll()
+        public async Task<List<TopicDTO>> GetAll()
         {
-            List<TopicViewModel> list = new List<TopicViewModel>();
+            List<TopicDTO> list = new List<TopicDTO>();
             var data = await repository.GetAll();
             if (data != null)
             {
-                MultiRequestHelper<TopicViewModel> helper = new MultiRequestHelper<TopicViewModel>();
-
-                data.ForEach(topic => helper.AddRequest(GetTopic(topic.id)));
-                var responses = await helper.Execute();
-                foreach (var response in responses)
+                foreach (var topic in data)
                 {
-                    if (response != null)
-                        list.Add(response);
+                    list.Add(topic.ToDTO());
                 }
             }
             return list;
@@ -83,9 +55,9 @@ namespace Estant.Service.FirebaseService
                 id = dto.title,
             };
 
-            dto.vocabularies.ForEach(vocab =>
+            dto.vocabularies.ForEach(word =>
             {
-                topic.vocabularies.Add(vocab.word);
+                topic.vocabularies.Add(word);
             });
 
             repository.Set(topic);

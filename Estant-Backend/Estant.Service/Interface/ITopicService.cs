@@ -9,8 +9,8 @@ namespace Estant.Service.Interface
 {
     public interface ITopicService
     {
-        public Task<TopicViewModel> GetTopic(string topic);
-        public Task<List<TopicViewModel>> GetAll();
+        public Task<TopicDTO> GetTopic(string topic);
+        public Task<List<TopicDTO>> GetAll();
         public void Add(TopicDTO dto);
         public void AddWord(string topic, string word);
         public void DeleteWord(string topic, string word);
