@@ -20,7 +20,7 @@ namespace Estant.API
             Host.CreateDefaultBuilder(args)
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
-                    webBuilder.UseStartup<Startup>().UseUrls("https://*:5001");
+                    webBuilder.UseStartup<Startup>().UseUrls("http://*:5001");
                 });
     }
 }
