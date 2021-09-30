@@ -6,76 +6,26 @@ import {
   TextInput,
   FlatList,
   Image,
-  ScrollView,
-  TouchableWithoutFeedback,
-  TouchableHighlight,
   TouchableOpacity,
 } from 'react-native';
 import MainHeader from '../components/MainHeader';
 import { Colors } from '../styles/colors';
-import { IconButton, Button, Card } from 'react-native-paper';
+import {
+  IconButton,
+  Button,
+  Card,
+  ActivityIndicator,
+} from 'react-native-paper';
 import axios from 'axios';
 import { getAllTopic } from '../api/VocabularyAPI';
 
-const VocabularyScreen = () => {
-  // const topics = [
-  //   {
-  //     title: 'Airline',
-  //     imageUrl:
-  //       'https://tienganhmoingay.com/static/Vocabulary/images/topic_images/airlines.png',
-  //   },
-  //   {
-  //     title: 'Banking',
-  //     imageUrl:
-  //       'https://tienganhmoingay.com/static/Vocabulary/images/topic_images/banking.png',
-  //   },
-  //   {
-  //     title: 'Computers',
-  //     imageUrl:
-  //       'https://tienganhmoingay.com/static/Vocabulary/images/topic_images/computers.png',
-  //   },
-  //   {
-  //     title: 'Financial',
-  //     imageUrl:
-  //       'https://tienganhmoingay.com/static/Vocabulary/images/topic_images/financial_statements.png',
-  //   },
-  //   {
-  //     title: 'Interview',
-  //     imageUrl:
-  //       'https://tienganhmoingay.com/static/Vocabulary/images/topic_images/applying.png',
-  //   },
-  //   {
-  //     title: 'Marketing',
-  //     imageUrl:
-  //       'https://tienganhmoingay.com/static/Vocabulary/images/topic_images/marketing.png',
-  //   },
-  //   {
-  //     title: 'Media',
-  //     imageUrl:
-  //       'https://tienganhmoingay.com/static/Vocabulary/images/topic_images/media.png',
-  //   },
-  //   {
-  //     title: 'Museum',
-  //     imageUrl:
-  //       'https://tienganhmoingay.com/static/Vocabulary/images/topic_images/museums.png',
-  //   },
-  //   {
-  //     title: 'Shopping',
-  //     imageUrl:
-  //       'https://tienganhmoingay.com/static/Vocabulary/images/topic_images/shopping.png',
-  //   },
-  //   {
-  //     title: 'Travel',
-  //     imageUrl:
-  //       'https://tienganhmoingay.com/static/Vocabulary/images/topic_images/travel.png',
-  //   },
-  // ];
-
+const VocabularyScreen = ({ navigation }) => {
   const [topics, setTopics] = useState([]);
-
+  const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
     getAllTopic()
       .then(res => {
+        setIsLoading(false);
         setTopics(res.data.data);
       })
       .catch(error => {
@@ -83,13 +33,15 @@ const VocabularyScreen = () => {
       });
   }, []);
 
-  const handleOnPressTopic = () => {
-    console.log(123);
-  };
+  function handleOnPressTopic(title) {
+    navigation.navigate('Topic', { name: title });
+  }
 
   const renderTopicItem = ({ item }) => {
     return (
-      <TouchableOpacity style={styles.topicItem} onPress={handleOnPressTopic}>
+      <TouchableOpacity
+        style={styles.topicItem}
+        onPress={() => handleOnPressTopic(item.title)}>
         <Image style={styles.imgSize} source={{ uri: item.imageUrl }} />
         <Text style={{ fontWeight: '500' }}>{item.title}</Text>
       </TouchableOpacity>
@@ -140,12 +92,16 @@ const VocabularyScreen = () => {
 
         <View style={[styles.subContainer, { flex: 1, marginBottom: 0 }]}>
           <Text style={styles.title}>Topics</Text>
-          <FlatList
-            data={topics}
-            keyExtractor={item => item.title}
-            renderItem={renderTopicItem}
-            numColumns={4}
-          />
+          {isLoading ? (
+            <ActivityIndicator size="large" style={{ marginTop: 20 }} />
+          ) : (
+            <FlatList
+              data={topics}
+              keyExtractor={item => item.title}
+              renderItem={renderTopicItem}
+              numColumns={4}
+            />
+          )}
         </View>
       </View>
     </>

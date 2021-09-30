@@ -9,64 +9,15 @@ import VocabularyScreen from '../screens/VocabularyScreen';
 import GrammarScreen from '../screens/GrammarScreen';
 import ListeningScreen from '../screens/ListeningScreen';
 import AccountScreen from '../screens/AccountScreen';
+import TopicScreen from '../screens/TopicScreen';
 
 const Tab = createBottomTabNavigator();
 
-const Vocabulary = createStackNavigator();
-const Grammar = createStackNavigator();
-const Listening = createStackNavigator();
-const Account = createStackNavigator();
+const Stack = createStackNavigator();
 
 const AppNavigator = () => {
-  function VocabularyStack() {
+  function MainTabs() {
     return (
-      <Vocabulary.Navigator
-        screenOptions={{
-          headerShown: false,
-        }}>
-        <Vocabulary.Screen
-          name="VocabularyScreen"
-          component={VocabularyScreen}
-        />
-      </Vocabulary.Navigator>
-    );
-  }
-
-  function GrammarStack() {
-    return (
-      <Grammar.Navigator
-        screenOptions={{
-          headerShown: false,
-        }}>
-        <Grammar.Screen name="GrammarScreen" component={GrammarScreen} />
-      </Grammar.Navigator>
-    );
-  }
-
-  function ListeningStack() {
-    return (
-      <Listening.Navigator
-        screenOptions={{
-          headerShown: false,
-        }}>
-        <Listening.Screen name="ListeningScreen" component={ListeningScreen} />
-      </Listening.Navigator>
-    );
-  }
-
-  function AccountStack() {
-    return (
-      <Account.Navigator
-        screenOptions={{
-          headerShown: false,
-        }}>
-        <Account.Screen name="AccountScreen" component={AccountScreen} />
-      </Account.Navigator>
-    );
-  }
-
-  return (
-    <NavigationContainer>
       <Tab.Navigator
         screenOptions={({ route }) => ({
           tabBarIcon: ({ focused, color, size }) => {
@@ -86,11 +37,31 @@ const AppNavigator = () => {
           tabBarInactiveTintColor: Colors.darkGray,
           headerShown: false,
         })}>
-        <Tab.Screen name="Vocabulary" component={VocabularyStack} />
-        <Tab.Screen name="Grammar" component={GrammarStack} />
-        <Tab.Screen name="Listening" component={ListeningStack} />
-        <Tab.Screen name="Account" component={AccountStack} />
+        <Tab.Screen name="Vocabulary" component={VocabularyScreen} />
+        <Tab.Screen name="Grammar" component={GrammarScreen} />
+        <Tab.Screen name="Listening" component={ListeningScreen} />
+        <Tab.Screen name="Account" component={AccountScreen} />
       </Tab.Navigator>
+    );
+  }
+
+  return (
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen
+          name="MainTabs"
+          options={{ headerShown: false }}
+          component={MainTabs}
+        />
+        <Stack.Screen
+          name="Topic"
+          component={TopicScreen}
+          options={({ route }) => ({
+            title: route.params.name,
+            headerTintColor: Colors.primary,
+          })}
+        />
+      </Stack.Navigator>
     </NavigationContainer>
   );
 };
