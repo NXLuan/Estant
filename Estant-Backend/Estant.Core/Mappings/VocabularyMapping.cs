@@ -52,7 +52,7 @@ namespace Estant.Core.Mappings
                     else
                     {
                         vocabulary.phonetic = phonetic["text"].ToString();
-                        vocabulary.audio = phonetic["audio"].ToString();
+                        vocabulary.audio = "https:" + phonetic["audio"].ToString();
                     }
                     #endregion
                 }
