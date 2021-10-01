@@ -8,6 +8,9 @@ import Loader from '../components/Loader';
 
 const TopicScreen = ({ route, navigation }) => {
   const [data, setData] = useState([]);
+  const [filterData, setFilterData] = useState([]);
+  const [keyword, setKeyword] = useState('');
+
   const [isLoading, setIsLoading] = useState(true);
 
   const { name } = route.params;
@@ -16,6 +19,7 @@ const TopicScreen = ({ route, navigation }) => {
       .then(res => {
         setIsLoading(false);
         setData(res.data.data);
+        setFilterData(res.data.data);
       })
       .catch(error => console.log(error));
   }, []);
@@ -23,7 +27,15 @@ const TopicScreen = ({ route, navigation }) => {
   function handleOnPressMore({ item }) {
     navigation.navigate('Word Detail', { dataWord: item });
   }
-
+  const handleSearchWord = query => {
+    setKeyword(query);
+    if (query === '') {
+      setFilterData(data);
+    } else {
+      let newData = [...data];
+      setFilterData(newData.filter(item => item.word.includes(query)));
+    }
+  };
   return (
     <>
       {isLoading ? (
@@ -39,10 +51,15 @@ const TopicScreen = ({ route, navigation }) => {
             />
             <SquareButton iconName="clipboard-list" text="Result" />
           </View>
-          <Searchbar placeholder="Search" style={styles.searchBar} />
-          {data != null &&
-            data.length > 0 &&
-            data.map((item, index) => (
+          <Searchbar
+            placeholder="Search"
+            style={styles.searchBar}
+            onChangeText={handleSearchWord}
+            value={keyword}
+          />
+          {filterData != null &&
+            filterData.length > 0 &&
+            filterData.map((item, index) => (
               <WordCard
                 key={index}
                 word={item.word}

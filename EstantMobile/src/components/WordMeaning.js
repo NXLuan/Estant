@@ -4,7 +4,6 @@ import { Colors } from '../styles/colors';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 const WordMeaning = ({ meaning, id }) => {
-  console.log(meaning);
   const { definitions, partOfSpeech } = meaning;
   const Definition = ({ data }) => {
     const { definition, example } = data;
