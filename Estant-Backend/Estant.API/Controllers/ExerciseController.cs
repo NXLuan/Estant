@@ -1,4 +1,6 @@
 ﻿using Estant.Core.Handlers;
+using Estant.Material.Model.EnumModel;
+using Estant.Material.Model.ViewModel;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -20,7 +22,9 @@ namespace Estant.API.Controllers
         [HttpGet("GetByTopic")]
         public async Task<IActionResult> GetByTopic(string topic)
         {
-            return Ok();
+            var responseError = ResponseError.NoError;
+            var data = await _exerciseHandler.GenerateVocabExes(topic);
+            return ReturnData<object>(data, responseError);
         }
     }
 }

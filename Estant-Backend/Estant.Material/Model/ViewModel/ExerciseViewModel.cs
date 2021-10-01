@@ -22,7 +22,9 @@ namespace Estant.Material.Model.ViewModel
     #region Vocabulary exercise
     public class VocabExeForm1: ExerciseViewModel
     {
-        public List<string> characters { get; set; }
+        public string MissingWord { get; set; }
+        public string Definition { get; set; }
+        public string PartOfSpeech { get; set; }
     }
     #endregion
 }
