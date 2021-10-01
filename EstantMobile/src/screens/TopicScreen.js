@@ -1,10 +1,22 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { ScrollView, StyleSheet, View, TouchableOpacity } from 'react-native';
 import { Searchbar } from 'react-native-paper';
 import SquareButton from '../components/SquareButton';
 import WordCard from '../components/WordCard';
+import { getByTopic } from '../api/VocabularyAPI';
 
-const TopicScreen = () => {
+const TopicScreen = ({ route }) => {
+  const [data, setData] = useState([]);
+
+  const { name } = route.params;
+  useEffect(() => {
+    getByTopic(name)
+      .then(res => {
+        setData(res.data.data);
+      })
+      .catch(error => console.log(error));
+  }, []);
+
   return (
     <ScrollView style={styles.container}>
       <View style={styles.rowButton}>
@@ -17,30 +29,16 @@ const TopicScreen = () => {
         <SquareButton iconName="clipboard-list" text="Result" />
       </View>
       <Searchbar placeholder="Search" style={styles.searchBar} />
-      <WordCard
-        word="airway"
-        phonetic="ˈɛːweɪ"
-        audio="https://ssl.gstatic.com/dictionary/static/sounds/20200429/airway--_gb_2.mp3"
-        definition="the passage by which air reaches a person's lungs"
-      />
-      <WordCard
-        word="airway"
-        phonetic="ˈɛːweɪ"
-        audio="https://ssl.gstatic.com/dictionary/static/sounds/20200429/airway--_gb_2.mp3"
-        definition="the passage by which air reaches a person's lungs"
-      />
-      <WordCard
-        word="airway"
-        phonetic="ˈɛːweɪ"
-        audio="https://ssl.gstatic.com/dictionary/static/sounds/20200429/airway--_gb_2.mp3"
-        definition="the passage by which air reaches a person's lungs"
-      />
-      <WordCard
-        word="airway"
-        phonetic="ˈɛːweɪ"
-        audio="https://ssl.gstatic.com/dictionary/static/sounds/20200429/airway--_gb_2.mp3"
-        definition="the passage by which air reaches a person's lungs"
-      />
+      {data.length > 0 &&
+        data.map(item => (
+          <WordCard
+            key={item.word}
+            word={item.word}
+            phonetic={item.phonetic}
+            audio={'https:' + item.audio}
+            definition={item.meanings[0].definitions[0].definition}
+          />
+        ))}
     </ScrollView>
   );
 };
