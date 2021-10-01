@@ -4,42 +4,57 @@ import { Searchbar } from 'react-native-paper';
 import SquareButton from '../components/SquareButton';
 import WordCard from '../components/WordCard';
 import { getByTopic } from '../api/VocabularyAPI';
+import Loader from '../components/Loader';
 
-const TopicScreen = ({ route }) => {
+const TopicScreen = ({ route, navigation }) => {
   const [data, setData] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   const { name } = route.params;
   useEffect(() => {
     getByTopic(name)
       .then(res => {
+        setIsLoading(false);
         setData(res.data.data);
       })
       .catch(error => console.log(error));
   }, []);
 
+  function handleOnPressMore({ item }) {
+    navigation.navigate('Word Detail', { dataWord: item });
+  }
+
   return (
-    <ScrollView style={styles.container}>
-      <View style={styles.rowButton}>
-        <SquareButton iconName="cards" text="Flashcards" />
-        <SquareButton
-          iconName="head-question"
-          text="Practice"
-          style={{ marginHorizontal: 10 }}
-        />
-        <SquareButton iconName="clipboard-list" text="Result" />
-      </View>
-      <Searchbar placeholder="Search" style={styles.searchBar} />
-      {data.length > 0 &&
-        data.map(item => (
-          <WordCard
-            key={item.word}
-            word={item.word}
-            phonetic={item.phonetic}
-            audio={'https:' + item.audio}
-            definition={item.meanings[0].definitions[0].definition}
-          />
-        ))}
-    </ScrollView>
+    <>
+      {isLoading ? (
+        <Loader />
+      ) : (
+        <ScrollView style={styles.container}>
+          <View style={styles.rowButton}>
+            <SquareButton iconName="cards" text="Flashcards" />
+            <SquareButton
+              iconName="head-question"
+              text="Practice"
+              style={{ marginHorizontal: 10 }}
+            />
+            <SquareButton iconName="clipboard-list" text="Result" />
+          </View>
+          <Searchbar placeholder="Search" style={styles.searchBar} />
+          {data != null &&
+            data.length > 0 &&
+            data.map((item, index) => (
+              <WordCard
+                key={index}
+                word={item.word}
+                phonetic={item.phonetic}
+                audio={item.audio}
+                definition={item.meanings[0].definitions[0].definition}
+                onPressMore={() => handleOnPressMore({ item })}
+              />
+            ))}
+        </ScrollView>
+      )}
+    </>
   );
 };
 
