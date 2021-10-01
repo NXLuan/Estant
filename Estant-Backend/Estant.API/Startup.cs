@@ -62,6 +62,7 @@ namespace Estant.API
             #region DI - Dependency Injection
             services.AddSingleton<AuthHandler>();
             services.AddSingleton<VocabularyHandler>();
+            services.AddSingleton<ExerciseHandler>();
             services.AddSingleton<IAuthenticationService, AuthFirebaseService>();
             services.AddSingleton<ITopicService, TopicFirestoreService>();
             services.AddSingleton<IVocabularyService, VocabularyFirestoreService>();
@@ -86,7 +87,7 @@ namespace Estant.API
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseHttpsRedirection();
+            //app.UseHttpsRedirection();
 
             // Enable middleware to serve generated Swagger as a JSON endpoint.
             app.UseSwagger();
