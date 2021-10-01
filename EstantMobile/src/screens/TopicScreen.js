@@ -20,7 +20,26 @@ const TopicScreen = () => {
       <WordCard
         word="airway"
         phonetic="ˈɛːweɪ"
-        audioURL="https://ssl.gstatic.com/dictionary/static/sounds/20200429/airway--_gb_2.mp3"
+        audio="https://ssl.gstatic.com/dictionary/static/sounds/20200429/airway--_gb_2.mp3"
+        definition="the passage by which air reaches a person's lungs"
+      />
+      <WordCard
+        word="airway"
+        phonetic="ˈɛːweɪ"
+        audio="https://ssl.gstatic.com/dictionary/static/sounds/20200429/airway--_gb_2.mp3"
+        definition="the passage by which air reaches a person's lungs"
+      />
+      <WordCard
+        word="airway"
+        phonetic="ˈɛːweɪ"
+        audio="https://ssl.gstatic.com/dictionary/static/sounds/20200429/airway--_gb_2.mp3"
+        definition="the passage by which air reaches a person's lungs"
+      />
+      <WordCard
+        word="airway"
+        phonetic="ˈɛːweɪ"
+        audio="https://ssl.gstatic.com/dictionary/static/sounds/20200429/airway--_gb_2.mp3"
+        definition="the passage by which air reaches a person's lungs"
       />
     </ScrollView>
   );
@@ -36,7 +55,8 @@ const styles = StyleSheet.create({
   },
   searchBar: {
     borderRadius: 10,
-    marginVertical: 10,
+    marginTop: 10,
+    marginBottom: 15,
   },
 });
 

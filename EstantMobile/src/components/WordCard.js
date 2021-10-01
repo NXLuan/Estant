@@ -4,8 +4,8 @@ import { IconButton } from 'react-native-paper';
 import { Colors } from '../styles/colors';
 import Sound from 'react-native-sound';
 
-const WordCard = ({ word, phonetic, audioURL }) => {
-  const sound = new Sound(audioURL);
+const WordCard = ({ word, phonetic, audio, definition }) => {
+  const sound = new Sound(audio);
   return (
     <View style={styles.container}>
       <Text style={styles.word}>{word}</Text>
@@ -18,6 +18,22 @@ const WordCard = ({ word, phonetic, audioURL }) => {
         />
         <Text style={styles.phonetic}>/ {phonetic} /</Text>
       </View>
+      <Text numberOfLines={2} style={{ marginLeft: 10, marginRight: 15 }}>
+        {definition}
+      </Text>
+      <View
+        style={{
+          flexDirection: 'row',
+          justifyContent: 'flex-end',
+        }}>
+        <IconButton
+          icon="dots-horizontal-circle"
+          size={20}
+          color={Colors.blue}
+          style={{ margin: 0 }}
+          onPress={() => console.log('more')}
+        />
+      </View>
     </View>
   );
 };
@@ -26,8 +42,10 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor: 'white',
     borderRadius: 10,
-    paddingVertical: 10,
+    paddingTop: 10,
+    paddingBottom: 5,
     paddingHorizontal: 15,
+    marginBottom: 15,
   },
   word: {
     fontSize: 20,
@@ -36,7 +54,6 @@ const styles = StyleSheet.create({
     marginLeft: 10,
   },
   rowPronouce: {
-    marginBottom: 15,
     flexDirection: 'row',
     alignItems: 'center',
   },
