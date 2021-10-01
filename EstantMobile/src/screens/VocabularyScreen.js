@@ -18,6 +18,7 @@ import {
 } from 'react-native-paper';
 import axios from 'axios';
 import { getAllTopic } from '../api/VocabularyAPI';
+import Loader from '../components/Loader';
 
 const VocabularyScreen = ({ navigation }) => {
   const [topics, setTopics] = useState([]);
@@ -93,7 +94,7 @@ const VocabularyScreen = ({ navigation }) => {
         <View style={[styles.subContainer, { flex: 1, marginBottom: 0 }]}>
           <Text style={styles.title}>Topics</Text>
           {isLoading ? (
-            <ActivityIndicator size="large" style={{ marginTop: 20 }} />
+            <Loader />
           ) : (
             <FlatList
               data={topics}

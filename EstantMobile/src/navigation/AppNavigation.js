@@ -10,6 +10,7 @@ import GrammarScreen from '../screens/GrammarScreen';
 import ListeningScreen from '../screens/ListeningScreen';
 import AccountScreen from '../screens/AccountScreen';
 import TopicScreen from '../screens/TopicScreen';
+import WordScreen from '../screens/WordScreen';
 
 const Tab = createBottomTabNavigator();
 
@@ -60,6 +61,14 @@ const AppNavigator = () => {
             title: route.params.name,
             headerTintColor: Colors.primary,
           })}
+        />
+        <Stack.Screen
+          name="Word Detail"
+          component={WordScreen}
+          options={{
+            headerTintColor: 'white',
+            headerStyle: { backgroundColor: Colors.primary },
+          }}
         />
       </Stack.Navigator>
     </NavigationContainer>
