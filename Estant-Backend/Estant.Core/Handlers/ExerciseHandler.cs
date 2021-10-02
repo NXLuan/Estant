@@ -36,15 +36,15 @@ namespace Estant.Core.Handlers
                     int index = random.GetIndexRandom();
                     var vocab = vocabList[index];
 
-                    FormQuestion form = FormQuestion.FillBlank;
-                    switch (form)
+                    TypeQuestion type = TypeQuestion.FillBlank;
+                    switch (type)
                     {
-                        case FormQuestion.FillBlank:
+                        case TypeQuestion.FillBlank:
                             var definitions = vocab.meanings[0]["definitions"] as List<object>;
                             var keyValuePairs = definitions[0] as Dictionary<string, object>;
                             string definition = keyValuePairs["definition"].ToString();
                             string partOfSpeech = vocab.meanings[0]["partOfSpeech"].ToString();
-                            helper.AddRequest(Task.Run(() => VocabExeHelper.CreateForm1(vocab.word, definition, partOfSpeech)));
+                            helper.AddRequest(Task.Run(() => VocabExeHelper.CreateType1(vocab.word, definition, partOfSpeech)));
                             break;
                     }
                 }

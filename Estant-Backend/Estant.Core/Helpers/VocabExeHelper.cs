@@ -16,9 +16,9 @@ namespace Estant.Core.Helpers
         /// Fill in the blanks
         /// </summary>
         /// <param name="vocabularyDTO"></param>
-        public static object CreateForm1(string word, string definition, string partOfSpeech)
+        public static object CreateType1(string word, string definition, string partOfSpeech)
         {
-            VocabExeForm1 exeForm1 = null;
+            VocabExeType1 exeType1 = null;
             if (!string.IsNullOrEmpty(word))
             {
                 #region main algorithm
@@ -34,21 +34,21 @@ namespace Estant.Core.Helpers
                 }
                 #endregion
 
-                exeForm1 = new VocabExeForm1()
+                exeType1 = new VocabExeType1()
                 {
                     CorrectAnswer = word,
                     MissingWord = missWord.ToString(),
                     Definition = definition,
                     PartOfSpeech = partOfSpeech,
                 };
-                exeForm1.SetQuestion(FormQuestion.FillBlank);
+                exeType1.SetQuestion(TypeQuestion.FillBlank);
             }
-            return exeForm1;
+            return exeType1;
         }
 
-        private static VocabExeForm1 Form2(string word, string definition, string partOfSpeech)
+        private static VocabExeType1 Type2(string word, string definition, string partOfSpeech)
         {
-            VocabExeForm1 exeForm1 = null;
+            VocabExeType1 exeType1 = null;
             if (!string.IsNullOrEmpty(word))
             {
                 #region main algorithm
@@ -66,7 +66,7 @@ namespace Estant.Core.Helpers
                 }
                 #endregion
 
-                exeForm1 = new VocabExeForm1()
+                exeType1 = new VocabExeType1()
                 {
                     CorrectAnswer = word,
                     MissingWord = missWord.ToString(),
@@ -74,7 +74,7 @@ namespace Estant.Core.Helpers
                     PartOfSpeech = partOfSpeech,
                 };
             }
-            return exeForm1;
+            return exeType1;
         }
     }
 }

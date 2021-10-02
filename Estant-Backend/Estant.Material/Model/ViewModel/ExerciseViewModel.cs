@@ -8,19 +8,21 @@ namespace Estant.Material.Model.ViewModel
 {
     public class ExerciseViewModel
     {
+        public int type { get; set; }
         public string Question { get; set; }
         public string CorrectAnswer { get; set; }
-        public void SetQuestion(FormQuestion form)
+        public void SetQuestion(TypeQuestion typeExe)
         {
             if (this != null)
             {
-                Question = form.ToDescription();
+                type = (int)typeExe;
+                Question = typeExe.ToDescription();
             }
         }
     }
 
     #region Vocabulary exercise
-    public class VocabExeForm1: ExerciseViewModel
+    public class VocabExeType1: ExerciseViewModel
     {
         public string MissingWord { get; set; }
         public string Definition { get; set; }

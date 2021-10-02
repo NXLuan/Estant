@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Estant.Material.Model.EnumModel
 {
-    public enum FormQuestion
+    public enum TypeQuestion
     {
         [Description("Fill in the blanks")]
         FillBlank = 1,
