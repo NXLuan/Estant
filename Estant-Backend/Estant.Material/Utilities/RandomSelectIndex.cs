@@ -25,5 +25,10 @@ namespace Estant.Material.Utilities
             indexs.RemoveAt(rInt);
             return result;
         }
+
+        public void RemoveIndex(int index)
+        {
+            indexs.Remove(index);
+        }
     }
 }

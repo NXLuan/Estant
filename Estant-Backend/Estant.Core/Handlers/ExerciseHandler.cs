@@ -1,4 +1,4 @@
-﻿using Estant.Core.Helpers;
+﻿using Estant.Core.Mappings;
 using Estant.Material;
 using Estant.Material.Model.EnumModel;
 using Estant.Material.Model.ViewModel;
@@ -31,20 +31,24 @@ namespace Estant.Core.Handlers
                 RandomSelectIndex random = new RandomSelectIndex(vocabList.Count);
 
                 int count = vocabList.Count >= ConfigConstants.NumOfQuestion ? ConfigConstants.NumOfQuestion : vocabList.Count;
+                Random rand = new Random();
                 for (int i = 0; i < count; i++)
                 {
                     int index = random.GetIndexRandom();
                     var vocab = vocabList[index];
 
-                    TypeQuestion type = TypeQuestion.FillBlank;
+                    int type = rand.Next(1, 3);
                     switch (type)
                     {
-                        case TypeQuestion.FillBlank:
-                            var definitions = vocab.meanings[0]["definitions"] as List<object>;
-                            var keyValuePairs = definitions[0] as Dictionary<string, object>;
-                            string definition = keyValuePairs["definition"].ToString();
-                            string partOfSpeech = vocab.meanings[0]["partOfSpeech"].ToString();
-                            helper.AddRequest(Task.Run(() => VocabExeHelper.CreateType1(vocab.word, definition, partOfSpeech)));
+                        case (int)TypeQuestion.FillBlank:
+                            helper.AddRequest(Task.Run(() => vocab.FillBlankExe()));
+                            break;
+                        case (int)TypeQuestion.ChooseWordByExample:
+                            helper.AddRequest(Task.Run(() => vocab.ChooseWordByExampleExe(vocabList)));
+                            break;
+                        case (int)TypeQuestion.ChooseMeaningByWord:
+                            break;
+                        case (int)TypeQuestion.WriteWordByAudio:
                             break;
                     }
                 }
