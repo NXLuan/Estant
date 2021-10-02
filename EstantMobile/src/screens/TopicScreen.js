@@ -25,7 +25,7 @@ const TopicScreen = ({ route, navigation }) => {
   }, []);
 
   function handleOnPressMore({ item }) {
-    navigation.navigate('Word Detail', { dataWord: item });
+    navigation.navigate('Meanings', { dataWord: item });
   }
   const handleSearchWord = query => {
     setKeyword(query);
@@ -36,6 +36,9 @@ const TopicScreen = ({ route, navigation }) => {
       setFilterData(newData.filter(item => item.word.includes(query)));
     }
   };
+  const handleOpenFlashCard = () => {
+    navigation.navigate('Flashcards', { data: data });
+  };
   return (
     <>
       {isLoading ? (
@@ -43,7 +46,11 @@ const TopicScreen = ({ route, navigation }) => {
       ) : (
         <ScrollView style={styles.container}>
           <View style={styles.rowButton}>
-            <SquareButton iconName="cards" text="Flashcards" />
+            <SquareButton
+              iconName="cards"
+              text="Flashcards"
+              handleOnPress={handleOpenFlashCard}
+            />
             <SquareButton
               iconName="head-question"
               text="Practice"
