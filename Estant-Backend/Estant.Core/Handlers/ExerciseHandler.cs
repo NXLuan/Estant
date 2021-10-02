@@ -37,16 +37,17 @@ namespace Estant.Core.Handlers
                     int index = random.GetIndexRandom();
                     var vocab = vocabList[index];
 
-                    int type = rand.Next(1, 3);
+                    int type = rand.Next(1, 4);
                     switch (type)
                     {
                         case (int)TypeQuestion.FillBlank:
-                            helper.AddRequest(Task.Run(() => vocab.FillBlankExe()));
+                            helper.AddRequest(Task.Run(() => vocab.GenFillBlankExe()));
                             break;
                         case (int)TypeQuestion.ChooseWordByExample:
-                            helper.AddRequest(Task.Run(() => vocab.ChooseWordByExampleExe(vocabList)));
+                            helper.AddRequest(Task.Run(() => vocab.GenChooseWordByExampleExe(vocabList)));
                             break;
                         case (int)TypeQuestion.ChooseMeaningByWord:
+                            helper.AddRequest(Task.Run(() => vocab.GenChooseMeaningByWordExe(vocabList)));
                             break;
                         case (int)TypeQuestion.WriteWordByAudio:
                             break;

@@ -34,5 +34,12 @@ namespace Estant.Material.Model.ViewModel
         public List<string> Answers { get; set; }
         public string Example { get; set; }
     }
+
+    public class ChooseMeaningByWordExe: ExerciseViewModel
+    {
+        public List<string> Answers { get; set; }
+        public string word { get; set; }
+    }
+
     #endregion
 }
