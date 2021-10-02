@@ -8,31 +8,39 @@ import Sound from 'react-native-sound';
 const WordScreen = ({ route }) => {
   const { dataWord } = route.params;
   const { word, phonetic, audio, meanings } = dataWord;
-  console.log(meanings.length);
 
   const sound = new Sound(audio);
   return (
-    <ScrollView style={styles.container}>
-      <View style={styles.header}>
-        <IconButton
-          icon="volume-high"
-          size={28}
-          color="white"
-          style={{ backgroundColor: Colors.primary, marginRight: 15 }}
-          onPress={() => sound.play()}
-        />
-        <View>
-          <Text style={styles.word}>{word}</Text>
-          <Text style={styles.phonetic}>/ {phonetic} /</Text>
+    <>
+      <IconButton
+        icon="bookmark-plus"
+        color="white"
+        size={30}
+        style={styles.saveBtn}
+        onPress={() => console.log('123')}
+      />
+      <ScrollView style={styles.container}>
+        <View style={styles.header}>
+          <IconButton
+            icon="volume-high"
+            size={28}
+            color="white"
+            style={{ backgroundColor: Colors.primary, marginRight: 15 }}
+            onPress={() => sound.play()}
+          />
+          <View>
+            <Text style={styles.word}>{word}</Text>
+            <Text style={styles.phonetic}>/ {phonetic} /</Text>
+          </View>
         </View>
-      </View>
-      <View style={{ marginLeft: 10 }}>
-        {meanings.length > 0 &&
-          meanings.map((item, index) => (
-            <WordMeaning meaning={item} id={index + 1} key={index} />
-          ))}
-      </View>
-    </ScrollView>
+        <View style={{ marginLeft: 10 }}>
+          {meanings.length > 0 &&
+            meanings.map((item, index) => (
+              <WordMeaning meaning={item} id={index + 1} key={index} />
+            ))}
+        </View>
+      </ScrollView>
+    </>
   );
 };
 
@@ -57,6 +65,12 @@ const styles = StyleSheet.create({
   },
   phonetic: {
     fontSize: 20,
+  },
+  saveBtn: {
+    position: 'absolute',
+    top: -55,
+    right: 10,
+    zIndex: 100,
   },
 });
 export default WordScreen;

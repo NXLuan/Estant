@@ -52,59 +52,62 @@ const VocabularyScreen = ({ navigation }) => {
   return (
     <>
       <MainHeader />
-      <View style={{ flex: 1 }}>
-        <View style={styles.subContainer}>
-          <Text style={styles.title}>Dictionary</Text>
-          <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-            <TextInput style={styles.searchInput} placeholder="Search" />
-            <IconButton
-              icon="magnify"
-              color={Colors.primary}
-              size={24}
-              style={{ marginLeft: 10 }}
-              onPress={() => console.log('123')}
-            />
-          </View>
+      {isLoading ? (
+        <View style={{ flex: 1 }}>
+          <Loader />
         </View>
-
-        <View style={styles.subContainer}>
-          <Text style={styles.title}>My vocabulary</Text>
-          <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-            <Button
-              style={styles.btn}
-              icon="bookmark-multiple"
-              mode="contained"
-              uppercase={false}
-              color={Colors.blue}
-              onPress={() => console.log('Pressed')}>
-              Saved Words
-            </Button>
-            <Button
-              style={styles.btn}
-              icon="text-box-search-outline"
-              mode="contained"
-              uppercase={false}
-              color={Colors.green}
-              onPress={() => console.log('Pressed')}>
-              Searched Words
-            </Button>
+      ) : (
+        <View style={{ flex: 1 }}>
+          <View style={styles.subContainer}>
+            <Text style={styles.title}>Dictionary</Text>
+            <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+              <TextInput style={styles.searchInput} placeholder="Search" />
+              <IconButton
+                icon="magnify"
+                color={Colors.primary}
+                size={24}
+                style={{ marginLeft: 10 }}
+                onPress={() => console.log('123')}
+              />
+            </View>
           </View>
-        </View>
 
-        <View style={[styles.subContainer, { flex: 1, marginBottom: 0 }]}>
-          <Text style={styles.title}>Topics</Text>
-          {isLoading ? (
-            <Loader />
-          ) : (
+          <View style={styles.subContainer}>
+            <Text style={styles.title}>My vocabulary</Text>
+            <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+              <Button
+                style={styles.btn}
+                icon="bookmark-multiple"
+                mode="contained"
+                uppercase={false}
+                color={Colors.blue}
+                onPress={() => console.log('Pressed')}>
+                Saved Words
+              </Button>
+              <Button
+                style={styles.btn}
+                icon="text-box-search-outline"
+                mode="contained"
+                uppercase={false}
+                color={Colors.green}
+                onPress={() => console.log('Pressed')}>
+                Searched Words
+              </Button>
+            </View>
+          </View>
+
+          <View style={[styles.subContainer, { flex: 1, marginBottom: 0 }]}>
+            <Text style={styles.title}>Topics</Text>
+
             <FlatList
               data={topics}
               keyExtractor={item => item.title}
               renderItem={renderTopicItem}
               numColumns={4}
             />
-          )}
+          </View>
         </View>
-      </View>
+      )}
     </>
   );
 };

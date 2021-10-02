@@ -3,9 +3,11 @@ import { Text, StyleSheet, TouchableOpacity } from 'react-native';
 import { Colors } from '../styles/colors';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
-const SquareButton = ({ iconName, text, style }) => {
+const SquareButton = ({ iconName, text, style, handleOnPress }) => {
   return (
-    <TouchableOpacity style={[styles.squareButton, style]}>
+    <TouchableOpacity
+      style={[styles.squareButton, style]}
+      onPress={handleOnPress}>
       <Icon name={iconName} size={30} style={{ color: 'white' }} />
       <Text style={styles.textButton}>{text}</Text>
     </TouchableOpacity>

@@ -8,6 +8,9 @@ import Loader from '../components/Loader';
 
 const TopicScreen = ({ route, navigation }) => {
   const [data, setData] = useState([]);
+  const [filterData, setFilterData] = useState([]);
+  const [keyword, setKeyword] = useState('');
+
   const [isLoading, setIsLoading] = useState(true);
 
   const { name } = route.params;
@@ -16,14 +19,26 @@ const TopicScreen = ({ route, navigation }) => {
       .then(res => {
         setIsLoading(false);
         setData(res.data.data);
+        setFilterData(res.data.data);
       })
       .catch(error => console.log(error));
   }, []);
 
   function handleOnPressMore({ item }) {
-    navigation.navigate('Word Detail', { dataWord: item });
+    navigation.navigate('Meanings', { dataWord: item });
   }
-
+  const handleSearchWord = query => {
+    setKeyword(query);
+    if (query === '') {
+      setFilterData(data);
+    } else {
+      let newData = [...data];
+      setFilterData(newData.filter(item => item.word.includes(query)));
+    }
+  };
+  const handleOpenFlashCard = () => {
+    navigation.navigate('Flashcards', { data: data });
+  };
   return (
     <>
       {isLoading ? (
@@ -31,7 +46,11 @@ const TopicScreen = ({ route, navigation }) => {
       ) : (
         <ScrollView style={styles.container}>
           <View style={styles.rowButton}>
-            <SquareButton iconName="cards" text="Flashcards" />
+            <SquareButton
+              iconName="cards"
+              text="Flashcards"
+              handleOnPress={handleOpenFlashCard}
+            />
             <SquareButton
               iconName="head-question"
               text="Practice"
@@ -39,10 +58,15 @@ const TopicScreen = ({ route, navigation }) => {
             />
             <SquareButton iconName="clipboard-list" text="Result" />
           </View>
-          <Searchbar placeholder="Search" style={styles.searchBar} />
-          {data != null &&
-            data.length > 0 &&
-            data.map((item, index) => (
+          <Searchbar
+            placeholder="Search"
+            style={styles.searchBar}
+            onChangeText={handleSearchWord}
+            value={keyword}
+          />
+          {filterData != null &&
+            filterData.length > 0 &&
+            filterData.map((item, index) => (
               <WordCard
                 key={index}
                 word={item.word}

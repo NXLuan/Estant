@@ -11,6 +11,7 @@ import ListeningScreen from '../screens/ListeningScreen';
 import AccountScreen from '../screens/AccountScreen';
 import TopicScreen from '../screens/TopicScreen';
 import WordScreen from '../screens/WordScreen';
+import FlashCardScreen from '../screens/FlashCardScreen';
 
 const Tab = createBottomTabNavigator();
 
@@ -37,6 +38,7 @@ const AppNavigator = () => {
           tabBarActiveTintColor: Colors.primary,
           tabBarInactiveTintColor: Colors.darkGray,
           headerShown: false,
+          tabBarHideOnKeyboard: true,
         })}>
         <Tab.Screen name="Vocabulary" component={VocabularyScreen} />
         <Tab.Screen name="Grammar" component={GrammarScreen} />
@@ -63,11 +65,18 @@ const AppNavigator = () => {
           })}
         />
         <Stack.Screen
-          name="Word Detail"
+          name="Meanings"
           component={WordScreen}
           options={{
             headerTintColor: 'white',
             headerStyle: { backgroundColor: Colors.primary },
+          }}
+        />
+        <Stack.Screen
+          name="Flashcards"
+          component={FlashCardScreen}
+          options={{
+            headerTintColor: Colors.primary,
           }}
         />
       </Stack.Navigator>
