@@ -17,6 +17,9 @@ namespace Estant.Material
         public static string PrivateKeyPath { get; set; }
         #endregion
 
+        #region Internal variables
         public static int WordCountPerTopic = 15;
+        public static int NumOfQuestion = 10;
+        #endregion
     }
 }
