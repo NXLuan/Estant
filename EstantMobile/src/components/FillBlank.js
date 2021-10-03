@@ -4,7 +4,13 @@ import { Button } from 'react-native-paper';
 import { Colors } from '../styles/colors';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
-const FillBlank = ({ dataQuestion, id, setData }) => {
+const FillBlank = ({
+  dataQuestion,
+  id,
+  setData,
+  setCurrentIndex,
+  setIsFinish,
+}) => {
   const { missingWord, definition, question, correctAnswer } = dataQuestion;
   const [letters, setLetters] = useState(
     missingWord.split('').map(letter => (letter === '_' ? '' : letter)),
@@ -14,9 +20,10 @@ const FillBlank = ({ dataQuestion, id, setData }) => {
     setData(data => {
       let newData = [...data];
       newData[id].userAnswer = letters;
-      console.log(newData);
       return newData;
     });
+    setCurrentIndex(id + 1);
+    if (id === 9) setIsFinish(true);
   };
   return (
     <>
@@ -53,7 +60,7 @@ const FillBlank = ({ dataQuestion, id, setData }) => {
         dark={true}
         color={Colors.primary}
         onPress={handleSubmit}>
-        Submit
+        {id < 9 ? 'Next' : 'Submit'}
       </Button>
     </>
   );
@@ -94,6 +101,7 @@ const styles = StyleSheet.create({
   button: {
     marginTop: 30,
     borderRadius: 20,
+    marginBottom: 20,
   },
   resultText: {
     fontSize: 20,

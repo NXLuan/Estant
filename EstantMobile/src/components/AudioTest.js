@@ -5,7 +5,13 @@ import { Colors } from '../styles/colors';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import Sound from 'react-native-sound';
 
-const AudioTest = ({ dataQuestion, id, setData }) => {
+const AudioTest = ({
+  dataQuestion,
+  id,
+  setData,
+  setCurrentIndex,
+  setIsFinish,
+}) => {
   const { audio, question, correctAnswer } = dataQuestion;
 
   const sound = new Sound(audio);
@@ -16,9 +22,10 @@ const AudioTest = ({ dataQuestion, id, setData }) => {
     setData(data => {
       let newData = [...data];
       newData[id].userAnswer = userAnswer;
-      console.log(newData);
       return newData;
     });
+    setCurrentIndex(id + 1);
+    if (id === 9) setIsFinish(true);
   };
   return (
     <>
@@ -46,7 +53,7 @@ const AudioTest = ({ dataQuestion, id, setData }) => {
         dark={true}
         color={Colors.primary}
         onPress={handleSubmit}>
-        Submit
+        {id < 9 ? 'Next' : 'Submit'}
       </Button>
     </>
   );
@@ -61,6 +68,7 @@ const styles = StyleSheet.create({
   button: {
     marginTop: 10,
     borderRadius: 20,
+    marginBottom: 20,
   },
   iconButton: {
     backgroundColor: 'white',

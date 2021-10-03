@@ -10,7 +10,13 @@ import { Button } from 'react-native-paper';
 import { Colors } from '../styles/colors';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
-const MultipleChoice = ({ dataQuestion, id, setData }) => {
+const MultipleChoice = ({
+  dataQuestion,
+  id,
+  setData,
+  setCurrentIndex,
+  setIsFinish,
+}) => {
   const { choices, example, question, correctAnswer, word } = dataQuestion;
 
   const [userAnswer, setUserAnswer] = useState(null);
@@ -19,13 +25,14 @@ const MultipleChoice = ({ dataQuestion, id, setData }) => {
     setData(data => {
       let newData = [...data];
       newData[id].userAnswer = userAnswer;
-      console.log(newData);
       return newData;
     });
+    setCurrentIndex(id + 1);
+    if (id === 9) setIsFinish(true);
   };
   return (
     <>
-      <Text style={styles.questionHeader}>Listen and type the word</Text>
+      <Text style={styles.questionHeader}>{question}</Text>
       {example != null && <Text style={styles.questionBody}>"{example}"</Text>}
       {word != null && <Text style={styles.word}>{word}</Text>}
       <View style={styles.choiceContainer}>
@@ -65,14 +72,13 @@ const MultipleChoice = ({ dataQuestion, id, setData }) => {
           <Icon name="close-circle" size={24} color="red" />
         </TouchableOpacity> */}
       </View>
-
       <Button
         style={styles.button}
         mode="contained"
         dark={true}
         color={Colors.primary}
         onPress={handleSubmit}>
-        Submit
+        {id < 9 ? 'Next' : 'Submit'}
       </Button>
     </>
   );
@@ -132,6 +138,7 @@ const styles = StyleSheet.create({
   },
   button: {
     marginTop: 10,
+    marginBottom: 20,
     borderRadius: 20,
   },
 });
