@@ -22,11 +22,10 @@ namespace Estant.Material.Model.ViewModel
     }
 
     #region Vocabulary exercise
-    public class FillBlankExe: ExerciseViewModel
+    public class FillBlankExe : ExerciseViewModel
     {
         public string MissingWord { get; set; }
         public string Definition { get; set; }
-        public string PartOfSpeech { get; set; }
     }
 
     public class ChooseWordByExampleExe : ExerciseViewModel
@@ -35,11 +34,15 @@ namespace Estant.Material.Model.ViewModel
         public string Example { get; set; }
     }
 
-    public class ChooseMeaningByWordExe: ExerciseViewModel
+    public class ChooseMeaningByWordExe : ExerciseViewModel
     {
         public List<string> Answers { get; set; }
         public string word { get; set; }
     }
 
+    public class WriteWordByAudioExe : ExerciseViewModel
+    {
+        public string audio { get; set; }
+    }
     #endregion
 }

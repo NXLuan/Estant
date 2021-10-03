@@ -20,6 +20,7 @@ namespace Estant.Material
         #region Internal variables
         public static int WordCountPerTopic = 15;
         public static int NumOfQuestion = 10;
+        public static int NumTypeOfExe = 4;
         #endregion
     }
 }

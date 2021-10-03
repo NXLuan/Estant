@@ -348,3 +348,6 @@ MigrationBackup/
 
 # Ionide (cross platform F# VS Code tools) working folder
 .ionide/
+
+# private key
+/Estant-Backend/Estant.API/estant-f0ad5-firebase-adminsdk-7n29d-cf13e40cf0.json

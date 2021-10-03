@@ -21,7 +21,6 @@ namespace Estant.Core.Mappings
             #region Parse value from vocab
             string word = vocab.word;
             string definition = vocab.GetFirstDefiniton();
-            string partOfSpeech = vocab.GetFirstPartOfSpeech();
             #endregion
 
             #region Main algorithm
@@ -42,7 +41,6 @@ namespace Estant.Core.Mappings
                 CorrectAnswer = word,
                 MissingWord = missWord.ToString(),
                 Definition = definition,
-                PartOfSpeech = partOfSpeech,
             };
             exercise.SetQuestion(TypeQuestion.FillBlank);
 
@@ -65,7 +63,7 @@ namespace Estant.Core.Mappings
             string example = vocab.GetFirstExample();
             if (example == null || n < 3)
             {
-                exercise = vocab.GenFillBlankExe() as FillBlankExe;
+                exercise = vocab.GenWriteWordByAudioExe() as WriteWordByAudioExe;
                 goto Finish;
             }
 
@@ -152,6 +150,18 @@ namespace Estant.Core.Mappings
             exercise.SetQuestion(TypeQuestion.ChooseMeaningByWord);
 
         Finish:
+            return exercise;
+        }
+
+        public static object GenWriteWordByAudioExe(this VocabularyViewModel vocab)
+        {
+            var exercise = new WriteWordByAudioExe()
+            {
+                audio = vocab.audio,
+                CorrectAnswer = vocab.word,
+            };
+            exercise.SetQuestion(TypeQuestion.WriteWordByAudio);
+
             return exercise;
         }
     }
