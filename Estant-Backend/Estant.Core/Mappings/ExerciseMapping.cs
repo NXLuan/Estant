@@ -55,16 +55,17 @@ namespace Estant.Core.Mappings
         /// <returns></returns>
         public static object GenChooseWordByExampleExe(this VocabularyViewModel vocab, List<VocabularyViewModel> vocabList)
         {
-            ExerciseViewModel exercise = null;
+            ChooseWordByExampleExe exercise = null;
 
             #region Parse necessary information
             int n = vocabList.Count;
             string word = vocab.word;
             string example = vocab.GetFirstExample();
-            if (example == null || n < 3)
+
+            // Check not have example or list vocabulary less than 4, return exercise listen and write word
+            if (example == null || n < 4)
             {
-                exercise = vocab.GenWriteWordByAudioExe() as WriteWordByAudioExe;
-                goto Finish;
+                return vocab.GenWriteWordByAudioExe();
             }
 
             StringBuilder exampleBuilder = new StringBuilder(example.ToString());
@@ -81,26 +82,32 @@ namespace Estant.Core.Mappings
             // remove position of correct answer to avoid random 
             random.RemoveIndex(position);
 
-            List<string> answers = new List<string>();
+            List<string> choices = new List<string>();
             // get 3 different answers 
             for (int i = 0; i < 3; i++)
             {
                 int index = random.GetIndexRandom();
-                answers.Add(vocabList[index].word);
+                choices.Add(vocabList[index].word);
             }
+
+            #region Insert correct answer to choices
+            Random rand = new Random();
+            int correctIndex = rand.Next(0, 4);
+            choices.Insert(correctIndex, word);
+            #endregion
+
             #endregion
 
             #endregion
 
             exercise = new ChooseWordByExampleExe()
             {
-                CorrectAnswer = word,
-                Answers = answers,
+                CorrectAnswer = correctIndex,
+                Choices = choices,
                 Example = exampleBuilder.ToString(),
             };
             exercise.SetQuestion(TypeQuestion.ChooseWordByExample);
 
-        Finish:
             return exercise;
         }
 
@@ -112,16 +119,16 @@ namespace Estant.Core.Mappings
         /// <returns></returns>
         public static object GenChooseMeaningByWordExe(this VocabularyViewModel vocab, List<VocabularyViewModel> vocabList)
         {
-            ExerciseViewModel exercise = null;
+            ChooseMeaningByWordExe exercise = null;
 
             #region Parse necessary information
             int n = vocabList.Count;
             string word = vocab.word;
 
-            if (n < 3)
+            // Check list vocabulary less than 4, return exercise fill blank
+            if (n < 4)
             {
-                exercise = vocab.GenFillBlankExe() as FillBlankExe;
-                goto Finish;
+                return vocab.GenFillBlankExe();
             }
 
             #region Handle list answer
@@ -130,34 +137,46 @@ namespace Estant.Core.Mappings
             // remove position of correct answer to avoid random 
             random.RemoveIndex(position);
 
-            List<string> answers = new List<string>();
+            List<string> choices = new List<string>();
             // get 3 different answers 
             for (int i = 0; i < 3; i++)
             {
                 int index = random.GetIndexRandom();
-                answers.Add(vocabList[index].GetFirstDefiniton());
+                choices.Add(vocabList[index].GetFirstDefiniton());
             }
+
+            #region Insert correct answer to choices
+            Random rand = new Random();
+            int correctIndex = rand.Next(0, 4);
+            choices.Insert(correctIndex, vocab.GetFirstDefiniton());
+            #endregion
+
             #endregion
 
             #endregion
 
             exercise = new ChooseMeaningByWordExe()
             {
-                CorrectAnswer = vocab.GetFirstDefiniton(),
-                word = word,
-                Answers = answers,
+                CorrectAnswer = correctIndex,
+                Word = word,
+                Choices = choices,
             };
             exercise.SetQuestion(TypeQuestion.ChooseMeaningByWord);
 
-        Finish:
             return exercise;
         }
 
+
+        /// <summary>
+        /// Write the correct word
+        /// </summary>
+        /// <param name="vocab"></param>
+        /// <returns></returns>
         public static object GenWriteWordByAudioExe(this VocabularyViewModel vocab)
         {
             var exercise = new WriteWordByAudioExe()
             {
-                audio = vocab.audio,
+                Audio = vocab.audio,
                 CorrectAnswer = vocab.word,
             };
             exercise.SetQuestion(TypeQuestion.WriteWordByAudio);

@@ -6,43 +6,43 @@ using System.Text;
 
 namespace Estant.Material.Model.ViewModel
 {
-    public class ExerciseViewModel
+    public class ExerciseViewModel<T>
     {
-        public int type { get; set; }
+        public int Type { get; set; }
         public string Question { get; set; }
-        public string CorrectAnswer { get; set; }
+        public T CorrectAnswer { get; set; }
         public void SetQuestion(TypeQuestion typeExe)
         {
             if (this != null)
             {
-                type = (int)typeExe;
+                Type = (int)typeExe;
                 Question = typeExe.ToDescription();
             }
         }
     }
 
     #region Vocabulary exercise
-    public class FillBlankExe : ExerciseViewModel
+    public class FillBlankExe : ExerciseViewModel<string>
     {
         public string MissingWord { get; set; }
         public string Definition { get; set; }
     }
 
-    public class ChooseWordByExampleExe : ExerciseViewModel
+    public class ChooseWordByExampleExe : ExerciseViewModel<int>
     {
-        public List<string> Answers { get; set; }
+        public List<string> Choices { get; set; }
         public string Example { get; set; }
     }
 
-    public class ChooseMeaningByWordExe : ExerciseViewModel
+    public class ChooseMeaningByWordExe : ExerciseViewModel<int>
     {
-        public List<string> Answers { get; set; }
-        public string word { get; set; }
+        public List<string> Choices { get; set; }
+        public string Word { get; set; }
     }
 
-    public class WriteWordByAudioExe : ExerciseViewModel
+    public class WriteWordByAudioExe : ExerciseViewModel<string>
     {
-        public string audio { get; set; }
+        public string Audio { get; set; }
     }
     #endregion
 }
