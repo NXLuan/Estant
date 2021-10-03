@@ -3,6 +3,7 @@ import { Text, View, TextInput, StyleSheet, ScrollView } from 'react-native';
 import { ProgressBar } from 'react-native-paper';
 import FillBlank from '../components/FillBlank';
 import MultipleChoice from '../components/MultipleChoice';
+import AudioTest from '../components/AudioTest';
 import { Colors } from '../styles/colors';
 
 const AccountScreen = () => {
@@ -24,11 +25,30 @@ const AccountScreen = () => {
         question: 'Choose the most suitable word',
         correctAnswer: 3,
       },
+      {
+        choices: [
+          'arranged or operating between banks.',
+          'a sum of money paid into a bank or building society account.',
+          'the management of large amounts of money, especially by governments or large companies.',
+          'a person who manages or owns a bank or group of banks.',
+        ],
+        word: 'interbank',
+        type: 3,
+        question: 'Choose the meaning of this word',
+        correctAnswer: 0,
+      },
+      {
+        audio:
+          'https://ssl.gstatic.com/dictionary/static/sounds/20200429/accumulation--_gb_1.8.mp3',
+        type: 4,
+        question: 'Write the correct word',
+        correctAnswer: 'accumulation',
+      },
     ]);
   }, []);
   return (
     <ScrollView
-      style={{
+      contentContainerStyle={{
         flex: 1,
         backgroundColor: Colors.primary,
         padding: 15,
@@ -44,8 +64,9 @@ const AccountScreen = () => {
       </View>
       <View style={styles.subContainer}>
         {data.length > 0 && (
-          // <FillBlank dataQuestion={data[0]} id={0} setData={setData} />
-          <MultipleChoice dataQuestion={data[1]} id={1} setData={setData} />
+          //<FillBlank dataQuestion={data[0]} id={0} setData={setData} />
+          //<MultipleChoice dataQuestion={data[2]} id={2} setData={setData} />
+          <AudioTest dataQuestion={data[3]} id={3} setData={setData} />
         )}
       </View>
     </ScrollView>

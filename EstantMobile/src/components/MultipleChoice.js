@@ -11,22 +11,23 @@ import { Colors } from '../styles/colors';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 const MultipleChoice = ({ dataQuestion, id, setData }) => {
-  const { choices, example, question, correctAnswer } = dataQuestion;
+  const { choices, example, question, correctAnswer, word } = dataQuestion;
 
   const [userAnswer, setUserAnswer] = useState(null);
 
   const handleSubmit = () => {
-    // setData(data => {
-    //   let newData = [...data];
-    //   newData[id].userAnswer = letters;
-    //   console.log(newData);
-    //   return newData;
-    // });
+    setData(data => {
+      let newData = [...data];
+      newData[id].userAnswer = userAnswer;
+      console.log(newData);
+      return newData;
+    });
   };
   return (
     <>
-      <Text style={styles.questionHeader}>{question}</Text>
-      <Text style={styles.questionBody}>"{example}"</Text>
+      <Text style={styles.questionHeader}>Listen and type the word</Text>
+      {example != null && <Text style={styles.questionBody}>"{example}"</Text>}
+      {word != null && <Text style={styles.word}>{word}</Text>}
       <View style={styles.choiceContainer}>
         {choices.map((choice, index) => (
           <TouchableOpacity
@@ -91,6 +92,14 @@ const styles = StyleSheet.create({
     fontStyle: 'italic',
     paddingHorizontal: 10,
   },
+  word: {
+    fontSize: 28,
+    alignItems: 'center',
+    textAlign: 'center',
+    marginBottom: 30,
+    color: Colors.blue,
+    fontWeight: 'bold',
+  },
   choiceContainer: {
     width: '100%',
     paddingHorizontal: 20,
@@ -122,9 +131,8 @@ const styles = StyleSheet.create({
     borderColor: 'red',
   },
   button: {
-    marginTop: 30,
+    marginTop: 10,
     borderRadius: 20,
-    marginBottom: 40,
   },
 });
 export default MultipleChoice;

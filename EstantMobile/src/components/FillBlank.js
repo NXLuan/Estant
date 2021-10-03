@@ -47,14 +47,14 @@ const FillBlank = ({ dataQuestion, id, setData }) => {
         )}
       </View>
       <Text style={styles.definition}>{definition}</Text>
-      {/* <Button
+      <Button
         style={styles.button}
         mode="contained"
         dark={true}
         color={Colors.primary}
         onPress={handleSubmit}>
         Submit
-      </Button> */}
+      </Button>
     </>
   );
 };
