@@ -40,7 +40,7 @@ const TopicScreen = ({ route, navigation }) => {
     navigation.navigate('Flashcards', { data: data });
   };
   const handleOpenPractice = () => {
-    navigation.navigate('Practice');
+    navigation.navigate('Practice', { topic: name });
   };
   return (
     <>

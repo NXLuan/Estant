@@ -12,96 +12,16 @@ import FillBlank from '../components/FillBlank';
 import MultipleChoice from '../components/MultipleChoice';
 import AudioTest from '../components/AudioTest';
 import { Colors } from '../styles/colors';
+import { getExercisesByTopic } from '../api/ExerciseAPI';
 
-const PracticeScreen = ({ navigation }) => {
+const PracticeScreen = ({ navigation, route }) => {
   const [data, setData] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isFinish, setIsFinish] = useState(false);
   useEffect(() => {
-    setData([
-      {
-        choices: [
-          'an act of giving one thing and receiving another (especially of the same kind) in return.',
-          'a person who manages or owns a bank or group of banks.',
-          'having or relating to the role of observing and directing an activity or a person.',
-          'relating to finance.',
-        ],
-        word: 'financial',
-        type: 3,
-        question: 'Choose the meaning of this word',
-        correctAnswer: 3,
-      },
-      {
-        audio:
-          'https://ssl.gstatic.com/dictionary/static/sounds/20200429/exchange--_gb_1.mp3',
-        type: 4,
-        question: 'Write the correct word',
-        correctAnswer: 'exchange',
-      },
-      {
-        choices: ['accumulation', 'interbank', 'finance', 'exchange'],
-        example: 'the ____________ of wealth',
-        type: 2,
-        question: 'Choose the most suitable word',
-        correctAnswer: 0,
-      },
-      {
-        missingWord: 'f_na__e',
-        definition:
-          'the management of large amounts of money, especially by governments or large companies.',
-        type: 1,
-        question: 'Fill in the blanks',
-        correctAnswer: 'finance',
-      },
-      {
-        missingWord: 's_p__v_so_y',
-        definition:
-          'having or relating to the role of observing and directing an activity or a person.',
-        type: 1,
-        question: 'Fill in the blanks',
-        correctAnswer: 'supervisory',
-      },
-      {
-        audio:
-          'https://ssl.gstatic.com/dictionary/static/sounds/20200429/banker--_gb_1.mp3',
-        type: 4,
-        question: 'Write the correct word',
-        correctAnswer: 'banker',
-      },
-      {
-        choices: ['banker', 'interbank', 'credit', 'accumulation'],
-        example: 'an _________ transfer',
-        type: 2,
-        question: 'Choose the most suitable word',
-        correctAnswer: 1,
-      },
-      {
-        audio:
-          'https://ssl.gstatic.com/dictionary/static/sounds/20200429/monetary--_gb_1.mp3',
-        type: 4,
-        question: 'Write the correct word',
-        correctAnswer: 'monetary',
-      },
-      {
-        choices: ['banker', 'financial', 'credit', 'deposit'],
-        example: "I've got unlimited ______",
-        type: 2,
-        question: 'Choose the most suitable word',
-        correctAnswer: 2,
-      },
-      {
-        choices: [
-          'a sum of money paid into a bank or building society account.',
-          'the ability of a customer to obtain goods or services before payment, based on the trust that payment will be made in the future.',
-          'an act of giving one thing and receiving another (especially of the same kind) in return.',
-          'the management of large amounts of money, especially by governments or large companies.',
-        ],
-        word: 'deposit',
-        type: 3,
-        question: 'Choose the meaning of this word',
-        correctAnswer: 0,
-      },
-    ]);
+    getExercisesByTopic(route.params.topic)
+      .then(res => setData(res.data.data))
+      .catch(error => console.log(error));
   }, []);
 
   function checkResult(item) {
