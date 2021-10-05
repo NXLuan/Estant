@@ -10,8 +10,10 @@ const FillBlank = ({
   setData,
   setCurrentIndex,
   setIsFinish,
+  isFinish,
 }) => {
-  const { missingWord, definition, question, correctAnswer } = dataQuestion;
+  const { missingWord, definition, question, correctAnswer, userAnswer } =
+    dataQuestion;
   const [letters, setLetters] = useState(
     missingWord.split('').map(letter => (letter === '_' ? '' : letter)),
   );
@@ -25,13 +27,17 @@ const FillBlank = ({
     setCurrentIndex(id + 1);
     if (id === 9) setIsFinish(true);
   };
+  function renderColorText(index) {
+    if (isFinish) {
+      if (userAnswer[index] === correctAnswer[index])
+        return { color: Colors.green };
+      return { color: 'red' };
+    }
+    return {};
+  }
   return (
     <>
       <Text style={styles.questionHeader}>{question}</Text>
-      {/* <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-        <Icon name="checkbox-marked-circle" size={24} color={Colors.green} />
-        <Text style={styles.resultText}>Correct</Text>
-      </View> */}
       <View style={styles.questionBody}>
         {missingWord.split('').map((letter, index) =>
           letter !== '_' ? (
@@ -40,10 +46,11 @@ const FillBlank = ({
             </Text>
           ) : (
             <TextInput
+              editable={!isFinish}
               key={index}
               maxLength={1}
-              style={[styles.letter, styles.blank, { color: 'red' }]}
-              value={letters[index]}
+              style={[styles.letter, styles.blank, renderColorText(index)]}
+              value={isFinish ? userAnswer[index] : letters[index]}
               onChangeText={e => {
                 let newLetters = [...letters];
                 newLetters[index] = e;
@@ -53,15 +60,23 @@ const FillBlank = ({
           ),
         )}
       </View>
+
+      {isFinish && (
+        <View style={styles.questionBody}>
+          <Text style={styles.answerText}>{correctAnswer}</Text>
+        </View>
+      )}
       <Text style={styles.definition}>{definition}</Text>
-      <Button
-        style={styles.button}
-        mode="contained"
-        dark={true}
-        color={Colors.primary}
-        onPress={handleSubmit}>
-        {id < 9 ? 'Next' : 'Submit'}
-      </Button>
+      {!isFinish && (
+        <Button
+          style={styles.button}
+          mode="contained"
+          dark={true}
+          color={Colors.primary}
+          onPress={handleSubmit}>
+          {id < 9 ? 'Next' : 'Submit'}
+        </Button>
+      )}
     </>
   );
 };
@@ -73,6 +88,11 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     textAlign: 'center',
     marginHorizontal: 2,
+  },
+  answerText: {
+    fontSize: 28,
+    fontWeight: 'bold',
+    color: Colors.blue,
   },
   blank: {
     color: Colors.primary,
@@ -102,12 +122,6 @@ const styles = StyleSheet.create({
     marginTop: 30,
     borderRadius: 20,
     marginBottom: 20,
-  },
-  resultText: {
-    fontSize: 20,
-    fontWeight: 'bold',
-    marginLeft: 5,
-    color: Colors.green,
   },
 });
 export default FillBlank;

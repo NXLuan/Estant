@@ -13,7 +13,7 @@ import MultipleChoice from '../components/MultipleChoice';
 import AudioTest from '../components/AudioTest';
 import { Colors } from '../styles/colors';
 
-const PracticeScreen = () => {
+const PracticeScreen = ({ navigation }) => {
   const [data, setData] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isFinish, setIsFinish] = useState(false);
@@ -145,6 +145,17 @@ const PracticeScreen = () => {
     setCurrentIndex(0);
   };
 
+  const handlePrevQuestion = () => {
+    setCurrentIndex(currentIndex - 1);
+  };
+  const handleNextQuestion = () => {
+    if (currentIndex !== 9) {
+      setCurrentIndex(currentIndex + 1);
+    } else {
+      navigation.goBack();
+    }
+  };
+
   return (
     <ScrollView
       contentContainerStyle={{
@@ -221,6 +232,27 @@ const PracticeScreen = () => {
               Review
             </Button>
           </>
+        )}
+        {currentIndex !== 10 && isFinish && (
+          <View style={{ flexDirection: 'row', marginTop: 20 }}>
+            <Button
+              disabled={currentIndex === 0}
+              mode="contained"
+              style={{ borderRadius: 20, marginRight: 40 }}
+              dark={true}
+              color={Colors.primary}
+              onPress={handlePrevQuestion}>
+              Prev
+            </Button>
+            <Button
+              mode="contained"
+              style={{ borderRadius: 20 }}
+              dark={true}
+              color={Colors.primary}
+              onPress={handleNextQuestion}>
+              {currentIndex !== 9 ? 'Next' : 'Done'}
+            </Button>
+          </View>
         )}
       </View>
     </ScrollView>

@@ -16,20 +16,42 @@ const MultipleChoice = ({
   setData,
   setCurrentIndex,
   setIsFinish,
+  isFinish,
 }) => {
-  const { choices, example, question, correctAnswer, word } = dataQuestion;
+  const { choices, example, question, correctAnswer, word, userAnswer } =
+    dataQuestion;
 
-  const [userAnswer, setUserAnswer] = useState(null);
+  const [answer, setAnswer] = useState(userAnswer);
 
   const handleSubmit = () => {
     setData(data => {
       let newData = [...data];
-      newData[id].userAnswer = userAnswer;
+      newData[id].userAnswer = answer;
       return newData;
     });
     setCurrentIndex(id + 1);
     if (id === 9) setIsFinish(true);
   };
+
+  function renderStyleAnswer(index) {
+    if (isFinish) {
+      if (index === correctAnswer) return styles.correct;
+      if (userAnswer === index && index !== correctAnswer)
+        return styles.incorrect;
+    }
+    return {};
+  }
+  function renderIconAnswer(index) {
+    if (isFinish) {
+      if (index === correctAnswer)
+        return (
+          <Icon name="checkbox-marked-circle" size={24} color={Colors.green} />
+        );
+      if (userAnswer === index && index !== correctAnswer)
+        return <Icon name="close-circle" size={24} color="red" />;
+    }
+    return <></>;
+  }
   return (
     <>
       <Text style={styles.questionHeader}>{question}</Text>
@@ -38,48 +60,30 @@ const MultipleChoice = ({
       <View style={styles.choiceContainer}>
         {choices.map((choice, index) => (
           <TouchableOpacity
+            disabled={isFinish}
             key={index}
-            style={[styles.choice]}
-            onPress={() => setUserAnswer(index)}>
+            style={[styles.choice, renderStyleAnswer(index)]}
+            onPress={() => setAnswer(index)}>
             <Icon
-              name={userAnswer === index ? 'circle-slice-8' : 'circle-outline'}
+              name={answer === index ? 'circle-slice-8' : 'circle-outline'}
               size={24}
               color={Colors.primary}
             />
             <Text style={styles.choiceText}>{choice}</Text>
+            {renderIconAnswer(index)}
           </TouchableOpacity>
         ))}
-        {/* <TouchableOpacity
-          style={[styles.choice, styles.correct]}
-          onPress={() => setUserAnswer(index)}>
-          <Icon
-            name={userAnswer === 0 ? 'circle-slice-8' : 'circle-outline'}
-            size={24}
-            color={Colors.primary}
-          />
-          <Text style={styles.choiceText}>banker</Text>
-          <Icon name="checkbox-marked-circle" size={24} color={Colors.green} />
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={[styles.choice, styles.incorrect]}
-          onPress={() => setUserAnswer(index)}>
-          <Icon
-            name={userAnswer === 0 ? 'circle-slice-8' : 'circle-outline'}
-            size={24}
-            color={Colors.primary}
-          />
-          <Text style={styles.choiceText}>banker</Text>
-          <Icon name="close-circle" size={24} color="red" />
-        </TouchableOpacity> */}
       </View>
-      <Button
-        style={styles.button}
-        mode="contained"
-        dark={true}
-        color={Colors.primary}
-        onPress={handleSubmit}>
-        {id < 9 ? 'Next' : 'Submit'}
-      </Button>
+      {!isFinish && (
+        <Button
+          style={styles.button}
+          mode="contained"
+          dark={true}
+          color={Colors.primary}
+          onPress={handleSubmit}>
+          {id < 9 ? 'Next' : 'Submit'}
+        </Button>
+      )}
     </>
   );
 };

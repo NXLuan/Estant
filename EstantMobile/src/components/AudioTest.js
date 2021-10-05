@@ -11,6 +11,7 @@ const AudioTest = ({
   setData,
   setCurrentIndex,
   setIsFinish,
+  isFinish,
 }) => {
   const { audio, question, correctAnswer } = dataQuestion;
 
@@ -38,6 +39,7 @@ const AudioTest = ({
         onPress={() => sound.play()}
       />
       <TextInput
+        editable={!isFinish}
         maxLength={15}
         mode="outlined"
         multiline={false}
@@ -46,20 +48,28 @@ const AudioTest = ({
         onChangeText={setUserAnswer}
         label="Your answer"
       />
-
-      <Button
-        style={styles.button}
-        mode="contained"
-        dark={true}
-        color={Colors.primary}
-        onPress={handleSubmit}>
-        {id < 9 ? 'Next' : 'Submit'}
-      </Button>
+      {isFinish && <Text style={styles.answerText}>{correctAnswer}</Text>}
+      {!isFinish && (
+        <Button
+          style={styles.button}
+          mode="contained"
+          dark={true}
+          color={Colors.primary}
+          onPress={handleSubmit}>
+          {id < 9 ? 'Next' : 'Submit'}
+        </Button>
+      )}
     </>
   );
 };
 
 const styles = StyleSheet.create({
+  answerText: {
+    fontSize: 28,
+    fontWeight: 'bold',
+    color: Colors.blue,
+    marginBottom: 20,
+  },
   questionHeader: {
     fontSize: 22,
     marginVertical: 20,
