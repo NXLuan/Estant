@@ -13,7 +13,7 @@ namespace Estant.Material.Model.EnumModel
         ChooseWordByExample = 2,
         [Description("Choose the meaning of this word")]
         ChooseMeaningByWord = 3,
-        [Description("Write the correct word")]
+        [Description("Listen and type the word")]
         WriteWordByAudio = 4,
     }
 }
