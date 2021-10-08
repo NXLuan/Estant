@@ -39,6 +39,9 @@ const TopicScreen = ({ route, navigation }) => {
   const handleOpenFlashCard = () => {
     navigation.navigate('Flashcards', { data: data });
   };
+  const handleOpenPractice = () => {
+    navigation.navigate('Practice', { topic: name });
+  };
   return (
     <>
       {isLoading ? (
@@ -54,6 +57,7 @@ const TopicScreen = ({ route, navigation }) => {
             <SquareButton
               iconName="head-question"
               text="Practice"
+              handleOnPress={handleOpenPractice}
               style={{ marginHorizontal: 10 }}
             />
             <SquareButton iconName="clipboard-list" text="Result" />

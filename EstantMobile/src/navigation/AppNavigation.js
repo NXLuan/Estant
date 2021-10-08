@@ -12,6 +12,7 @@ import AccountScreen from '../screens/AccountScreen';
 import TopicScreen from '../screens/TopicScreen';
 import WordScreen from '../screens/WordScreen';
 import FlashCardScreen from '../screens/FlashCardScreen';
+import PracticeScreen from '../screens/PracticeScreen';
 
 const Tab = createBottomTabNavigator();
 
@@ -75,6 +76,13 @@ const AppNavigator = () => {
         <Stack.Screen
           name="Flashcards"
           component={FlashCardScreen}
+          options={{
+            headerTintColor: Colors.primary,
+          }}
+        />
+        <Stack.Screen
+          name="Practice"
+          component={PracticeScreen}
           options={{
             headerTintColor: Colors.primary,
           }}
