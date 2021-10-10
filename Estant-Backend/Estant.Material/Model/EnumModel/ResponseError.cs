@@ -8,7 +8,9 @@ namespace Estant.Material.Model.EnumModel
     public enum ResponseError
     {
         [Description("No error")]
-        NoError,
+        NoError = 0,
+        [Description("Empty input")]
+        IsEmptyInput = 1,
 
         #region Authentication Error
         [Description("Invalid input")]
@@ -23,6 +25,11 @@ namespace Estant.Material.Model.EnumModel
         SignUpFail = 1004,
         [Description("Password and Confirm password does not match")]
         PasswordNotMatch = 1005,
+        #endregion
+
+        #region Vocabulary Error
+        [Description("No results found")]
+        NoResultFound= 2000,
         #endregion
     }
 }

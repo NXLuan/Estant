@@ -30,7 +30,7 @@ namespace Estant.Core.Mappings
             return topic;
         }
 
-        public static VocabularyDTO ArrayJsonToVocabulary(this string json, string topic)
+        public static VocabularyDTO ArrayJsonToVocabulary(this string json, string topic = null)
         {
             VocabularyDTO vocabulary = null;
 

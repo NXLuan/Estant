@@ -1,6 +1,8 @@
 ﻿using Estant.Core.Handlers;
+using Estant.Material.Model.DTOModel;
 using Estant.Material.Model.EnumModel;
 using Estant.Material.Model.ViewModel;
+using Estant.Material.Utilities;
 using Estant.Service.Model;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -35,6 +37,24 @@ namespace Estant.API.Controllers
         {
             var responseError = ResponseError.NoError;
             var data = await _vocabularyHandler.GetByTopic(topic);
+            return ReturnData(data, responseError);
+        }
+
+        [HttpGet("LookupDictionary")]
+        public async Task<IActionResult> LookupDictionary(string word)
+        {
+            var responseError = ResponseError.NoError;
+            if (string.IsNullOrWhiteSpace(word))
+                responseError = ResponseError.IsEmptyInput;
+
+            VocabularyDTO data = null;
+            if (!responseError.HasError())
+            {
+                data = await _vocabularyHandler.GetFromDictionary(word);
+                if (data == null)
+                    responseError = ResponseError.NoResultFound;
+            }
+
             return ReturnData(data, responseError);
         }
         #endregion

@@ -17,7 +17,7 @@ namespace Estant.Material.Model.RequestModel
                 return ResponseError.EmailInvalid;
 
             if (string.IsNullOrWhiteSpace(Password))
-                return ResponseError.InputInvalid;
+                return ResponseError.IsEmptyInput;
 
             return ResponseError.NoError;
         }
@@ -36,7 +36,7 @@ namespace Estant.Material.Model.RequestModel
                 return ResponseError.EmailInvalid;
 
             if (string.IsNullOrWhiteSpace(Password) || string.IsNullOrWhiteSpace(ConfirmPassword) || string.IsNullOrWhiteSpace(DisplayName))
-                return ResponseError.InputInvalid;
+                return ResponseError.IsEmptyInput;
 
             if (!Password.Equals(ConfirmPassword))
                 return ResponseError.PasswordNotMatch;

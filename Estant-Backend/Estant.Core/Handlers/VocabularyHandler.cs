@@ -158,5 +158,18 @@ namespace Estant.Core.Handlers
             }
             return result;
         }
+
+        public async Task<VocabularyDTO> GetFromDictionary(string word)
+        {
+            VocabularyDTO viewModel = null;
+            var jsonVocabulary = await VocabularyApi.GetFromDictionary(word);
+
+            if (jsonVocabulary != null)
+            {
+                viewModel = jsonVocabulary.ArrayJsonToVocabulary();
+            }
+
+            return viewModel;
+        }
     }
 }
