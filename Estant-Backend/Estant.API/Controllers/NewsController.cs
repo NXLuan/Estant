@@ -1,6 +1,6 @@
 ﻿using Estant.Core.Handlers;
 using Estant.Material.Model.EnumModel;
-using Estant.Material.Model.ViewModel;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -9,21 +9,21 @@ using System.Threading.Tasks;
 
 namespace Estant.API.Controllers
 {
-    public class ExerciseController : BaseController
+    public class NewsController : BaseController
     {
         #region Contructor
-        private readonly ExerciseHandler _exerciseHandler;
-        public ExerciseController(ExerciseHandler exerciseHandler)
+        private readonly NewsHandler _newsHandler;
+        public NewsController(NewsHandler newsHandler)
         {
-            _exerciseHandler = exerciseHandler;
+            _newsHandler = newsHandler;
         }
         #endregion
 
-        [HttpGet("GetByTopic")]
-        public async Task<IActionResult> GetByTopic(string topic)
+        [HttpGet("GetNewsToday")]
+        public IActionResult GetNewsToday()
         {
             var responseError = ResponseError.NoError;
-            var data = await _exerciseHandler.GenerateVocabExes(topic);
+            var data = _newsHandler.GetNewsToday();
             return ReturnData(data, responseError);
         }
     }

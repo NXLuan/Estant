@@ -27,7 +27,7 @@ namespace Estant.API.Controllers
         {
             var responseError = ResponseError.NoError;
             var data = await _vocabularyHandler.GetAllTopic();
-            return ReturnData<List<TopicViewModel>>(data, responseError);
+            return ReturnData(data, responseError);
         }
 
         [HttpGet("GetByTopic")]
@@ -35,7 +35,7 @@ namespace Estant.API.Controllers
         {
             var responseError = ResponseError.NoError;
             var data = await _vocabularyHandler.GetByTopic(topic);
-            return ReturnData<List<VocabularyViewModel>>(data, responseError);
+            return ReturnData(data, responseError);
         }
         #endregion
 
@@ -66,6 +66,5 @@ namespace Estant.API.Controllers
             return Content(message);
         }
         #endregion
-
     }
 }

@@ -2,6 +2,7 @@ using Estant.Core.Handlers;
 using Estant.Material;
 using Estant.Service.FirebaseService;
 using Estant.Service.Interface;
+using Estant.Service.LocalDataService;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -62,10 +63,14 @@ namespace Estant.API
             #region DI - Dependency Injection
             services.AddSingleton<AuthHandler>();
             services.AddSingleton<VocabularyHandler>();
+            services.AddSingleton<GrammarHandler>();
             services.AddSingleton<ExerciseHandler>();
+            services.AddSingleton<NewsHandler>();
+
             services.AddSingleton<IAuthenticationService, AuthFirebaseService>();
             services.AddSingleton<ITopicService, TopicFirestoreService>();
             services.AddSingleton<IVocabularyService, VocabularyFirestoreService>();
+            services.AddSingleton<IGrammarService, LocalGrammarService>();
             #endregion
 
             // Register the Swagger generator, defining 1 or more Swagger documents

@@ -39,7 +39,7 @@ namespace Estant.API.Controllers
                 if (data == null) responseError = ResponseError.SignInFail;
             }
 
-            return ReturnData<UserViewModel>(data, responseError);
+            return ReturnData(data, responseError);
         }
 
         [HttpPost("SignUp")]

@@ -1,0 +1,114 @@
+[
+  {
+    "id": 1,
+    "section": "4 TENSES IN ENGLISH",
+    "lessons": [
+      {
+        "name": "Present Simple Tense",
+        "form": [
+          {
+            "title": "Positive",
+            "contents": [
+              {
+                "content": "I/ you/ we/ they + bare infinitive",
+                "example": "We go to bed early."
+              },
+              {
+                "content": "He/ she/ it/ James + Verb – s/ es",
+                "example": "She goes to bed early."
+              }
+            ]
+          },
+          {
+            "title": "Negative",
+            "contents": [
+              {
+                "content": "I/ you/ we/ they + do not + bare infinitive\nDo not = don’t",
+                "example": "They don’t go to bed early."
+              },
+              {
+                "content": "He/ she/ it/ James + does not + bare infinitive\nDoes not = doesn’t",
+                "example": "James doesn’t go to bed early."
+              }
+            ]
+          },
+          {
+            "title": "Question",
+            "contents": [
+              {
+                "content": "Do + I/ you/ we/ they + bare infinitive?",
+                "example": "Do they go to bed early?"
+              },
+              {
+                "content": "Does + he/ she/ it/ James + bare infinitive?",
+                "example": "Does she go to bed early?"
+              }
+            ]
+          }
+        ],
+        "usages": [
+          {
+            "usage": "To describe habits, timetables, repeated actions or events",
+            "example": "She usually wakes up at 6 o’clock."
+          },
+          {
+            "usage": "To talk about general truths",
+            "example": "The Sun rises in the East"
+          },
+          {
+            "usage": "To give instructions or directions",
+            "example": "Don’t open that box. Throw it away."
+          },
+          {
+            "usage": "To talk about something that is fixed in the future",
+            "example": "The bus leaves at 8 pm. Hurry up!"
+          }
+        ],
+        "signalWords": "Always, usually, often, sometimes, seldom, never, every day, every week, every month, every year, on Sundays, after school, before school"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "section": "BASIC ENGLISH GRAMMAR RULES",
+    "lessons": [
+      {
+        "type": 1,
+        "name": "Irregular verb",
+        "contents": [
+          {
+            "title": "Regular verbs are verbs formed by adding –ed to the end.",
+            "verbs": [
+              {
+                "Base": "wash",
+                "PastSimple": "washed",
+                "PastParticiple": "washed"
+              }
+            ]
+          },
+          {
+            "title": "Unlikely, irregular verbs are verbs that do not form its simple past tense or past participle by adding –ed to the bare infinitive.",
+            "verbs": []
+          }
+        ]
+      },
+      {
+        "type": 2,
+        "name": "Modal verb",
+        "description": "Modal verbs are used to talk about ability, possibility, obligation, prohibition, or to make requests or offers.",
+        "form": "​​​​​Modal verb + Verb (bare infinitive)",
+        "verbs": [
+          {
+            "verb": "Can",
+            "usages": [
+              {
+                "usage": "Ability",
+                "example": "I can play the piano very well."
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]

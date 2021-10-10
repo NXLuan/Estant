@@ -61,13 +61,6 @@ namespace Estant.Core.Handlers
                         data.Add(response);
                 }
                 #endregion
-
-                //vm = new TopicViewModel()
-                //{
-                //    title = result.id,
-                //    imageUrl = result.imageUrl,
-                //    //vocabularies = vocabVMs
-                //};
             }
 
             return data;

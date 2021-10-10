@@ -15,9 +15,9 @@ namespace Estant.API.Controllers
     [ApiController]
     public class BaseController : Controller
     {
-        protected JsonResult ReturnData<T>(T data, ResponseError responseError)
+        protected JsonResult ReturnData(object data, ResponseError responseError)
         {
-            var model = new ResponseModel<T>();
+            var model = new ResponseModel<object>();
 
             if (!responseError.HasError())
                 model.data = data;
@@ -28,7 +28,7 @@ namespace Estant.API.Controllers
 
         protected JsonResult ReturnNoData(ResponseError responseError)
         {
-           return ReturnData<object>(null, responseError);
+           return ReturnData(null, responseError);
         }
 
         protected string GetCurrentUID()
