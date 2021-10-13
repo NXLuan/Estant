@@ -24,5 +24,9 @@ namespace Estant.Core.Handlers
                 data = json.ConvertToGrammarView();
             return data;
         }
+        public async Task<string> GetHtmlContent(string path)
+        {
+            return await _grammarService.GetHtmlContent(path);
+        }
     }
 }

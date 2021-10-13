@@ -8,5 +8,6 @@ namespace Estant.Service.Interface
     public interface IGrammarService
     {
         public Task<string> GetAll();
+        public Task<string> GetHtmlContent(string path);
     }
 }

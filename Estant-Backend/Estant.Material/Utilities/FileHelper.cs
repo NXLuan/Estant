@@ -1,28 +1,19 @@
-﻿using Newtonsoft.Json;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Estant.Service.LocalDataService
+namespace Estant.Material.Utilities
 {
-    public class BaseLocalService
+    public static class FileHelper
     {
-        private string _jsonDataPath;
-
-        protected BaseLocalService(string JsonFileName)
-        {
-            string RootPath = @"../Estant.Service/LocalDataService/JsonData/";
-            _jsonDataPath = RootPath + JsonFileName;
-        }
-
-        protected async Task<string> ReadData()
+        public static async Task<string> ReadFileAsync(string filePath)
         {
             string json = null;
             try
             {
-                json = await File.ReadAllTextAsync(_jsonDataPath);
+                json = await File.ReadAllTextAsync(filePath);
             }
             catch
             {

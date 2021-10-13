@@ -1,4 +1,5 @@
-﻿using Estant.Service.Interface;
+﻿using Estant.Material.Utilities;
+using Estant.Service.Interface;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -6,12 +7,22 @@ using System.Threading.Tasks;
 
 namespace Estant.Service.LocalDataService
 {
-    public class LocalGrammarService : BaseLocalService, IGrammarService
+    public class LocalGrammarService : IGrammarService
     {
-        public LocalGrammarService() : base("grammar.json") { }
+        private string _rootPath;
+        public LocalGrammarService()
+        {
+            _rootPath = "../Estant.Resource";
+        }
         public async Task<string> GetAll()
         {
-            return await ReadData();
+            // return await ReadData();
+            return string.Empty;
+        }
+
+        public async Task<string> GetHtmlContent(string filePath)
+        {
+            return await FileHelper.ReadFileAsync(_rootPath +"/ViewContent/"+ filePath);
         }
     }
 }

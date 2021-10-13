@@ -27,5 +27,13 @@ namespace Estant.API.Controllers
             var data = await _grammarHandler.GetAll();
             return ReturnData(data, responseError);
         }
+
+        [HttpGet("GetHtmlContent")]
+        public async Task<IActionResult> GetHtmlContent(string path)
+        {
+            var responseError = ResponseError.NoError;
+            var data = await _grammarHandler.GetHtmlContent(path);
+            return ReturnData(data, responseError);
+        }
     }
 }
