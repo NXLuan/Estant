@@ -1,0 +1,36 @@
+[
+  {
+    "title": "4 TENSES IN ENGLISH",
+    "lessons": [
+      {
+        "name": "Present Simple Tense",
+        "html": "PresentSimpleTense.html"
+      },
+      {
+        "name": "Present Continuous Tense",
+        "html": "PresentContinuousTense.html"
+      },
+      {
+        "name": "Present Perfect Tense",
+        "html": "PresentPerfectTense.html"
+      },
+      {
+        "name": "Past Simple Tense",
+        "html": "PastSimpleTense.html"
+      }
+    ]
+  },
+  {
+    "title": "BASIC ENGLISH GRAMMAR RULES",
+    "lessons": [
+      {
+        "name": "Irregular verb",
+        "html": "IrregularVerb.html"
+      },
+      {
+        "name": "Modal verbs",
+        "html": "ModalVerbs.html"
+      }
+    ]
+  }
+]

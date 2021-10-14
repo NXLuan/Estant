@@ -14,10 +14,10 @@ namespace Estant.Service.LocalDataService
         {
             _rootPath = "../Estant.Resource";
         }
+
         public async Task<string> GetAll()
         {
-            // return await ReadData();
-            return string.Empty;
+            return await FileHelper.ReadFileAsync(_rootPath +"/JsonData/grammar.json");
         }
 
         public async Task<string> GetHtmlContent(string filePath)
