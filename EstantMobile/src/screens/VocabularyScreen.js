@@ -16,7 +16,6 @@ import {
   Card,
   ActivityIndicator,
 } from 'react-native-paper';
-import axios from 'axios';
 import { getAllTopic } from '../api/VocabularyAPI';
 import Loader from '../components/Loader';
 

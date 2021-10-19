@@ -13,6 +13,7 @@ import TopicScreen from '../screens/TopicScreen';
 import WordScreen from '../screens/WordScreen';
 import FlashCardScreen from '../screens/FlashCardScreen';
 import PracticeScreen from '../screens/PracticeScreen';
+import LessonScreen from '../screens/LessonScreen';
 
 const Tab = createBottomTabNavigator();
 
@@ -85,6 +86,14 @@ const AppNavigator = () => {
           component={PracticeScreen}
           options={{
             headerTintColor: Colors.primary,
+          }}
+        />
+        <Stack.Screen
+          name="Lesson"
+          component={LessonScreen}
+          options={{
+            headerTintColor: 'white',
+            headerStyle: { backgroundColor: Colors.primary },
           }}
         />
       </Stack.Navigator>
