@@ -17,12 +17,19 @@ namespace Estant.Service.LocalDataService
 
         public async Task<string> GetAll()
         {
-            return await FileHelper.ReadFileAsync(_rootPath +"/JsonData/grammar.json");
+            return await FileHelper.ReadFileAsync(_rootPath + "/JsonData/grammar.json");
         }
 
         public async Task<string> GetHtmlContent(string filePath)
         {
-            return await FileHelper.ReadFileAsync(_rootPath +"/ViewContent/"+ filePath);
+            string content = null;
+            string html = await FileHelper.ReadFileAsync(_rootPath + "/ViewContent/html/" + filePath);
+            string css = await FileHelper.ReadFileAsync(_rootPath + "/ViewContent/css/global.css");
+            if (html != null)
+            {
+                content = html.Insert(html.IndexOf("</style>"), css);
+            }
+            return content;
         }
     }
 }
