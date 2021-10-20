@@ -41,7 +41,7 @@ const GrammarScreen = ({ navigation }) => {
                       style={styles.lessonItem}
                       key={index}
                       onPress={() =>
-                        navigation.navigate('Lesson', { html: lesson.html })
+                        navigation.navigate('Lesson', { code: lesson.code })
                       }>
                       <View style={styles.circleNumber}>
                         <Text style={{ color: 'white', fontWeight: 'bold' }}>

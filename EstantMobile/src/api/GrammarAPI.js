@@ -7,6 +7,6 @@ export function getAllLessons() {
   return axios.get(baseURL + `/GetAll`);
 }
 
-export function getLessonContent(html) {
-  return axios.get(baseURL + `/GetHtmlContent?path=${html}`);
+export function getLessonContent(code) {
+  return axios.get(baseURL + `/GetHtmlContent?code=${code}`);
 }

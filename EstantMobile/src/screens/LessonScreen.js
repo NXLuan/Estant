@@ -7,12 +7,12 @@ import Loader from '../components/Loader';
 import SquareButton from '../components/SquareButton';
 
 const LessonScreen = ({ route }) => {
-  const { html } = route.params;
+  const { code } = route.params;
   const [content, setContent] = useState('');
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    getLessonContent(html)
+    getLessonContent(code)
       .then(res => {
         setIsLoading(false);
         setContent(res.data.data);
