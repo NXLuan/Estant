@@ -10,19 +10,16 @@ import {
 } from 'react-native';
 import MainHeader from '../components/MainHeader';
 import { Colors } from '../styles/colors';
-import {
-  IconButton,
-  Button,
-  Card,
-  ActivityIndicator,
-} from 'react-native-paper';
-import axios from 'axios';
-import { getAllTopic } from '../api/VocabularyAPI';
+import { IconButton, Button, ActivityIndicator } from 'react-native-paper';
+import { getAllTopic, searchWord } from '../api/VocabularyAPI';
 import Loader from '../components/Loader';
 
 const VocabularyScreen = ({ navigation }) => {
   const [topics, setTopics] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+
+  const [isSearching, setIsSearching] = useState(false);
+  const [word, setWord] = useState('');
   useEffect(() => {
     getAllTopic()
       .then(res => {
@@ -49,6 +46,24 @@ const VocabularyScreen = ({ navigation }) => {
     );
   };
 
+  const handleSearchWord = () => {
+    setIsSearching(true);
+    console.log(word);
+    searchWord(word)
+      .then(res => {
+        setIsSearching(false);
+        const { data } = res.data;
+        if (data != null) {
+          navigation.navigate('Meanings', { dataWord: data });
+        } else {
+          setWord('');
+        }
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  };
+
   return (
     <>
       <MainHeader />
@@ -60,15 +75,34 @@ const VocabularyScreen = ({ navigation }) => {
         <View style={{ flex: 1 }}>
           <View style={styles.subContainer}>
             <Text style={styles.title}>Dictionary</Text>
-            <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-              <TextInput style={styles.searchInput} placeholder="Search" />
-              <IconButton
-                icon="magnify"
-                color={Colors.primary}
-                size={24}
-                style={{ marginLeft: 10 }}
-                onPress={() => console.log('123')}
+            <View
+              style={{
+                flexDirection: 'row',
+                alignItems: 'center',
+              }}>
+              <TextInput
+                value={word}
+                onChangeText={setWord}
+                style={styles.searchInput}
+                placeholder="Search"
               />
+              <View
+                style={{
+                  flex: 1,
+                  height: 50,
+                  justifyContent: 'center',
+                }}>
+                {isSearching ? (
+                  <ActivityIndicator size="small" color={Colors.primary} />
+                ) : (
+                  <IconButton
+                    icon="magnify"
+                    color={Colors.primary}
+                    size={24}
+                    onPress={handleSearchWord}
+                  />
+                )}
+              </View>
             </View>
           </View>
 
@@ -125,14 +159,13 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
   searchInput: {
-    flex: 1,
+    width: '85%',
     height: 40,
     backgroundColor: Colors.lightGray,
     paddingVertical: 10,
     paddingHorizontal: 15,
     fontSize: 16,
     borderRadius: 20,
-    marginBottom: 10,
   },
   btn: {
     flex: 1,

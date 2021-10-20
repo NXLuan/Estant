@@ -10,3 +10,7 @@ export function getAllTopic() {
 export function getByTopic(topic) {
   return axios.get(baseURL + `/GetByTopic?topic=${topic}`);
 }
+
+export function searchWord(word) {
+  return axios.get(baseURL + `/LookupDictionary?word=${word}`);
+}
