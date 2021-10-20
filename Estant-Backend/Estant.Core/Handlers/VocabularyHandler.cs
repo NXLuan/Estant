@@ -11,6 +11,7 @@ using Estant.Material;
 using System.Linq;
 using Estant.Material.Model.DTOModel;
 using Estant.Material.Utilities;
+using Estant.Material.Model.EnumModel;
 
 namespace Estant.Core.Handlers
 {
@@ -170,6 +171,54 @@ namespace Estant.Core.Handlers
             }
 
             return viewModel;
+        }
+
+        public async Task<List<object>> GenerateExercise(string topic)
+        {
+            List<object> exerciseViewModels = new List<object>();
+            var vocabList = await this.GetByTopic(topic);
+            if (vocabList != null && vocabList.Count > 0)
+            {
+                MultiRequestHelper<object> helper = new MultiRequestHelper<object>();
+                RandomSelectIndex random = new RandomSelectIndex(vocabList.Count);
+
+                int count = vocabList.Count >= ConfigConstants.NumOfQuestion ? ConfigConstants.NumOfQuestion : vocabList.Count;
+                Random rand = new Random();
+                for (int i = 0; i < count; i++)
+                {
+                    int index = random.GetIndexRandom();
+                    var vocab = vocabList[index];
+
+                    int type = rand.Next(1, ConfigConstants.NumTypeOfExe + 1);
+                    switch (type)
+                    {
+                        case (int)TypeQuestion.FillBlank:
+                            helper.AddRequest(Task.Run(() => vocab.GenFillBlankExe()));
+                            break;
+                        case (int)TypeQuestion.ChooseWordByExample:
+                            helper.AddRequest(Task.Run(() => vocab.GenChooseWordByExampleExe(vocabList)));
+                            break;
+                        case (int)TypeQuestion.ChooseMeaningByWord:
+                            helper.AddRequest(Task.Run(() => vocab.GenChooseMeaningByWordExe(vocabList)));
+                            break;
+                        case (int)TypeQuestion.WriteWordByAudio:
+                            helper.AddRequest(Task.Run(() => vocab.GenWriteWordByAudioExe()));
+                            break;
+                        default:
+                            helper.AddRequest(Task.Run(() => vocab.GenWriteWordByAudioExe()));
+                            break;
+                    }
+                }
+
+                var responses = await helper.Execute();
+
+                foreach (var response in responses)
+                {
+                    if (response != null)
+                        exerciseViewModels.Add(response);
+                }
+            }
+            return exerciseViewModels;
         }
     }
 }

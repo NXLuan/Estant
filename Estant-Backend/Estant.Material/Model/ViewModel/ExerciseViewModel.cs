@@ -45,4 +45,16 @@ namespace Estant.Material.Model.ViewModel
         public string Audio { get; set; }
     }
     #endregion
+
+    #region Grammar exercise
+    public class FillBlankGramarExe : ExerciseViewModel<string>
+    {
+        public string Sentence { get; set; }
+    }
+    public class ChooseCorrectAnswerGramarExe : ExerciseViewModel<int>
+    {
+        public string Sentence { get; set; }
+        public List<string> Choices { get; set; }
+    }
+    #endregion
 }

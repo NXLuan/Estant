@@ -29,10 +29,10 @@ namespace Estant.API.Controllers
         }
 
         [HttpGet("GetHtmlContent")]
-        public async Task<IActionResult> GetHtmlContent(string path)
+        public async Task<IActionResult> GetHtmlContent(string code)
         {
             var responseError = ResponseError.NoError;
-            var data = await _grammarHandler.GetHtmlContent(path);
+            var data = await _grammarHandler.GetHtmlContent(code);
             return ReturnData(data, responseError);
         }
     }

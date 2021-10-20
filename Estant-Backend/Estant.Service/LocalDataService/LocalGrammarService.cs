@@ -20,16 +20,20 @@ namespace Estant.Service.LocalDataService
             return await FileHelper.ReadFileAsync(_rootPath + "/JsonData/grammar.json");
         }
 
-        public async Task<string> GetHtmlContent(string filePath)
+        public async Task<string> GetHtmlContent(string code)
         {
             string content = null;
-            string html = await FileHelper.ReadFileAsync(_rootPath + "/ViewContent/html/" + filePath);
+            string html = await FileHelper.ReadFileAsync(_rootPath + "/ViewContent/html/" + code + ".html");
             string css = await FileHelper.ReadFileAsync(_rootPath + "/ViewContent/css/global.css");
             if (html != null)
             {
                 content = html.Insert(html.IndexOf("</style>"), css);
             }
             return content;
+        }
+
+        public async Task<string> GetExercise(string code){
+            return await FileHelper.ReadFileAsync(_rootPath + "/JsonData/" + code + ".json");
         }
     }
 }

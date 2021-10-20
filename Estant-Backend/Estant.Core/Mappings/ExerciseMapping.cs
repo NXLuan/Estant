@@ -1,6 +1,7 @@
 ﻿using Estant.Material.Model.EnumModel;
 using Estant.Material.Model.ViewModel;
 using Estant.Material.Utilities;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -182,6 +183,22 @@ namespace Estant.Core.Mappings
             exercise.SetQuestion(TypeQuestion.WriteWordByAudio);
 
             return exercise;
+        }
+
+        public static object DeserializeGrammarExe(this JToken objJson)
+        {
+            object quiz = null;
+            int typeQuiz = int.Parse(objJson["Type"].ToString());
+            switch (typeQuiz)
+            {
+                case (int)TypeQuestion.FillBlank:
+                    quiz = objJson.ToObject<FillBlankGramarExe>();
+                    break;
+                case (int)TypeQuestion.chooseCorrectAnswer:
+                    quiz = objJson.ToObject<ChooseCorrectAnswerGramarExe>();
+                    break;
+            }
+            return quiz;
         }
     }
 }

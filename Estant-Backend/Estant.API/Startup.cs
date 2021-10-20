@@ -64,7 +64,6 @@ namespace Estant.API
             services.AddSingleton<AuthHandler>();
             services.AddSingleton<VocabularyHandler>();
             services.AddSingleton<GrammarHandler>();
-            services.AddSingleton<ExerciseHandler>();
             services.AddSingleton<NewsHandler>();
 
             services.AddSingleton<IAuthenticationService, AuthFirebaseService>();

@@ -12,10 +12,12 @@ namespace Estant.API.Controllers
     public class ExerciseController : BaseController
     {
         #region Contructor
-        private readonly ExerciseHandler _exerciseHandler;
-        public ExerciseController(ExerciseHandler exerciseHandler)
+        private readonly VocabularyHandler _vocabHandler;
+        private readonly GrammarHandler _grammarHandler;
+        public ExerciseController(VocabularyHandler vocabHandler, GrammarHandler grammarHandler)
         {
-            _exerciseHandler = exerciseHandler;
+            _vocabHandler = vocabHandler;
+            _grammarHandler = grammarHandler;
         }
         #endregion
 
@@ -23,7 +25,15 @@ namespace Estant.API.Controllers
         public async Task<IActionResult> GetByTopic(string topic)
         {
             var responseError = ResponseError.NoError;
-            var data = await _exerciseHandler.GenerateVocabExes(topic);
+            var data = await _vocabHandler.GenerateExercise(topic);
+            return ReturnData(data, responseError);
+        }
+        
+        [HttpGet("GetByGrammar")]
+        public async Task<IActionResult> GetByGrammar(string code)
+        {
+            var responseError = ResponseError.NoError;
+            var data = await _grammarHandler.GetExercise(code);
             return ReturnData(data, responseError);
         }
     }

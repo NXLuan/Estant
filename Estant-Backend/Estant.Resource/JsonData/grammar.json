@@ -3,20 +3,20 @@
     "title": "4 TENSES IN ENGLISH",
     "lessons": [
       {
-        "name": "Present Simple Tense",
-        "html": "PresentSimpleTense.html"
+        "code": "PresentSimpleTense",
+        "name": "Present Simple Tense"
       },
       {
-        "name": "Present Continuous Tense",
-        "html": "PresentContinuousTense.html"
+        "code": "PresentContinuousTense",
+        "name": "Present Continuous Tense"
       },
       {
-        "name": "Present Perfect Tense",
-        "html": "PresentPerfectTense.html"
+        "code": "PresentPerfectTense",
+        "name": "Present Perfect Tense"
       },
       {
-        "name": "Past Simple Tense",
-        "html": "PastSimpleTense.html"
+        "code": "PastSimpleTense",
+        "name": "Past Simple Tense"
       }
     ]
   },
@@ -24,12 +24,12 @@
     "title": "BASIC ENGLISH GRAMMAR RULES",
     "lessons": [
       {
-        "name": "Irregular verb",
-        "html": "IrregularVerb.html"
+        "code": "IrregularVerb",
+        "name": "Irregular verb"
       },
       {
-        "name": "Modal verbs",
-        "html": "ModalVerbs.html"
+        "code": "ModalVerbs",
+        "name": "Modal verbs"
       }
     ]
   }
