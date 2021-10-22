@@ -50,11 +50,19 @@ namespace Estant.Material.Model.ViewModel
     public class FillBlankGramarExe : ExerciseViewModel<string>
     {
         public string Sentence { get; set; }
+        public FillBlankGramarExe()
+        {
+            SetQuestion(TypeQuestion.FillBlank);
+        }
     }
     public class ChooseCorrectAnswerGramarExe : ExerciseViewModel<int>
     {
         public string Sentence { get; set; }
         public List<string> Choices { get; set; }
+        public ChooseCorrectAnswerGramarExe()
+        {
+            SetQuestion(TypeQuestion.chooseCorrectAnswer);
+        }
     }
     #endregion
 }

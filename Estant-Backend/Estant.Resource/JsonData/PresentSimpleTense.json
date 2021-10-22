@@ -1,0 +1,84 @@
+[
+    {
+        "Type": "1",
+        "Sentence":"I _ (be) in a cafe now.",
+        "CorrectAnswer": "am"
+    },
+    {
+        "Type": "1",
+        "Sentence":"_ (the dog/eat) chicken?",
+        "CorrectAnswer": "Does the dog eat"
+    },
+    {
+        "Type": "5",
+        "Sentence":"He _____ an accountant.",
+        "CorrectAnswer": 2,
+        "Choices": ["doesn't", "don't", "isn't", "aren't"]
+    },
+    {
+        "Type": "5",
+        "Sentence":"The people of this country _____ no respect for their government.",
+        "CorrectAnswer": 0,
+        "Choices": ["have", "has", "doesn't have", "don't have"]
+    },
+    {
+        "Type": "1",
+        "Sentence":"_ (it/be) foggy today?",
+        "CorrectAnswer": "Is it"
+    },
+    {
+        "Type": "1",
+        "Sentence":"_ (she/play) tennis every week?",
+        "CorrectAnswer": "Does she play"
+    },
+    {
+        "Type": "1",
+        "Sentence":"She usually _ (wake) up at 6 o’clock.",
+        "CorrectAnswer": "wakes"
+    },
+    {
+        "Type": "5",
+        "Sentence":"They _____ football every weekend.",
+        "CorrectAnswer": 1,
+        "Choices": ["plays", "play", "doesn't play", "are play"]
+    },
+    {
+        "Type": "5",
+        "Sentence":"She ____ hard.",
+        "CorrectAnswer": 3,
+        "Choices": ["try", "trys", "tryes", "tries"]
+    },
+    {
+        "Type": "5",
+        "Sentence":"She ____ .",
+        "CorrectAnswer": 2,
+        "Choices": ["don't know", "doesn't knows", "doesn't know", "don't know"]
+    },
+    {
+        "Type": "5",
+        "Sentence":"She ____ a brother.",
+        "CorrectAnswer": 2,
+        "Choices": ["doesn't has", "don't has", "don't have", "doesn't have"]
+    },
+    {
+        "Type": "5",
+        "Sentence":"____ too much noise at night?",
+        "CorrectAnswer": 3,
+        "Choices": ["Does we make", "Do we makes", "Does he makes", "Does he make"]
+    },
+    {
+        "Type": "1",
+        "Sentence":"John and Mary _ (come) twice a week.",
+        "CorrectAnswer": "come"
+    },
+    {
+        "Type": "1",
+        "Sentence":"I _ (not/play) the piano very often.",
+        "CorrectAnswer": "Does the dog eat"
+    },
+    {
+        "Type": "1",
+        "Sentence":"The chef always _ (taste) the food before he serves it.",
+        "CorrectAnswer": "tastes"
+    }
+]
