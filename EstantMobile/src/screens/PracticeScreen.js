@@ -12,16 +12,23 @@ import FillBlank from '../components/FillBlank';
 import MultipleChoice from '../components/MultipleChoice';
 import AudioTest from '../components/AudioTest';
 import { Colors } from '../styles/colors';
-import { getExercisesByTopic } from '../api/ExerciseAPI';
+import { getExercisesByGrammar, getExercisesByTopic } from '../api/ExerciseAPI';
+import FillBlankGrammar from '../components/FillBankGrammar';
 
 const PracticeScreen = ({ navigation, route }) => {
   const [data, setData] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isFinish, setIsFinish] = useState(false);
   useEffect(() => {
-    getExercisesByTopic(route.params.topic)
-      .then(res => setData(res.data.data))
-      .catch(error => console.log(error));
+    if (route.params.topic != null) {
+      getExercisesByTopic(route.params.topic)
+        .then(res => setData(res.data.data))
+        .catch(error => console.log(error));
+    } else {
+      getExercisesByGrammar(route.params.code)
+        .then(res => setData(res.data.data))
+        .catch(error => console.log(error));
+    }
   }, []);
 
   function checkResult(item) {
@@ -110,8 +117,18 @@ const PracticeScreen = ({ navigation, route }) => {
               setIsFinish={setIsFinish}
               isFinish={isFinish}
             />
-          ) : data[currentIndex].type === 2 || data[currentIndex].type === 3 ? (
-            <MultipleChoice
+          ) : data[currentIndex].type === 4 ? (
+            <AudioTest
+              dataQuestion={data[currentIndex]}
+              id={currentIndex}
+              key={currentIndex + 1}
+              setData={setData}
+              setCurrentIndex={setCurrentIndex}
+              setIsFinish={setIsFinish}
+              isFinish={isFinish}
+            />
+          ) : data[currentIndex].type === 6 ? (
+            <FillBlankGrammar
               dataQuestion={data[currentIndex]}
               id={currentIndex}
               key={currentIndex + 1}
@@ -121,7 +138,7 @@ const PracticeScreen = ({ navigation, route }) => {
               isFinish={isFinish}
             />
           ) : (
-            <AudioTest
+            <MultipleChoice
               dataQuestion={data[currentIndex]}
               id={currentIndex}
               key={currentIndex + 1}

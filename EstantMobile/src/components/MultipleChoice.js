@@ -18,8 +18,15 @@ const MultipleChoice = ({
   setIsFinish,
   isFinish,
 }) => {
-  const { choices, example, question, correctAnswer, word, userAnswer } =
-    dataQuestion;
+  const {
+    choices,
+    example,
+    sentence,
+    question,
+    correctAnswer,
+    word,
+    userAnswer,
+  } = dataQuestion;
 
   const [answer, setAnswer] = useState(userAnswer);
 
@@ -56,6 +63,9 @@ const MultipleChoice = ({
     <>
       <Text style={styles.questionHeader}>{question}</Text>
       {example != null && <Text style={styles.questionBody}>"{example}"</Text>}
+      {sentence != null && (
+        <Text style={styles.questionBody}>"{sentence}"</Text>
+      )}
       {word != null && <Text style={styles.word}>{word}</Text>}
       <View style={styles.choiceContainer}>
         {choices.map((choice, index) => (
