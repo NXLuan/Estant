@@ -1,0 +1,84 @@
+[
+    {
+        "Type": "1",
+        "Sentence":"_ (She / be) late for a meeting?",
+        "CorrectAnswer": "Has she been"
+    },
+    {
+        "Type": "1",
+        "Sentence":"_ (I / meet) you before?",
+        "CorrectAnswer": "Have I met"
+    },
+    {
+        "Type": "5",
+        "Sentence":"Wiwi's been a vegetarian _____ three years",
+        "CorrectAnswer": 2,
+        "Choices": ["since", "after", "for", "about"]
+    },
+    {
+        "Type": "5",
+        "Sentence":"I haven't worked _____ last December.",
+        "CorrectAnswer": 1,
+        "Choices": ["for", "since", "by", "in"]
+    },
+    {
+        "Type": "1",
+        "Sentence":"We _ (be) here for two weeks.",
+        "CorrectAnswer": "have been"
+    },
+    {
+        "Type": "1",
+        "Sentence":"We _ (read) that book",
+        "CorrectAnswer": "have read"
+    },
+    {
+        "Type": "1",
+        "Sentence":"he _ (try) roller-skating.",
+        "CorrectAnswer": "has tried"
+    },
+    {
+        "Type": "5",
+        "Sentence":"My father is on the way. He ____________ home yet.",
+        "CorrectAnswer": 1,
+        "Choices": ["haven't arrived", "hasn't arrived", "didn't arrived", "arrived"]
+    },
+    {
+        "Type": "5",
+        "Sentence":"Julie ________ living in Italy since May.",
+        "CorrectAnswer": 3,
+        "Choices": ["has being", "is been", "is", "has been"]
+    },
+    {
+        "Type": "5",
+        "Sentence":"I am still working. I haven't finished my work ________.",
+        "CorrectAnswer": 2,
+        "Choices": ["is", "am", "are", "does"]
+    },
+    {
+        "Type": "5",
+        "Sentence":"My mother-in-law is _____ at our house this week.",
+        "CorrectAnswer": 1,
+        "Choices": ["stay", "staying", "be staying", "stays"]
+    },
+    {
+        "Type": "5",
+        "Sentence":"I _____ my dinner right now.",
+        "CorrectAnswer": 2,
+        "Choices": ["eat", "eating", "am eating", "are eating"]
+    },
+    {
+        "Type": "1",
+        "Sentence":"I _ (have) breakfast this morning",
+        "CorrectAnswer": "have had"
+    },
+    {
+        "Type": "1",
+        "Sentence":"He _ (drink) too much coffee",
+        "CorrectAnswer": "has drunk"
+    },
+    {
+        "Type": "1",
+        "Sentence":"Where _ (you / be)?",
+        "CorrectAnswer": "have you been "
+    }
+]

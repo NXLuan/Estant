@@ -52,7 +52,7 @@ namespace Estant.Material.Model.ViewModel
         public string Sentence { get; set; }
         public FillBlankGramarExe()
         {
-            SetQuestion(TypeQuestion.FillBlank);
+            SetQuestion(TypeQuestion.FillBlankGrammar);
         }
     }
     public class ChooseCorrectAnswerGramarExe : ExerciseViewModel<int>
@@ -61,7 +61,7 @@ namespace Estant.Material.Model.ViewModel
         public List<string> Choices { get; set; }
         public ChooseCorrectAnswerGramarExe()
         {
-            SetQuestion(TypeQuestion.chooseCorrectAnswer);
+            SetQuestion(TypeQuestion.ChooseCorrectAnswer);
         }
     }
     #endregion

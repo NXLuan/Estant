@@ -40,45 +40,45 @@
         "Type": "5",
         "Sentence":"___ you ___ dinner right now.",
         "CorrectAnswer": 1,
-        "Choices": ["Am eat", "Are eating", "Am eating", "Are eat"]
+        "Choices": ["Am / eat", "Are / eating", "Am / eating", "Are / eat"]
     },
     {
         "Type": "5",
-        "Sentence":"She ____ hard.",
+        "Sentence":"I _____ at the hair salon until September.",
         "CorrectAnswer": 3,
-        "Choices": ["try", "trys", "tryes", "tries"]
+        "Choices": ["work", "be working", "am work", "am working"]
     },
     {
         "Type": "5",
-        "Sentence":"She ____ .",
+        "Sentence":"Maxwell _____ not sleeping on our sofa.",
         "CorrectAnswer": 2,
-        "Choices": ["don't know", "doesn't knows", "doesn't know", "don't know"]
+        "Choices": ["is", "am", "are", "does"]
     },
     {
         "Type": "5",
-        "Sentence":"She ____ a brother.",
+        "Sentence":"My mother-in-law is _____ at our house this week.",
+        "CorrectAnswer": 1,
+        "Choices": ["stay", "staying", "be staying", "stays"]
+    },
+    {
+        "Type": "5",
+        "Sentence":"I _____ my dinner right now.",
         "CorrectAnswer": 2,
-        "Choices": ["doesn't has", "don't has", "don't have", "doesn't have"]
-    },
-    {
-        "Type": "5",
-        "Sentence":"____ too much noise at night?",
-        "CorrectAnswer": 3,
-        "Choices": ["Does we make", "Do we makes", "Does he makes", "Does he make"]
+        "Choices": ["eat", "eating", "am eating", "are eating"]
     },
     {
         "Type": "1",
-        "Sentence":"John and Mary _ (come) twice a week.",
-        "CorrectAnswer": "come"
+        "Sentence":"The number of applicants (increase) _ throughout the whole period.",
+        "CorrectAnswer": "is increasing"
     },
     {
         "Type": "1",
-        "Sentence":"I _ (not/play) the piano very often.",
-        "CorrectAnswer": "Does the dog eat"
+        "Sentence":"She (visit) _ her cousin next month.",
+        "CorrectAnswer": "is visiting"
     },
     {
         "Type": "1",
-        "Sentence":"The chef always _ (taste) the food before he serves it.",
-        "CorrectAnswer": "tastes"
+        "Sentence":"The process (stabilize) _ steadily.",
+        "CorrectAnswer": "is stabilising"
     }
 ]

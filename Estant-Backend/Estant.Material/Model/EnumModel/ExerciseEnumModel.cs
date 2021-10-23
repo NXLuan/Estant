@@ -15,7 +15,9 @@ namespace Estant.Material.Model.EnumModel
         ChooseMeaningByWord = 3,
         [Description("Listen and type the word")]
         WriteWordByAudio = 4,
-        [Description("choose the correct answer")]
-        chooseCorrectAnswer = 5 
+        [Description("Choose the correct answer")]
+        ChooseCorrectAnswer = 5,
+        [Description("Fill in the blanks")]
+        FillBlankGrammar = 6
     }
 }

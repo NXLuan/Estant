@@ -52,7 +52,7 @@
         "Type": "5",
         "Sentence":"She ____ .",
         "CorrectAnswer": 2,
-        "Choices": ["don't know", "doesn't knows", "doesn't know", "don't know"]
+        "Choices": ["don't knows", "doesn't knows", "doesn't know", "don't know"]
     },
     {
         "Type": "5",
