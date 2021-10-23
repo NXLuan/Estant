@@ -1,0 +1,92 @@
+[
+    {
+        "Type": "5",
+        "Sentence":"___ you swim when you were 10?",
+        "CorrectAnswer": 0,
+        "Choices": ["Could", "Couldn't", "Can", "Can't"]
+    },
+    {
+        "Type": "5",
+        "Sentence":"We ___ get to the meeting on time yesterday, because the train was delayed by one hour.",
+        "CorrectAnswer": 3,
+        "Choices": ["can't", "can", "could", "couldn't"]
+    },
+    {
+        "Type": "5",
+        "Sentence":"He's amazing, he __ speak five languages, including Chinese.",
+        "CorrectAnswer": 1,
+        "Choices": ["could", "can", "couldn't", "can't"]
+    },
+    {
+        "Type": "5",
+        "Sentence":"I _____ lift this box - it's too heavy! Would you help me?",
+        "CorrectAnswer": 3,
+        "Choices": ["could", "couldn't", "can", "can't"]
+    },
+    {
+        "Type": "5",
+        "Sentence":"Kate ___ swim very well, she is a great swimmer.",
+        "CorrectAnswer": 2,
+        "Choices": ["should", "mustn't", "can", "can't"]
+    },
+    {
+        "Type": "5",
+        "Sentence":"You ___ wash the dishes in cold water.",
+        "CorrectAnswer": 3,
+        "Choices": ["can", "don't have to", "must", "shouldn't"]
+    },
+    {
+        "Type": "5",
+        "Sentence":"She __ play the piano. She is a musician.",
+        "CorrectAnswer": 1,
+        "Choices": ["cannot", "can", "mustn't", "can't"]
+    },
+    {
+        "Type": "5",
+        "Sentence":"The doctor told him that he _ eat less. He’s too fat.",
+        "CorrectAnswer": 0,
+        "Choices": ["should", "mustn't", "shouldn't", "can"]
+    },
+    {
+        "Type": "5",
+        "Sentence":"You __ swim here. It's forbidden.",
+        "CorrectAnswer": 1,
+        "Choices": ["must", "mustn't", "don't have to", "can't"]
+    },
+    {
+        "Type": "5",
+        "Sentence":"You __ spend too much time playing computer games. It's bad for your eyes.",
+        "CorrectAnswer": 1,
+        "Choices": ["should", "shouldn't", "must", "can"]
+    },
+    {
+        "Type": "5",
+        "Sentence":"___ you help me? This exercise is really hard.",
+        "CorrectAnswer": 2,
+        "Choices": ["should", "must", "can", "mustn't"]
+    },
+    {
+        "Type": "5",
+        "Sentence":"You ___ touch this snake! It can bite you.",
+        "CorrectAnswer": 3,
+        "Choices": ["should", "must", "can", "mustn't"]
+    },
+    {
+        "Type": "5",
+        "Sentence":"You ___ read this book. It’s really good.",
+        "CorrectAnswer": 0,
+        "Choices": ["must", "mustn't", "have to", "don't have to"]
+    },
+    {
+        "Type": "5",
+        "Sentence":"We ____ feed the animals. It’s forbidden.",
+        "CorrectAnswer": 1,
+        "Choices": ["must", "mustn't", "may", "might"]
+    },
+    {
+        "Type": "5",
+        "Sentence": "He __ come to school today :) He is feeling better",
+        "CorrectAnswer": 3,
+        "Choices": ["might", "must", "mustn't", "may"]
+    }
+]

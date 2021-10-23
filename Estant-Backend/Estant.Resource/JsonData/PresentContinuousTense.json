@@ -1,11 +1,11 @@
 [
     {
-        "Type": "1",
+        "Type": "6",
         "Sentence":"He _ (study) at the moment.",
         "CorrectAnswer": "is studying"
     },
     {
-        "Type": "1",
+        "Type": "6",
         "Sentence":"The TV (always break) _",
         "CorrectAnswer": "is always breaking"
     },
@@ -22,17 +22,17 @@
         "Choices": ["open", "opening", "openning", "oppening"]
     },
     {
-        "Type": "1",
+        "Type": "6",
         "Sentence":"We _ (have) a party next Sunday",
         "CorrectAnswer": "are having"
     },
     {
-        "Type": "1",
+        "Type": "6",
         "Sentence":"They _ (listen) to their teacher. They are chatting with each others.",
         "CorrectAnswer": "are listening"
     },
     {
-        "Type": "1",
+        "Type": "6",
         "Sentence":"She (always/come) _ to class late.",
         "CorrectAnswer": "is always coming"
     },
@@ -67,17 +67,17 @@
         "Choices": ["eat", "eating", "am eating", "are eating"]
     },
     {
-        "Type": "1",
+        "Type": "6",
         "Sentence":"The number of applicants (increase) _ throughout the whole period.",
         "CorrectAnswer": "is increasing"
     },
     {
-        "Type": "1",
+        "Type": "6",
         "Sentence":"She (visit) _ her cousin next month.",
         "CorrectAnswer": "is visiting"
     },
     {
-        "Type": "1",
+        "Type": "6",
         "Sentence":"The process (stabilize) _ steadily.",
         "CorrectAnswer": "is stabilising"
     }

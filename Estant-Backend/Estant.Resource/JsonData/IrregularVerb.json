@@ -1,0 +1,84 @@
+[
+    {
+        "Type": "6",
+        "Sentence":"I _ (hear) a new song on the radio.",
+        "CorrectAnswer": "heard"
+    },
+    {
+        "Type": "6",
+        "Sentence":" I _ (read) three books last week.",
+        "CorrectAnswer": "read"
+    },
+    {
+        "Type": "5",
+        "Sentence":"Have you ____ your lost dog yet?",
+        "CorrectAnswer": 1,
+        "Choices": ["find", "found"]
+    },
+    {
+        "Type": "5",
+        "Sentence":"She spoke too softly. I couldn't _____ her.",
+        "CorrectAnswer": 0,
+        "Choices": ["hear", "heard"]
+    },
+    {
+        "Type": "6",
+        "Sentence":"The Children _ (sleep) in the car.",
+        "CorrectAnswer": "slept"
+    },
+    {
+        "Type": "6",
+        "Sentence":"We _ (leave) the house at 7am.",
+        "CorrectAnswer": "left"
+    },
+    {
+        "Type": "6",
+        "Sentence":"It _ (be) cold last night.",
+        "CorrectAnswer": "was"
+    },
+    {
+        "Type": "5",
+        "Sentence":"But we heard everything she ___",
+        "CorrectAnswer": 1,
+        "Choices": ["say", "said"]
+    },
+    {
+        "Type": "5",
+        "Sentence":"I used to ____ a lot of money, but I don't make much now.",
+        "CorrectAnswer": 0,
+        "Choices": ["make", "made"]
+    },
+    {
+        "Type": "5",
+        "Sentence":"You haven't ____ all that money already, have you?",
+        "CorrectAnswer": 1,
+        "Choices": ["spend", "spent"]
+    },
+    {
+        "Type": "5",
+        "Sentence":"When did you start to ____ English?",
+        "CorrectAnswer": 0,
+        "Choices": ["learn", "learnt"]
+    },
+    {
+        "Type": "5",
+        "Sentence":"I've always ______ cats are smarter than dogs.",
+        "CorrectAnswer": 1,
+        "Choices": ["think", "thought"]
+    },
+    {
+        "Type": "6",
+        "Sentence":"They _ (live) in Paris.",
+        "CorrectAnswer": "lived"
+    },
+    {
+        "Type": "6",
+        "Sentence":"Finally my mother _ (let) me go to a party.",
+        "CorrectAnswer": "let"
+    },
+    {
+        "Type": "6",
+        "Sentence":"The child _ (fall) off his bicycle.",
+        "CorrectAnswer": "fell "
+    }
+]

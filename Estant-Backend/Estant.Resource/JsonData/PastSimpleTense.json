@@ -1,11 +1,11 @@
 [
     {
-        "Type": "1",
+        "Type": "6",
         "Sentence":"She _ (get on) the bus in the centre of the city",
         "CorrectAnswer": "got on"
     },
     {
-        "Type": "1",
+        "Type": "6",
         "Sentence":" What time _ (he/get up) yesterday?",
         "CorrectAnswer": "did he get up"
     },
@@ -22,17 +22,17 @@
         "Choices": ["Were / see", "Have / see", "Did / see", "Did / saw"]
     },
     {
-        "Type": "1",
+        "Type": "6",
         "Sentence":"_ (I/forget) something?",
         "CorrectAnswer": "Did I forget"
     },
     {
-        "Type": "1",
+        "Type": "6",
         "Sentence":"She _ (read) the newspaper yesterday.",
         "CorrectAnswer": "read"
     },
     {
-        "Type": "1",
+        "Type": "6",
         "Sentence":"Why _ (you/come)?",
         "CorrectAnswer": "did you come"
     },
@@ -67,18 +67,18 @@
         "Choices": ["weren’t / weren’t", "didn’t / weren’t", "aren’t / aren’t", "didn’t / wasn’t"]
     },
     {
-        "Type": "1",
+        "Type": "6",
         "Sentence":"They _ (live) in Paris.",
         "CorrectAnswer": "lived"
     },
     {
-        "Type": "1",
-        "Sentence":"He _ (drink) too much coffee",
-        "CorrectAnswer": "has drunk"
+        "Type": "6",
+        "Sentence":"It _ (be) great.",
+        "CorrectAnswer": "was"
     },
     {
-        "Type": "1",
-        "Sentence":"Where _ (you / be)?",
-        "CorrectAnswer": "have you been "
+        "Type": "6",
+        "Sentence":"We _ (be) very lucky with the weather.",
+        "CorrectAnswer": "were "
     }
 ]

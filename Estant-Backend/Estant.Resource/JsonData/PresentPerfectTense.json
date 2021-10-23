@@ -1,11 +1,11 @@
 [
     {
-        "Type": "1",
+        "Type": "6",
         "Sentence":"_ (She / be) late for a meeting?",
         "CorrectAnswer": "Has she been"
     },
     {
-        "Type": "1",
+        "Type": "6",
         "Sentence":"_ (I / meet) you before?",
         "CorrectAnswer": "Have I met"
     },
@@ -22,17 +22,17 @@
         "Choices": ["for", "since", "by", "in"]
     },
     {
-        "Type": "1",
+        "Type": "6",
         "Sentence":"We _ (be) here for two weeks.",
         "CorrectAnswer": "have been"
     },
     {
-        "Type": "1",
+        "Type": "6",
         "Sentence":"We _ (read) that book",
         "CorrectAnswer": "have read"
     },
     {
-        "Type": "1",
+        "Type": "6",
         "Sentence":"he _ (try) roller-skating.",
         "CorrectAnswer": "has tried"
     },
@@ -67,17 +67,17 @@
         "Choices": ["yet", "now", "just", "ever"]
     },
     {
-        "Type": "1",
+        "Type": "6",
         "Sentence":"I _ (have) breakfast this morning",
         "CorrectAnswer": "have had"
     },
     {
-        "Type": "1",
+        "Type": "6",
         "Sentence":"He _ (drink) too much coffee",
         "CorrectAnswer": "has drunk"
     },
     {
-        "Type": "1",
+        "Type": "6",
         "Sentence":"Where _ (you / be)?",
         "CorrectAnswer": "have you been "
     }
