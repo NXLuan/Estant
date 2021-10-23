@@ -1,0 +1,84 @@
+[
+    {
+        "Type": "1",
+        "Sentence":"She _ (get on) the bus in the centre of the city",
+        "CorrectAnswer": "got on"
+    },
+    {
+        "Type": "1",
+        "Sentence":" What time _ (he/get up) yesterday?",
+        "CorrectAnswer": "did he get up"
+    },
+    {
+        "Type": "5",
+        "Sentence":"My father _____ my grandparents yesterday.",
+        "CorrectAnswer": 0,
+        "Choices": ["visited", "did visit", "visits", "was visit"]
+    },
+    {
+        "Type": "5",
+        "Sentence":"_____ you ______ Tom yesterday?",
+        "CorrectAnswer": 2,
+        "Choices": ["Were / see", "Have / see", "Did / see", "Did / saw"]
+    },
+    {
+        "Type": "1",
+        "Sentence":"_ (I/forget) something?",
+        "CorrectAnswer": "Did I forget"
+    },
+    {
+        "Type": "1",
+        "Sentence":"She _ (read) the newspaper yesterday.",
+        "CorrectAnswer": "read"
+    },
+    {
+        "Type": "1",
+        "Sentence":"Why _ (you/come)?",
+        "CorrectAnswer": "did you come"
+    },
+    {
+        "Type": "5",
+        "Sentence":"I _____ a hamburger for lunch.",
+        "CorrectAnswer": 2,
+        "Choices": ["was have", "am have", "had", "was had"]
+    },
+    {
+        "Type": "5",
+        "Sentence":"The young man ______ two sandwiches but he _____ still hungry.",
+        "CorrectAnswer": 1,
+        "Choices": ["did eat / was", "ate / was", "eated / was", "ate / did"]
+    },
+    {
+        "Type": "5",
+        "Sentence":"Andrew ______ go to the cinema yesterday. He _____ at home.",
+        "CorrectAnswer": 3,
+        "Choices": ["wasn’t / stayed", "didn’t / was stayed", "wasn’t / was stay", "didn’t / stayed"]
+    },
+    {
+        "Type": "5",
+        "Sentence":"The firefighter ____ for the little boy in the rooms and he ___ him.",
+        "CorrectAnswer": 0,
+        "Choices": ["looked / found", "was looked / was found", "did look / did find", "looked / was find"]
+    },
+    {
+        "Type": "5",
+        "Sentence":"They _____ play football because there ____ enough players.",
+        "CorrectAnswer": 1,
+        "Choices": ["weren’t / weren’t", "didn’t / weren’t", "aren’t / aren’t", "didn’t / wasn’t"]
+    },
+    {
+        "Type": "1",
+        "Sentence":"They _ (live) in Paris.",
+        "CorrectAnswer": "lived"
+    },
+    {
+        "Type": "1",
+        "Sentence":"He _ (drink) too much coffee",
+        "CorrectAnswer": "has drunk"
+    },
+    {
+        "Type": "1",
+        "Sentence":"Where _ (you / be)?",
+        "CorrectAnswer": "have you been "
+    }
+]

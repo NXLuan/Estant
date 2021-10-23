@@ -51,20 +51,20 @@
     {
         "Type": "5",
         "Sentence":"I am still working. I haven't finished my work ________.",
-        "CorrectAnswer": 2,
-        "Choices": ["is", "am", "are", "does"]
-    },
-    {
-        "Type": "5",
-        "Sentence":"My mother-in-law is _____ at our house this week.",
         "CorrectAnswer": 1,
-        "Choices": ["stay", "staying", "be staying", "stays"]
+        "Choices": ["already", "yet", "still", "never"]
     },
     {
         "Type": "5",
-        "Sentence":"I _____ my dinner right now.",
+        "Sentence":"My friend _________ my new dress yet.",
+        "CorrectAnswer": 3,
+        "Choices": ["haven't seen", "didn't see", "hasn't see", "hasn't seen"]
+    },
+    {
+        "Type": "5",
+        "Sentence":"I am not hungry. I have _______ eaten.",
         "CorrectAnswer": 2,
-        "Choices": ["eat", "eating", "am eating", "are eating"]
+        "Choices": ["yet", "now", "just", "ever"]
     },
     {
         "Type": "1",

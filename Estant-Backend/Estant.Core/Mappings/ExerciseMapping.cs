@@ -191,10 +191,10 @@ namespace Estant.Core.Mappings
             int typeQuiz = int.Parse(objJson["Type"].ToString());
             switch (typeQuiz)
             {
-                case (int)TypeQuestion.FillBlank:
+                case (int)TypeQuestion.FillBlankGrammar:
                     quiz = objJson.ToObject<FillBlankGramarExe>();
                     break;
-                case (int)TypeQuestion.chooseCorrectAnswer:
+                case (int)TypeQuestion.ChooseCorrectAnswer:
                     quiz = objJson.ToObject<ChooseCorrectAnswerGramarExe>();
                     break;
             }
