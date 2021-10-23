@@ -13,16 +13,16 @@ const AudioTest = ({
   setIsFinish,
   isFinish,
 }) => {
-  const { audio, question, correctAnswer } = dataQuestion;
+  const { audio, question, correctAnswer, userAnswer } = dataQuestion;
 
   const sound = new Sound(audio);
 
-  const [userAnswer, setUserAnswer] = useState('');
+  const [answer, setAnswer] = useState('');
 
   const handleSubmit = () => {
     setData(data => {
       let newData = [...data];
-      newData[id].userAnswer = userAnswer;
+      newData[id].userAnswer = answer;
       return newData;
     });
     setCurrentIndex(id + 1);
@@ -44,8 +44,8 @@ const AudioTest = ({
         mode="outlined"
         multiline={false}
         style={styles.input}
-        value={userAnswer}
-        onChangeText={setUserAnswer}
+        value={isFinish ? userAnswer : answer}
+        onChangeText={setAnswer}
         label="Your answer"
       />
       {isFinish && <Text style={styles.answerText}>{correctAnswer}</Text>}

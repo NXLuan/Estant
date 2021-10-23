@@ -10,7 +10,7 @@ const FillBlank = ({
   setData,
   setCurrentIndex,
   setIsFinish,
-  isFinish,
+  isFinish
 }) => {
   const { missingWord, definition, question, correctAnswer, userAnswer } =
     dataQuestion;

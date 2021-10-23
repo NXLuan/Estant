@@ -6,7 +6,7 @@ import { WebView } from 'react-native-webview';
 import Loader from '../components/Loader';
 import SquareButton from '../components/SquareButton';
 
-const LessonScreen = ({ route }) => {
+const LessonScreen = ({ route, navigation }) => {
   const { code } = route.params;
   const [content, setContent] = useState('');
   const [isLoading, setIsLoading] = useState(true);
@@ -34,7 +34,7 @@ const LessonScreen = ({ route }) => {
             color="white"
             size={30}
             style={styles.practiceBtn}
-            onPress={() => console.log('123')}
+            onPress={() => navigation.navigate('Practice', { code: code })}
           />
           <IconButton
             icon="clipboard-list"
