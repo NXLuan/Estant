@@ -1,0 +1,84 @@
+[
+    {
+        "Type": "1",
+        "Sentence":"He _ (study) at the moment.",
+        "CorrectAnswer": "is studying"
+    },
+    {
+        "Type": "1",
+        "Sentence":"The TV (always break) _",
+        "CorrectAnswer": "is always breaking"
+    },
+    {
+        "Type": "5",
+        "Sentence":"Melissa is _____ down on her bed",
+        "CorrectAnswer": 2,
+        "Choices": ["lieing", "liying", "lying", "lie"]
+    },
+    {
+        "Type": "5",
+        "Sentence":"They are _____ a new shopping mall downtown.",
+        "CorrectAnswer": 1,
+        "Choices": ["open", "opening", "openning", "oppening"]
+    },
+    {
+        "Type": "1",
+        "Sentence":"We _ (have) a party next Sunday",
+        "CorrectAnswer": "are having"
+    },
+    {
+        "Type": "1",
+        "Sentence":"They _ (listen) to their teacher. They are chatting with each others.",
+        "CorrectAnswer": "are listening"
+    },
+    {
+        "Type": "1",
+        "Sentence":"She (always/come) _ to class late.",
+        "CorrectAnswer": "is always coming"
+    },
+    {
+        "Type": "5",
+        "Sentence":"___ you ___ dinner right now.",
+        "CorrectAnswer": 1,
+        "Choices": ["Am eat", "Are eating", "Am eating", "Are eat"]
+    },
+    {
+        "Type": "5",
+        "Sentence":"She ____ hard.",
+        "CorrectAnswer": 3,
+        "Choices": ["try", "trys", "tryes", "tries"]
+    },
+    {
+        "Type": "5",
+        "Sentence":"She ____ .",
+        "CorrectAnswer": 2,
+        "Choices": ["don't know", "doesn't knows", "doesn't know", "don't know"]
+    },
+    {
+        "Type": "5",
+        "Sentence":"She ____ a brother.",
+        "CorrectAnswer": 2,
+        "Choices": ["doesn't has", "don't has", "don't have", "doesn't have"]
+    },
+    {
+        "Type": "5",
+        "Sentence":"____ too much noise at night?",
+        "CorrectAnswer": 3,
+        "Choices": ["Does we make", "Do we makes", "Does he makes", "Does he make"]
+    },
+    {
+        "Type": "1",
+        "Sentence":"John and Mary _ (come) twice a week.",
+        "CorrectAnswer": "come"
+    },
+    {
+        "Type": "1",
+        "Sentence":"I _ (not/play) the piano very often.",
+        "CorrectAnswer": "Does the dog eat"
+    },
+    {
+        "Type": "1",
+        "Sentence":"The chef always _ (taste) the food before he serves it.",
+        "CorrectAnswer": "tastes"
+    }
+]

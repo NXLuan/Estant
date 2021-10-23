@@ -11,8 +11,8 @@ namespace Estant.Material.Model.ViewModel
         public List<Lesson> lessons { get; set; }
         public class Lesson
         {
+            public string code { get; set; }
             public string name { get; set; }
-            public string html { get; set; }
         }
     }
     // public class GrammarViewModel
