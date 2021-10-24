@@ -35,5 +35,13 @@ namespace Estant.API.Controllers
             var data = await _grammarHandler.GetHtmlContent(code);
             return ReturnData(data, responseError);
         }
+
+        [HttpPost("CheckSpellAndGrammar")]
+        public async Task<IActionResult> CheckSpellAndGrammar(string text)
+        {
+            var responseError = ResponseError.NoError;
+            var data = await _grammarHandler.CheckSpellAndGrammar(text);
+            return ReturnData(data, responseError);
+        }
     }
 }

@@ -23,6 +23,34 @@ namespace Estant.Core.Mappings
 
             return data;
         }
+
+        public static List<SpellAndGrammarViewModel> DeserializeSpellAndGrammar(this string json)
+        {
+            var data = new List<SpellAndGrammarViewModel>();
+            JObject objJson = JObject.Parse(json);
+            if (objJson != null)
+            {
+                var arrMatch = JArray.Parse(objJson["matches"].ToString());
+                if (arrMatch != null && arrMatch.Count > 0)
+                {
+
+                    foreach (var match in arrMatch)
+                    { 
+                        var viewmodel = new SpellAndGrammarViewModel()
+                        {
+                            message = match["message"].ToString(),
+                            replacement = match["replacements"][0]["value"].ToString(),
+                            offset = int.Parse(match["offset"].ToString()),
+                            length = int.Parse(match["length"].ToString())
+                        };
+
+                        data.Add(viewmodel);
+                    }
+                }
+            }
+
+            return data;
+        }
         // public static List<GrammarViewModel> ConvertToGrammarView(this string json)
         // {
         //     List<GrammarViewModel> data = new List<GrammarViewModel>();

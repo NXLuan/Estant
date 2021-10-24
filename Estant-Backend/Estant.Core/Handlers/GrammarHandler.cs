@@ -2,6 +2,7 @@
 using Estant.Material;
 using Estant.Material.Model.ViewModel;
 using Estant.Material.Utilities;
+using Estant.Service.ApiService;
 using Estant.Service.Interface;
 using Newtonsoft.Json.Linq;
 using System;
@@ -52,6 +53,17 @@ namespace Estant.Core.Handlers
                 }
             }
             return exerciseViewModels;
+        }
+
+        public async Task<List<SpellAndGrammarViewModel>> CheckSpellAndGrammar(string text)
+        {
+            var data = new List<SpellAndGrammarViewModel>();
+            var json = await LanguageToolApi.TextChecking(text);
+            if (json != null)
+            {
+                data = json.DeserializeSpellAndGrammar();
+            }
+            return data;
         }
     }
 }

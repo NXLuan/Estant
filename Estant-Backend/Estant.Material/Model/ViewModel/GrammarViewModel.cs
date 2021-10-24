@@ -15,6 +15,14 @@ namespace Estant.Material.Model.ViewModel
             public string name { get; set; }
         }
     }
+
+    public class SpellAndGrammarViewModel
+    {
+        public string message { get; set; }
+        public string replacement { get; set; }
+        public int offset { get; set; }
+        public int length { get; set; }
+    }
     // public class GrammarViewModel
     // {
     //     public int id { get; set; }
