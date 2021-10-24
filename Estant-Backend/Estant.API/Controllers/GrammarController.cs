@@ -1,6 +1,7 @@
 ﻿using Estant.Core.Handlers;
 using Estant.Material.Model.EnumModel;
 using Estant.Material.Model.ViewModel;
+using Estant.Material.Utilities;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -40,7 +41,13 @@ namespace Estant.API.Controllers
         public async Task<IActionResult> CheckSpellAndGrammar(string text)
         {
             var responseError = ResponseError.NoError;
-            var data = await _grammarHandler.CheckSpellAndGrammar(text);
+            if (string.IsNullOrWhiteSpace(text))
+                responseError = ResponseError.IsEmptyInput;
+            List<SpellAndGrammarViewModel> data = null;
+            if (!responseError.HasError())
+            {
+                data = await _grammarHandler.CheckSpellAndGrammar(text);
+            }
             return ReturnData(data, responseError);
         }
     }

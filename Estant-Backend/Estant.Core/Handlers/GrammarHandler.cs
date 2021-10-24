@@ -57,8 +57,8 @@ namespace Estant.Core.Handlers
 
         public async Task<List<SpellAndGrammarViewModel>> CheckSpellAndGrammar(string text)
         {
-            var data = new List<SpellAndGrammarViewModel>();
-            var json = await LanguageToolApi.TextChecking(text);
+            List<SpellAndGrammarViewModel> data = null;
+            var json = await LanguageToolApi.TextChecking(text.Trim());
             if (json != null)
             {
                 data = json.DeserializeSpellAndGrammar();
