@@ -15,6 +15,13 @@ namespace Estant.View
         public MainForm()
         {
             InitializeComponent();
+            InitHandle();
+        }
+
+        private void InitHandle()
+        {
+            btnVocab.IsActive = false;
+            btnGrammar.IsActive = false;
         }
     }
 }
