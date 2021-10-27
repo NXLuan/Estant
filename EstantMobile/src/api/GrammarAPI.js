@@ -10,3 +10,7 @@ export function getAllLessons() {
 export function getLessonContent(code) {
   return axios.get(baseURL + `/GetHtmlContent?code=${code}`);
 }
+
+export function checkSpellAndGrammar(text) {
+  return axios.post(baseURL + `/CheckSpellAndGrammar?text=${text}`);
+}
