@@ -14,4 +14,9 @@ namespace Estant.View
             get => Color.FromArgb(245, 106, 77);
         }
     }
+
+    public enum PageForm
+    {
+        VOCABULARY, GRAMMAR, ACCOUNT
+    }
 }
