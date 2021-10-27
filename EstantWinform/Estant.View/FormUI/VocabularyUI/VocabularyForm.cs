@@ -8,20 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Estant.View
+namespace Estant.View.FormUI.VocabularyUI
 {
-    public partial class MainForm : Form
+    public partial class VocabularyForm : Form
     {
-        public MainForm()
+        public VocabularyForm()
         {
             InitializeComponent();
-            InitHandle();
-        }
-
-        private void InitHandle()
-        {
-            btnVocab.IsActive = false;
-            btnGrammar.IsActive = false;
         }
     }
 }

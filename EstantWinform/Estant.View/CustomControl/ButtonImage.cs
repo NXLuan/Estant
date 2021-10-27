@@ -21,12 +21,23 @@ namespace Estant.View.CustomControl
             set => lbTextButton.Text = value;
         }
 
+        public Color TextColor
+        {
+            get => lbTextButton.ForeColor;
+            set => lbTextButton.ForeColor = value;
+        }
+
         private bool _isActive;
-        public bool IsActive 
+        public bool IsActive
         {
             get => _isActive;
             set
             {
+                if (IsOneStatus)
+                {
+                    pbIcon.Image = NormalImage;
+                    return;
+                }
                 _isActive = value;
                 if (value)
                 {
@@ -41,6 +52,13 @@ namespace Estant.View.CustomControl
             }
         }
 
+        public bool IsOneStatus { get; set; }
+
+        [Browsable(true)]
+        [Category("Action")]
+        [Description("Invoked when user select button")]
+        public event EventHandler Selected;
+
         public ButtonImage()
         {
             InitializeComponent();
@@ -49,11 +67,18 @@ namespace Estant.View.CustomControl
 
         private void EventHandle()
         {
-            foreach(Control control in this.Controls)
+            foreach (Control control in this.Controls)
             {
                 control.MouseClick += (s, e) =>
                 {
-                    IsActive = !IsActive;
+                    if (!IsActive || IsOneStatus)
+                    {
+                        //bubble the event up to the parent
+                        if (Selected != null)
+                            Selected(this, e);
+
+                        IsActive = true;
+                    }
                 };
             }
         }
