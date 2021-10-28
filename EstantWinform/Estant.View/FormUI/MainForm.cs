@@ -27,31 +27,31 @@ namespace Estant.View.FormUI
 
         private void btnVocab_Selected(object sender, EventArgs e)
         {
-            ShowForm(PageForm.VOCABULARY);
+            ShowForm(Screen.VOCABULARY);
         }
 
         private void btnGrammar_Selected(object sender, EventArgs e)
         {
-            ShowForm(PageForm.GRAMMAR);
+            ShowForm(Screen.GRAMMAR);
         }
 
         private void btnAccount_Load(object sender, EventArgs e)
         {
-            ShowForm(PageForm.ACCOUNT);
+            ShowForm(Screen.ACCOUNT);
         }
 
-        public void ShowForm(PageForm page)
+        public void ShowForm(Screen page)
         {
             ResetSelect();
             Form form = null;
             switch (page)
             {
-                case PageForm.VOCABULARY:
+                case Screen.VOCABULARY:
                     form = Singleton<VocabularyForm>.Instance;
                     break;
-                case PageForm.GRAMMAR:
+                case Screen.GRAMMAR:
                     break;
-                case PageForm.ACCOUNT:
+                case Screen.ACCOUNT:
                     break;
             }
 

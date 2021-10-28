@@ -53,6 +53,13 @@
     <Compile Include="CustomControl\ButtonImage.Designer.cs">
       <DependentUpon>ButtonImage.cs</DependentUpon>
     </Compile>
+    <Compile Include="CustomControl\StackNavigator.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CustomControl\StackNavigator.Designer.cs">
+      <DependentUpon>StackNavigator.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Extensions\ControlExtension.cs" />
     <Compile Include="FormUI\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -69,6 +76,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="CustomControl\ButtonImage.resx">
       <DependentUpon>ButtonImage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomControl\StackNavigator.resx">
+      <DependentUpon>StackNavigator.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormUI\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>

@@ -1,4 +1,5 @@
-﻿using Estant.View.FormUI;
+﻿using Estant.Material.Utilities;
+using Estant.View.FormUI;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,7 +18,7 @@ namespace Estant.View
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MainForm());
+            Application.Run(Singleton<MainForm>.Instance);
         }
     }
 }

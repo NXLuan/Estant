@@ -13,9 +13,13 @@ namespace Estant.View
         {
             get => Color.FromArgb(245, 106, 77);
         }
+        public static Color TextNormalColor
+        {
+            get => Color.FromArgb(152, 152, 152);
+        }
     }
 
-    public enum PageForm
+    public enum Screen
     {
         VOCABULARY, GRAMMAR, ACCOUNT
     }

@@ -47,7 +47,7 @@ namespace Estant.View.CustomControl
                 else
                 {
                     pbIcon.Image = NormalImage;
-                    lbTextButton.ForeColor = Color.FromArgb(152, 152, 152);
+                    lbTextButton.ForeColor = AppColor.TextNormalColor;
                 }
             }
         }

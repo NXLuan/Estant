@@ -15,6 +15,7 @@ namespace Estant.View.FormUI.VocabularyUI
         public VocabularyForm()
         {
             InitializeComponent();
+            stNavigate.AddTab("Vocabulary");
         }
     }
 }
