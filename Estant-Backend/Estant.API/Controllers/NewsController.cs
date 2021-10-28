@@ -20,10 +20,18 @@ namespace Estant.API.Controllers
         #endregion
 
         [HttpGet("GetNewsToday")]
-        public IActionResult GetNewsToday()
+        public IActionResult GetNewsTopToday()
         {
             var responseError = ResponseError.NoError;
-            var data = _newsHandler.GetNewsToday();
+            var data = _newsHandler.GetNewsTopToday();
+            return ReturnData(data, responseError);
+        }
+
+        [HttpGet("GetNewsByKeyWord")]
+        public IActionResult GetNewByKeyWord(string keyword)
+        {
+            var responseError = ResponseError.NoError;
+            var data = _newsHandler.GetNewsByKeyWord(keyword);
             return ReturnData(data, responseError);
         }
     }

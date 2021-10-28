@@ -16,14 +16,14 @@ namespace Estant.Service.ApiService
             newsApiClient = new NewsApiClient(ApiKey);
         }
 
-        public object GetEverything(DateTime fromDate)
+        public object GetEverything(string keyword)
         {
             object result = null;
             var articlesResponse = newsApiClient.GetEverything(new EverythingRequest
             {
-                Q = "Airline",
+                Q = keyword,
                 Language = Languages.EN,
-                From = new DateTime(fromDate.Year, fromDate.Month, fromDate.Day)
+                SortBy = SortBys.Popularity
             });
 
             if (articlesResponse.Status == Statuses.Ok)
@@ -39,7 +39,7 @@ namespace Estant.Service.ApiService
             var result = new List<Article>();
             var articlesResponse = newsApiClient.GetTopHeadlines(new TopHeadlinesRequest
             {
-                Language = Languages.EN,
+                Language = Languages.EN
             });
 
             if (articlesResponse.Status == Statuses.Ok)

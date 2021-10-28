@@ -13,9 +13,19 @@ namespace Estant.Core.Handlers
             newsApi = new NewsApi();
         }
 
-        public object GetNewsToday()
+        public object GetNewsTopToday()
         {
-            var data = newsApi.GetEverything(DateTime.Today);
+            var data = newsApi.GetTopHeadlines();
+            return data;
+        }
+
+        public object GetNewsByKeyWord(string keyword)
+        {
+            object data = null;
+            if (!string.IsNullOrEmpty(keyword))
+            {
+                data = newsApi.GetEverything(keyword);
+            }
             return data;
         }
     }
