@@ -38,7 +38,7 @@ namespace Estant.API.Controllers
         }
 
         [HttpPost("CheckSpellAndGrammar")]
-        public async Task<IActionResult> CheckSpellAndGrammar(string text)
+        public async Task<IActionResult> CheckSpellAndGrammar([FromBody]string text)
         {
             var responseError = ResponseError.NoError;
             if (string.IsNullOrWhiteSpace(text))
