@@ -12,5 +12,7 @@ export function getLessonContent(code) {
 }
 
 export function checkSpellAndGrammar(text) {
-  return axios.post(baseURL + `/CheckSpellAndGrammar?text=${text}`);
+  return axios.post(baseURL + `/CheckSpellAndGrammar`, text, {
+    headers: { 'Content-Type': 'application/json' },
+  });
 }
