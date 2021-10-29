@@ -42,7 +42,7 @@ namespace Estant.View.CustomControl
             this.lbTab.Dock = System.Windows.Forms.DockStyle.Left;
             this.lbTab.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbTab.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
-            this.lbTab.Location = new System.Drawing.Point(20, 10);
+            this.lbTab.Location = new System.Drawing.Point(20, 20);
             this.lbTab.Name = "lbTab";
             this.lbTab.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
             this.lbTab.Size = new System.Drawing.Size(68, 20);
@@ -55,7 +55,7 @@ namespace Estant.View.CustomControl
             // 
             this.pbArrow.Dock = System.Windows.Forms.DockStyle.Left;
             this.pbArrow.Image = ((System.Drawing.Image)(resources.GetObject("pbArrow.Image")));
-            this.pbArrow.Location = new System.Drawing.Point(88, 10);
+            this.pbArrow.Location = new System.Drawing.Point(88, 20);
             this.pbArrow.Name = "pbArrow";
             this.pbArrow.Size = new System.Drawing.Size(10, 20);
             this.pbArrow.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -67,11 +67,12 @@ namespace Estant.View.CustomControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.Control;
             this.Controls.Add(this.pbArrow);
             this.Controls.Add(this.lbTab);
             this.Name = "StackNavigator";
-            this.Padding = new System.Windows.Forms.Padding(20, 10, 0, 10);
-            this.Size = new System.Drawing.Size(492, 40);
+            this.Padding = new System.Windows.Forms.Padding(20, 20, 0, 10);
+            this.Size = new System.Drawing.Size(492, 50);
             ((System.ComponentModel.ISupportInitialize)(this.pbArrow)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

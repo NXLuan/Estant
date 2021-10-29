@@ -47,11 +47,23 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Contants.cs" />
+    <Compile Include="CustomControl\ButtonFlatImage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CustomControl\ButtonFlatImage.Designer.cs">
+      <DependentUpon>ButtonFlatImage.cs</DependentUpon>
+    </Compile>
     <Compile Include="CustomControl\ButtonImage.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="CustomControl\ButtonImage.Designer.cs">
       <DependentUpon>ButtonImage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CustomControl\SearchBar.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CustomControl\SearchBar.Designer.cs">
+      <DependentUpon>SearchBar.cs</DependentUpon>
     </Compile>
     <Compile Include="CustomControl\StackNavigator.cs">
       <SubType>UserControl</SubType>
@@ -74,8 +86,14 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="CustomControl\ButtonFlatImage.resx">
+      <DependentUpon>ButtonFlatImage.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CustomControl\ButtonImage.resx">
       <DependentUpon>ButtonImage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomControl\SearchBar.resx">
+      <DependentUpon>SearchBar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CustomControl\StackNavigator.resx">
       <DependentUpon>StackNavigator.cs</DependentUpon>

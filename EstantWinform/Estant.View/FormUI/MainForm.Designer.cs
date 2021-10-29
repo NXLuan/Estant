@@ -32,18 +32,18 @@ namespace Estant.View.FormUI
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.btnLogOut = new Estant.View.CustomControl.ButtonImage();
-            this.btnAccount = new Estant.View.CustomControl.ButtonImage();
             this.label3 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.btnGrammar = new Estant.View.CustomControl.ButtonImage();
-            this.btnVocab = new Estant.View.CustomControl.ButtonImage();
             this.label2 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pnForm = new System.Windows.Forms.Panel();
+            this.btnLogOut = new Estant.View.CustomControl.ButtonImage();
+            this.btnAccount = new Estant.View.CustomControl.ButtonImage();
+            this.btnGrammar = new Estant.View.CustomControl.ButtonImage();
+            this.btnVocab = new Estant.View.CustomControl.ButtonImage();
             this.panel1.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -73,41 +73,6 @@ namespace Estant.View.FormUI
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(232, 213);
             this.panel5.TabIndex = 4;
-            // 
-            // btnLogOut
-            // 
-            this.btnLogOut.ActiveImage = null;
-            this.btnLogOut.BackColor = System.Drawing.Color.White;
-            this.btnLogOut.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnLogOut.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnLogOut.IsActive = false;
-            this.btnLogOut.IsOneStatus = true;
-            this.btnLogOut.Location = new System.Drawing.Point(0, 84);
-            this.btnLogOut.Name = "btnLogOut";
-            this.btnLogOut.NormalImage = ((System.Drawing.Image)(resources.GetObject("btnLogOut.NormalImage")));
-            this.btnLogOut.Padding = new System.Windows.Forms.Padding(40, 10, 10, 10);
-            this.btnLogOut.Size = new System.Drawing.Size(232, 55);
-            this.btnLogOut.TabIndex = 3;
-            this.btnLogOut.TextButton = "Log out";
-            this.btnLogOut.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(13)))), ((int)(((byte)(37)))));
-            // 
-            // btnAccount
-            // 
-            this.btnAccount.ActiveImage = ((System.Drawing.Image)(resources.GetObject("btnAccount.ActiveImage")));
-            this.btnAccount.BackColor = System.Drawing.Color.White;
-            this.btnAccount.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAccount.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnAccount.IsActive = false;
-            this.btnAccount.IsOneStatus = false;
-            this.btnAccount.Location = new System.Drawing.Point(0, 29);
-            this.btnAccount.Name = "btnAccount";
-            this.btnAccount.NormalImage = ((System.Drawing.Image)(resources.GetObject("btnAccount.NormalImage")));
-            this.btnAccount.Padding = new System.Windows.Forms.Padding(40, 10, 10, 10);
-            this.btnAccount.Size = new System.Drawing.Size(232, 55);
-            this.btnAccount.TabIndex = 2;
-            this.btnAccount.TextButton = "Account";
-            this.btnAccount.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
-            this.btnAccount.Load += new System.EventHandler(this.btnAccount_Load);
             // 
             // label3
             // 
@@ -143,42 +108,6 @@ namespace Estant.View.FormUI
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(232, 3);
             this.panel4.TabIndex = 4;
-            // 
-            // btnGrammar
-            // 
-            this.btnGrammar.ActiveImage = ((System.Drawing.Image)(resources.GetObject("btnGrammar.ActiveImage")));
-            this.btnGrammar.BackColor = System.Drawing.Color.White;
-            this.btnGrammar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnGrammar.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnGrammar.IsActive = false;
-            this.btnGrammar.IsOneStatus = false;
-            this.btnGrammar.Location = new System.Drawing.Point(0, 84);
-            this.btnGrammar.Name = "btnGrammar";
-            this.btnGrammar.NormalImage = ((System.Drawing.Image)(resources.GetObject("btnGrammar.NormalImage")));
-            this.btnGrammar.Padding = new System.Windows.Forms.Padding(40, 10, 10, 10);
-            this.btnGrammar.Size = new System.Drawing.Size(232, 55);
-            this.btnGrammar.TabIndex = 3;
-            this.btnGrammar.TextButton = "Grammar";
-            this.btnGrammar.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
-            this.btnGrammar.Selected += new System.EventHandler(this.btnGrammar_Selected);
-            // 
-            // btnVocab
-            // 
-            this.btnVocab.ActiveImage = ((System.Drawing.Image)(resources.GetObject("btnVocab.ActiveImage")));
-            this.btnVocab.BackColor = System.Drawing.Color.White;
-            this.btnVocab.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnVocab.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnVocab.IsActive = false;
-            this.btnVocab.IsOneStatus = false;
-            this.btnVocab.Location = new System.Drawing.Point(0, 29);
-            this.btnVocab.Name = "btnVocab";
-            this.btnVocab.NormalImage = ((System.Drawing.Image)(resources.GetObject("btnVocab.NormalImage")));
-            this.btnVocab.Padding = new System.Windows.Forms.Padding(40, 10, 10, 10);
-            this.btnVocab.Size = new System.Drawing.Size(232, 55);
-            this.btnVocab.TabIndex = 2;
-            this.btnVocab.TextButton = "Vocabulary";
-            this.btnVocab.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
-            this.btnVocab.Selected += new System.EventHandler(this.btnVocab_Selected);
             // 
             // label2
             // 
@@ -236,6 +165,77 @@ namespace Estant.View.FormUI
             this.pnForm.Name = "pnForm";
             this.pnForm.Size = new System.Drawing.Size(843, 633);
             this.pnForm.TabIndex = 1;
+            // 
+            // btnLogOut
+            // 
+            this.btnLogOut.ActiveImage = null;
+            this.btnLogOut.BackColor = System.Drawing.Color.White;
+            this.btnLogOut.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnLogOut.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnLogOut.IsActive = false;
+            this.btnLogOut.IsOneStatus = true;
+            this.btnLogOut.Location = new System.Drawing.Point(0, 84);
+            this.btnLogOut.Name = "btnLogOut";
+            this.btnLogOut.NormalImage = ((System.Drawing.Image)(resources.GetObject("btnLogOut.NormalImage")));
+            this.btnLogOut.Padding = new System.Windows.Forms.Padding(40, 10, 10, 10);
+            this.btnLogOut.Size = new System.Drawing.Size(232, 55);
+            this.btnLogOut.TabIndex = 3;
+            this.btnLogOut.TextButton = "Log out";
+            this.btnLogOut.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(13)))), ((int)(((byte)(37)))));
+            // 
+            // btnAccount
+            // 
+            this.btnAccount.ActiveImage = ((System.Drawing.Image)(resources.GetObject("btnAccount.ActiveImage")));
+            this.btnAccount.BackColor = System.Drawing.Color.White;
+            this.btnAccount.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAccount.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnAccount.IsActive = false;
+            this.btnAccount.IsOneStatus = false;
+            this.btnAccount.Location = new System.Drawing.Point(0, 29);
+            this.btnAccount.Name = "btnAccount";
+            this.btnAccount.NormalImage = ((System.Drawing.Image)(resources.GetObject("btnAccount.NormalImage")));
+            this.btnAccount.Padding = new System.Windows.Forms.Padding(40, 10, 10, 10);
+            this.btnAccount.Size = new System.Drawing.Size(232, 55);
+            this.btnAccount.TabIndex = 2;
+            this.btnAccount.TextButton = "Account";
+            this.btnAccount.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.btnAccount.Load += new System.EventHandler(this.btnAccount_Load);
+            // 
+            // btnGrammar
+            // 
+            this.btnGrammar.ActiveImage = ((System.Drawing.Image)(resources.GetObject("btnGrammar.ActiveImage")));
+            this.btnGrammar.BackColor = System.Drawing.Color.White;
+            this.btnGrammar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnGrammar.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnGrammar.IsActive = false;
+            this.btnGrammar.IsOneStatus = false;
+            this.btnGrammar.Location = new System.Drawing.Point(0, 84);
+            this.btnGrammar.Name = "btnGrammar";
+            this.btnGrammar.NormalImage = ((System.Drawing.Image)(resources.GetObject("btnGrammar.NormalImage")));
+            this.btnGrammar.Padding = new System.Windows.Forms.Padding(40, 10, 10, 10);
+            this.btnGrammar.Size = new System.Drawing.Size(232, 55);
+            this.btnGrammar.TabIndex = 3;
+            this.btnGrammar.TextButton = "Grammar";
+            this.btnGrammar.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.btnGrammar.Selected += new System.EventHandler(this.btnGrammar_Selected);
+            // 
+            // btnVocab
+            // 
+            this.btnVocab.ActiveImage = ((System.Drawing.Image)(resources.GetObject("btnVocab.ActiveImage")));
+            this.btnVocab.BackColor = System.Drawing.Color.White;
+            this.btnVocab.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnVocab.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnVocab.IsActive = false;
+            this.btnVocab.IsOneStatus = false;
+            this.btnVocab.Location = new System.Drawing.Point(0, 29);
+            this.btnVocab.Name = "btnVocab";
+            this.btnVocab.NormalImage = ((System.Drawing.Image)(resources.GetObject("btnVocab.NormalImage")));
+            this.btnVocab.Padding = new System.Windows.Forms.Padding(40, 10, 10, 10);
+            this.btnVocab.Size = new System.Drawing.Size(232, 55);
+            this.btnVocab.TabIndex = 2;
+            this.btnVocab.TextButton = "Vocabulary";
+            this.btnVocab.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.btnVocab.Selected += new System.EventHandler(this.btnVocab_Selected);
             // 
             // MainForm
             // 
