@@ -28,29 +28,31 @@ namespace Estant.View.CustomControl
         {
             int n = tabs.Count;
 
-            #region generate tab
+            List<Control> controls = new List<Control>();
+
+            if (n != 0)
+            {
+                #region Add arrow
+                var pbArrowClone = ControlExtension.Clone<PictureBox>(pbArrow);
+                pbArrowClone.Visible = true;
+                pbArrow.BringToFront();
+                Controls.Add(pbArrowClone);
+                #endregion
+            }
+
+            #region Add tab
             var lbTabClone = ControlExtension.Clone<Label>(lbTab);
             lbTabClone.Text = screenName;
             lbTabClone.Name = screenName;
             lbTabClone.Visible = true;
             lbTabClone.Click += (s, e) =>
-              {
-                  SelectTab(Controls.IndexOf(s as Label) / 2);
-              };
+            {
+                SelectTab(Controls.IndexOf(s as Label) / 2);
+            };
+            Controls.Add(lbTabClone);
             #endregion
 
-            if (n != 0)
-            {
-                #region generate arrow
-                var pbArrowClone = ControlExtension.Clone<PictureBox>(pbArrow);
-                pbArrowClone.Visible = true;
-                #endregion
-
-                Controls.Add(pbArrowClone);
-            }
-
-            Controls.Add(lbTabClone);
-            tabs.Add(screenName);
+            tabs.Insert(n, screenName);
             SelectTab(n);
         }
 
@@ -58,18 +60,22 @@ namespace Estant.View.CustomControl
         {
             if (index != currentIndex)
             {
-                int n = tabs.Count;
                 currentIndex = index;
 
-                if (index != n - 1)
+                if (index != tabs.Count - 1)
                 {
-                    for (int i = 2 * index + 1; i < Controls.Count; i++)
+                    while (2 * index != Controls.Count - 1)
                     {
-                        Controls.RemoveAt(i);
+                        Controls.RemoveAt(Controls.Count - 1);
+                    }
+
+                    while(index != tabs.Count - 1)
+                    {
+                        tabs.RemoveAt(tabs.Count - 1);
                     }
                 }
 
-                for (int i = 0; i < n; i++)
+                for (int i = 0; i < tabs.Count; i++)
                 {
                     var label = Controls[2 * i] as Label;
                     label.ForeColor = index == i ? AppColor.MainColor : AppColor.TextNormalColor;

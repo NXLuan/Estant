@@ -46,7 +46,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Contants.cs" />
+    <Compile Include="CustomControl\LoadCircle.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CustomControl\LoadCircle.Designer.cs">
+      <DependentUpon>LoadCircle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormUI\VocabularyUI\TopicForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormUI\VocabularyUI\TopicForm.Designer.cs">
+      <DependentUpon>TopicForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Styles.cs" />
     <Compile Include="CustomControl\ButtonFlatImage.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -58,6 +70,12 @@
     </Compile>
     <Compile Include="CustomControl\ButtonImage.Designer.cs">
       <DependentUpon>ButtonImage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CustomControl\CardItem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CustomControl\CardItem.Designer.cs">
+      <DependentUpon>CardItem.cs</DependentUpon>
     </Compile>
     <Compile Include="CustomControl\SearchBar.cs">
       <SubType>UserControl</SubType>
@@ -92,6 +110,12 @@
     <EmbeddedResource Include="CustomControl\ButtonImage.resx">
       <DependentUpon>ButtonImage.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="CustomControl\CardItem.resx">
+      <DependentUpon>CardItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomControl\LoadCircle.resx">
+      <DependentUpon>LoadCircle.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CustomControl\SearchBar.resx">
       <DependentUpon>SearchBar.cs</DependentUpon>
     </EmbeddedResource>
@@ -100,6 +124,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormUI\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormUI\VocabularyUI\TopicForm.resx">
+      <DependentUpon>TopicForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormUI\VocabularyUI\VocabularyForm.resx">
       <DependentUpon>VocabularyForm.cs</DependentUpon>
@@ -127,6 +154,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\EstantNF.Core\EstantNF.Core.csproj">
+      <Project>{69EEA858-22E8-4C9C-8D26-CC55E8E8FED6}</Project>
+      <Name>EstantNF.Core</Name>
+    </ProjectReference>
     <ProjectReference Include="..\EstantWF.Material\EstantWF.Material.csproj">
       <Project>{EBC9051E-DD66-465E-B215-028B346ABF20}</Project>
       <Name>EstantWF.Material</Name>

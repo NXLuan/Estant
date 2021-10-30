@@ -9,6 +9,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using EstantWF.Material.Model;
+using Estant.View.Extensions;
 
 namespace Estant.View.FormUI
 {
@@ -27,42 +29,34 @@ namespace Estant.View.FormUI
 
         private void btnVocab_Selected(object sender, EventArgs e)
         {
-            ShowForm(Screen.VOCABULARY);
+            ShowForm(ScreenForm.VOCABULARY);
         }
 
         private void btnGrammar_Selected(object sender, EventArgs e)
         {
-            ShowForm(Screen.GRAMMAR);
+            ShowForm(ScreenForm.GRAMMAR);
         }
 
         private void btnAccount_Load(object sender, EventArgs e)
         {
-            ShowForm(Screen.ACCOUNT);
+            ShowForm(ScreenForm.ACCOUNT);
         }
 
-        public void ShowForm(Screen page)
+        public void ShowForm(ScreenForm page)
         {
             ResetSelect();
             Form form = null;
             switch (page)
             {
-                case Screen.VOCABULARY:
+                case ScreenForm.VOCABULARY:
                     form = Singleton<VocabularyForm>.Instance;
                     break;
-                case Screen.GRAMMAR:
+                case ScreenForm.GRAMMAR:
                     break;
-                case Screen.ACCOUNT:
+                case ScreenForm.ACCOUNT:
                     break;
             }
-
-            if (form != null)
-            {
-                pnForm.Controls.Clear();
-                form.TopLevel = false;
-                pnForm.Controls.Add(form);
-                form.Dock = DockStyle.Fill;
-                form.Show();
-            }
+            ControlExtension.ShowFormInControl(pnForm, form);
         }
 
         public void ResetSelect()

@@ -18,9 +18,4 @@ namespace Estant.View
             get => Color.FromArgb(152, 152, 152);
         }
     }
-
-    public enum Screen
-    {
-        VOCABULARY, GRAMMAR, ACCOUNT
-    }
 }

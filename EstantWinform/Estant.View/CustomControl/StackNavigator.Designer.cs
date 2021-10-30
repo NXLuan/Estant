@@ -40,12 +40,12 @@ namespace Estant.View.CustomControl
             this.lbTab.AutoSize = true;
             this.lbTab.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lbTab.Dock = System.Windows.Forms.DockStyle.Left;
-            this.lbTab.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbTab.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbTab.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
             this.lbTab.Location = new System.Drawing.Point(20, 20);
             this.lbTab.Name = "lbTab";
             this.lbTab.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
-            this.lbTab.Size = new System.Drawing.Size(68, 20);
+            this.lbTab.Size = new System.Drawing.Size(73, 23);
             this.lbTab.TabIndex = 0;
             this.lbTab.Text = "label1";
             this.lbTab.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -55,9 +55,9 @@ namespace Estant.View.CustomControl
             // 
             this.pbArrow.Dock = System.Windows.Forms.DockStyle.Left;
             this.pbArrow.Image = ((System.Drawing.Image)(resources.GetObject("pbArrow.Image")));
-            this.pbArrow.Location = new System.Drawing.Point(88, 20);
+            this.pbArrow.Location = new System.Drawing.Point(93, 20);
             this.pbArrow.Name = "pbArrow";
-            this.pbArrow.Size = new System.Drawing.Size(10, 20);
+            this.pbArrow.Size = new System.Drawing.Size(10, 23);
             this.pbArrow.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbArrow.TabIndex = 1;
             this.pbArrow.TabStop = false;
@@ -72,7 +72,7 @@ namespace Estant.View.CustomControl
             this.Controls.Add(this.lbTab);
             this.Name = "StackNavigator";
             this.Padding = new System.Windows.Forms.Padding(20, 20, 0, 10);
-            this.Size = new System.Drawing.Size(492, 50);
+            this.Size = new System.Drawing.Size(492, 53);
             ((System.ComponentModel.ISupportInitialize)(this.pbArrow)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

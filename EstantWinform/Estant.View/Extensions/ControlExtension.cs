@@ -28,5 +28,16 @@ namespace Estant.View.Extensions
 
             return instance;
         }
+
+        public static void ShowFormInControl(Control control, Form form)
+        {
+            if (control != null && form != null)
+            {
+                form.TopLevel = false;
+                control.Controls.Add(form);
+                form.Dock = DockStyle.Fill;
+                form.Show();
+            }
+        }
     }
 }
