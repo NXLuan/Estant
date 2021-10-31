@@ -10,6 +10,6 @@ namespace Estant.Service.Interface
     {
         public Task<UserDTO> SignInWithEmailAndPassword(string email, string password);
         public void SignOut();
-        public Task<bool> SignUp(string email, string password, string displayname);
+        public Task<string> SignUp(string email, string password, string displayname);
     }
 }

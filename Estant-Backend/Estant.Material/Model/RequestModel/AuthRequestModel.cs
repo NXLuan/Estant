@@ -41,6 +41,9 @@ namespace Estant.Material.Model.RequestModel
             if (!Password.Equals(ConfirmPassword))
                 return ResponseError.PasswordNotMatch;
 
+            if (!PasswordAdvisor.CheckStrength(Password))
+                return ResponseError.WeakPassword;
+
             return ResponseError.NoError;
         }
     }

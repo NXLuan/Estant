@@ -51,4 +51,17 @@ namespace Estant.Service.Model
             meanings = new List<Dictionary<string, object>>();
         }
     }
+
+
+    [FirestoreData]
+    public class User : BaseFirestoreModel
+    {
+        [FirestoreProperty]
+        public List<string> savedwords { get; set; }
+
+        public User()
+        {
+            savedwords = new List<string>();
+        }
+    }
 }

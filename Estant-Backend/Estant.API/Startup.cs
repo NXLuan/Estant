@@ -67,6 +67,7 @@ namespace Estant.API
             services.AddSingleton<NewsHandler>();
 
             services.AddSingleton<IAuthenticationService, AuthFirebaseService>();
+            services.AddSingleton<IUserService, UserFirestoreService>();
             services.AddSingleton<ITopicService, TopicFirestoreService>();
             services.AddSingleton<IVocabularyService, VocabularyFirestoreService>();
             services.AddSingleton<IGrammarService, LocalGrammarService>();

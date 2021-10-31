@@ -45,20 +45,19 @@ namespace Estant.Service.FirebaseService
         {
         }
 
-        public async Task<bool> SignUp(string email, string password, string displayname)
+        public async Task<string> SignUp(string email, string password, string displayname)
         {
-            bool result;
+            string uid = string.Empty;
             try
             {
                 var auth = await AuthProvider.CreateUserWithEmailAndPasswordAsync(email, password, displayname);
-                result = (auth != null && auth.User != null);
+                uid = auth?.User?.LocalId;
             }
-            catch
+            catch (Exception e)
             {
-                result = false;
             }
 
-            return result;
+            return uid;
         }
     }
 }

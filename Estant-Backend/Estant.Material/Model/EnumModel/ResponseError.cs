@@ -25,6 +25,8 @@ namespace Estant.Material.Model.EnumModel
         SignUpFail = 1004,
         [Description("Password and Confirm password does not match")]
         PasswordNotMatch = 1005,
+        [Description("Password weak")]
+        WeakPassword = 1006,
         #endregion
 
         #region Vocabulary Error

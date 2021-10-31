@@ -52,8 +52,8 @@ namespace Estant.API.Controllers
 
             if (!responseError.HasError())
             {
-                var data = await _authHandler.SignUpAsync(requestModel);
-                if (!data) responseError = ResponseError.SignUpFail;
+                var IsSuccess = await _authHandler.SignUpAsync(requestModel);
+                if (!IsSuccess) responseError = ResponseError.SignUpFail;
             }
 
             return ReturnNoData(responseError);

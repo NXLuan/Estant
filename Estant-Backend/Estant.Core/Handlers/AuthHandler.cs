@@ -12,9 +12,11 @@ namespace Estant.Core.Handlers
     public class AuthHandler
     {
         private readonly IAuthenticationService _authService;
-        public AuthHandler(IAuthenticationService authService)
+        private readonly IUserService _userService;
+        public AuthHandler(IAuthenticationService authService, IUserService userService)
         {
             _authService = authService;
+            _userService = userService;
         }
 
         public async Task<UserViewModel> SignInAsync(SignInRequestModel requestModel)
@@ -32,14 +34,19 @@ namespace Estant.Core.Handlers
 
         public async Task<bool> SignUpAsync(SignUpRequestModel requestModel)
         {
-            bool data = false;
+            bool IsSuccess = false;
 
             if (requestModel != null)
             {
-                data = await _authService.SignUp(requestModel.Email, requestModel.Password, requestModel.DisplayName);
+                var uid = await _authService.SignUp(requestModel.Email, requestModel.Password, requestModel.DisplayName);
+                if (!string.IsNullOrEmpty(uid))
+                {
+                    _userService.Add(uid);
+                    IsSuccess = true;
+                }
             }
 
-            return data;
+            return IsSuccess;
         }
     }
 }
