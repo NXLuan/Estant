@@ -24,7 +24,7 @@ namespace Estant.Service.FirebaseService
         {
             TopicDTO dto = null;
 
-            var result = await repository.Get(new Topic() { id = topic });
+            var result = await repository.Get(topic);
             if (result != null)
             {
                 dto = result.ToDTO();

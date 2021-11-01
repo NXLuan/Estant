@@ -91,9 +91,9 @@ namespace Estant.Service.FirebaseService
             return true;
         }
 
-        public async Task<T> Get(T record)
+        public async Task<T> Get(string documentId)
         {
-            DocumentReference docRef = fireStoreDb.Collection(_collectionName).Document(record.id);
+            DocumentReference docRef = fireStoreDb.Collection(_collectionName).Document(documentId);
             DocumentSnapshot snapshot = await docRef.GetSnapshotAsync();
             if (snapshot.Exists)
             {

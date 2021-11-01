@@ -37,6 +37,7 @@ namespace Estant.API.Controllers
             {
                 data = await _authHandler.SignInAsync(requestModel);
                 if (data == null) responseError = ResponseError.SignInFail;
+                else if (!data.IsEmailVerified) responseError = ResponseError.EmailNotVerified;
             }
 
             return ReturnData(data, responseError);
@@ -56,7 +57,7 @@ namespace Estant.API.Controllers
                 if (!IsSuccess) responseError = ResponseError.SignUpFail;
             }
 
-            return ReturnNoData(responseError);
+            return ReturnNoData(responseError, "Successful account registration, please check your email to verify your account");
         }
     }
 }

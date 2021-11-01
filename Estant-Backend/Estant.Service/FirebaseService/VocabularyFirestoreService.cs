@@ -64,12 +64,8 @@ namespace Estant.Service.FirebaseService
         public async Task<string> Delete(string word)
         {
             string result = string.Empty;
-            Vocabulary vocabulary = new Vocabulary()
-            {
-                id = word
-            };
 
-            var vocabResult = await repository.Get(vocabulary);
+            var vocabResult = await repository.Get(word);
             if (vocabResult != null)
             {
                 repository.Delete(vocabResult);
@@ -82,12 +78,8 @@ namespace Estant.Service.FirebaseService
         public async Task<VocabularyViewModel> Get(string word)
         {
             VocabularyViewModel vm = null;
-            Vocabulary vocabulary = new Vocabulary()
-            {
-                id = word
-            };
 
-            var result = await repository.Get(vocabulary);
+            var result = await repository.Get(word);
             if (result != null)
             {
                 vm = new VocabularyViewModel()

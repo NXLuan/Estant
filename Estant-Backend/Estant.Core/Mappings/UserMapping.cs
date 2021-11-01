@@ -19,13 +19,15 @@ namespace Estant.Core.Mappings
 
             if (dto != null)
             {
-                vm = new UserViewModel()
+                vm = new UserViewModel();
+                if (dto.ISEMAILVERIFIED)
                 {
-                    DisplayName = dto.DISPLAYNAME,
-                    Email = dto.EMAIL,
-                    PhotoUrl = dto.PHOTOURL,
-                    Token = dto.GenerateToken(),
-                };
+                    vm.DisplayName = dto.DISPLAYNAME;
+                    vm.Email = dto.EMAIL;
+                    vm.PhotoUrl = dto.PHOTOURL;
+                    vm.Token = dto.GenerateToken();
+                    vm.IsEmailVerified = true;
+                }
             }
 
             return vm;

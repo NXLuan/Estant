@@ -15,20 +15,23 @@ namespace Estant.API.Controllers
     [ApiController]
     public class BaseController : Controller
     {
-        protected JsonResult ReturnData(object data, ResponseError responseError)
+        protected JsonResult ReturnData(object data, ResponseError responseError, string messageSuccess = "Thành công")
         {
             var model = new ResponseModel<object>();
 
             if (!responseError.HasError())
+            {
                 model.data = data;
+                model.message = messageSuccess;
+            }
             else model.SetResponseError(responseError);
 
             return Json(model);
         }
 
-        protected JsonResult ReturnNoData(ResponseError responseError)
+        protected JsonResult ReturnNoData(ResponseError responseError, string messageSuccess = "Thành công")
         {
-           return ReturnData(null, responseError);
+           return ReturnData(null, responseError, messageSuccess);
         }
 
         protected string GetCurrentUID()

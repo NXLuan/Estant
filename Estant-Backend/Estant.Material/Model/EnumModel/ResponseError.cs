@@ -27,6 +27,8 @@ namespace Estant.Material.Model.EnumModel
         PasswordNotMatch = 1005,
         [Description("Password weak")]
         WeakPassword = 1006,
+        [Description("Email is not verified")]
+        EmailNotVerified= 1007,
         #endregion
 
         #region Vocabulary Error

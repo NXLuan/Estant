@@ -10,5 +10,6 @@ namespace Estant.Material.Model.DTOModel
         public string EMAIL { get; set; }
         public string DISPLAYNAME { get; set; }
         public string PHOTOURL { get; set; }
+        public bool ISEMAILVERIFIED { get; set; }
     }
 }

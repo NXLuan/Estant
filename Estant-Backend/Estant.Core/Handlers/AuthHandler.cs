@@ -26,7 +26,18 @@ namespace Estant.Core.Handlers
             if (requestModel != null)
             {
                 var result = await _authService.SignInWithEmailAndPassword(requestModel.Email, requestModel.Password);
-                data = result?.ToViewModel();
+                if (result != null)
+                {
+                    // Map info user Authentication
+                    data = result.ToViewModel();
+
+                    if (data.IsEmailVerified)
+                    {
+                        // Map info user of Estant
+                        var userInfo = await _userService.Get(result.UID);
+                        data.SavedWords = userInfo.savedwords;
+                    }
+                }
             }
 
             return data;

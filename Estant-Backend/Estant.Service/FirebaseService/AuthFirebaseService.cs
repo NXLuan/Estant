@@ -20,7 +20,7 @@ namespace Estant.Service.FirebaseService
         {
             UserDTO result = null;
             try
-            {
+            {                
                 var auth = await AuthProvider.SignInWithEmailAndPasswordAsync(email, password);
                 var user = auth?.User;
                 if (user != null)
@@ -30,7 +30,8 @@ namespace Estant.Service.FirebaseService
                         UID = user.LocalId,
                         DISPLAYNAME = user.DisplayName,
                         EMAIL = user.Email,
-                        PHOTOURL = user.PhotoUrl
+                        PHOTOURL = user.PhotoUrl,
+                        ISEMAILVERIFIED = user.IsEmailVerified,
                     };
                 }
             }
@@ -50,7 +51,7 @@ namespace Estant.Service.FirebaseService
             string uid = string.Empty;
             try
             {
-                var auth = await AuthProvider.CreateUserWithEmailAndPasswordAsync(email, password, displayname);
+                var auth = await AuthProvider.CreateUserWithEmailAndPasswordAsync(email, password, displayname, sendVerificationEmail: true);
                 uid = auth?.User?.LocalId;
             }
             catch (Exception e)

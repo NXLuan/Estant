@@ -4,6 +4,7 @@ using Estant.Service.Model;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace Estant.Service.FirebaseService
 {
@@ -14,6 +15,10 @@ namespace Estant.Service.FirebaseService
         public UserFirestoreService(IVocabularyService vocabularyService)
         {
             repository = new FirestroreRepository<User>("User");
+        }
+        public async Task<User> Get(string uid)
+        {
+            return await repository.Get(uid);
         }
         public void Add(string uid)
         {

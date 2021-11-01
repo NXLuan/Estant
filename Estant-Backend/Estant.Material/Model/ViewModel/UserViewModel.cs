@@ -11,5 +11,6 @@ namespace Estant.Material.Model.ViewModel
         public string DisplayName { get; set; }
         public string PhotoUrl { get; set; }
         public List<string> SavedWords { get; set; }
+        public bool IsEmailVerified { get; set; }
     }
 }
