@@ -13,6 +13,7 @@ import { Colors } from '../styles/colors';
 import { IconButton, Button, ActivityIndicator } from 'react-native-paper';
 import { getAllTopic, searchWord } from '../api/VocabularyAPI';
 import Loader from '../components/Loader';
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 const VocabularyScreen = ({ navigation }) => {
   const [topics, setTopics] = useState([]);
@@ -107,26 +108,59 @@ const VocabularyScreen = ({ navigation }) => {
           </View>
 
           <View style={styles.subContainer}>
-            <Text style={styles.title}>My vocabulary</Text>
-            <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-              <Button
-                style={styles.btn}
-                icon="bookmark-multiple"
-                mode="contained"
-                uppercase={false}
-                color={Colors.blue}
-                onPress={() => console.log('Pressed')}>
-                Saved Words
-              </Button>
-              <Button
-                style={styles.btn}
-                icon="text-box-search-outline"
-                mode="contained"
-                uppercase={false}
-                color={Colors.green}
-                onPress={() => console.log('Pressed')}>
-                Searched Words
-              </Button>
+            <View
+              style={{
+                flexDirection: 'row',
+                justifyContent: 'space-between',
+                alignItems: 'center',
+                marginRight: 10,
+                marginBottom: 10,
+              }}>
+              <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+                <Text
+                  style={[styles.title, { marginRight: 15, marginBottom: 0 }]}>
+                  Saved words
+                </Text>
+                <View style={styles.circleNumber}>
+                  <Text style={{ color: 'white', fontWeight: 'bold' }}>0</Text>
+                </View>
+              </View>
+              <TouchableOpacity
+                style={{ flexDirection: 'row', alignItems: 'center' }}>
+                <Text
+                  style={{
+                    fontSize: 16,
+                    color: Colors.darkGray,
+                    fontWeight: 'bold',
+                  }}>
+                  more
+                </Text>
+                <Icon
+                  name="chevron-right"
+                  size={16}
+                  color={Colors.darkGray}
+                  style={{ marginTop: 3 }}
+                />
+              </TouchableOpacity>
+            </View>
+            {/* <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+
+            </View> */}
+            <View
+              style={{
+                paddingHorizontal: 20,
+                alignItems: 'center',
+              }}>
+              <Image
+                style={{ width: 60, height: 60, marginVertical: 15 }}
+                source={{
+                  uri: 'https://www.pngrepo.com/download/179100/sad-sad.png',
+                }}
+              />
+              <Text style={{ color: Colors.darkGray, textAlign: 'center' }}>
+                You haven't saved any words. Save words while you learn to
+                review them later here.
+              </Text>
             </View>
           </View>
 
@@ -181,6 +215,15 @@ const styles = StyleSheet.create({
   topicItem: {
     alignItems: 'center',
     margin: 10,
+  },
+  circleNumber: {
+    backgroundColor: Colors.primary,
+    borderRadius: 15,
+    color: 'white',
+    width: 30,
+    height: 30,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
 });
 export default VocabularyScreen;
