@@ -47,7 +47,6 @@ const FillBlankGrammar = ({
           <Text style={styles.answerText}>{correctAnswer}</Text>
         </View>
       )}
-      <Text style={styles.definition}>{definition}</Text>
       {!isFinish && (
         <Button
           style={styles.button}
@@ -83,15 +82,19 @@ const styles = StyleSheet.create({
     fontWeight: '600',
   },
   questionBody: {
-    flexDirection: 'row',
     alignItems: 'center',
     marginBottom: 30,
-    flexWrap: 'wrap',
+    width: '100%',
   },
   button: {
     marginTop: 30,
     borderRadius: 20,
     marginBottom: 20,
+  },
+  answerText: {
+    fontSize: 28,
+    fontWeight: 'bold',
+    color: Colors.blue,
   },
 });
 export default FillBlankGrammar;

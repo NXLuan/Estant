@@ -7,6 +7,7 @@ import { Text } from 'react-native';
 import { Colors } from '../styles/colors';
 import VocabularyScreen from '../screens/VocabularyScreen';
 import GrammarScreen from '../screens/GrammarScreen';
+import NewsScreen from '../screens/NewsScreen';
 import ListeningScreen from '../screens/ListeningScreen';
 import AccountScreen from '../screens/AccountScreen';
 import TopicScreen from '../screens/TopicScreen';
@@ -14,6 +15,7 @@ import WordScreen from '../screens/WordScreen';
 import FlashCardScreen from '../screens/FlashCardScreen';
 import PracticeScreen from '../screens/PracticeScreen';
 import LessonScreen from '../screens/LessonScreen';
+import NewsContentScreen from '../screens/NewsContentScreen';
 
 const Tab = createBottomTabNavigator();
 
@@ -30,6 +32,8 @@ const AppNavigator = () => {
               iconName = focused ? 'notebook' : 'notebook-outline';
             } else if (route.name === 'Grammar') {
               iconName = focused ? 'script-text' : 'script-text-outline';
+            } else if (route.name === 'News') {
+              iconName = 'newspaper-variant';
             } else if (route.name === 'Listening') {
               iconName = 'headphones';
             } else if (route.name === 'Account') {
@@ -44,6 +48,7 @@ const AppNavigator = () => {
         })}>
         <Tab.Screen name="Vocabulary" component={VocabularyScreen} />
         <Tab.Screen name="Grammar" component={GrammarScreen} />
+        <Tab.Screen name="News" component={NewsScreen} />
         <Tab.Screen name="Listening" component={ListeningScreen} />
         <Tab.Screen name="Account" component={AccountScreen} />
       </Tab.Navigator>
@@ -94,6 +99,14 @@ const AppNavigator = () => {
           options={{
             headerTintColor: 'white',
             headerStyle: { backgroundColor: Colors.primary },
+          }}
+        />
+        <Stack.Screen
+          name="NewsContent"
+          component={NewsContentScreen}
+          options={{
+            title: 'News',
+            headerTintColor: Colors.primary,
           }}
         />
       </Stack.Navigator>
