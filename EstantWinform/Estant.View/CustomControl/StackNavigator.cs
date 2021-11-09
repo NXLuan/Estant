@@ -13,77 +13,49 @@ namespace Estant.View.CustomControl
 {
     public partial class StackNavigator : UserControl
     {
-        private int currentIndex;
-        private List<string> tabs;
         public TabControl tabControl { get; set; }
         public StackNavigator()
         {
             InitializeComponent();
-            tabs = new List<string>();
-            Controls.Clear();
-            currentIndex = -1;
         }
 
         public void AddTab(string screenName)
         {
-            int n = tabs.Count;
-
-            List<Control> controls = new List<Control>();
-
-            if (n != 0)
+            var tabNavigate = new TabNavigate();
+            tabNavigate.Index = flTab.Controls.Count;
+            tabNavigate.TabName = screenName;
+            tabNavigate.Selected += (s, e) =>
             {
-                #region Add arrow
-                var pbArrowClone = ControlExtension.Clone<PictureBox>(pbArrow);
-                pbArrowClone.Visible = true;
-                pbArrow.BringToFront();
-                Controls.Add(pbArrowClone);
-                #endregion
-            }
-
-            #region Add tab
-            var lbTabClone = ControlExtension.Clone<Label>(lbTab);
-            lbTabClone.Text = screenName;
-            lbTabClone.Name = screenName;
-            lbTabClone.Visible = true;
-            lbTabClone.Click += (s, e) =>
-            {
-                SelectTab(Controls.IndexOf(s as Label) / 2);
+                var tab = s as TabNavigate;
+                SelectTab(tab.Index);
             };
-            Controls.Add(lbTabClone);
-            #endregion
 
-            tabs.Insert(n, screenName);
-            SelectTab(n);
+            flTab.Controls.Add(tabNavigate);
+            SelectTab(tabNavigate.Index);
         }
 
         public void SelectTab(int index)
         {
-            if (index != currentIndex)
+            while (index != flTab.Controls.Count - 1)
             {
-                currentIndex = index;
-
-                if (index != tabs.Count - 1)
-                {
-                    while (2 * index != Controls.Count - 1)
-                    {
-                        Controls.RemoveAt(Controls.Count - 1);
-                    }
-
-                    while(index != tabs.Count - 1)
-                    {
-                        tabs.RemoveAt(tabs.Count - 1);
-                    }
-                }
-
-                for (int i = 0; i < tabs.Count; i++)
-                {
-                    var label = Controls[2 * i] as Label;
-                    label.ForeColor = index == i ? AppColor.MainColor : AppColor.TextNormalColor;
-                }
-
+                int endIndex = flTab.Controls.Count - 1;
+                flTab.Controls.RemoveAt(endIndex);
                 if (tabControl != null)
-                    tabControl.SelectedIndex = index;
+                    tabControl.TabPages.RemoveAt(endIndex);
             }
+            foreach (var control in flTab.Controls)
+            {
+                var tab = control as TabNavigate;
+                if (tab.Index != index)
+                {
+                    tab.IsActive = false;
+                    tab.IsNotEndTab = true;
+                }
+                else tab.IsNotEndTab = false;
+            }
+
+            if (tabControl != null)
+                tabControl.SelectedIndex = index;
         }
     }
 }

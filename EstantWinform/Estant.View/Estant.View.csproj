@@ -52,6 +52,12 @@
     <Compile Include="CustomControl\LoadCircle.Designer.cs">
       <DependentUpon>LoadCircle.cs</DependentUpon>
     </Compile>
+    <Compile Include="CustomControl\TabNavigate.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CustomControl\TabNavigate.Designer.cs">
+      <DependentUpon>TabNavigate.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormUI\VocabularyUI\TopicForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -121,6 +127,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CustomControl\StackNavigator.resx">
       <DependentUpon>StackNavigator.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomControl\TabNavigate.resx">
+      <DependentUpon>TabNavigate.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormUI\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>

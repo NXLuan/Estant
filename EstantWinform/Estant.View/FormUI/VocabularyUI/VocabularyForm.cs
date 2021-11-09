@@ -27,6 +27,7 @@ namespace Estant.View.FormUI.VocabularyUI
         private void InitHandle()
         {
             LoadTopicsHandle();
+            stNavigate.tabControl = tabForm;
             stNavigate.AddTab("Vocabulary");
         }
 
@@ -68,19 +69,18 @@ namespace Estant.View.FormUI.VocabularyUI
             {
                 if (string.IsNullOrEmpty(tabName)) return;
                 tabForm.TabPages.Add(tabName);
-                stNavigate.AddTab(tabName);
 
                 Form form = null;
                 switch (index)
                 {
                     case (int)VocabForm.TOPIC:
-                        form = Singleton<TopicForm>.Instance;
+                        form = new TopicForm();
                         break;
                 }
                 ControlExtension.ShowFormInControl(tabForm.TabPages[index], form);
-            }
 
-            tabForm.SelectedIndex = index;
+                stNavigate.AddTab(tabName);
+            }
         }
     }
 }

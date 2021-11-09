@@ -29,59 +29,33 @@ namespace Estant.View.CustomControl
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(StackNavigator));
-            this.lbTab = new System.Windows.Forms.Label();
-            this.pbArrow = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pbArrow)).BeginInit();
+            this.flTab = new System.Windows.Forms.FlowLayoutPanel();
             this.SuspendLayout();
             // 
-            // lbTab
+            // flTab
             // 
-            this.lbTab.AutoSize = true;
-            this.lbTab.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.lbTab.Dock = System.Windows.Forms.DockStyle.Left;
-            this.lbTab.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbTab.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
-            this.lbTab.Location = new System.Drawing.Point(20, 20);
-            this.lbTab.Name = "lbTab";
-            this.lbTab.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
-            this.lbTab.Size = new System.Drawing.Size(73, 23);
-            this.lbTab.TabIndex = 0;
-            this.lbTab.Text = "label1";
-            this.lbTab.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lbTab.Visible = false;
-            // 
-            // pbArrow
-            // 
-            this.pbArrow.Dock = System.Windows.Forms.DockStyle.Left;
-            this.pbArrow.Image = ((System.Drawing.Image)(resources.GetObject("pbArrow.Image")));
-            this.pbArrow.Location = new System.Drawing.Point(93, 20);
-            this.pbArrow.Name = "pbArrow";
-            this.pbArrow.Size = new System.Drawing.Size(10, 23);
-            this.pbArrow.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pbArrow.TabIndex = 1;
-            this.pbArrow.TabStop = false;
-            this.pbArrow.Visible = false;
+            this.flTab.BackColor = System.Drawing.SystemColors.Control;
+            this.flTab.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flTab.Location = new System.Drawing.Point(20, 10);
+            this.flTab.Name = "flTab";
+            this.flTab.Size = new System.Drawing.Size(472, 43);
+            this.flTab.TabIndex = 0;
             // 
             // StackNavigator
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.Controls.Add(this.pbArrow);
-            this.Controls.Add(this.lbTab);
+            this.Controls.Add(this.flTab);
             this.Name = "StackNavigator";
-            this.Padding = new System.Windows.Forms.Padding(20, 20, 0, 10);
+            this.Padding = new System.Windows.Forms.Padding(20, 10, 0, 0);
             this.Size = new System.Drawing.Size(492, 53);
-            ((System.ComponentModel.ISupportInitialize)(this.pbArrow)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Label lbTab;
-        private System.Windows.Forms.PictureBox pbArrow;
+        private System.Windows.Forms.FlowLayoutPanel flTab;
     }
 }

@@ -1,4 +1,5 @@
-﻿using EstantWF.Material.Model;
+﻿using EstantWF.Material;
+using EstantWF.Material.Model;
 using EstantWF.Material.Utilities;
 using System;
 using System.Collections.Generic;
@@ -12,6 +13,7 @@ namespace EstantNF.Core.Handlers
     {
         public static async Task<List<Topic>> GetAllTopic()
         {
+            return MockData.GetAllTopic();
             var data = new List<Topic>();
             string path = "Vocabulary/GetAllTopic";
             var response = await API.GetRequestAsync<List<Topic>>(path);
