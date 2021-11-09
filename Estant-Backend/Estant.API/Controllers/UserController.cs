@@ -21,8 +21,8 @@ namespace Estant.API.Controllers
         }
         #endregion
 
-        [HttpPost("SaveWord")]
-        public async Task<IActionResult> SaveWord([FromBody] string word)
+        [HttpGet("SaveWord")]
+        public async Task<IActionResult> SaveWord(string word)
         {
             var responseError = ResponseError.NoError;
             List<string> data = null;
@@ -36,8 +36,8 @@ namespace Estant.API.Controllers
             return ReturnData(data, responseError);
         }
 
-        [HttpPost("UnSaveWord")]
-        public async Task<IActionResult> UnSaveWord([FromBody] string word)
+        [HttpGet("UnSaveWord")]
+        public async Task<IActionResult> UnSaveWord(string word)
         {
             var responseError = ResponseError.NoError;
             List<string> data = null;

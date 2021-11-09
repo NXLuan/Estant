@@ -31,6 +31,8 @@ namespace Estant.Material.Model.EnumModel
         EmailNotVerified= 1007,
         [Description("Invalid token")]
         TokenInvalid = 1008,
+        [Description("Reset account fail")]
+        ResetAccountFail = 1009,
         #endregion
 
         #region Vocabulary Error

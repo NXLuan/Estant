@@ -16,11 +16,12 @@ namespace Estant.Service.FirebaseService
         {
             AuthProvider = new FirebaseAuthProvider(new FirebaseConfig(ConfigConstants.ApiKey));
         }
+
         public async Task<UserDTO> SignInWithEmailAndPassword(string email, string password)
         {
             UserDTO result = null;
             try
-            {                
+            {
                 var auth = await AuthProvider.SignInWithEmailAndPasswordAsync(email, password);
                 var user = auth?.User;
                 if (user != null)
@@ -59,6 +60,21 @@ namespace Estant.Service.FirebaseService
             }
 
             return uid;
+        }
+
+        public async Task<bool> ResetAccount(string email)
+        {
+            bool IsSuccess = false;
+            try
+            {
+                await AuthProvider.SendPasswordResetEmailAsync(email);
+                IsSuccess = true;
+            }
+            catch
+            {
+
+            }
+            return IsSuccess;
         }
     }
 }

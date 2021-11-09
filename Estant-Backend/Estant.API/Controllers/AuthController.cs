@@ -59,5 +59,21 @@ namespace Estant.API.Controllers
 
             return ReturnNoData(responseError, "Successful account registration, please check your email to verify your account");
         }
+
+        [HttpPost("ResetAccount")]
+        public async Task<IActionResult> ResetAccount([FromBody] string email)
+        {
+            var responseError = ResponseError.NoError;
+            if (!ValidationData.IsEmail(email))
+                responseError = ResponseError.EmailInvalid;
+
+            if (!responseError.HasError())
+            {
+                var IsSuccess = await _authHandler.ResetAccountAsync(email);
+                if (!IsSuccess) responseError = ResponseError.ResetAccountFail;
+            }
+
+            return ReturnNoData(responseError, "Reset account successfully, please check your email for a new password");
+        }
     }
 }

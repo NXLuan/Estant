@@ -59,5 +59,10 @@ namespace Estant.Core.Handlers
 
             return IsSuccess;
         }
+
+        public async Task<bool> ResetAccountAsync(string email)
+        {
+            return await _authService.ResetAccount(email);
+        }
     }
 }
