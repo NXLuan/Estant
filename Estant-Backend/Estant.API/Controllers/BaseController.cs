@@ -38,7 +38,6 @@ namespace Estant.API.Controllers
         {
             //var identity = HttpContext.User.Identity as ClaimsIdentity;
             //IList<Claim> claim = identity.Claims.ToList();
-
             return HttpContext.User.FindFirst(JwtRegisteredClaimNames.Jti)?.Value;
         }
     }

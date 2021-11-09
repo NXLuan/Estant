@@ -28,17 +28,13 @@ namespace Estant.Service.FirebaseService
             });
         }
 
-        public async Task<List<string>> SaveWord(string uid, string word)
+        public async Task<bool> UpdateSaveWord(string uid, List<string> savewords)
         {
-            List<string> saveWords = null;
-            var user = await this.Get(uid);
-            if (user != null)
+            return await repository.Set(new User()
             {
-                user.savedwords.Insert(0, word);
-                var IsSucess = await repository.Set(user);
-                if (IsSucess) saveWords = user.savedwords;
-            }
-            return saveWords;
+                id= uid,
+                savedwords = savewords
+            });
         }
     }
 }

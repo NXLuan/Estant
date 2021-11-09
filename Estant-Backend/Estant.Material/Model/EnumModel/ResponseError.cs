@@ -41,6 +41,8 @@ namespace Estant.Material.Model.EnumModel
         #region User Error
         [Description("Save word fail")]
         SaveWordFail = 3000,
+        [Description("Unsave word fail")]
+        UnSaveWordFail
         #endregion
     }
 }

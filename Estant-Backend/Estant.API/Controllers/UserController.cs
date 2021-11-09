@@ -35,5 +35,20 @@ namespace Estant.API.Controllers
             else responseError = ResponseError.TokenInvalid;
             return ReturnData(data, responseError);
         }
+
+        [HttpPost("UnSaveWord")]
+        public async Task<IActionResult> UnSaveWord([FromBody] string word)
+        {
+            var responseError = ResponseError.NoError;
+            List<string> data = null;
+            string uid = GetCurrentUID();
+            if (!string.IsNullOrEmpty(uid))
+            {
+                data = await _userHandler.UnSaveWord(uid, word);
+                if (data == null) responseError = ResponseError.UnSaveWordFail;
+            }
+            else responseError = ResponseError.TokenInvalid;
+            return ReturnData(data, responseError);
+        }
     }
 }
