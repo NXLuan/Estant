@@ -11,5 +11,6 @@ namespace Estant.Service.Interface
     {
         public Task<User> Get(string uid);
         public void Add(string uid);
+        public Task<List<string>> SaveWord(string uid, string word);
     }
 }

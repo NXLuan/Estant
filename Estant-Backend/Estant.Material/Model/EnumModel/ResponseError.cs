@@ -29,11 +29,18 @@ namespace Estant.Material.Model.EnumModel
         WeakPassword = 1006,
         [Description("Email is not verified")]
         EmailNotVerified= 1007,
+        [Description("Invalid token")]
+        TokenInvalid = 1008,
         #endregion
 
         #region Vocabulary Error
         [Description("No results found")]
         NoResultFound= 2000,
+        #endregion
+
+        #region User Error
+        [Description("Save word fail")]
+        SaveWordFail = 3000,
         #endregion
     }
 }
