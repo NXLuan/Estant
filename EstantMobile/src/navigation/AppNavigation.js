@@ -17,6 +17,9 @@ import PracticeScreen from '../screens/PracticeScreen';
 import LessonScreen from '../screens/LessonScreen';
 import NewsContentScreen from '../screens/NewsContentScreen';
 
+import SplashScreen from '../screens/SplashScreen';
+import LoginScreen from '../screens/LoginScreen';
+
 const Tab = createBottomTabNavigator();
 
 const Stack = createStackNavigator();
@@ -49,7 +52,7 @@ const AppNavigator = () => {
         <Tab.Screen name="Vocabulary" component={VocabularyScreen} />
         <Tab.Screen name="Grammar" component={GrammarScreen} />
         <Tab.Screen name="News" component={NewsScreen} />
-        <Tab.Screen name="Listening" component={ListeningScreen} />
+        <Tab.Screen name="Listening" component={LoginScreen} />
         <Tab.Screen name="Account" component={AccountScreen} />
       </Tab.Navigator>
     );
