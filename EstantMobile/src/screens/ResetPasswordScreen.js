@@ -6,12 +6,32 @@ import {
   Image,
   TextInput,
   TouchableOpacity,
+  Alert,
 } from 'react-native';
 import { Button } from 'react-native-paper';
 import { Colors } from '../styles/colors';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
-const ResetPasswordScreen = () => {
+
+import { resetAccount } from '../api/AuthAPI';
+const ResetPasswordScreen = ({ navigation }) => {
   const [email, setEmail] = useState('');
+  const [message, setMessage] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
+  function handleResetAccount() {
+    setIsLoading(true);
+    resetAccount(email)
+      .then(res => {
+        setIsLoading(false);
+        if (res.data.code === 0) {
+          Alert.alert('', res.data.message, [
+            { text: 'OK', onPress: () => navigation.navigate('Login') },
+          ]);
+        } else {
+          setMessage(res.data.message);
+        }
+      })
+      .catch(err => console.log(err));
+  }
   return (
     <View
       style={{
@@ -36,17 +56,19 @@ const ResetPasswordScreen = () => {
         onChangeText={setEmail}
       />
       <View style={{ alignItems: 'center' }}>
+        <Text style={{ color: 'red', marginTop: 15 }}>{message}</Text>
         <Button
           mode="contained"
           color={Colors.primary}
           uppercase={false}
+          loading={isLoading}
           dark
           style={{
             width: '50%',
             borderRadius: 18,
-            marginTop: 50,
+            marginTop: 20,
           }}
-          onPress={() => console.log('123')}>
+          onPress={() => handleResetAccount()}>
           Reset Password
         </Button>
       </View>

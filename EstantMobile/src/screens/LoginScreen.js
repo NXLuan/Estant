@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import {
   Text,
   View,
@@ -10,10 +10,31 @@ import {
 import { Button } from 'react-native-paper';
 import { Colors } from '../styles/colors';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
-const LoginScreen = () => {
+import { AuthContext } from '../navigation/context';
+
+import { login } from '../api/AuthAPI';
+const LoginScreen = ({ navigation }) => {
+  const { signIn } = useContext(AuthContext);
+
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [isHidden, setIsHidden] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
+  const [message, setMessage] = useState('');
+
+  function handleLogin() {
+    setIsLoading(true);
+    login({ email, password })
+      .then(res => {
+        setIsLoading(false);
+        if (res.data.code !== 0) {
+          setMessage(res.data.message);
+        } else {
+          signIn(res.data.data.token);
+        }
+      })
+      .catch(err => console.log(err));
+  }
   return (
     <View
       style={{
@@ -57,20 +78,24 @@ const LoginScreen = () => {
         </TouchableOpacity>
       </View>
       <View style={{ alignItems: 'center' }}>
+        <Text style={{ color: 'red', marginTop: 15 }}>{message}</Text>
         <Button
           mode="contained"
           color={Colors.primary}
           uppercase={false}
           dark
+          loading={isLoading}
           style={{
             width: '50%',
             borderRadius: 18,
-            marginTop: 50,
+            marginTop: 20,
           }}
-          onPress={() => console.log('123')}>
+          onPress={() => handleLogin()}>
           Login
         </Button>
-        <TouchableOpacity style={{ marginTop: 20 }}>
+        <TouchableOpacity
+          style={{ marginTop: 20 }}
+          onPress={() => navigation.navigate('ResetPassword')}>
           <Text style={{ fontSize: 16, fontWeight: '600' }}>
             Forgot Password?
           </Text>
@@ -79,7 +104,9 @@ const LoginScreen = () => {
         <Text style={{ fontSize: 16, marginTop: 40 }}>
           Don't have an account?
         </Text>
-        <TouchableOpacity style={{ marginTop: 10 }}>
+        <TouchableOpacity
+          style={{ marginTop: 10 }}
+          onPress={() => navigation.navigate('CreateAccount')}>
           <Text
             style={{ fontSize: 16, fontWeight: '600', color: Colors.primary }}>
             Create Account

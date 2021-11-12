@@ -3,7 +3,7 @@ import { Text, View, StyleSheet, Image } from 'react-native';
 import { Button } from 'react-native-paper';
 import { Colors } from '../styles/colors';
 
-const SplashScreen = () => {
+const SplashScreen = ({ navigation }) => {
   return (
     <View
       style={{
@@ -29,7 +29,7 @@ const SplashScreen = () => {
         uppercase={false}
         dark
         style={{ width: '70%', borderRadius: 20 }}
-        onPress={() => console.log('123')}>
+        onPress={() => navigation.navigate('Login')}>
         Get started
       </Button>
     </View>
