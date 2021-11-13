@@ -78,6 +78,12 @@
     <Compile Include="FormUI\VocabularyUI\TopicForm.Designer.cs">
       <DependentUpon>TopicForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormUI\VocabularyUI\WordForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormUI\VocabularyUI\WordForm.Designer.cs">
+      <DependentUpon>WordForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Styles.cs" />
     <Compile Include="CustomControl\ButtonFlatImage.cs">
       <SubType>UserControl</SubType>
@@ -156,6 +162,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormUI\VocabularyUI\VocabularyForm.resx">
       <DependentUpon>VocabularyForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormUI\VocabularyUI\WordForm.resx">
+      <DependentUpon>WordForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
