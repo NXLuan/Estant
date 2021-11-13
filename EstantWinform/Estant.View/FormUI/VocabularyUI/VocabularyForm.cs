@@ -33,9 +33,9 @@ namespace Estant.View.FormUI.VocabularyUI
 
         public async void LoadTopicsHandle()
         {
-            tableTopic.Visible = false; // show load
-            topics = await VocabularyHandler.GetAllTopic();
+            Loading.Show(); // show load
 
+            topics = await VocabularyHandler.GetAllTopic();
             if (topics != null && topics.Count > 0)
             {
                 foreach (var topic in topics)
@@ -60,7 +60,7 @@ namespace Estant.View.FormUI.VocabularyUI
                 }
             }
 
-            tableTopic.Visible = true; // end load
+            Loading.End(); // end load
         }
 
         public void ShowTab(int index, string tabName = "")
@@ -74,7 +74,7 @@ namespace Estant.View.FormUI.VocabularyUI
                 switch (index)
                 {
                     case (int)VocabForm.TOPIC:
-                        form = new TopicForm();
+                        form = new TopicForm(tabName);
                         break;
                 }
                 ControlExtension.ShowFormInControl(tabForm.TabPages[index], form);

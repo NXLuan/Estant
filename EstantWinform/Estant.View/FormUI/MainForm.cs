@@ -25,6 +25,7 @@ namespace Estant.View.FormUI
         private void InitHandle()
         {
             ResetSelect();
+            EndLoading();
         }
 
         private void btnVocab_Selected(object sender, EventArgs e)
@@ -67,6 +68,14 @@ namespace Estant.View.FormUI
             btnLogOut.IsActive = false;
         }
 
+        public void ShowLoading()
+        {
+            pbLoading.Visible = true;
+        }
 
+        public void EndLoading()
+        {
+            pbLoading.Visible = false;
+        }
     }
 }

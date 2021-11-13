@@ -40,12 +40,12 @@ namespace Estant.View.CustomControl
             this.lbTextButton.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lbTextButton.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbTextButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
-            this.lbTextButton.Location = new System.Drawing.Point(60, 10);
+            this.lbTextButton.Location = new System.Drawing.Point(10, 10);
             this.lbTextButton.Name = "lbTextButton";
-            this.lbTextButton.Size = new System.Drawing.Size(133, 27);
+            this.lbTextButton.Size = new System.Drawing.Size(183, 27);
             this.lbTextButton.TabIndex = 3;
             this.lbTextButton.Text = "Vocabulary";
-            this.lbTextButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lbTextButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // pbIcon
             // 
@@ -62,8 +62,8 @@ namespace Estant.View.CustomControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.lbTextButton);
             this.Controls.Add(this.pbIcon);
+            this.Controls.Add(this.lbTextButton);
             this.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Name = "ButtonFlatImage";
             this.Padding = new System.Windows.Forms.Padding(10);
