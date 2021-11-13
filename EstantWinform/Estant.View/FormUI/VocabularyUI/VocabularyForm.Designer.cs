@@ -32,13 +32,12 @@ namespace Estant.View.FormUI.VocabularyUI
             this.tabForm = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.flSaveWords = new System.Windows.Forms.FlowLayoutPanel();
+            this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.tableTopic = new System.Windows.Forms.FlowLayoutPanel();
-            this.pnLoad = new Estant.View.CustomControl.LoadCircle();
             this.searchBar1 = new Estant.View.CustomControl.SearchBar();
             this.stNavigate = new Estant.View.CustomControl.StackNavigator();
-            this.label2 = new System.Windows.Forms.Label();
-            this.flSaveWords = new System.Windows.Forms.FlowLayoutPanel();
             this.tabForm.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -78,21 +77,38 @@ namespace Estant.View.FormUI.VocabularyUI
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.tableTopic);
-            this.panel1.Controls.Add(this.pnLoad);
             this.panel1.Location = new System.Drawing.Point(3, 55);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(829, 507);
             this.panel1.TabIndex = 8;
+            // 
+            // flSaveWords
+            // 
+            this.flSaveWords.Location = new System.Drawing.Point(-3, 34);
+            this.flSaveWords.Name = "flSaveWords";
+            this.flSaveWords.Size = new System.Drawing.Size(835, 158);
+            this.flSaveWords.TabIndex = 14;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.Gray;
+            this.label2.Location = new System.Drawing.Point(18, 8);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(127, 23);
+            this.label2.TabIndex = 13;
+            this.label2.Text = "SAVED WORDS";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Gray;
-            this.label1.Location = new System.Drawing.Point(18, 203);
+            this.label1.Location = new System.Drawing.Point(18, 195);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(66, 23);
-            this.label1.TabIndex = 8;
+            this.label1.TabIndex = 12;
             this.label1.Text = "TOPICS";
             // 
             // tableTopic
@@ -100,19 +116,10 @@ namespace Estant.View.FormUI.VocabularyUI
             this.tableTopic.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tableTopic.Location = new System.Drawing.Point(0, 236);
+            this.tableTopic.Location = new System.Drawing.Point(0, 228);
             this.tableTopic.Name = "tableTopic";
             this.tableTopic.Size = new System.Drawing.Size(829, 271);
-            this.tableTopic.TabIndex = 5;
-            // 
-            // pnLoad
-            // 
-            this.pnLoad.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.pnLoad.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnLoad.Location = new System.Drawing.Point(0, 0);
-            this.pnLoad.Name = "pnLoad";
-            this.pnLoad.Size = new System.Drawing.Size(829, 507);
-            this.pnLoad.TabIndex = 7;
+            this.tableTopic.TabIndex = 11;
             // 
             // searchBar1
             // 
@@ -134,24 +141,6 @@ namespace Estant.View.FormUI.VocabularyUI
             this.stNavigate.Size = new System.Drawing.Size(843, 55);
             this.stNavigate.tabControl = null;
             this.stNavigate.TabIndex = 2;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.Gray;
-            this.label2.Location = new System.Drawing.Point(18, 16);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(127, 23);
-            this.label2.TabIndex = 9;
-            this.label2.Text = "SAVED WORDS";
-            // 
-            // flSaveWords
-            // 
-            this.flSaveWords.Location = new System.Drawing.Point(-3, 42);
-            this.flSaveWords.Name = "flSaveWords";
-            this.flSaveWords.Size = new System.Drawing.Size(835, 158);
-            this.flSaveWords.TabIndex = 10;
             // 
             // VocabularyForm
             // 
@@ -178,10 +167,9 @@ namespace Estant.View.FormUI.VocabularyUI
         private CustomControl.SearchBar searchBar1;
         private CustomControl.StackNavigator stNavigate;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.FlowLayoutPanel tableTopic;
-        private CustomControl.LoadCircle pnLoad;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.FlowLayoutPanel flSaveWords;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.FlowLayoutPanel tableTopic;
     }
 }

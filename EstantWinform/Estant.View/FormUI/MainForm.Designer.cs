@@ -40,6 +40,7 @@ namespace Estant.View.FormUI
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pnForm = new System.Windows.Forms.Panel();
+            this.pbLoading = new System.Windows.Forms.PictureBox();
             this.btnLogOut = new Estant.View.CustomControl.ButtonImage();
             this.btnAccount = new Estant.View.CustomControl.ButtonImage();
             this.btnGrammar = new Estant.View.CustomControl.ButtonImage();
@@ -49,6 +50,8 @@ namespace Estant.View.FormUI
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.pnForm.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbLoading)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -160,11 +163,24 @@ namespace Estant.View.FormUI
             // 
             // pnForm
             // 
+            this.pnForm.Controls.Add(this.pbLoading);
             this.pnForm.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnForm.Location = new System.Drawing.Point(232, 0);
             this.pnForm.Name = "pnForm";
             this.pnForm.Size = new System.Drawing.Size(843, 759);
             this.pnForm.TabIndex = 1;
+            // 
+            // pbLoading
+            // 
+            this.pbLoading.BackColor = System.Drawing.Color.Transparent;
+            this.pbLoading.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pbLoading.Image = ((System.Drawing.Image)(resources.GetObject("pbLoading.Image")));
+            this.pbLoading.Location = new System.Drawing.Point(0, 0);
+            this.pbLoading.Name = "pbLoading";
+            this.pbLoading.Size = new System.Drawing.Size(843, 759);
+            this.pbLoading.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pbLoading.TabIndex = 3;
+            this.pbLoading.TabStop = false;
             // 
             // btnLogOut
             // 
@@ -256,6 +272,8 @@ namespace Estant.View.FormUI
             this.panel3.PerformLayout();
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.pnForm.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pbLoading)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -276,6 +294,7 @@ namespace Estant.View.FormUI
         private System.Windows.Forms.Panel panel4;
         private CustomControl.ButtonImage btnLogOut;
         private System.Windows.Forms.Panel pnForm;
+        private System.Windows.Forms.PictureBox pbLoading;
     }
 }
 

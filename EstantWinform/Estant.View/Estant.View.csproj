@@ -33,6 +33,13 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AxInterop.WMPLib, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\WMPLib.1.0.0\lib\AxInterop.WMPLib.dll</HintPath>
+    </Reference>
+    <Reference Include="Interop.WMPLib, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\WMPLib.1.0.0\lib\Interop.WMPLib.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -58,11 +65,24 @@
     <Compile Include="CustomControl\TabNavigate.Designer.cs">
       <DependentUpon>TabNavigate.cs</DependentUpon>
     </Compile>
+    <Compile Include="CustomControl\VocabularyItem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CustomControl\VocabularyItem.Designer.cs">
+      <DependentUpon>VocabularyItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Extensions\Loading.cs" />
     <Compile Include="FormUI\VocabularyUI\TopicForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormUI\VocabularyUI\TopicForm.Designer.cs">
       <DependentUpon>TopicForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormUI\VocabularyUI\WordForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormUI\VocabularyUI\WordForm.Designer.cs">
+      <DependentUpon>WordForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Styles.cs" />
     <Compile Include="CustomControl\ButtonFlatImage.cs">
@@ -131,6 +151,9 @@
     <EmbeddedResource Include="CustomControl\TabNavigate.resx">
       <DependentUpon>TabNavigate.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="CustomControl\VocabularyItem.resx">
+      <DependentUpon>VocabularyItem.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormUI\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -139,6 +162,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormUI\VocabularyUI\VocabularyForm.resx">
       <DependentUpon>VocabularyForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormUI\VocabularyUI\WordForm.resx">
+      <DependentUpon>WordForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -149,6 +175,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
