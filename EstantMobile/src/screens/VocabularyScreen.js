@@ -7,6 +7,7 @@ import {
   FlatList,
   Image,
   TouchableOpacity,
+  ScrollView,
 } from 'react-native';
 import MainHeader from '../components/MainHeader';
 import { Colors } from '../styles/colors';
@@ -14,6 +15,7 @@ import { IconButton, Button, ActivityIndicator } from 'react-native-paper';
 import { getAllTopic, searchWord } from '../api/VocabularyAPI';
 import Loader from '../components/Loader';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import { useDispatch, useSelector } from 'react-redux';
 
 const VocabularyScreen = ({ navigation }) => {
   const [topics, setTopics] = useState([]);
@@ -21,7 +23,11 @@ const VocabularyScreen = ({ navigation }) => {
 
   const [isSearching, setIsSearching] = useState(false);
   const [word, setWord] = useState('');
+
+  const savedWords = useSelector(state => state.wordReducer.wordList);
+
   useEffect(() => {
+    console.log(savedWords);
     getAllTopic()
       .then(res => {
         setIsLoading(false);
@@ -49,7 +55,6 @@ const VocabularyScreen = ({ navigation }) => {
 
   const handleSearchWord = () => {
     setIsSearching(true);
-    console.log(word);
     searchWord(word)
       .then(res => {
         setIsSearching(false);
@@ -64,6 +69,26 @@ const VocabularyScreen = ({ navigation }) => {
         console.log(error);
       });
   };
+
+  function handleOpenSavedWord(word) {
+    setIsLoading(true);
+    searchWord(word)
+      .then(res => {
+        setIsLoading(false);
+        const { data } = res.data;
+        if (data != null) {
+          navigation.navigate('Meanings', {
+            dataWord: data,
+            isSavedWord: true,
+          });
+        } else {
+          setWord('');
+        }
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  }
 
   return (
     <>
@@ -122,46 +147,61 @@ const VocabularyScreen = ({ navigation }) => {
                   Saved words
                 </Text>
                 <View style={styles.circleNumber}>
-                  <Text style={{ color: 'white', fontWeight: 'bold' }}>0</Text>
+                  <Text style={{ color: 'white', fontWeight: 'bold' }}>
+                    {savedWords.length}
+                  </Text>
                 </View>
               </View>
-              <TouchableOpacity
-                style={{ flexDirection: 'row', alignItems: 'center' }}>
-                <Text
-                  style={{
-                    fontSize: 16,
-                    color: Colors.darkGray,
-                    fontWeight: 'bold',
-                  }}>
-                  more
-                </Text>
-                <Icon
-                  name="chevron-right"
-                  size={16}
-                  color={Colors.darkGray}
-                  style={{ marginTop: 3 }}
+            </View>
+            {savedWords.length === 0 ? (
+              <View
+                style={{
+                  paddingHorizontal: 20,
+                  alignItems: 'center',
+                }}>
+                <Image
+                  style={{ width: 60, height: 60, marginVertical: 15 }}
+                  source={{
+                    uri: 'https://www.pngrepo.com/download/179100/sad-sad.png',
+                  }}
                 />
-              </TouchableOpacity>
-            </View>
-            {/* <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-
-            </View> */}
-            <View
-              style={{
-                paddingHorizontal: 20,
-                alignItems: 'center',
-              }}>
-              <Image
-                style={{ width: 60, height: 60, marginVertical: 15 }}
-                source={{
-                  uri: 'https://www.pngrepo.com/download/179100/sad-sad.png',
-                }}
-              />
-              <Text style={{ color: Colors.darkGray, textAlign: 'center' }}>
-                You haven't saved any words. Save words while you learn to
-                review them later here.
-              </Text>
-            </View>
+                <Text style={{ color: Colors.darkGray, textAlign: 'center' }}>
+                  You haven't saved any words. Save words while you learn to
+                  review them later here.
+                </Text>
+              </View>
+            ) : (
+              <ScrollView
+                style={{ flexDirection: 'row' }}
+                horizontal
+                showsHorizontalScrollIndicator={false}>
+                {savedWords.map((item, index) => (
+                  <TouchableOpacity
+                    key={index}
+                    style={{
+                      marginVertical: 10,
+                      marginHorizontal: 5,
+                      backgroundColor: Colors.primary,
+                      width: 120,
+                      height: 60,
+                      justifyContent: 'center',
+                      alignItems: 'center',
+                      borderRadius: 10,
+                    }}
+                    onPress={() => handleOpenSavedWord(item)}>
+                    <Text
+                      numberOfLines={1}
+                      style={{
+                        color: 'white',
+                        fontWeight: 'bold',
+                        fontSize: 16,
+                      }}>
+                      {item}
+                    </Text>
+                  </TouchableOpacity>
+                ))}
+              </ScrollView>
+            )}
           </View>
 
           <View style={[styles.subContainer, { flex: 1, marginBottom: 0 }]}>

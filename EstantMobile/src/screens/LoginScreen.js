@@ -13,6 +13,12 @@ import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import { AuthContext } from '../navigation/context';
 
 import { login } from '../api/AuthAPI';
+
+import { useDispatch } from 'react-redux';
+import { fetchListWord } from '../redux/actions/wordAction';
+
+import AsyncStorage from '@react-native-community/async-storage';
+
 const LoginScreen = ({ navigation }) => {
   const { signIn } = useContext(AuthContext);
 
@@ -22,6 +28,8 @@ const LoginScreen = ({ navigation }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [message, setMessage] = useState('');
 
+  const dispatch = useDispatch();
+
   function handleLogin() {
     setIsLoading(true);
     login({ email, password })
@@ -30,6 +38,7 @@ const LoginScreen = ({ navigation }) => {
         if (res.data.code !== 0) {
           setMessage(res.data.message);
         } else {
+          dispatch(fetchListWord(res.data.data.savedWords));
           signIn(res.data.data.token);
         }
       })

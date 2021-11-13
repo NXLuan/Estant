@@ -1,24 +1,101 @@
 import React from 'react';
-import { ScrollView, StyleSheet, View, Text } from 'react-native';
+import {
+  ScrollView,
+  StyleSheet,
+  View,
+  Text,
+  Alert,
+  ToastAndroid,
+} from 'react-native';
 import { IconButton } from 'react-native-paper';
 import { Colors } from '../styles/colors';
 import WordMeaning from '../components/WordMeaning';
 import Sound from 'react-native-sound';
 
-const WordScreen = ({ route }) => {
-  const { dataWord } = route.params;
+import { useDispatch } from 'react-redux';
+import { saveWord, deleteWord } from '../api/UserAPI';
+import { fetchListWord } from '../redux/actions/wordAction';
+
+import AsyncStorage from '@react-native-community/async-storage';
+
+const WordScreen = ({ route, navigation }) => {
+  const { dataWord, isSavedWord } = route.params;
   const { word, phonetic, audio, meanings } = dataWord;
 
+  const dispatch = useDispatch();
+
   const sound = new Sound(audio);
+
+  const handleSaveWord = async () => {
+    let token = await AsyncStorage.getItem('userToken');
+    saveWord(word, token)
+      .then(res => {
+        dispatch(fetchListWord(res.data.data));
+        ToastAndroid.show('Saved successfully!', ToastAndroid.SHORT);
+      })
+      .catch(err => console.log(err));
+  };
+
+  const handleDeleteWord = async () => {
+    let token = await AsyncStorage.getItem('userToken');
+    deleteWord(word, token)
+      .then(res => {
+        dispatch(fetchListWord(res.data.data));
+        ToastAndroid.show('Deleted successfully!', ToastAndroid.SHORT);
+        navigation.goBack();
+      })
+      .catch(err => console.log(err));
+  };
+
+  const showSaveWordAlert = () => {
+    Alert.alert(
+      '',
+      'Do you want to save this word?',
+      [
+        {
+          text: 'No',
+          style: 'cancel',
+        },
+        { text: 'Yes', onPress: handleSaveWord },
+      ],
+      { cancelable: true },
+    );
+  };
+
+  const showDeleteWordAlert = () => {
+    Alert.alert(
+      '',
+      'Do you want to delete this word?',
+      [
+        {
+          text: 'No',
+          style: 'cancel',
+        },
+        { text: 'Yes', onPress: handleDeleteWord },
+      ],
+      { cancelable: true },
+    );
+  };
+
   return (
     <>
-      <IconButton
-        icon="bookmark-plus"
-        color="white"
-        size={30}
-        style={styles.saveBtn}
-        onPress={() => console.log('123')}
-      />
+      {isSavedWord ? (
+        <IconButton
+          icon="trash-can"
+          color="white"
+          size={30}
+          style={styles.saveBtn}
+          onPress={showDeleteWordAlert}
+        />
+      ) : (
+        <IconButton
+          icon="bookmark-plus"
+          color="white"
+          size={30}
+          style={styles.saveBtn}
+          onPress={showSaveWordAlert}
+        />
+      )}
       <ScrollView style={styles.container}>
         <View style={styles.header}>
           <IconButton
