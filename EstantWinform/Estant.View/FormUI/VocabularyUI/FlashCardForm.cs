@@ -40,7 +40,7 @@ namespace Estant.View.FormUI.VocabularyUI
 
         public void UpdateProgressBar()
         {
-            pnCurrentCard.Width = Convert.ToInt32(((double)pnTotalCard.Width / vocabularies.Count) * (currentIndex + 1));
+            pnCurrentCard.Width = Convert.ToInt32(((double)pnTotalCard.Width / (vocabularies.Count - 1)) * currentIndex);
         }
 
         private void btnRotate_Click(object sender, EventArgs e)
@@ -62,7 +62,7 @@ namespace Estant.View.FormUI.VocabularyUI
         {
             currentIndex--;
             if (currentIndex < 0)
-                currentIndex = vocabularies.Count;
+                currentIndex = vocabularies.Count -1;
             FetchWordToFlashCard(currentIndex);
             UpdateProgressBar();
         }
