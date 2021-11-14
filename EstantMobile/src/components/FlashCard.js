@@ -1,11 +1,24 @@
 import React, { useState, useRef } from 'react';
 import FrontCard from './FrontCard';
 import BackCard from './BackCard';
-import { View, Text, StyleSheet, Animated } from 'react-native';
+import {
+  View,
+  Text,
+  StyleSheet,
+  Animated,
+  Alert,
+  ToastAndroid,
+} from 'react-native';
 import { Button, IconButton } from 'react-native-paper';
 
 import { Colors } from '../styles/colors';
 import Sound from 'react-native-sound';
+
+import { useDispatch } from 'react-redux';
+import { saveWord, deleteWord } from '../api/UserAPI';
+import { fetchListWord } from '../redux/actions/wordAction';
+
+import AsyncStorage from '@react-native-community/async-storage';
 
 const FlashCard = ({ data }) => {
   const { word, audio, phonetic } = data;
@@ -14,6 +27,33 @@ const FlashCard = ({ data }) => {
   const sound = new Sound(audio);
   const animate = useRef(new Animated.Value(0));
   const [isFlipped, setIsFlipped] = useState(false);
+
+  const dispatch = useDispatch();
+
+  const handleSaveWord = async () => {
+    let token = await AsyncStorage.getItem('userToken');
+    saveWord(word, token)
+      .then(res => {
+        dispatch(fetchListWord(res.data.data));
+        ToastAndroid.show('Saved successfully!', ToastAndroid.SHORT);
+      })
+      .catch(err => console.log(err));
+  };
+
+  const showSaveWordAlert = () => {
+    Alert.alert(
+      '',
+      'Do you want to save this word?',
+      [
+        {
+          text: 'No',
+          style: 'cancel',
+        },
+        { text: 'Yes', onPress: handleSaveWord },
+      ],
+      { cancelable: true },
+    );
+  };
 
   const interpolateFront = animate.current.interpolate({
     inputRange: [0, 180],
@@ -57,7 +97,7 @@ const FlashCard = ({ data }) => {
           size={36}
           color={Colors.yellow}
           style={styles.iconButton}
-          onPress={() => sound.play()}
+          onPress={showSaveWordAlert}
         />
         <IconButton
           icon="rotate-3d-variant"
