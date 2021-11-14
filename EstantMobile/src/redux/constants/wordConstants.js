@@ -1,0 +1,1 @@
+export const FETCH_LIST_WORD = 'FETCH_LIST_WORD';

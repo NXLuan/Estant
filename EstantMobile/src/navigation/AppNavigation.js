@@ -68,6 +68,7 @@ const AppNavigator = () => {
         userToken = await AsyncStorage.getItem('userToken');
       } catch (e) {
         // Restoring token failed
+        console.log(e);
       }
 
       // After restoring token, we may need to validate it in production apps
@@ -83,9 +84,13 @@ const AppNavigator = () => {
   const authContext = React.useMemo(
     () => ({
       signIn: token => {
+        AsyncStorage.setItem('userToken', token);
         dispatch({ type: 'SIGN_IN', token: token });
       },
-      signOut: () => dispatch({ type: 'SIGN_OUT' }),
+      signOut: () => {
+        AsyncStorage.removeItem('userToken');
+        dispatch({ type: 'SIGN_OUT' });
+      },
     }),
     [],
   );
