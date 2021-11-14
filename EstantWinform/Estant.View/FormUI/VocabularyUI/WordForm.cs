@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Estant.View.Extensions;
+using EstantWF.Material.Model;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +14,23 @@ namespace Estant.View.FormUI.VocabularyUI
 {
     public partial class WordForm : Form
     {
-        public WordForm()
+        private Vocabulary vocabulary;
+        public WordForm(Vocabulary vocabParam)
         {
             InitializeComponent();
+            InitHandle(vocabParam);
+        }
+
+        private void InitHandle(Vocabulary vocabParam)
+        {
+            vocabulary = vocabParam;
+            lbWord.Text = vocabulary.word;
+            lbPhonetic.Text = "/ " + vocabulary.phonetic + " /";
+        }
+
+        private void pbVolume_Click(object sender, EventArgs e)
+        {
+            MediaExtension.PlayMP3ByURL(vocabulary.audio);
         }
     }
 }

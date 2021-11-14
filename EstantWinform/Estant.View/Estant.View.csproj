@@ -72,6 +72,7 @@
       <DependentUpon>VocabularyItem.cs</DependentUpon>
     </Compile>
     <Compile Include="Extensions\Loading.cs" />
+    <Compile Include="Extensions\MediaExtension.cs" />
     <Compile Include="FormUI\VocabularyUI\FlashCardForm.cs">
       <SubType>Form</SubType>
     </Compile>

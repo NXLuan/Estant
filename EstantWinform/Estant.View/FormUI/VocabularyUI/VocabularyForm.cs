@@ -79,7 +79,7 @@ namespace Estant.View.FormUI.VocabularyUI
                     form = new TopicForm(tabName);
                     break;
                 case VocabForm.WORD:
-                    form = new WordForm();
+                    form = new WordForm(data as Vocabulary);
                     break;
                 case VocabForm.FLASHCARD:
                     form = new FlashCardForm(data as List<Vocabulary>);
