@@ -2,6 +2,7 @@
 using Estant.View.CustomControl;
 using Estant.View.Extensions;
 using EstantNF.Core.Handlers;
+using EstantWF.Material.Model;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,6 +17,7 @@ namespace Estant.View.FormUI.VocabularyUI
 {
     public partial class TopicForm : Form
     {
+        private List<Vocabulary> vocabularies;
         public TopicForm(string topic)
         {
             InitializeComponent();
@@ -26,14 +28,19 @@ namespace Estant.View.FormUI.VocabularyUI
         {
             Loading.Show(); // show load
 
-            var listVocab = await VocabularyHandler.GetByTopic(topic);
-            foreach (var vocab in listVocab)
+            vocabularies = await VocabularyHandler.GetByTopic(topic);
+            foreach (var vocab in vocabularies)
             {
                 var vocabItemControl = new VocabularyItem(vocab);
                 flListVocab.Controls.Add(vocabItemControl);
             }
 
             Loading.End(); // end load
+        }
+
+        private void btnFlashCard_UserClick(object sender, EventArgs e)
+        {
+            VocabularyForm.Instance.ShowNewTab(VocabForm.FLASHCARD, "Flash card", data: vocabularies);
         }
     }
 }

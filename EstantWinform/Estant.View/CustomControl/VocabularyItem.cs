@@ -1,4 +1,5 @@
-﻿using EstantWF.Material.Model;
+﻿using Estant.View.FormUI.VocabularyUI;
+using EstantWF.Material.Model;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,6 +16,10 @@ namespace Estant.View.CustomControl
     public partial class VocabularyItem : UserControl
     {
         public Vocabulary Vocabulary { get; set; }
+        [Browsable(true)]
+        [Category("Action")]
+        [Description("Invoked when user click more icon")]
+        public event EventHandler ShowDetail;
         public VocabularyItem(Vocabulary vocabulary)
         {
             InitializeComponent();
@@ -34,6 +39,11 @@ namespace Estant.View.CustomControl
             WMPLib.WindowsMediaPlayer wplayer = new WMPLib.WindowsMediaPlayer();
             wplayer.URL = Vocabulary.audio;
             wplayer.controls.play();
+        }
+
+        private void pbMoreDetail_Click(object sender, EventArgs e)
+        {
+            VocabularyForm.Instance.ShowNewTab(VocabForm.WORD, Vocabulary.word);
         }
     }
 }

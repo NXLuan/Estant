@@ -95,6 +95,7 @@ namespace Estant.View.CustomControl
             this.pbMoreDetail.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbMoreDetail.TabIndex = 4;
             this.pbMoreDetail.TabStop = false;
+            this.pbMoreDetail.Click += new System.EventHandler(this.pbMoreDetail_Click);
             // 
             // VocabularyItem
             // 

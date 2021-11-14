@@ -50,7 +50,7 @@ namespace Estant.View.FormUI
             switch (page)
             {
                 case ScreenForm.VOCABULARY:
-                    form = Singleton<VocabularyForm>.Instance;
+                    form = VocabularyForm.Instance;
                     break;
                 case ScreenForm.GRAMMAR:
                     break;

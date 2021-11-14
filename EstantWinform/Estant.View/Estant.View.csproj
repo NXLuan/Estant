@@ -72,6 +72,12 @@
       <DependentUpon>VocabularyItem.cs</DependentUpon>
     </Compile>
     <Compile Include="Extensions\Loading.cs" />
+    <Compile Include="FormUI\VocabularyUI\FlashCardForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormUI\VocabularyUI\FlashCardForm.Designer.cs">
+      <DependentUpon>FlashCardForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormUI\VocabularyUI\TopicForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -156,6 +162,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormUI\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormUI\VocabularyUI\FlashCardForm.resx">
+      <DependentUpon>FlashCardForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormUI\VocabularyUI\TopicForm.resx">
       <DependentUpon>TopicForm.cs</DependentUpon>

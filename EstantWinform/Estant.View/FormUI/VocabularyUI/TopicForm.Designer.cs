@@ -33,7 +33,7 @@ namespace Estant.View.FormUI.VocabularyUI
             this.flListVocab = new System.Windows.Forms.FlowLayoutPanel();
             this.buttonFlatImage3 = new Estant.View.CustomControl.ButtonFlatImage();
             this.buttonFlatImage2 = new Estant.View.CustomControl.ButtonFlatImage();
-            this.buttonFlatImage1 = new Estant.View.CustomControl.ButtonFlatImage();
+            this.btnFlashCard = new Estant.View.CustomControl.ButtonFlatImage();
             this.SuspendLayout();
             // 
             // flListVocab
@@ -81,22 +81,23 @@ namespace Estant.View.FormUI.VocabularyUI
             this.buttonFlatImage2.TextButton = "   Practice";
             this.buttonFlatImage2.TextColor = System.Drawing.Color.White;
             // 
-            // buttonFlatImage1
+            // btnFlashCard
             // 
-            this.buttonFlatImage1.ActiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(146)))), ((int)(((byte)(11)))), ((int)(((byte)(3)))));
-            this.buttonFlatImage1.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.buttonFlatImage1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(106)))), ((int)(((byte)(77)))));
-            this.buttonFlatImage1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonFlatImage1.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(119)))), ((int)(((byte)(88)))));
-            this.buttonFlatImage1.IconButton = ((System.Drawing.Image)(resources.GetObject("buttonFlatImage1.IconButton")));
-            this.buttonFlatImage1.Location = new System.Drawing.Point(26, 10);
-            this.buttonFlatImage1.Name = "buttonFlatImage1";
-            this.buttonFlatImage1.NormalColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(106)))), ((int)(((byte)(77)))));
-            this.buttonFlatImage1.Padding = new System.Windows.Forms.Padding(10);
-            this.buttonFlatImage1.Size = new System.Drawing.Size(245, 60);
-            this.buttonFlatImage1.TabIndex = 0;
-            this.buttonFlatImage1.TextButton = "   Flashcards";
-            this.buttonFlatImage1.TextColor = System.Drawing.Color.White;
+            this.btnFlashCard.ActiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(146)))), ((int)(((byte)(11)))), ((int)(((byte)(3)))));
+            this.btnFlashCard.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btnFlashCard.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(106)))), ((int)(((byte)(77)))));
+            this.btnFlashCard.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnFlashCard.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(119)))), ((int)(((byte)(88)))));
+            this.btnFlashCard.IconButton = ((System.Drawing.Image)(resources.GetObject("btnFlashCard.IconButton")));
+            this.btnFlashCard.Location = new System.Drawing.Point(26, 10);
+            this.btnFlashCard.Name = "btnFlashCard";
+            this.btnFlashCard.NormalColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(106)))), ((int)(((byte)(77)))));
+            this.btnFlashCard.Padding = new System.Windows.Forms.Padding(10);
+            this.btnFlashCard.Size = new System.Drawing.Size(245, 60);
+            this.btnFlashCard.TabIndex = 0;
+            this.btnFlashCard.TextButton = "   Flashcards";
+            this.btnFlashCard.TextColor = System.Drawing.Color.White;
+            this.btnFlashCard.UserClick += new System.EventHandler(this.btnFlashCard_UserClick);
             // 
             // TopicForm
             // 
@@ -107,7 +108,7 @@ namespace Estant.View.FormUI.VocabularyUI
             this.Controls.Add(this.flListVocab);
             this.Controls.Add(this.buttonFlatImage3);
             this.Controls.Add(this.buttonFlatImage2);
-            this.Controls.Add(this.buttonFlatImage1);
+            this.Controls.Add(this.btnFlashCard);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "TopicForm";
             this.Text = "TopicForm";
@@ -117,7 +118,7 @@ namespace Estant.View.FormUI.VocabularyUI
 
         #endregion
 
-        private CustomControl.ButtonFlatImage buttonFlatImage1;
+        private CustomControl.ButtonFlatImage btnFlashCard;
         private CustomControl.ButtonFlatImage buttonFlatImage2;
         private CustomControl.ButtonFlatImage buttonFlatImage3;
         private System.Windows.Forms.FlowLayoutPanel flListVocab;

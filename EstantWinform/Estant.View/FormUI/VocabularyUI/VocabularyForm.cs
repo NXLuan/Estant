@@ -17,6 +17,10 @@ namespace Estant.View.FormUI.VocabularyUI
 {
     public partial class VocabularyForm : Form
     {
+        public static VocabularyForm Instance
+        {
+            get => Singleton<VocabularyForm>.Instance;
+        }
         private List<Topic> topics;
         public VocabularyForm()
         {
@@ -55,7 +59,7 @@ namespace Estant.View.FormUI.VocabularyUI
                     card.Selected += (s, e) =>
                     {
                         var item = s as CardItem;
-                        ShowTab((int)VocabForm.TOPIC, item.Title);
+                        ShowNewTab(VocabForm.TOPIC, item.Title);
                     };
                 }
             }
@@ -63,24 +67,27 @@ namespace Estant.View.FormUI.VocabularyUI
             Loading.End(); // end load
         }
 
-        public void ShowTab(int index, string tabName = "")
+        public void ShowNewTab(VocabForm index, string tabName, object data = null)
         {
-            if (index >= tabForm.TabCount)
+            if (string.IsNullOrEmpty(tabName)) return;
+            tabForm.TabPages.Add(tabName);
+
+            Form form = null;
+            switch (index)
             {
-                if (string.IsNullOrEmpty(tabName)) return;
-                tabForm.TabPages.Add(tabName);
-
-                Form form = null;
-                switch (index)
-                {
-                    case (int)VocabForm.TOPIC:
-                        form = new TopicForm(tabName);
-                        break;
-                }
-                ControlExtension.ShowFormInControl(tabForm.TabPages[index], form);
-
-                stNavigate.AddTab(tabName);
+                case VocabForm.TOPIC:
+                    form = new TopicForm(tabName);
+                    break;
+                case VocabForm.WORD:
+                    form = new WordForm();
+                    break;
+                case VocabForm.FLASHCARD:
+                    form = new FlashCardForm(data as List<Vocabulary>);
+                    break;
             }
+            ControlExtension.ShowFormInControl(tabForm.TabPages[tabForm.TabCount - 1], form);
+
+            stNavigate.AddTab(tabName);
         }
     }
 }
