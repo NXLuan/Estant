@@ -34,6 +34,7 @@ namespace Estant.View.FormUI.VocabularyUI
             this.pbVolume = new System.Windows.Forms.PictureBox();
             this.lbPhonetic = new System.Windows.Forms.Label();
             this.lbWord = new System.Windows.Forms.Label();
+            this.pnMeaning = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbVolume)).BeginInit();
             this.SuspendLayout();
@@ -41,6 +42,7 @@ namespace Estant.View.FormUI.VocabularyUI
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.Controls.Add(this.pnMeaning);
             this.panel1.Controls.Add(this.pbVolume);
             this.panel1.Controls.Add(this.lbPhonetic);
             this.panel1.Controls.Add(this.lbWord);
@@ -83,6 +85,17 @@ namespace Estant.View.FormUI.VocabularyUI
             this.lbWord.TabIndex = 0;
             this.lbWord.Text = "Word";
             // 
+            // pnMeaning
+            // 
+            this.pnMeaning.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnMeaning.AutoScroll = true;
+            this.pnMeaning.Location = new System.Drawing.Point(0, 101);
+            this.pnMeaning.Name = "pnMeaning";
+            this.pnMeaning.Size = new System.Drawing.Size(740, 411);
+            this.pnMeaning.TabIndex = 3;
+            // 
             // WordForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -106,5 +119,6 @@ namespace Estant.View.FormUI.VocabularyUI
         private System.Windows.Forms.Label lbWord;
         private System.Windows.Forms.Label lbPhonetic;
         private System.Windows.Forms.PictureBox pbVolume;
+        private System.Windows.Forms.Panel pnMeaning;
     }
 }

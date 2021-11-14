@@ -1,4 +1,5 @@
-﻿using Estant.View.Extensions;
+﻿using Estant.View.CustomControl;
+using Estant.View.Extensions;
 using EstantWF.Material.Model;
 using System;
 using System.Collections.Generic;
@@ -26,6 +27,12 @@ namespace Estant.View.FormUI.VocabularyUI
             vocabulary = vocabParam;
             lbWord.Text = vocabulary.word;
             lbPhonetic.Text = "/ " + vocabulary.phonetic + " /";
+            foreach(var meaning in vocabulary.meanings) 
+            {
+                var meaningItem = new MeaningItem(meaning);
+                meaningItem.Dock = DockStyle.Top;
+                pnMeaning.Controls.Add(meaningItem);
+            }
         }
 
         private void pbVolume_Click(object sender, EventArgs e)

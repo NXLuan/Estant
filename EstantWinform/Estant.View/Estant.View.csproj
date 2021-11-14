@@ -59,6 +59,12 @@
     <Compile Include="CustomControl\LoadCircle.Designer.cs">
       <DependentUpon>LoadCircle.cs</DependentUpon>
     </Compile>
+    <Compile Include="CustomControl\MeaningItem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CustomControl\MeaningItem.Designer.cs">
+      <DependentUpon>MeaningItem.cs</DependentUpon>
+    </Compile>
     <Compile Include="CustomControl\TabNavigate.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -148,6 +154,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CustomControl\LoadCircle.resx">
       <DependentUpon>LoadCircle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomControl\MeaningItem.resx">
+      <DependentUpon>MeaningItem.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CustomControl\SearchBar.resx">
       <DependentUpon>SearchBar.cs</DependentUpon>
