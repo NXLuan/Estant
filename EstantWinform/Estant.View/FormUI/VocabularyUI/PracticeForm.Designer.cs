@@ -131,9 +131,9 @@ namespace Estant.View.FormUI.VocabularyUI
             // lblMissingWord
             // 
             this.lblMissingWord.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold);
-            this.lblMissingWord.Location = new System.Drawing.Point(62, 5);
+            this.lblMissingWord.Location = new System.Drawing.Point(5, 5);
             this.lblMissingWord.Name = "lblMissingWord";
-            this.lblMissingWord.Size = new System.Drawing.Size(440, 52);
+            this.lblMissingWord.Size = new System.Drawing.Size(550, 52);
             this.lblMissingWord.TabIndex = 0;
             this.lblMissingWord.Text = "_ i r_ _ a _ e";
             this.lblMissingWord.TextAlign = System.Drawing.ContentAlignment.TopCenter;

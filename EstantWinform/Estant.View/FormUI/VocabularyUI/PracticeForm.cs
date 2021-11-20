@@ -35,6 +35,7 @@ namespace Estant.View.FormUI.VocabularyUI
 
             lstExercise = await ExerciseHandler.GetExerciseByTopic(topic);
 
+            //lstExercise = await ExerciseHandler.GetExerciseByGrammar("PresentSimpleTense");
             Loading.End(); // end load
             ShowQuestion();
         }
@@ -46,10 +47,12 @@ namespace Estant.View.FormUI.VocabularyUI
             switch (lstExercise[currentIndex].type)
             {
                 case 1:
+                case 6:
                     ShowFillInBlank();
                     break;
                 case 2:
                 case 3:
+                case 5:
                     ShowMultipleChoice();
                     break;
                 case 4:
@@ -64,11 +67,19 @@ namespace Estant.View.FormUI.VocabularyUI
             pnMultipleChoice.Visible = false;
             pnMissingWord.Visible = true;
             pnResult.Visible = false;
-            lblMissingWord.Text = String.Join(" ", lstExercise[currentIndex].missingWord.ToCharArray());
+            if (lstExercise[currentIndex].type == 1)
+            {
+                lblMissingWord.Text = String.Join(" ", lstExercise[currentIndex].missingWord.ToCharArray());
+                lblMissingWord.Font = new Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold);
+            }
+            else
+            {
+                lblMissingWord.Text = lstExercise[currentIndex].sentence;
+                lblMissingWord.Font = new Font("Segoe UI", 13F, System.Drawing.FontStyle.Bold);
+            }
             lblMWAnswer.Text = lstExercise[currentIndex].correctAnswer;
             lblMWDefinition.Text = lstExercise[currentIndex].definition;
-            txtMWAnswer.MaxLength = lstExercise[currentIndex].missingWord.Length;
-
+            
             lblMWAnswer.Visible = isFinish;
             txtMWAnswer.Enabled = !isFinish;
 
@@ -202,12 +213,12 @@ namespace Estant.View.FormUI.VocabularyUI
 
         private void SetFontSize(int type)
         {
-            if (type == 2)
+            if (type == 2 || type == 5)
             {
                 btnA.Font = btnB.Font = btnC.Font = btnD.Font = new Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold);
                 lblMCQuestion.Font = new Font("Segoe UI", 13F);
                 lblMCQuestion.ForeColor = Color.Black;
-                lblMCQuestion.Text = lstExercise[currentIndex].example;
+                lblMCQuestion.Text = type == 2 ? lstExercise[currentIndex].example : lstExercise[currentIndex].sentence;
             }
             else if (type == 3)
             {

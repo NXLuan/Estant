@@ -18,5 +18,6 @@ namespace EstantWF.Material.Model
         public string definition { get; set; }
         public string word { get; set; }
         public string userAnswer { get; set; }
+        public string sentence { get; set; }
     }
 }

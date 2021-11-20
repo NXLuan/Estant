@@ -23,5 +23,18 @@ namespace EstantNF.Core.Handlers
 
             return data;
         }
+        public static async Task<List<Exercise>> GetExerciseByGrammar(string grammar)
+        {
+            var data = new List<Exercise>();
+            string path = "Exercise/GetByGrammar?code=" + grammar;
+            var response = await API.GetRequestAsync<List<Exercise>>(path);
+
+            if (response.IsSuccess())
+            {
+                data = response.data;
+            }
+
+            return data;
+        }
     }
 }
