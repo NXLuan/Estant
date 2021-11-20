@@ -31,17 +31,20 @@ namespace Estant.View.FormUI.VocabularyUI
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(WordForm));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.pnMeaning = new System.Windows.Forms.Panel();
             this.pbVolume = new System.Windows.Forms.PictureBox();
             this.lbPhonetic = new System.Windows.Forms.Label();
             this.lbWord = new System.Windows.Forms.Label();
-            this.pnMeaning = new System.Windows.Forms.Panel();
+            this.pbSaveWord = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbVolume)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbSaveWord)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.Controls.Add(this.pbSaveWord);
             this.panel1.Controls.Add(this.pnMeaning);
             this.panel1.Controls.Add(this.pbVolume);
             this.panel1.Controls.Add(this.lbPhonetic);
@@ -51,6 +54,17 @@ namespace Estant.View.FormUI.VocabularyUI
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(740, 512);
             this.panel1.TabIndex = 0;
+            // 
+            // pnMeaning
+            // 
+            this.pnMeaning.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnMeaning.AutoScroll = true;
+            this.pnMeaning.Location = new System.Drawing.Point(0, 101);
+            this.pnMeaning.Name = "pnMeaning";
+            this.pnMeaning.Size = new System.Drawing.Size(740, 411);
+            this.pnMeaning.TabIndex = 3;
             // 
             // pbVolume
             // 
@@ -85,16 +99,16 @@ namespace Estant.View.FormUI.VocabularyUI
             this.lbWord.TabIndex = 0;
             this.lbWord.Text = "Word";
             // 
-            // pnMeaning
+            // pbSaveWord
             // 
-            this.pnMeaning.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.pnMeaning.AutoScroll = true;
-            this.pnMeaning.Location = new System.Drawing.Point(0, 101);
-            this.pnMeaning.Name = "pnMeaning";
-            this.pnMeaning.Size = new System.Drawing.Size(740, 411);
-            this.pnMeaning.TabIndex = 3;
+            this.pbSaveWord.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pbSaveWord.Image = ((System.Drawing.Image)(resources.GetObject("pbSaveWord.Image")));
+            this.pbSaveWord.Location = new System.Drawing.Point(680, 33);
+            this.pbSaveWord.Name = "pbSaveWord";
+            this.pbSaveWord.Size = new System.Drawing.Size(39, 39);
+            this.pbSaveWord.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pbSaveWord.TabIndex = 4;
+            this.pbSaveWord.TabStop = false;
             // 
             // WordForm
             // 
@@ -109,6 +123,7 @@ namespace Estant.View.FormUI.VocabularyUI
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbVolume)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbSaveWord)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -120,5 +135,6 @@ namespace Estant.View.FormUI.VocabularyUI
         private System.Windows.Forms.Label lbPhonetic;
         private System.Windows.Forms.PictureBox pbVolume;
         private System.Windows.Forms.Panel pnMeaning;
+        private System.Windows.Forms.PictureBox pbSaveWord;
     }
 }

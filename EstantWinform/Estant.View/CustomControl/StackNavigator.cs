@@ -21,9 +21,8 @@ namespace Estant.View.CustomControl
 
         public void AddTab(string screenName)
         {
-            var tabNavigate = new TabNavigate();
+            var tabNavigate = new TabNavigate(screenName);
             tabNavigate.Index = flTab.Controls.Count;
-            tabNavigate.TabName = screenName;
             tabNavigate.Selected += (s, e) =>
             {
                 var tab = s as TabNavigate;

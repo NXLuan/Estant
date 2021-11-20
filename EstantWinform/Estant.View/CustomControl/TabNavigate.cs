@@ -13,11 +13,6 @@ namespace Estant.View.CustomControl
     public partial class TabNavigate : UserControl
     {
         public int Index { get; set; }
-        public string TabName
-        {
-            get => lbTabName.Text;
-            set => lbTabName.Text = value;
-        }
 
         public bool IsNotEndTab
         {
@@ -41,11 +36,12 @@ namespace Estant.View.CustomControl
         [Description("Invoked when user select tab")]
         public event EventHandler Selected;
 
-        public TabNavigate()
+        public TabNavigate(string tabname)
         {
             InitializeComponent();
+            lbTabName.Text = tabname;
+            this.Width = lbTabName.Size.Width + pbArrow.Size.Width;
             IsActive = true;
-            this.Width = lbTabName.Size.Width + pbArrow.Size.Width + 35;
             EventHandle();
         }
 
