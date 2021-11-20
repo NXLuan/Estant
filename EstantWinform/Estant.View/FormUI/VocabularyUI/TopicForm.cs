@@ -18,10 +18,12 @@ namespace Estant.View.FormUI.VocabularyUI
     public partial class TopicForm : Form
     {
         private List<Vocabulary> vocabularies;
+        private string topic;
         public TopicForm(string topic)
         {
             InitializeComponent();
             LoadDataTopic(topic);
+            this.topic = topic;
         }
 
         private async void LoadDataTopic(string topic)
@@ -40,7 +42,12 @@ namespace Estant.View.FormUI.VocabularyUI
 
         private void btnFlashCard_UserClick(object sender, EventArgs e)
         {
-            VocabularyForm.Instance.ShowNewTab(VocabForm.FLASHCARD, "Flash card", data: vocabularies);
+            VocabularyForm.Instance.ShowNewTab(VocabForm.FLASHCARD, "Flashcards", data: vocabularies);
+        }
+
+        private void btnPractice_UserClick(object sender, EventArgs e)
+        {
+            VocabularyForm.Instance.ShowNewTab(VocabForm.PRACTICE, "Practice", data: topic);
         }
     }
 }

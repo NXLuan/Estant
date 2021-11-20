@@ -84,6 +84,9 @@ namespace Estant.View.FormUI.VocabularyUI
                 case VocabForm.FLASHCARD:
                     form = new FlashCardForm(data as List<Vocabulary>);
                     break;
+                case VocabForm.PRACTICE:
+                    form = new PracticeForm(data as string);
+                    break;
             }
             ControlExtension.ShowFormInControl(tabForm.TabPages[tabForm.TabCount - 1], form);
 

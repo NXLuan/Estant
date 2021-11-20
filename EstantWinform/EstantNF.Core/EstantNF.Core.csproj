@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Handlers\ExerciseHandler.cs" />
     <Compile Include="Handlers\VocabularyHandler.cs" />
     <Compile Include="Mappings\VocabularyMapping.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
