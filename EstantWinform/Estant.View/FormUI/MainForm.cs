@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using EstantWF.Material.Model;
 using Estant.View.Extensions;
+using Estant.View.FormUI.GrammarUI;
 
 namespace Estant.View.FormUI
 {
@@ -53,6 +54,7 @@ namespace Estant.View.FormUI
                     form = VocabularyForm.Instance;
                     break;
                 case ScreenForm.GRAMMAR:
+                    form = GrammarForm.Instance;
                     break;
                 case ScreenForm.ACCOUNT:
                     break;

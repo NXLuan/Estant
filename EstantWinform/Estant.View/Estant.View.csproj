@@ -12,6 +12,8 @@
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -39,6 +41,15 @@
     <Reference Include="Interop.WMPLib, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\WMPLib.1.0.0\lib\Interop.WMPLib.dll</HintPath>
       <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Microsoft.Web.WebView2.Core, Version=1.0.1020.30, Culture=neutral, PublicKeyToken=2a8ab48044d2601e, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Web.WebView2.1.0.1020.30\lib\net45\Microsoft.Web.WebView2.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.WebView2.WinForms, Version=1.0.1020.30, Culture=neutral, PublicKeyToken=2a8ab48044d2601e, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Web.WebView2.1.0.1020.30\lib\net45\Microsoft.Web.WebView2.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.WebView2.Wpf, Version=1.0.1020.30, Culture=neutral, PublicKeyToken=2a8ab48044d2601e, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Web.WebView2.1.0.1020.30\lib\net45\Microsoft.Web.WebView2.Wpf.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -79,6 +90,30 @@
     </Compile>
     <Compile Include="Extensions\Loading.cs" />
     <Compile Include="Extensions\MediaExtension.cs" />
+    <Compile Include="FormUI\GrammarUI\GrammarForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormUI\GrammarUI\GrammarForm.Designer.cs">
+      <DependentUpon>GrammarForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormUI\GrammarUI\LessonForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormUI\GrammarUI\LessonForm.Designer.cs">
+      <DependentUpon>LessonForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormUI\GrammarUI\LessonItem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FormUI\GrammarUI\LessonItem.Designer.cs">
+      <DependentUpon>LessonItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormUI\GrammarUI\GrammarItem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FormUI\GrammarUI\GrammarItem.Designer.cs">
+      <DependentUpon>GrammarItem.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormUI\VocabularyUI\FlashCardForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -176,6 +211,18 @@
     <EmbeddedResource Include="CustomControl\VocabularyItem.resx">
       <DependentUpon>VocabularyItem.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormUI\GrammarUI\GrammarForm.resx">
+      <DependentUpon>GrammarForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormUI\GrammarUI\LessonForm.resx">
+      <DependentUpon>LessonForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormUI\GrammarUI\LessonItem.resx">
+      <DependentUpon>LessonItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormUI\GrammarUI\GrammarItem.resx">
+      <DependentUpon>GrammarItem.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormUI\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -228,4 +275,11 @@
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\packages\Microsoft.Web.WebView2.1.0.1020.30\build\Microsoft.Web.WebView2.targets" Condition="Exists('..\packages\Microsoft.Web.WebView2.1.0.1020.30\build\Microsoft.Web.WebView2.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Web.WebView2.1.0.1020.30\build\Microsoft.Web.WebView2.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Web.WebView2.1.0.1020.30\build\Microsoft.Web.WebView2.targets'))" />
+  </Target>
 </Project>

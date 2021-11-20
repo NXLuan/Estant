@@ -15,4 +15,9 @@ namespace EstantWF.Material.Model
     {
         TOPIC = 1, WORD = 2, FLASHCARD = 3, PRACTICE = 4
     }
+
+    public enum GramForm
+    {
+        LESSON = 1
+    }
 }

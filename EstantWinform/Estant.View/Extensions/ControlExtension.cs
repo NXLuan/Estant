@@ -31,6 +31,7 @@ namespace Estant.View.Extensions
 
         public static void ShowFormInControl(Control control, Form form)
         {
+            control.Controls.Clear();
             if (control != null && form != null)
             {
                 form.TopLevel = false;
