@@ -12,16 +12,16 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Estant.View.FormUI.GrammarUI
+namespace Estant.View.FormUI.NewsUI
 {
-    public partial class GrammarForm : Form
+    public partial class NewsForm : Form
     {
-        public static GrammarForm Instance
+        public static NewsForm Instance
         {
-            get => Singleton<GrammarForm>.Instance;
+            get => Singleton<NewsForm>.Instance;
         }
 
-        public GrammarForm()
+        public NewsForm()
         {
             InitializeComponent();
             InitHandle();
@@ -29,27 +29,26 @@ namespace Estant.View.FormUI.GrammarUI
 
         private void InitHandle()
         {
-            LoadGrammarsHandle();
+            LoadNewsHandle();
             stackNavigator.tabControl = tabForm;
-            stackNavigator.AddTab("Grammar");
+            stackNavigator.AddTab("News");
         }
 
-        public async void LoadGrammarsHandle()
+        public async void LoadNewsHandle()
         {
             Loading.Show(); // show load
 
-            var grammars = await GrammarHandler.GetAll();
-            foreach (var grammar in grammars)
+            var listNews = await NewsHandler.GetNewsToday();
+            foreach(var news in listNews)
             {
-                var grammarItem = new GrammarItem(grammar);
-                grammarItem.Dock = DockStyle.Top;
-                pnGrammars.Controls.Add(grammarItem);
+                var newsItem = new NewsItem(news);
+                flListNews.Controls.Add(newsItem);
             }
 
             Loading.End(); // end load
         }
 
-        public void ShowNewTab(GrammarPageForm index, string tabName, object data = null)
+        public void ShowNewTab(NewsPageForm index, string tabName, object data = null)
         {
             if (string.IsNullOrEmpty(tabName)) return;
             tabForm.TabPages.Add(tabName);
@@ -57,8 +56,8 @@ namespace Estant.View.FormUI.GrammarUI
             Form form = null;
             switch (index)
             {
-                case GrammarPageForm.LESSON:
-                    form = new LessonForm(data as string);
+                case NewsPageForm.ARTICLE:
+                    form = new ArticleForm(data as string);
                     break;
             }
             ControlExtension.ShowFormInControl(tabForm.TabPages[tabForm.TabCount - 1], form);

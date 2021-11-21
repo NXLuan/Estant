@@ -18,7 +18,7 @@ namespace Estant.View
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(Singleton<MainForm>.Instance);
+            Application.Run(MainForm.Instance);
         }
     }
 }

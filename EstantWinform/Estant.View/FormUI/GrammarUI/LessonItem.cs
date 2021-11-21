@@ -34,7 +34,7 @@ namespace Estant.View.FormUI.GrammarUI
             {
                 control.MouseClick += (s, e) =>
                 {
-                    GrammarForm.Instance.ShowNewTab(GramForm.LESSON, lesson.name, lesson.code);
+                    GrammarForm.Instance.ShowNewTab(GrammarPageForm.LESSON, lesson.name, lesson.code);
                 };
             }
         }

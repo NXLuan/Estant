@@ -12,12 +12,12 @@ namespace Estant.View.Extensions
     {
         public static void Show()
         {
-            Singleton<MainForm>.Instance.ShowLoading();
+            MainForm.Instance.ShowLoading();
         }
 
         public static void End()
         {
-            Singleton<MainForm>.Instance.EndLoading();
+            MainForm.Instance.EndLoading();
         }
     }
 }

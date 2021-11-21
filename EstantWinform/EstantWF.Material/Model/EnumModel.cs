@@ -8,7 +8,7 @@ namespace EstantWF.Material.Model
 {
     public enum ScreenForm
     {
-        VOCABULARY, GRAMMAR, ACCOUNT
+        VOCABULARY, GRAMMAR, NEWS, ACCOUNT
     }
 
     public enum VocabForm
@@ -16,8 +16,12 @@ namespace EstantWF.Material.Model
         TOPIC = 1, WORD = 2, FLASHCARD = 3, PRACTICE = 4
     }
 
-    public enum GramForm
+    public enum GrammarPageForm
     {
         LESSON = 1
+    }
+    public enum NewsPageForm
+    {
+        ARTICLE = 1
     }
 }

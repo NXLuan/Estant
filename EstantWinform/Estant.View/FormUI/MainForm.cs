@@ -12,11 +12,17 @@ using System.Windows.Forms;
 using EstantWF.Material.Model;
 using Estant.View.Extensions;
 using Estant.View.FormUI.GrammarUI;
+using Estant.View.FormUI.NewsUI;
 
 namespace Estant.View.FormUI
 {
     public partial class MainForm : Form
     {
+        public static MainForm Instance
+        {
+            get => Singleton<MainForm>.Instance;
+        }
+
         public MainForm()
         {
             InitializeComponent();
@@ -39,6 +45,11 @@ namespace Estant.View.FormUI
             ShowForm(ScreenForm.GRAMMAR);
         }
 
+        private void btnNews_Selected(object sender, EventArgs e)
+        {
+            ShowForm(ScreenForm.NEWS);
+        }
+
         private void btnAccount_Load(object sender, EventArgs e)
         {
             ShowForm(ScreenForm.ACCOUNT);
@@ -56,6 +67,9 @@ namespace Estant.View.FormUI
                 case ScreenForm.GRAMMAR:
                     form = GrammarForm.Instance;
                     break;
+                case ScreenForm.NEWS:
+                    form = NewsForm.Instance;
+                    break;
                 case ScreenForm.ACCOUNT:
                     break;
             }
@@ -66,6 +80,7 @@ namespace Estant.View.FormUI
         {
             btnVocab.IsActive = false;
             btnGrammar.IsActive = false;
+            btnNews.IsActive = false;
             btnAccount.IsActive = false;
             btnLogOut.IsActive = false;
         }
@@ -79,5 +94,6 @@ namespace Estant.View.FormUI
         {
             pbLoading.Visible = false;
         }
+
     }
 }

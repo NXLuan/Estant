@@ -48,6 +48,7 @@
     <Compile Include="Model\EnumModel.cs" />
     <Compile Include="Model\Exercise.cs" />
     <Compile Include="Model\Grammar.cs" />
+    <Compile Include="Model\News.cs" />
     <Compile Include="Model\ResponseModel.cs" />
     <Compile Include="Model\Vocabulary.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
