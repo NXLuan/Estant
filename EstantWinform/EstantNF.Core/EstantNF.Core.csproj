@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Handlers\AuthHandler.cs" />
     <Compile Include="Handlers\ExerciseHandler.cs" />
     <Compile Include="Handlers\GrammarHandler.cs" />
     <Compile Include="Handlers\NewsHandler.cs" />

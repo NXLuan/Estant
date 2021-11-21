@@ -39,5 +39,11 @@ namespace EstantNF.Core.Handlers
 
             return data;
         }
+
+        public static async Task<ResponseModel<Vocabulary>> LookupDictionary(string word)
+        {
+            string path = "Vocabulary/LookupDictionary?word=" + word;
+            return await API.GetRequestAsync<Vocabulary>(path);
+        }
     }
 }

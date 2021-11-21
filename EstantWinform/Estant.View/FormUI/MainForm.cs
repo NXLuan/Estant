@@ -13,11 +13,13 @@ using EstantWF.Material.Model;
 using Estant.View.Extensions;
 using Estant.View.FormUI.GrammarUI;
 using Estant.View.FormUI.NewsUI;
+using Estant.View.FormUI.AuthUI;
 
 namespace Estant.View.FormUI
 {
     public partial class MainForm : Form
     {
+        public User CurrentUser { get; set; }
         public static MainForm Instance
         {
             get => Singleton<MainForm>.Instance;
@@ -76,6 +78,12 @@ namespace Estant.View.FormUI
             ControlExtension.ShowFormInControl(pnForm, form);
         }
 
+        public void ShowAuthForm()
+        {
+            this.Hide();
+            AuthForm.Instance.ShowDialog();
+        }
+
         public void ResetSelect()
         {
             btnVocab.IsActive = false;
@@ -95,5 +103,16 @@ namespace Estant.View.FormUI
             pbLoading.Visible = false;
         }
 
+        private void btnLogOut_Selected(object sender, EventArgs e)
+        {
+            CurrentUser = null;
+            ShowAuthForm();
+        }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+            if (CurrentUser == null)
+                ShowAuthForm();
+        }
     }
 }

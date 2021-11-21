@@ -15,7 +15,7 @@ namespace Estant.API.Controllers
     [ApiController]
     public class BaseController : Controller
     {
-        protected JsonResult ReturnData(object data, ResponseError responseError, string messageSuccess = "Thành công")
+        protected JsonResult ReturnData(object data, ResponseError responseError, string messageSuccess = "Successfully!")
         {
             var model = new ResponseModel<object>();
 
@@ -29,7 +29,7 @@ namespace Estant.API.Controllers
             return Json(model);
         }
 
-        protected JsonResult ReturnNoData(ResponseError responseError, string messageSuccess = "Thành công")
+        protected JsonResult ReturnNoData(ResponseError responseError, string messageSuccess = "Successfully!")
         {
            return ReturnData(null, responseError, messageSuccess);
         }

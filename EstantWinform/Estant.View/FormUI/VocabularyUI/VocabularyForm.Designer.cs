@@ -36,7 +36,7 @@ namespace Estant.View.FormUI.VocabularyUI
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.tableTopic = new System.Windows.Forms.FlowLayoutPanel();
-            this.searchBar1 = new Estant.View.CustomControl.SearchBar();
+            this.searchBar = new Estant.View.CustomControl.SearchBar();
             this.stNavigate = new Estant.View.CustomControl.StackNavigator();
             this.tabForm.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -60,7 +60,7 @@ namespace Estant.View.FormUI.VocabularyUI
             // 
             this.tabPage1.BackColor = System.Drawing.SystemColors.Control;
             this.tabPage1.Controls.Add(this.panel1);
-            this.tabPage1.Controls.Add(this.searchBar1);
+            this.tabPage1.Controls.Add(this.searchBar);
             this.tabPage1.Location = new System.Drawing.Point(4, 5);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
@@ -121,15 +121,16 @@ namespace Estant.View.FormUI.VocabularyUI
             this.tableTopic.Size = new System.Drawing.Size(829, 271);
             this.tableTopic.TabIndex = 11;
             // 
-            // searchBar1
+            // searchBar
             // 
-            this.searchBar1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.searchBar1.BackColor = System.Drawing.Color.White;
-            this.searchBar1.Hint = "Search new word here";
-            this.searchBar1.Location = new System.Drawing.Point(25, 5);
-            this.searchBar1.Name = "searchBar1";
-            this.searchBar1.Size = new System.Drawing.Size(315, 44);
-            this.searchBar1.TabIndex = 2;
+            this.searchBar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.searchBar.BackColor = System.Drawing.Color.White;
+            this.searchBar.Hint = "Search new word here";
+            this.searchBar.Location = new System.Drawing.Point(25, 5);
+            this.searchBar.Name = "searchBar";
+            this.searchBar.Size = new System.Drawing.Size(315, 44);
+            this.searchBar.TabIndex = 2;
+            this.searchBar.Search += new System.EventHandler(this.searchBar_Search);
             // 
             // stNavigate
             // 
@@ -164,7 +165,7 @@ namespace Estant.View.FormUI.VocabularyUI
         #endregion
         private System.Windows.Forms.TabControl tabForm;
         private System.Windows.Forms.TabPage tabPage1;
-        private CustomControl.SearchBar searchBar1;
+        private CustomControl.SearchBar searchBar;
         private CustomControl.StackNavigator stNavigate;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.FlowLayoutPanel flSaveWords;

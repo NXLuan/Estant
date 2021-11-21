@@ -24,4 +24,9 @@ namespace EstantWF.Material.Model
     {
         ARTICLE = 1
     }
+
+    public enum AuthPageForm
+    {
+        SIGNIN = 0, SIGNUP = 1, FORGOTPASSWORD = 2
+    }
 }

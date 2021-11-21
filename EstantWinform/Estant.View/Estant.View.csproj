@@ -82,6 +82,12 @@
     <Compile Include="CustomControl\TabNavigate.Designer.cs">
       <DependentUpon>TabNavigate.cs</DependentUpon>
     </Compile>
+    <Compile Include="CustomControl\TextboxCustom.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CustomControl\TextboxCustom.Designer.cs">
+      <DependentUpon>TextboxCustom.cs</DependentUpon>
+    </Compile>
     <Compile Include="CustomControl\VocabularyItem.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -90,6 +96,12 @@
     </Compile>
     <Compile Include="Extensions\Loading.cs" />
     <Compile Include="Extensions\MediaExtension.cs" />
+    <Compile Include="FormUI\AuthUI\AuthForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormUI\AuthUI\AuthForm.Designer.cs">
+      <DependentUpon>AuthForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormUI\GrammarUI\GrammarForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -131,6 +143,12 @@
     </Compile>
     <Compile Include="FormUI\NewsUI\NewsItem.Designer.cs">
       <DependentUpon>NewsItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormUI\PopupUI\PopupLoading.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormUI\PopupUI\PopupLoading.Designer.cs">
+      <DependentUpon>PopupLoading.cs</DependentUpon>
     </Compile>
     <Compile Include="FormUI\VocabularyUI\FlashCardForm.cs">
       <SubType>Form</SubType>
@@ -226,8 +244,14 @@
     <EmbeddedResource Include="CustomControl\TabNavigate.resx">
       <DependentUpon>TabNavigate.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="CustomControl\TextboxCustom.resx">
+      <DependentUpon>TextboxCustom.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CustomControl\VocabularyItem.resx">
       <DependentUpon>VocabularyItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormUI\AuthUI\AuthForm.resx">
+      <DependentUpon>AuthForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormUI\GrammarUI\GrammarForm.resx">
       <DependentUpon>GrammarForm.cs</DependentUpon>
@@ -252,6 +276,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormUI\NewsUI\NewsItem.resx">
       <DependentUpon>NewsItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormUI\PopupUI\PopupLoading.resx">
+      <DependentUpon>PopupLoading.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormUI\VocabularyUI\FlashCardForm.resx">
       <DependentUpon>FlashCardForm.cs</DependentUpon>

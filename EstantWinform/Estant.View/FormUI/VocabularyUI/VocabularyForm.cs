@@ -92,5 +92,25 @@ namespace Estant.View.FormUI.VocabularyUI
 
             stNavigate.AddTab(tabName);
         }
+
+        private void searchBar_Search(object sender, EventArgs e)
+        {
+            GetDataVocabulary(searchBar.TextSearch);
+        }
+
+        public async void GetDataVocabulary(string word)
+        {
+            Loading.Show(); // show load
+            var response = await VocabularyHandler.LookupDictionary(word);
+            if (response.IsSuccess())
+            {
+                ShowNewTab(VocabForm.WORD, word, response.data);
+            }
+            else
+            {
+                MessageBox.Show(response.message, "Notification");
+            }
+            Loading.End(); // end load
+        }
     }
 }
