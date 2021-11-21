@@ -18,13 +18,23 @@ namespace Estant.View.CustomControl
             set => lbHint.Text = value;
         }
 
+        public string TextSearch
+        {
+            get => tbInput.Text;
+        }
+
+        [Browsable(true)]
+        [Category("Action")]
+        [Description("Invoked when user click icon search")]
+        public event EventHandler Search;
+
         public SearchBar()
         {
             InitializeComponent();
-            HandleInit();
+            InitHandle();
         }
 
-        private void HandleInit()
+        private void InitHandle()
         {
             lbHint.Parent = tbInput;
             lbHint.Location = new Point(tbInput.Location.X - 15, tbInput.Location.Y - 8);
@@ -39,6 +49,16 @@ namespace Estant.View.CustomControl
         private void lbHint_MouseDown(object sender, MouseEventArgs e)
         {
             tbInput.Focus();
+        }
+
+        private void pbSearch_Click(object sender, EventArgs e)
+        {
+            if (Search != null)
+            {
+                Search(this, e);
+                tbInput.Text = string.Empty;
+                lbHint.Focus();
+            }
         }
     }
 }
