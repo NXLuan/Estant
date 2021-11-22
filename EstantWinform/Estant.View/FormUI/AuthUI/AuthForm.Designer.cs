@@ -36,25 +36,25 @@ namespace Estant.View.FormUI.AuthUI
             this.lbForgotPassword = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.btnSignIn = new System.Windows.Forms.Button();
+            this.tbPassword = new Estant.View.CustomControl.TextboxCustom();
+            this.tbEmail = new Estant.View.CustomControl.TextboxCustom();
             this.label3 = new System.Windows.Forms.Label();
             this.tabSigUp = new System.Windows.Forms.TabPage();
             this.pbBackFromSignUp = new System.Windows.Forms.PictureBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnSignUp = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
+            this.tbConfirmPassword = new Estant.View.CustomControl.TextboxCustom();
+            this.tbPasswordSignUp = new Estant.View.CustomControl.TextboxCustom();
+            this.tbEmailSignUp = new Estant.View.CustomControl.TextboxCustom();
+            this.tbName = new Estant.View.CustomControl.TextboxCustom();
             this.tabResetPassword = new System.Windows.Forms.TabPage();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnResetPassword = new System.Windows.Forms.Button();
             this.pbBackFromReset = new System.Windows.Forms.PictureBox();
             this.label6 = new System.Windows.Forms.Label();
+            this.tbEmailReset = new Estant.View.CustomControl.TextboxCustom();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.tbPassword = new Estant.View.CustomControl.TextboxCustom();
-            this.tbEmail = new Estant.View.CustomControl.TextboxCustom();
-            this.textboxCustom4 = new Estant.View.CustomControl.TextboxCustom();
-            this.textboxCustom3 = new Estant.View.CustomControl.TextboxCustom();
-            this.textboxCustom2 = new Estant.View.CustomControl.TextboxCustom();
-            this.textboxCustom1 = new Estant.View.CustomControl.TextboxCustom();
-            this.textboxCustom5 = new Estant.View.CustomControl.TextboxCustom();
             this.tabForm.SuspendLayout();
             this.tabSignIn.SuspendLayout();
             this.tabSigUp.SuspendLayout();
@@ -151,6 +151,26 @@ namespace Estant.View.FormUI.AuthUI
             this.btnSignIn.UseVisualStyleBackColor = false;
             this.btnSignIn.Click += new System.EventHandler(this.btnSignIn_Click);
             // 
+            // tbPassword
+            // 
+            this.tbPassword.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(106)))), ((int)(((byte)(77)))));
+            this.tbPassword.Location = new System.Drawing.Point(43, 222);
+            this.tbPassword.Name = "tbPassword";
+            this.tbPassword.PassChar = '●';
+            this.tbPassword.Size = new System.Drawing.Size(323, 77);
+            this.tbPassword.TabIndex = 7;
+            this.tbPassword.Title = "Password";
+            // 
+            // tbEmail
+            // 
+            this.tbEmail.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(106)))), ((int)(((byte)(77)))));
+            this.tbEmail.Location = new System.Drawing.Point(43, 121);
+            this.tbEmail.Name = "tbEmail";
+            this.tbEmail.PassChar = '\0';
+            this.tbEmail.Size = new System.Drawing.Size(323, 78);
+            this.tbEmail.TabIndex = 6;
+            this.tbEmail.Title = "Email address";
+            // 
             // label3
             // 
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.Top;
@@ -167,12 +187,12 @@ namespace Estant.View.FormUI.AuthUI
             // 
             this.tabSigUp.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(106)))), ((int)(((byte)(77)))));
             this.tabSigUp.Controls.Add(this.pbBackFromSignUp);
-            this.tabSigUp.Controls.Add(this.button1);
+            this.tabSigUp.Controls.Add(this.btnSignUp);
             this.tabSigUp.Controls.Add(this.label5);
-            this.tabSigUp.Controls.Add(this.textboxCustom4);
-            this.tabSigUp.Controls.Add(this.textboxCustom3);
-            this.tabSigUp.Controls.Add(this.textboxCustom2);
-            this.tabSigUp.Controls.Add(this.textboxCustom1);
+            this.tabSigUp.Controls.Add(this.tbConfirmPassword);
+            this.tabSigUp.Controls.Add(this.tbPasswordSignUp);
+            this.tabSigUp.Controls.Add(this.tbEmailSignUp);
+            this.tabSigUp.Controls.Add(this.tbName);
             this.tabSigUp.Location = new System.Drawing.Point(4, 5);
             this.tabSigUp.Name = "tabSigUp";
             this.tabSigUp.Size = new System.Drawing.Size(408, 551);
@@ -191,20 +211,21 @@ namespace Estant.View.FormUI.AuthUI
             this.pbBackFromSignUp.TabStop = false;
             this.pbBackFromSignUp.Click += new System.EventHandler(this.pbBackFromSignUp_Click);
             // 
-            // button1
+            // btnSignUp
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(190)))), ((int)(((byte)(77)))));
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(113, 479);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(189, 44);
-            this.button1.TabIndex = 10;
-            this.button1.Text = "Sign Up";
-            this.button1.UseVisualStyleBackColor = false;
+            this.btnSignUp.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(190)))), ((int)(((byte)(77)))));
+            this.btnSignUp.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSignUp.FlatAppearance.BorderSize = 0;
+            this.btnSignUp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSignUp.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSignUp.ForeColor = System.Drawing.Color.White;
+            this.btnSignUp.Location = new System.Drawing.Point(113, 479);
+            this.btnSignUp.Name = "btnSignUp";
+            this.btnSignUp.Size = new System.Drawing.Size(189, 44);
+            this.btnSignUp.TabIndex = 10;
+            this.btnSignUp.Text = "Sign Up";
+            this.btnSignUp.UseVisualStyleBackColor = false;
+            this.btnSignUp.Click += new System.EventHandler(this.btnSignUp_Click);
             // 
             // label5
             // 
@@ -218,33 +239,74 @@ namespace Estant.View.FormUI.AuthUI
             this.label5.TabIndex = 5;
             this.label5.Text = "Create Account";
             // 
+            // tbConfirmPassword
+            // 
+            this.tbConfirmPassword.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(106)))), ((int)(((byte)(77)))));
+            this.tbConfirmPassword.Location = new System.Drawing.Point(47, 366);
+            this.tbConfirmPassword.Name = "tbConfirmPassword";
+            this.tbConfirmPassword.PassChar = '●';
+            this.tbConfirmPassword.Size = new System.Drawing.Size(318, 77);
+            this.tbConfirmPassword.TabIndex = 9;
+            this.tbConfirmPassword.Title = "Confirm password";
+            // 
+            // tbPasswordSignUp
+            // 
+            this.tbPasswordSignUp.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(106)))), ((int)(((byte)(77)))));
+            this.tbPasswordSignUp.Location = new System.Drawing.Point(47, 265);
+            this.tbPasswordSignUp.Name = "tbPasswordSignUp";
+            this.tbPasswordSignUp.PassChar = '●';
+            this.tbPasswordSignUp.Size = new System.Drawing.Size(318, 79);
+            this.tbPasswordSignUp.TabIndex = 8;
+            this.tbPasswordSignUp.Title = "Password";
+            // 
+            // tbEmailSignUp
+            // 
+            this.tbEmailSignUp.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(106)))), ((int)(((byte)(77)))));
+            this.tbEmailSignUp.Location = new System.Drawing.Point(47, 169);
+            this.tbEmailSignUp.Name = "tbEmailSignUp";
+            this.tbEmailSignUp.PassChar = '\0';
+            this.tbEmailSignUp.Size = new System.Drawing.Size(318, 76);
+            this.tbEmailSignUp.TabIndex = 7;
+            this.tbEmailSignUp.Title = "Email address";
+            // 
+            // tbName
+            // 
+            this.tbName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(106)))), ((int)(((byte)(77)))));
+            this.tbName.Location = new System.Drawing.Point(47, 75);
+            this.tbName.Name = "tbName";
+            this.tbName.PassChar = '\0';
+            this.tbName.Size = new System.Drawing.Size(318, 74);
+            this.tbName.TabIndex = 6;
+            this.tbName.Title = "Name";
+            // 
             // tabResetPassword
             // 
             this.tabResetPassword.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(106)))), ((int)(((byte)(77)))));
-            this.tabResetPassword.Controls.Add(this.button2);
+            this.tabResetPassword.Controls.Add(this.btnResetPassword);
             this.tabResetPassword.Controls.Add(this.pbBackFromReset);
             this.tabResetPassword.Controls.Add(this.label6);
-            this.tabResetPassword.Controls.Add(this.textboxCustom5);
+            this.tabResetPassword.Controls.Add(this.tbEmailReset);
             this.tabResetPassword.Location = new System.Drawing.Point(4, 5);
             this.tabResetPassword.Name = "tabResetPassword";
             this.tabResetPassword.Size = new System.Drawing.Size(408, 551);
             this.tabResetPassword.TabIndex = 2;
             this.tabResetPassword.Text = "tabPage1";
             // 
-            // button2
+            // btnResetPassword
             // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(190)))), ((int)(((byte)(77)))));
-            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(120, 291);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(189, 44);
-            this.button2.TabIndex = 14;
-            this.button2.Text = "Reset password";
-            this.button2.UseVisualStyleBackColor = false;
+            this.btnResetPassword.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(190)))), ((int)(((byte)(77)))));
+            this.btnResetPassword.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnResetPassword.FlatAppearance.BorderSize = 0;
+            this.btnResetPassword.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnResetPassword.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnResetPassword.ForeColor = System.Drawing.Color.White;
+            this.btnResetPassword.Location = new System.Drawing.Point(120, 291);
+            this.btnResetPassword.Name = "btnResetPassword";
+            this.btnResetPassword.Size = new System.Drawing.Size(189, 44);
+            this.btnResetPassword.TabIndex = 14;
+            this.btnResetPassword.Text = "Reset password";
+            this.btnResetPassword.UseVisualStyleBackColor = false;
+            this.btnResetPassword.Click += new System.EventHandler(this.btnResetPassword_Click);
             // 
             // pbBackFromReset
             // 
@@ -269,6 +331,16 @@ namespace Estant.View.FormUI.AuthUI
             this.label6.Size = new System.Drawing.Size(188, 30);
             this.label6.TabIndex = 12;
             this.label6.Text = "Forgot password";
+            // 
+            // tbEmailReset
+            // 
+            this.tbEmailReset.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(106)))), ((int)(((byte)(77)))));
+            this.tbEmailReset.Location = new System.Drawing.Point(51, 178);
+            this.tbEmailReset.Name = "tbEmailReset";
+            this.tbEmailReset.PassChar = '\0';
+            this.tbEmailReset.Size = new System.Drawing.Size(323, 78);
+            this.tbEmailReset.TabIndex = 7;
+            this.tbEmailReset.Title = "Email address";
             // 
             // label2
             // 
@@ -302,76 +374,6 @@ namespace Estant.View.FormUI.AuthUI
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 4;
             this.pictureBox1.TabStop = false;
-            // 
-            // tbPassword
-            // 
-            this.tbPassword.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(106)))), ((int)(((byte)(77)))));
-            this.tbPassword.Location = new System.Drawing.Point(43, 222);
-            this.tbPassword.Name = "tbPassword";
-            this.tbPassword.PassChar = '●';
-            this.tbPassword.Size = new System.Drawing.Size(323, 77);
-            this.tbPassword.TabIndex = 7;
-            this.tbPassword.Title = "Password";
-            // 
-            // tbEmail
-            // 
-            this.tbEmail.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(106)))), ((int)(((byte)(77)))));
-            this.tbEmail.Location = new System.Drawing.Point(43, 121);
-            this.tbEmail.Name = "tbEmail";
-            this.tbEmail.PassChar = '\0';
-            this.tbEmail.Size = new System.Drawing.Size(323, 78);
-            this.tbEmail.TabIndex = 6;
-            this.tbEmail.Title = "Email address";
-            // 
-            // textboxCustom4
-            // 
-            this.textboxCustom4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(106)))), ((int)(((byte)(77)))));
-            this.textboxCustom4.Location = new System.Drawing.Point(47, 366);
-            this.textboxCustom4.Name = "textboxCustom4";
-            this.textboxCustom4.PassChar = '●';
-            this.textboxCustom4.Size = new System.Drawing.Size(318, 77);
-            this.textboxCustom4.TabIndex = 9;
-            this.textboxCustom4.Title = "Confirm password";
-            // 
-            // textboxCustom3
-            // 
-            this.textboxCustom3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(106)))), ((int)(((byte)(77)))));
-            this.textboxCustom3.Location = new System.Drawing.Point(47, 265);
-            this.textboxCustom3.Name = "textboxCustom3";
-            this.textboxCustom3.PassChar = '●';
-            this.textboxCustom3.Size = new System.Drawing.Size(318, 79);
-            this.textboxCustom3.TabIndex = 8;
-            this.textboxCustom3.Title = "Password";
-            // 
-            // textboxCustom2
-            // 
-            this.textboxCustom2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(106)))), ((int)(((byte)(77)))));
-            this.textboxCustom2.Location = new System.Drawing.Point(47, 169);
-            this.textboxCustom2.Name = "textboxCustom2";
-            this.textboxCustom2.PassChar = '\0';
-            this.textboxCustom2.Size = new System.Drawing.Size(318, 76);
-            this.textboxCustom2.TabIndex = 7;
-            this.textboxCustom2.Title = "Email address";
-            // 
-            // textboxCustom1
-            // 
-            this.textboxCustom1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(106)))), ((int)(((byte)(77)))));
-            this.textboxCustom1.Location = new System.Drawing.Point(47, 75);
-            this.textboxCustom1.Name = "textboxCustom1";
-            this.textboxCustom1.PassChar = '\0';
-            this.textboxCustom1.Size = new System.Drawing.Size(318, 74);
-            this.textboxCustom1.TabIndex = 6;
-            this.textboxCustom1.Title = "Name";
-            // 
-            // textboxCustom5
-            // 
-            this.textboxCustom5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(106)))), ((int)(((byte)(77)))));
-            this.textboxCustom5.Location = new System.Drawing.Point(51, 178);
-            this.textboxCustom5.Name = "textboxCustom5";
-            this.textboxCustom5.PassChar = '\0';
-            this.textboxCustom5.Size = new System.Drawing.Size(323, 78);
-            this.textboxCustom5.TabIndex = 7;
-            this.textboxCustom5.Title = "Email address";
             // 
             // AuthForm
             // 
@@ -418,17 +420,17 @@ namespace Estant.View.FormUI.AuthUI
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label lbCreateAccount;
         private System.Windows.Forms.TabPage tabSigUp;
-        private CustomControl.TextboxCustom textboxCustom4;
-        private CustomControl.TextboxCustom textboxCustom3;
-        private CustomControl.TextboxCustom textboxCustom2;
-        private CustomControl.TextboxCustom textboxCustom1;
-        private System.Windows.Forms.Button button1;
+        private CustomControl.TextboxCustom tbConfirmPassword;
+        private CustomControl.TextboxCustom tbPasswordSignUp;
+        private CustomControl.TextboxCustom tbEmailSignUp;
+        private CustomControl.TextboxCustom tbName;
+        private System.Windows.Forms.Button btnSignUp;
         private System.Windows.Forms.PictureBox pbBackFromSignUp;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TabPage tabResetPassword;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnResetPassword;
         private System.Windows.Forms.PictureBox pbBackFromReset;
         private System.Windows.Forms.Label label6;
-        private CustomControl.TextboxCustom textboxCustom5;
+        private CustomControl.TextboxCustom tbEmailReset;
     }
 }

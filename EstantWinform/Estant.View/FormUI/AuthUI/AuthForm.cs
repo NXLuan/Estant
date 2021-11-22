@@ -72,5 +72,41 @@ namespace Estant.View.FormUI.AuthUI
         {
             Application.Exit();
         }
+
+        private void btnSignUp_Click(object sender, EventArgs e)
+        {
+            SignUpHandle();
+        }
+
+        public async void SignUpHandle()
+        {
+            PopupLoading.Instance.Show();
+            var response = await AuthHandler.SignUp(tbName.TextInput, tbEmailSignUp.TextInput, tbPasswordSignUp.TextInput, tbConfirmPassword.TextInput);
+            PopupLoading.Instance.Hide();
+
+            MessageBox.Show(response.message, "Notification");
+            if (response.IsSuccess())
+            {
+                tabForm.SelectedIndex = (int)AuthPageForm.SIGNIN;
+            }
+        }
+
+        private void btnResetPassword_Click(object sender, EventArgs e)
+        {
+            ResetPasswordHandle();
+        }
+
+        public async void ResetPasswordHandle()
+        {
+            PopupLoading.Instance.Show();
+            var response = await AuthHandler.ResetPassword(tbEmailReset.TextInput);
+            PopupLoading.Instance.Hide();
+
+            MessageBox.Show(response.message, "Notification");
+            if (response.IsSuccess())
+            {
+                tabForm.SelectedIndex = (int)AuthPageForm.SIGNIN;
+            }
+        }
     }
 }
