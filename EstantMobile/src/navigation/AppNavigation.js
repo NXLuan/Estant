@@ -23,6 +23,8 @@ import LoginScreen from '../screens/LoginScreen';
 import CreateAccountScreen from '../screens/CreateAccountScreen';
 import ResetPasswordScreen from '../screens/ResetPasswordScreen';
 
+import PodcastScreen from '../screens/PodcastScreen';
+
 import { AuthContext } from './context';
 const Tab = createBottomTabNavigator();
 
@@ -203,6 +205,13 @@ const AppNavigator = () => {
             component={NewsContentScreen}
             options={{
               title: 'News',
+              headerTintColor: Colors.primary,
+            }}
+          />
+          <Stack.Screen
+            name="Podcast"
+            component={PodcastScreen}
+            options={{
               headerTintColor: Colors.primary,
             }}
           />
