@@ -9,14 +9,14 @@ using System.Threading.Tasks;
 
 namespace EstantNF.Core.Handlers
 {
-    public class NewsHandler
+    public static class ListenHandler
     {
-        public static async Task<List<News>> GetNewsToday()
+        public static async Task<Listen> GetList()
         {
-            return MockData.GetNewsToday();
-            var data = new List<News>();
-            string path = "News/GetNewsToday";
-            var response = await API.GetRequestAsync<List<News>>(path);
+            return MockData.GetListening();
+            var data = new Listen();
+            string path = "Listen/GetList";
+            var response = await API.GetRequestAsync<Listen>(path);
 
             if (response.IsSuccess())
             {
@@ -26,11 +26,11 @@ namespace EstantNF.Core.Handlers
             return data;
         }
 
-        public static async Task<List<News>> GetNewsByKeyWord(string keyword)
+        public static async Task<Listen> Search(string title)
         {
-            var data = new List<News>();
-            string path = "News/GetNewsByKeyWord?keyword=" + keyword;
-            var response = await API.GetRequestAsync<List<News>>(path);
+            var data = new Listen();
+            string path = $"Listen/Search?title={title}";
+            var response = await API.GetRequestAsync<Listen>(path);
 
             if (response.IsSuccess())
             {

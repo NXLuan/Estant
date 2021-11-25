@@ -35,13 +35,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="AxInterop.WMPLib, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\WMPLib.1.0.0\lib\AxInterop.WMPLib.dll</HintPath>
-    </Reference>
-    <Reference Include="Interop.WMPLib, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\WMPLib.1.0.0\lib\Interop.WMPLib.dll</HintPath>
-      <EmbedInteropTypes>True</EmbedInteropTypes>
-    </Reference>
     <Reference Include="Microsoft.Web.WebView2.Core, Version=1.0.1020.30, Culture=neutral, PublicKeyToken=2a8ab48044d2601e, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Web.WebView2.1.0.1020.30\lib\net45\Microsoft.Web.WebView2.Core.dll</HintPath>
     </Reference>
@@ -125,6 +118,24 @@
     </Compile>
     <Compile Include="FormUI\GrammarUI\GrammarItem.Designer.cs">
       <DependentUpon>GrammarItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormUI\ListenUI\ListenForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormUI\ListenUI\ListenForm.Designer.cs">
+      <DependentUpon>ListenForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormUI\ListenUI\PodcastForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormUI\ListenUI\PodcastForm.Designer.cs">
+      <DependentUpon>PodcastForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormUI\ListenUI\PodcastItem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FormUI\ListenUI\PodcastItem.Designer.cs">
+      <DependentUpon>PodcastItem.cs</DependentUpon>
     </Compile>
     <Compile Include="FormUI\NewsUI\ArticleForm.cs">
       <SubType>Form</SubType>
@@ -265,6 +276,15 @@
     <EmbeddedResource Include="FormUI\GrammarUI\GrammarItem.resx">
       <DependentUpon>GrammarItem.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormUI\ListenUI\ListenForm.resx">
+      <DependentUpon>ListenForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormUI\ListenUI\PodcastForm.resx">
+      <DependentUpon>PodcastForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormUI\ListenUI\PodcastItem.resx">
+      <DependentUpon>PodcastItem.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormUI\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -328,7 +348,25 @@
       <Name>EstantWF.Material</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <COMReference Include="AxWMPLib">
+      <Guid>{6BF52A50-394A-11D3-B153-00C04F79FAA6}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>aximp</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
+    <COMReference Include="WMPLib">
+      <Guid>{6BF52A50-394A-11D3-B153-00C04F79FAA6}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Microsoft.Web.WebView2.1.0.1020.30\build\Microsoft.Web.WebView2.targets" Condition="Exists('..\packages\Microsoft.Web.WebView2.1.0.1020.30\build\Microsoft.Web.WebView2.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

@@ -31,9 +31,9 @@ namespace Estant.View.FormUI.NewsUI
         {
             this.pbImage = new System.Windows.Forms.PictureBox();
             this.pnContent = new System.Windows.Forms.Panel();
-            this.lbTitle = new System.Windows.Forms.Label();
-            this.lbSourceName = new System.Windows.Forms.Label();
             this.lbPublishedAt = new System.Windows.Forms.Label();
+            this.lbSourceName = new System.Windows.Forms.Label();
+            this.lbTitle = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pbImage)).BeginInit();
             this.pnContent.SuspendLayout();
             this.SuspendLayout();
@@ -60,30 +60,6 @@ namespace Estant.View.FormUI.NewsUI
             this.pnContent.Size = new System.Drawing.Size(596, 116);
             this.pnContent.TabIndex = 2;
             // 
-            // lbTitle
-            // 
-            this.lbTitle.AutoSize = true;
-            this.lbTitle.BackColor = System.Drawing.Color.White;
-            this.lbTitle.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lbTitle.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbTitle.Location = new System.Drawing.Point(20, 20);
-            this.lbTitle.Name = "lbTitle";
-            this.lbTitle.Size = new System.Drawing.Size(59, 23);
-            this.lbTitle.TabIndex = 0;
-            this.lbTitle.Text = "label1";
-            // 
-            // lbSourceName
-            // 
-            this.lbSourceName.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lbSourceName.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbSourceName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(71)))), ((int)(((byte)(173)))));
-            this.lbSourceName.Location = new System.Drawing.Point(20, 43);
-            this.lbSourceName.Name = "lbSourceName";
-            this.lbSourceName.Size = new System.Drawing.Size(556, 38);
-            this.lbSourceName.TabIndex = 1;
-            this.lbSourceName.Text = "label2";
-            this.lbSourceName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
             // lbPublishedAt
             // 
             this.lbPublishedAt.AutoEllipsis = true;
@@ -97,6 +73,30 @@ namespace Estant.View.FormUI.NewsUI
             this.lbPublishedAt.TabIndex = 2;
             this.lbPublishedAt.Text = "label3";
             this.lbPublishedAt.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // lbSourceName
+            // 
+            this.lbSourceName.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lbSourceName.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbSourceName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(71)))), ((int)(((byte)(173)))));
+            this.lbSourceName.Location = new System.Drawing.Point(20, 43);
+            this.lbSourceName.Name = "lbSourceName";
+            this.lbSourceName.Size = new System.Drawing.Size(556, 38);
+            this.lbSourceName.TabIndex = 1;
+            this.lbSourceName.Text = "label2";
+            this.lbSourceName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // lbTitle
+            // 
+            this.lbTitle.AutoSize = true;
+            this.lbTitle.BackColor = System.Drawing.Color.White;
+            this.lbTitle.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lbTitle.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbTitle.Location = new System.Drawing.Point(20, 20);
+            this.lbTitle.Name = "lbTitle";
+            this.lbTitle.Size = new System.Drawing.Size(59, 23);
+            this.lbTitle.TabIndex = 0;
+            this.lbTitle.Text = "label1";
             // 
             // NewsItem
             // 

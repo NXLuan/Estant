@@ -49,7 +49,7 @@ namespace Estant.View.FormUI.NewsUI
         public void ShowNewsToday()
         {
             lbTypeNews.Text = "POPULAR NEWS TODAY";
-            btnShowNewsToday.Visible = false;
+            lbShowNewsToday.Visible = false;
             ShowListNews(listNewsToday);
         }
 
@@ -87,7 +87,7 @@ namespace Estant.View.FormUI.NewsUI
             {
                 SearchNewsAsync(text);
                 lbTypeNews.Text = "NEWS ABOUT " + text.ToUpper();
-                btnShowNewsToday.Visible = true;
+                lbShowNewsToday.Visible = true;
             }
         }
 
@@ -109,7 +109,7 @@ namespace Estant.View.FormUI.NewsUI
             }
         }
 
-        private void btnShowNewsToday_UserClick(object sender, EventArgs e)
+        private void lbShowNewsToday_Click(object sender, EventArgs e)
         {
             ShowNewsToday();
         }

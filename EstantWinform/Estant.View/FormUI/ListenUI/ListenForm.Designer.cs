@@ -1,7 +1,7 @@
 ﻿
-namespace Estant.View.FormUI.NewsUI
+namespace Estant.View.FormUI.ListenUI
 {
-    partial class NewsForm
+    partial class ListenForm
     {
         /// <summary>
         /// Required designer variable.
@@ -29,18 +29,18 @@ namespace Estant.View.FormUI.NewsUI
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NewsForm));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ListenForm));
             this.tabForm = new System.Windows.Forms.TabControl();
             this.tabPage = new System.Windows.Forms.TabPage();
+            this.lbShowPodcastsHome = new System.Windows.Forms.Label();
+            this.lbTypePodcast = new System.Windows.Forms.Label();
             this.pnEmpty = new System.Windows.Forms.Panel();
-            this.flListNews = new System.Windows.Forms.FlowLayoutPanel();
+            this.flListListen = new System.Windows.Forms.FlowLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.lbTypeNews = new System.Windows.Forms.Label();
             this.searchBar = new Estant.View.CustomControl.SearchBar();
             this.stackNavigator = new Estant.View.CustomControl.StackNavigator();
-            this.lbShowNewsToday = new System.Windows.Forms.Label();
             this.tabForm.SuspendLayout();
             this.tabPage.SuspendLayout();
             this.pnEmpty.SuspendLayout();
@@ -57,23 +57,48 @@ namespace Estant.View.FormUI.NewsUI
             this.tabForm.Location = new System.Drawing.Point(0, 46);
             this.tabForm.Name = "tabForm";
             this.tabForm.SelectedIndex = 0;
-            this.tabForm.Size = new System.Drawing.Size(843, 583);
+            this.tabForm.Size = new System.Drawing.Size(880, 566);
             this.tabForm.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.tabForm.TabIndex = 3;
             // 
             // tabPage
             // 
             this.tabPage.BackColor = System.Drawing.SystemColors.Control;
-            this.tabPage.Controls.Add(this.lbShowNewsToday);
+            this.tabPage.Controls.Add(this.lbShowPodcastsHome);
+            this.tabPage.Controls.Add(this.lbTypePodcast);
             this.tabPage.Controls.Add(this.pnEmpty);
-            this.tabPage.Controls.Add(this.lbTypeNews);
             this.tabPage.Controls.Add(this.searchBar);
             this.tabPage.Location = new System.Drawing.Point(4, 5);
             this.tabPage.Name = "tabPage";
             this.tabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage.Size = new System.Drawing.Size(835, 574);
+            this.tabPage.Size = new System.Drawing.Size(872, 557);
             this.tabPage.TabIndex = 0;
             this.tabPage.Text = "tabPage1";
+            // 
+            // lbShowPodcastsHome
+            // 
+            this.lbShowPodcastsHome.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbShowPodcastsHome.AutoSize = true;
+            this.lbShowPodcastsHome.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lbShowPodcastsHome.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbShowPodcastsHome.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(71)))), ((int)(((byte)(171)))));
+            this.lbShowPodcastsHome.Location = new System.Drawing.Point(692, 67);
+            this.lbShowPodcastsHome.Name = "lbShowPodcastsHome";
+            this.lbShowPodcastsHome.Size = new System.Drawing.Size(152, 20);
+            this.lbShowPodcastsHome.TabIndex = 19;
+            this.lbShowPodcastsHome.Text = "Show podcasts home";
+            this.lbShowPodcastsHome.Click += new System.EventHandler(this.lbShowPodcastsHome_Click);
+            // 
+            // lbTypePodcast
+            // 
+            this.lbTypePodcast.AutoSize = true;
+            this.lbTypePodcast.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbTypePodcast.ForeColor = System.Drawing.Color.Gray;
+            this.lbTypePodcast.Location = new System.Drawing.Point(22, 64);
+            this.lbTypePodcast.Name = "lbTypePodcast";
+            this.lbTypePodcast.Size = new System.Drawing.Size(94, 23);
+            this.lbTypePodcast.TabIndex = 18;
+            this.lbTypePodcast.Text = "PODCASTS";
             // 
             // pnEmpty
             // 
@@ -81,22 +106,22 @@ namespace Estant.View.FormUI.NewsUI
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pnEmpty.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.pnEmpty.Controls.Add(this.flListNews);
+            this.pnEmpty.Controls.Add(this.flListListen);
             this.pnEmpty.Controls.Add(this.panel1);
-            this.pnEmpty.Location = new System.Drawing.Point(0, 107);
+            this.pnEmpty.Location = new System.Drawing.Point(0, 90);
             this.pnEmpty.Name = "pnEmpty";
-            this.pnEmpty.Size = new System.Drawing.Size(835, 464);
-            this.pnEmpty.TabIndex = 16;
+            this.pnEmpty.Size = new System.Drawing.Size(869, 464);
+            this.pnEmpty.TabIndex = 17;
             // 
-            // flListNews
+            // flListListen
             // 
-            this.flListNews.AutoScroll = true;
-            this.flListNews.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flListNews.Location = new System.Drawing.Point(0, 0);
-            this.flListNews.Name = "flListNews";
-            this.flListNews.Padding = new System.Windows.Forms.Padding(15, 10, 10, 0);
-            this.flListNews.Size = new System.Drawing.Size(835, 464);
-            this.flListNews.TabIndex = 17;
+            this.flListListen.AutoScroll = true;
+            this.flListListen.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flListListen.Location = new System.Drawing.Point(0, 0);
+            this.flListListen.Name = "flListListen";
+            this.flListListen.Padding = new System.Windows.Forms.Padding(15, 10, 10, 0);
+            this.flListListen.Size = new System.Drawing.Size(869, 464);
+            this.flListListen.TabIndex = 17;
             // 
             // panel1
             // 
@@ -107,7 +132,7 @@ namespace Estant.View.FormUI.NewsUI
             this.panel1.Controls.Add(this.label1);
             this.panel1.Location = new System.Drawing.Point(303, 149);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(233, 127);
+            this.panel1.Size = new System.Drawing.Size(267, 127);
             this.panel1.TabIndex = 19;
             // 
             // pictureBox1
@@ -116,7 +141,7 @@ namespace Estant.View.FormUI.NewsUI
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(233, 93);
+            this.pictureBox1.Size = new System.Drawing.Size(267, 93);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 19;
             this.pictureBox1.TabStop = false;
@@ -128,30 +153,19 @@ namespace Estant.View.FormUI.NewsUI
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
             this.label1.Location = new System.Drawing.Point(0, 93);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(233, 34);
+            this.label1.Size = new System.Drawing.Size(267, 34);
             this.label1.TabIndex = 18;
             this.label1.Text = "NO RESULTS FOUND";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // lbTypeNews
-            // 
-            this.lbTypeNews.AutoSize = true;
-            this.lbTypeNews.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbTypeNews.ForeColor = System.Drawing.Color.Gray;
-            this.lbTypeNews.Location = new System.Drawing.Point(19, 80);
-            this.lbTypeNews.Name = "lbTypeNews";
-            this.lbTypeNews.Size = new System.Drawing.Size(57, 23);
-            this.lbTypeNews.TabIndex = 15;
-            this.lbTypeNews.Text = "NEWS";
-            // 
             // searchBar
             // 
             this.searchBar.BackColor = System.Drawing.Color.White;
-            this.searchBar.Hint = "Search news";
-            this.searchBar.Location = new System.Drawing.Point(23, 12);
+            this.searchBar.Hint = "Search podcast";
+            this.searchBar.Location = new System.Drawing.Point(26, 6);
             this.searchBar.Name = "searchBar";
             this.searchBar.Size = new System.Drawing.Size(339, 44);
-            this.searchBar.TabIndex = 0;
+            this.searchBar.TabIndex = 1;
             this.searchBar.Search += new System.EventHandler(this.searchBar_Search);
             // 
             // stackNavigator
@@ -161,34 +175,20 @@ namespace Estant.View.FormUI.NewsUI
             this.stackNavigator.Location = new System.Drawing.Point(0, 0);
             this.stackNavigator.Name = "stackNavigator";
             this.stackNavigator.Padding = new System.Windows.Forms.Padding(20, 10, 0, 0);
-            this.stackNavigator.Size = new System.Drawing.Size(843, 46);
+            this.stackNavigator.Size = new System.Drawing.Size(880, 46);
             this.stackNavigator.tabControl = null;
             this.stackNavigator.TabIndex = 1;
             // 
-            // lbShowNewsToday
-            // 
-            this.lbShowNewsToday.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lbShowNewsToday.AutoSize = true;
-            this.lbShowNewsToday.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.lbShowNewsToday.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbShowNewsToday.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(71)))), ((int)(((byte)(171)))));
-            this.lbShowNewsToday.Location = new System.Drawing.Point(600, 84);
-            this.lbShowNewsToday.Name = "lbShowNewsToday";
-            this.lbShowNewsToday.Size = new System.Drawing.Size(185, 20);
-            this.lbShowNewsToday.TabIndex = 18;
-            this.lbShowNewsToday.Text = "Show popular news today";
-            this.lbShowNewsToday.Click += new System.EventHandler(this.lbShowNewsToday_Click);
-            // 
-            // NewsForm
+            // ListenForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(843, 629);
+            this.ClientSize = new System.Drawing.Size(880, 612);
             this.Controls.Add(this.tabForm);
             this.Controls.Add(this.stackNavigator);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "NewsForm";
-            this.Text = "NewsForm";
+            this.Name = "ListenForm";
+            this.Text = "ListenForm";
             this.tabForm.ResumeLayout(false);
             this.tabPage.ResumeLayout(false);
             this.tabPage.PerformLayout();
@@ -205,12 +205,12 @@ namespace Estant.View.FormUI.NewsUI
         private System.Windows.Forms.TabControl tabForm;
         private System.Windows.Forms.TabPage tabPage;
         private CustomControl.SearchBar searchBar;
-        private System.Windows.Forms.Label lbTypeNews;
         private System.Windows.Forms.Panel pnEmpty;
-        private System.Windows.Forms.FlowLayoutPanel flListNews;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.FlowLayoutPanel flListListen;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Label lbShowNewsToday;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lbTypePodcast;
+        private System.Windows.Forms.Label lbShowPodcastsHome;
     }
 }

@@ -14,6 +14,7 @@ using Estant.View.Extensions;
 using Estant.View.FormUI.GrammarUI;
 using Estant.View.FormUI.NewsUI;
 using Estant.View.FormUI.AuthUI;
+using Estant.View.FormUI.ListenUI;
 
 namespace Estant.View.FormUI
 {
@@ -52,7 +53,12 @@ namespace Estant.View.FormUI
             ShowForm(ScreenForm.NEWS);
         }
 
-        private void btnAccount_Load(object sender, EventArgs e)
+        private void btnListen_Selected(object sender, EventArgs e)
+        {
+            ShowForm(ScreenForm.LISTEN);
+        }
+
+        private void btnAccount_Selected(object sender, EventArgs e)
         {
             ShowForm(ScreenForm.ACCOUNT);
         }
@@ -72,6 +78,9 @@ namespace Estant.View.FormUI
                 case ScreenForm.NEWS:
                     form = NewsForm.Instance;
                     break;
+                case ScreenForm.LISTEN:
+                    form = ListenForm.Instance;
+                    break;
                 case ScreenForm.ACCOUNT:
                     break;
             }
@@ -89,6 +98,7 @@ namespace Estant.View.FormUI
             btnVocab.IsActive = false;
             btnGrammar.IsActive = false;
             btnNews.IsActive = false;
+            btnListen.IsActive = false;
             btnAccount.IsActive = false;
             btnLogOut.IsActive = false;
         }
@@ -111,8 +121,8 @@ namespace Estant.View.FormUI
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            if (CurrentUser == null)
-                ShowAuthForm();
+            //if (CurrentUser == null)
+            //    ShowAuthForm();
         }
     }
 }

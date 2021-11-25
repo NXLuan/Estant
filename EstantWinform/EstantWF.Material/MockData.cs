@@ -66,5 +66,22 @@ namespace EstantWF.Material
                 }
             };
         }
+
+        public static Listen GetListening()
+        {
+            return new Listen(){
+                count = 1,
+                results = new List<Listen.Episode>()
+                {
+                    new Listen.Episode()
+                    {
+                        audio = "https://www.listennotes.com/e/p/ea09b575d07341599d8d5b71f205517b/",
+                        image = "https://production.listennotes.com/podcasts/the-rough-cut-matt-feury-YMha8DxnUbc-53MLh7NpAwm.1400x1400.jpg",
+                        title_original = "Star Wars - The Force Awakens",
+                        description_original = "In this episode of The Rough Cut we close out our study of the final Skywalker trilogy with a look back on the film that helped the dormant franchise make the jump to lightspeed, Episode VII - The Force Awakens.  Recorded in Amsterdam in front of a festival audience in 2018, editor Maryann Brandon ACE recounts her work on The Force Awakens just as she was about to begin editing what would come to be known as Episode IX - The Rise of Skywalker.   Go back to the beginning and listen to our podcast with Star Wars and 'Empire' editor, Paul Hirsch. Hear editor Bob Ducsay talk about cutting The Last Jedi. Listen to Maryann Brandon talk about her work on The Rise of Skywalker. Get your hands on the non-linear editor behind the latest Skywalker trilogy,  Avid Media Composer! Subscribe to The Rough Cut for more great interviews with the heroes of the editing room",
+                    }
+                }
+            };
+        }
     }
 }
