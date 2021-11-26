@@ -46,6 +46,7 @@
     <Compile Include="Handlers\GrammarHandler.cs" />
     <Compile Include="Handlers\ListenHandler.cs" />
     <Compile Include="Handlers\NewsHandler.cs" />
+    <Compile Include="Handlers\UserHandler.cs" />
     <Compile Include="Handlers\VocabularyHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

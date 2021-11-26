@@ -12,5 +12,6 @@ namespace EstantWF.Material.Model
         public string email { get; set; }
         public string displayName { get; set; }
         public string photoUrl { get; set; }
+        public List<string> savedWords { get; set; }
     }
 }

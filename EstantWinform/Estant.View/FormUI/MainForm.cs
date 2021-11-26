@@ -20,7 +20,6 @@ namespace Estant.View.FormUI
 {
     public partial class MainForm : Form
     {
-        public User CurrentUser { get; set; }
         public static MainForm Instance
         {
             get => Singleton<MainForm>.Instance;
@@ -115,14 +114,14 @@ namespace Estant.View.FormUI
 
         private void btnLogOut_Selected(object sender, EventArgs e)
         {
-            CurrentUser = null;
+            Store.CurrentUser = null;
             ShowAuthForm();
         }
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            //if (CurrentUser == null)
-            //    ShowAuthForm();
+            if (Store.CurrentUser == null)
+                ShowAuthForm();
         }
     }
 }

@@ -31,20 +31,20 @@ namespace Estant.View.FormUI.VocabularyUI
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(WordForm));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.pbBookMark = new System.Windows.Forms.PictureBox();
             this.pnMeaning = new System.Windows.Forms.Panel();
             this.pbVolume = new System.Windows.Forms.PictureBox();
             this.lbPhonetic = new System.Windows.Forms.Label();
             this.lbWord = new System.Windows.Forms.Label();
-            this.pbSaveWord = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbBookMark)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbVolume)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbSaveWord)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
-            this.panel1.Controls.Add(this.pbSaveWord);
+            this.panel1.Controls.Add(this.pbBookMark);
             this.panel1.Controls.Add(this.pnMeaning);
             this.panel1.Controls.Add(this.pbVolume);
             this.panel1.Controls.Add(this.lbPhonetic);
@@ -54,6 +54,19 @@ namespace Estant.View.FormUI.VocabularyUI
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(740, 512);
             this.panel1.TabIndex = 0;
+            // 
+            // pbBookMark
+            // 
+            this.pbBookMark.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pbBookMark.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbBookMark.Image = ((System.Drawing.Image)(resources.GetObject("pbBookMark.Image")));
+            this.pbBookMark.Location = new System.Drawing.Point(680, 33);
+            this.pbBookMark.Name = "pbBookMark";
+            this.pbBookMark.Size = new System.Drawing.Size(39, 39);
+            this.pbBookMark.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pbBookMark.TabIndex = 4;
+            this.pbBookMark.TabStop = false;
+            this.pbBookMark.Click += new System.EventHandler(this.pbBookMark_Click);
             // 
             // pnMeaning
             // 
@@ -99,17 +112,6 @@ namespace Estant.View.FormUI.VocabularyUI
             this.lbWord.TabIndex = 0;
             this.lbWord.Text = "Word";
             // 
-            // pbSaveWord
-            // 
-            this.pbSaveWord.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pbSaveWord.Image = ((System.Drawing.Image)(resources.GetObject("pbSaveWord.Image")));
-            this.pbSaveWord.Location = new System.Drawing.Point(680, 33);
-            this.pbSaveWord.Name = "pbSaveWord";
-            this.pbSaveWord.Size = new System.Drawing.Size(39, 39);
-            this.pbSaveWord.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pbSaveWord.TabIndex = 4;
-            this.pbSaveWord.TabStop = false;
-            // 
             // WordForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -122,8 +124,8 @@ namespace Estant.View.FormUI.VocabularyUI
             this.Text = "WordForm";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbBookMark)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbVolume)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbSaveWord)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -135,6 +137,6 @@ namespace Estant.View.FormUI.VocabularyUI
         private System.Windows.Forms.Label lbPhonetic;
         private System.Windows.Forms.PictureBox pbVolume;
         private System.Windows.Forms.Panel pnMeaning;
-        private System.Windows.Forms.PictureBox pbSaveWord;
+        private System.Windows.Forms.PictureBox pbBookMark;
     }
 }

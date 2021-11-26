@@ -1,5 +1,7 @@
 ﻿using Estant.View.CustomControl;
 using Estant.View.Extensions;
+using Estant.View.FormUI.PopupUI;
+using EstantNF.Core.Handlers;
 using EstantWF.Material.Model;
 using System;
 using System.Collections.Generic;
@@ -16,6 +18,7 @@ namespace Estant.View.FormUI.VocabularyUI
     public partial class WordForm : Form
     {
         private Vocabulary vocabulary;
+        public bool IsSavedWord { get; set; }
         public WordForm(Vocabulary vocabParam)
         {
             InitializeComponent();
@@ -27,17 +30,48 @@ namespace Estant.View.FormUI.VocabularyUI
             vocabulary = vocabParam;
             lbWord.Text = vocabulary.word;
             lbPhonetic.Text = "/ " + vocabulary.phonetic + " /";
-            foreach(var meaning in vocabulary.meanings) 
+            foreach (var meaning in vocabulary.meanings)
             {
                 var meaningItem = new MeaningItem(meaning);
                 meaningItem.Dock = DockStyle.Top;
                 pnMeaning.Controls.Add(meaningItem);
             }
+
+            if (Store.SavedWords.Contains(vocabulary.word))
+                SetIsSaveWord(true);
         }
 
         private void pbVolume_Click(object sender, EventArgs e)
         {
             MediaExtension.PlayMP3ByURL(vocabulary.audio);
+        }
+
+        private void pbBookMark_Click(object sender, EventArgs e)
+        {
+            ChangeSaveWordHandle();
+        }
+
+        public async void ChangeSaveWordHandle()
+        {
+            PopupLoading.Instance.Show();
+
+            List<string> data = null;
+            string token = Store.CurrentUser.token;
+            if (IsSavedWord)
+                data = await UserHandler.UnSaveWord(vocabulary.word, token);
+            else
+                data = await UserHandler.SaveWord(vocabulary.word, token);
+            if (data != null) Store.SavedWords = data;
+
+            PopupLoading.Instance.Hide();
+            SetIsSaveWord(!IsSavedWord);
+        }
+
+        public void SetIsSaveWord(bool IsSaved)
+        {
+            IsSavedWord = IsSaved;
+            var resources = new ComponentResourceManager(typeof(WordForm));
+            pbBookMark.Image = IsSaved ? (Image)(resources.GetObject("bookmark-remove")) : (Image)(resources.GetObject("pbBookMark.Image"));
         }
     }
 }

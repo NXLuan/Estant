@@ -33,6 +33,23 @@ namespace Estant.View.FormUI.VocabularyUI
             LoadTopicsHandle();
             stNavigate.tabControl = tabForm;
             stNavigate.AddTab("Vocabulary");
+            UpdateSavedWord();
+        }
+
+        public void UpdateSavedWord()
+        {
+            if (Store.SavedWords == null || Store.SavedWords.Count == 0)
+                flSaveWords.Visible = false;
+            else
+            {
+                flSaveWords.Controls.Clear();
+                flSaveWords.Visible = true;
+                foreach (var word in Store.CurrentUser?.savedWords)
+                {
+                    var savedWordItem = new SavedWordItem(word);
+                    flSaveWords.Controls.Add(savedWordItem);
+                }
+            }
         }
 
         public async void LoadTopicsHandle()

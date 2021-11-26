@@ -58,7 +58,7 @@ namespace Estant.View.FormUI.AuthUI
 
             if (response.IsSuccess())
             {
-                MainForm.Instance.CurrentUser = response.data;
+                Store.CurrentUser = response.data;
                 MainForm.Instance.Show();
                 this.Hide();
             }

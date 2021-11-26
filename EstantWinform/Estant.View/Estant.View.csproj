@@ -173,6 +173,12 @@
     <Compile Include="FormUI\VocabularyUI\PracticeForm.Designer.cs">
       <DependentUpon>PracticeForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormUI\VocabularyUI\SavedWordItem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FormUI\VocabularyUI\SavedWordItem.Designer.cs">
+      <DependentUpon>SavedWordItem.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormUI\VocabularyUI\TopicForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -185,6 +191,7 @@
     <Compile Include="FormUI\VocabularyUI\WordForm.Designer.cs">
       <DependentUpon>WordForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Store.cs" />
     <Compile Include="Styles.cs" />
     <Compile Include="CustomControl\ButtonFlatImage.cs">
       <SubType>UserControl</SubType>
@@ -306,6 +313,9 @@
     <EmbeddedResource Include="FormUI\VocabularyUI\PracticeForm.resx">
       <DependentUpon>PracticeForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormUI\VocabularyUI\SavedWordItem.resx">
+      <DependentUpon>SavedWordItem.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormUI\VocabularyUI\TopicForm.resx">
       <DependentUpon>TopicForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -366,6 +376,9 @@
       <Isolated>False</Isolated>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bookmark-remove.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Microsoft.Web.WebView2.1.0.1020.30\build\Microsoft.Web.WebView2.targets" Condition="Exists('..\packages\Microsoft.Web.WebView2.1.0.1020.30\build\Microsoft.Web.WebView2.targets')" />

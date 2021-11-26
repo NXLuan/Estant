@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -14,13 +15,15 @@ namespace EstantWF.Material.Utilities
     {
         private static string BaseUrlApi = "http://localhost:5001/api/";
 
-        public static async Task<ResponseModel<T>> GetRequestAsync<T>(string path)
+        public static async Task<ResponseModel<T>> GetRequestAsync<T>(string path, string token = null)
         {
             ResponseModel<T> result = null;
             using (var client = new HttpClient())
             {
                 try
                 {
+                    if (!string.IsNullOrEmpty(token))
+                        client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
                     var response = await client.GetAsync(BaseUrlApi + path);
 
                     if (response.IsSuccessStatusCode)
