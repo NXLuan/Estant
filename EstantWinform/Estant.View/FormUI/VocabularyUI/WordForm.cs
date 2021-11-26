@@ -53,7 +53,7 @@ namespace Estant.View.FormUI.VocabularyUI
 
         public async void ChangeSaveWordHandle()
         {
-            PopupLoading.Instance.Show();
+            Loading.ShowPopup();
 
             List<string> data = null;
             string token = Store.CurrentUser.token;
@@ -63,7 +63,7 @@ namespace Estant.View.FormUI.VocabularyUI
                 data = await UserHandler.SaveWord(vocabulary.word, token);
             if (data != null) Store.SavedWords = data;
 
-            PopupLoading.Instance.Hide();
+            Loading.EndPopup();
             SetIsSaveWord(!IsSavedWord);
         }
 

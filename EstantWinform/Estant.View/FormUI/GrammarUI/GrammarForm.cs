@@ -1,5 +1,6 @@
 ﻿using Estant.Material.Utilities;
 using Estant.View.Extensions;
+using Estant.View.FormUI.PopupUI;
 using EstantNF.Core.Handlers;
 using EstantWF.Material.Model;
 using System;
@@ -64,6 +65,27 @@ namespace Estant.View.FormUI.GrammarUI
             ControlExtension.ShowFormInControl(tabForm.TabPages[tabForm.TabCount - 1], form);
 
             stackNavigator.AddTab(tabName);
+        }
+
+        private void btnCheck_Click(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(rtbInput.Text?.Trim()))
+                CheckSpellAndGrammarHanlde();
+        }
+
+        public async void CheckSpellAndGrammarHanlde()
+        {
+            var sentence = rtbInput.Text.Trim();
+            Loading.ShowPopup();
+            var response = await GrammarHandler.CheckSpellAndGrammar(sentence);
+            Loading.EndPopup();
+
+            if (response.IsSuccess())
+            {
+                var resultPopup = new ResultCheckGrammarPopup(sentence, response.data);
+                resultPopup.Show();
+            }
+            else MessageBox.Show(response.message, "Notification");
         }
     }
 }

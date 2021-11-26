@@ -31,5 +31,10 @@ namespace Estant.View.FormUI.GrammarUI
 
             Loading.End(); // end load
         }
+
+        private void btnPractice_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

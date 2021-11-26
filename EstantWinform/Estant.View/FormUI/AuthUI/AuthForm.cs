@@ -1,4 +1,5 @@
 ﻿using Estant.Material.Utilities;
+using Estant.View.Extensions;
 using Estant.View.FormUI.PopupUI;
 using EstantNF.Core.Handlers;
 using EstantWF.Material.Model;
@@ -52,9 +53,9 @@ namespace Estant.View.FormUI.AuthUI
 
         public async void SignInHandle()
         {
-            PopupLoading.Instance.Show();
+            Loading.ShowPopup();
             var response = await AuthHandler.SignIn(tbEmail.TextInput, tbPassword.TextInput);
-            PopupLoading.Instance.Hide();
+            Loading.EndPopup();
 
             if (response.IsSuccess())
             {
@@ -80,9 +81,9 @@ namespace Estant.View.FormUI.AuthUI
 
         public async void SignUpHandle()
         {
-            PopupLoading.Instance.Show();
+            Loading.ShowPopup();
             var response = await AuthHandler.SignUp(tbName.TextInput, tbEmailSignUp.TextInput, tbPasswordSignUp.TextInput, tbConfirmPassword.TextInput);
-            PopupLoading.Instance.Hide();
+            Loading.EndPopup();
 
             MessageBox.Show(response.message, "Notification");
             if (response.IsSuccess())
@@ -98,9 +99,9 @@ namespace Estant.View.FormUI.AuthUI
 
         public async void ResetPasswordHandle()
         {
-            PopupLoading.Instance.Show();
+            Loading.ShowPopup();
             var response = await AuthHandler.ResetPassword(tbEmailReset.TextInput);
-            PopupLoading.Instance.Hide();
+            Loading.EndPopup();
 
             MessageBox.Show(response.message, "Notification");
             if (response.IsSuccess())

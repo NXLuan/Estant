@@ -33,7 +33,6 @@ namespace Estant.View.FormUI.VocabularyUI
             LoadTopicsHandle();
             stNavigate.tabControl = tabForm;
             stNavigate.AddTab("Vocabulary");
-            UpdateSavedWord();
         }
 
         public void UpdateSavedWord()

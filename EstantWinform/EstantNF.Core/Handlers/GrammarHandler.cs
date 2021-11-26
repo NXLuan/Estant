@@ -37,5 +37,11 @@ namespace EstantNF.Core.Handlers
 
             return data;
         }
+
+        public static async Task<ResponseModel<List<SpellAndGrammarCheck>>> CheckSpellAndGrammar(string text)
+        {
+            string path = "Grammar/CheckSpellAndGrammar";
+            return await API.PostRequestAsync<List<SpellAndGrammarCheck>>(path, text);
+        }
     }
 }

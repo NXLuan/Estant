@@ -54,7 +54,7 @@ namespace Estant.View.FormUI.PopupUI
             this.Controls.Add(this.pictureBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "PopupLoading";
-            this.Opacity = 0.8D;
+            this.Opacity = 0.7D;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "PopupLoading";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

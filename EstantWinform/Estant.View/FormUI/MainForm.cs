@@ -81,6 +81,7 @@ namespace Estant.View.FormUI
                     form = ListenForm.Instance;
                     break;
                 case ScreenForm.ACCOUNT:
+                    form = ProfileForm.Instance;
                     break;
             }
             ControlExtension.ShowFormInControl(pnForm, form);

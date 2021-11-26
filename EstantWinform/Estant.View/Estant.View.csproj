@@ -95,6 +95,12 @@
     <Compile Include="FormUI\AuthUI\AuthForm.Designer.cs">
       <DependentUpon>AuthForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormUI\AuthUI\ProfileForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormUI\AuthUI\ProfileForm.Designer.cs">
+      <DependentUpon>ProfileForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormUI\GrammarUI\GrammarForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -118,6 +124,12 @@
     </Compile>
     <Compile Include="FormUI\GrammarUI\GrammarItem.Designer.cs">
       <DependentUpon>GrammarItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormUI\GrammarUI\ResultCheckGrammarPopup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormUI\GrammarUI\ResultCheckGrammarPopup.Designer.cs">
+      <DependentUpon>ResultCheckGrammarPopup.cs</DependentUpon>
     </Compile>
     <Compile Include="FormUI\ListenUI\ListenForm.cs">
       <SubType>Form</SubType>
@@ -271,6 +283,9 @@
     <EmbeddedResource Include="FormUI\AuthUI\AuthForm.resx">
       <DependentUpon>AuthForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormUI\AuthUI\ProfileForm.resx">
+      <DependentUpon>ProfileForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormUI\GrammarUI\GrammarForm.resx">
       <DependentUpon>GrammarForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -282,6 +297,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormUI\GrammarUI\GrammarItem.resx">
       <DependentUpon>GrammarItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormUI\GrammarUI\ResultCheckGrammarPopup.resx">
+      <DependentUpon>ResultCheckGrammarPopup.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormUI\ListenUI\ListenForm.resx">
       <DependentUpon>ListenForm.cs</DependentUpon>

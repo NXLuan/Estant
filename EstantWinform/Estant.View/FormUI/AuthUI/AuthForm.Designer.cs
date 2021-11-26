@@ -386,6 +386,7 @@ namespace Estant.View.FormUI.AuthUI
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.tabForm);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "AuthForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "LoginForm";
