@@ -46,5 +46,4 @@ namespace Estant.Material.Model.ViewModel
             return meanings[0]["partOfSpeech"].ToString();
         }
     }
-
 }

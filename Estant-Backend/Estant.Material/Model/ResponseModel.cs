@@ -29,4 +29,25 @@ namespace Estant.Material.Model
             }
         }
     }
+
+    public class PronunciationAssessmentResponse
+    {
+        public int score { get; set; }
+        public AccentPredictions accent_predictions { get; set; }
+        public ScoreEstimate score_estimates { get; set; }
+
+        public class AccentPredictions
+        {
+            public int en_US { get; set; }
+            public int en_UK { get; set; }
+            public int en_AU { get; set; }
+        }
+        public class ScoreEstimate
+        {
+            public string ielts { get; set; }
+            public string toefl { get; set; }
+            public string cefr { get; set; }
+            public string pte_general { get; set; }
+        }
+    }
 }

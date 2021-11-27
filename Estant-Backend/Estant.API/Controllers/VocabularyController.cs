@@ -1,8 +1,10 @@
 ﻿using Estant.Core.Handlers;
 using Estant.Material.Model.DTOModel;
 using Estant.Material.Model.EnumModel;
+using Estant.Material.Model.RequestModel;
 using Estant.Material.Model.ViewModel;
 using Estant.Material.Utilities;
+using Estant.Service.ApiService;
 using Estant.Service.Model;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -84,6 +86,16 @@ namespace Estant.API.Controllers
             else if (await _vocabularyHandler.DeleteWord(word)) message = "Success!";
             else message = "Word not found";
             return Content(message);
+        }
+        #endregion
+
+        #region Pronunciation
+        [HttpPost("PronunciationAssessment")]
+        public async Task<IActionResult> PronunciationAssessment([FromBody] PronunciationAssessmentRequest requestModel)
+        {
+            var responseError = ResponseError.NoError;
+            var data = await PronunciationAssessmentApi.Report(requestModel);
+            return ReturnData(data, responseError);
         }
         #endregion
     }
