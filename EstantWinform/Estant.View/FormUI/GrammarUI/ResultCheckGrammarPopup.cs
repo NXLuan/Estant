@@ -28,12 +28,15 @@ namespace Estant.View.FormUI.GrammarUI
             if (results.Count > 0)
             {
                 tabForm.SelectedIndex = 1;
-                string correcSetence = string.Copy(sentence);
+                int indexChar = sentence.Length - 1;
+                string correcSetence = "";
                 for (int i = results.Count - 1; i >= 0; i--)
                 {
                     var wrong = results[i];
                     string wrongWord = sentence.Substring(wrong.offset, wrong.length);
-                    correcSetence = correcSetence.Replace(wrongWord, wrong.replacement);
+                    var sentenceTail = sentence.Substring(wrong.offset + wrong.length, indexChar - (wrong.offset + wrong.length) + 1);
+                    correcSetence = correcSetence.Insert(0, wrong.replacement + sentenceTail);
+                    indexChar = wrong.offset - 1;
 
                     var labelWordWrong = CreateLabel($"{i + 1}. " + wrongWord, true);
                     var labelMessage = CreateLabel(wrong.message);
@@ -54,7 +57,7 @@ namespace Estant.View.FormUI.GrammarUI
             label.ForeColor = isWordWrong ? Color.FromArgb(226, 13, 37) : Color.Black;
             label.AutoSize = true;
             label.Dock = DockStyle.Top;
-            label.MaximumSize = new Size(400, 0);
+            label.MaximumSize = new Size(380, 0);
             label.Text = text;
             return label;
         }

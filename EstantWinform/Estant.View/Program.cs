@@ -1,5 +1,6 @@
 ﻿using Estant.Material.Utilities;
 using Estant.View.FormUI;
+using Estant.View.FormUI.VocabularyUI;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,6 +20,7 @@ namespace Estant.View
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(MainForm.Instance);
+            //Application.Run(new PronunciationAssessmentForm());     
         }
     }
 }
