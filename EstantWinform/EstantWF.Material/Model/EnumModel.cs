@@ -13,12 +13,12 @@ namespace EstantWF.Material.Model
 
     public enum VocabForm
     {
-        TOPIC = 1, WORD = 2, FLASHCARD = 3, PRACTICE = 4
+        TOPIC = 1, WORD = 2, FLASHCARD = 3, PRACTICE = 4,
     }
 
     public enum GrammarPageForm
     {
-        LESSON = 1
+        LESSON = 1, PRACTICE = 2,
     }
     public enum NewsPageForm
     {

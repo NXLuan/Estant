@@ -13,7 +13,7 @@ namespace EstantNF.Core.Handlers
     {
         public static async Task<Listen> GetList()
         {
-            return MockData.GetListening();
+            //return MockData.GetListening();
             var data = new Listen();
             string path = "Listen/GetList";
             var response = await API.GetRequestAsync<Listen>(path);

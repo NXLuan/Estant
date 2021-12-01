@@ -13,7 +13,7 @@ namespace EstantNF.Core.Handlers
     {
         public static async Task<List<News>> GetNewsToday()
         {
-            return MockData.GetNewsToday();
+            //return MockData.GetNewsToday();
             var data = new List<News>();
             string path = "News/GetNewsToday";
             var response = await API.GetRequestAsync<List<News>>(path);

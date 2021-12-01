@@ -14,3 +14,9 @@ export function getByTopic(topic) {
 export function searchWord(word) {
   return axios.get(baseURL + `/LookupDictionary?word=${word}`);
 }
+
+export function checkPronounce(data) {
+  return axios.post(baseURL + `/PronunciationAssessment`, data, {
+    headers: { 'Content-Type': 'application/json' },
+  });
+}

@@ -9,7 +9,9 @@ const WordCard = ({ word, phonetic, audio, definition, onPressMore }) => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.word}>{word}</Text>
+      <View style={{ flexDirection: 'row', justifyContent: 'center' }}>
+        <Text style={[styles.word, { flex: 1 }]}>{word}</Text>
+      </View>
       <View style={styles.rowPronouce}>
         <IconButton
           icon="volume-high"
