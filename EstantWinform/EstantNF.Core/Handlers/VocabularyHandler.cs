@@ -45,5 +45,17 @@ namespace EstantNF.Core.Handlers
             string path = "Vocabulary/LookupDictionary?word=" + word;
             return await API.GetRequestAsync<Vocabulary>(path);
         }
+
+        public static async Task<ResponseModel<PronunciationAssessmentResponse>> PronunciationAssessment(string audio_base64, string audio_format, string text)
+        {
+            string path = "Vocabulary/PronunciationAssessment";
+            return await API.PostRequestAsync<PronunciationAssessmentResponse>(path, 
+                new PronunciationAssessmentRequest() 
+                { 
+                    audio_base64 = audio_base64, 
+                    audio_format = audio_format, 
+                    text = text 
+                });
+        }
     }
 }

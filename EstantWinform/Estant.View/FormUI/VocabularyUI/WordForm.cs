@@ -70,8 +70,12 @@ namespace Estant.View.FormUI.VocabularyUI
         public void SetIsSaveWord(bool IsSaved)
         {
             IsSavedWord = IsSaved;
-            var resources = new ComponentResourceManager(typeof(WordForm));
-            pbBookMark.Image = IsSaved ? (Image)(resources.GetObject("bookmark-remove")) : (Image)(resources.GetObject("pbBookMark.Image"));
+            pbBookMark.Image = IsSaved ? global::Estant.View.Properties.Resources.bookmark_remove : global::Estant.View.Properties.Resources.bookmark;
+        }
+
+        private void pbPronounce_Click(object sender, EventArgs e)
+        {
+            VocabularyForm.Instance.ShowNewTab(VocabForm.PRONOUNCE, "Pronounce", data: vocabulary);
         }
     }
 }

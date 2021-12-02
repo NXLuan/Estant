@@ -103,6 +103,9 @@ namespace Estant.View.FormUI.VocabularyUI
                 case VocabForm.PRACTICE:
                     form = new PracticeForm(data as string);
                     break;
+                case VocabForm.PRONOUNCE:
+                    form = new PronounceForm(data as Vocabulary);
+                    break;                  
             }
             ControlExtension.ShowFormInControl(tabForm.TabPages[tabForm.TabCount - 1], form);
 

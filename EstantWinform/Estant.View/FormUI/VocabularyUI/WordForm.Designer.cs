@@ -31,12 +31,14 @@ namespace Estant.View.FormUI.VocabularyUI
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(WordForm));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.pbPronounce = new System.Windows.Forms.PictureBox();
             this.pbBookMark = new System.Windows.Forms.PictureBox();
             this.pnMeaning = new System.Windows.Forms.Panel();
             this.pbVolume = new System.Windows.Forms.PictureBox();
             this.lbPhonetic = new System.Windows.Forms.Label();
             this.lbWord = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbPronounce)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbBookMark)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbVolume)).BeginInit();
             this.SuspendLayout();
@@ -44,6 +46,7 @@ namespace Estant.View.FormUI.VocabularyUI
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.Controls.Add(this.pbPronounce);
             this.panel1.Controls.Add(this.pbBookMark);
             this.panel1.Controls.Add(this.pnMeaning);
             this.panel1.Controls.Add(this.pbVolume);
@@ -55,11 +58,24 @@ namespace Estant.View.FormUI.VocabularyUI
             this.panel1.Size = new System.Drawing.Size(740, 512);
             this.panel1.TabIndex = 0;
             // 
+            // pbPronounce
+            // 
+            this.pbPronounce.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pbPronounce.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbPronounce.Image = ((System.Drawing.Image)(resources.GetObject("pbPronounce.Image")));
+            this.pbPronounce.Location = new System.Drawing.Point(625, 33);
+            this.pbPronounce.Name = "pbPronounce";
+            this.pbPronounce.Size = new System.Drawing.Size(39, 39);
+            this.pbPronounce.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbPronounce.TabIndex = 5;
+            this.pbPronounce.TabStop = false;
+            this.pbPronounce.Click += new System.EventHandler(this.pbPronounce_Click);
+            // 
             // pbBookMark
             // 
             this.pbBookMark.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pbBookMark.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbBookMark.Image = ((System.Drawing.Image)(resources.GetObject("pbBookMark.Image")));
+            this.pbBookMark.Image = global::Estant.View.Properties.Resources.bookmark;
             this.pbBookMark.Location = new System.Drawing.Point(680, 33);
             this.pbBookMark.Name = "pbBookMark";
             this.pbBookMark.Size = new System.Drawing.Size(39, 39);
@@ -124,6 +140,7 @@ namespace Estant.View.FormUI.VocabularyUI
             this.Text = "WordForm";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbPronounce)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbBookMark)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbVolume)).EndInit();
             this.ResumeLayout(false);
@@ -138,5 +155,6 @@ namespace Estant.View.FormUI.VocabularyUI
         private System.Windows.Forms.PictureBox pbVolume;
         private System.Windows.Forms.Panel pnMeaning;
         private System.Windows.Forms.PictureBox pbBookMark;
+        private System.Windows.Forms.PictureBox pbPronounce;
     }
 }

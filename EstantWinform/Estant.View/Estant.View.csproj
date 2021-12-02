@@ -44,8 +44,38 @@
     <Reference Include="Microsoft.Web.WebView2.Wpf, Version=1.0.1020.30, Culture=neutral, PublicKeyToken=2a8ab48044d2601e, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Web.WebView2.1.0.1020.30\lib\net45\Microsoft.Web.WebView2.Wpf.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.Win32.Registry, Version=4.1.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Win32.Registry.4.7.0\lib\net461\Microsoft.Win32.Registry.dll</HintPath>
+    </Reference>
+    <Reference Include="NAudio, Version=2.0.1.0, Culture=neutral, PublicKeyToken=e279aa5131008a41, processorArchitecture=MSIL">
+      <HintPath>..\packages\NAudio.2.0.1\lib\netstandard2.0\NAudio.dll</HintPath>
+    </Reference>
+    <Reference Include="NAudio.Asio, Version=2.0.0.0, Culture=neutral, PublicKeyToken=e279aa5131008a41, processorArchitecture=MSIL">
+      <HintPath>..\packages\NAudio.Asio.2.0.0\lib\netstandard2.0\NAudio.Asio.dll</HintPath>
+    </Reference>
+    <Reference Include="NAudio.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=e279aa5131008a41, processorArchitecture=MSIL">
+      <HintPath>..\packages\NAudio.Core.2.0.0\lib\netstandard2.0\NAudio.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="NAudio.Midi, Version=2.0.1.0, Culture=neutral, PublicKeyToken=e279aa5131008a41, processorArchitecture=MSIL">
+      <HintPath>..\packages\NAudio.Midi.2.0.1\lib\netstandard2.0\NAudio.Midi.dll</HintPath>
+    </Reference>
+    <Reference Include="NAudio.Wasapi, Version=2.0.0.0, Culture=neutral, PublicKeyToken=e279aa5131008a41, processorArchitecture=MSIL">
+      <HintPath>..\packages\NAudio.Wasapi.2.0.0\lib\netstandard2.0\NAudio.Wasapi.dll</HintPath>
+    </Reference>
+    <Reference Include="NAudio.WinForms, Version=2.0.1.0, Culture=neutral, PublicKeyToken=e279aa5131008a41, processorArchitecture=MSIL">
+      <HintPath>..\packages\NAudio.WinForms.2.0.1\lib\net472\NAudio.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="NAudio.WinMM, Version=2.0.1.0, Culture=neutral, PublicKeyToken=e279aa5131008a41, processorArchitecture=MSIL">
+      <HintPath>..\packages\NAudio.WinMM.2.0.1\lib\netstandard2.0\NAudio.WinMM.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Security.AccessControl, Version=4.1.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.AccessControl.4.7.0\lib\net461\System.Security.AccessControl.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Principal.Windows, Version=4.1.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Principal.Windows.4.7.0\lib\net461\System.Security.Principal.Windows.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -185,11 +215,11 @@
     <Compile Include="FormUI\VocabularyUI\PracticeForm.Designer.cs">
       <DependentUpon>PracticeForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormUI\VocabularyUI\PronunciationAssessmentForm.cs">
+    <Compile Include="FormUI\VocabularyUI\PronounceForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormUI\VocabularyUI\PronunciationAssessmentForm.Designer.cs">
-      <DependentUpon>PronunciationAssessmentForm.cs</DependentUpon>
+    <Compile Include="FormUI\VocabularyUI\PronounceForm.Designer.cs">
+      <DependentUpon>PronounceForm.cs</DependentUpon>
     </Compile>
     <Compile Include="FormUI\VocabularyUI\SavedWordItem.cs">
       <SubType>UserControl</SubType>
@@ -208,6 +238,11 @@
     </Compile>
     <Compile Include="FormUI\VocabularyUI\WordForm.Designer.cs">
       <DependentUpon>WordForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="Store.cs" />
     <Compile Include="Styles.cs" />
@@ -337,8 +372,8 @@
     <EmbeddedResource Include="FormUI\VocabularyUI\PracticeForm.resx">
       <DependentUpon>PracticeForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormUI\VocabularyUI\PronunciationAssessmentForm.resx">
-      <DependentUpon>PronunciationAssessmentForm.cs</DependentUpon>
+    <EmbeddedResource Include="FormUI\VocabularyUI\PronounceForm.resx">
+      <DependentUpon>PronounceForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormUI\VocabularyUI\SavedWordItem.resx">
       <DependentUpon>SavedWordItem.cs</DependentUpon>
@@ -354,13 +389,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -405,7 +436,19 @@
     </COMReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\voice.png" />
+  </ItemGroup>
+  <ItemGroup>
     <None Include="Resources\bookmark-remove.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\play.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\stop-button.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bookmark.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Microsoft.Web.WebView2.1.0.1020.30\build\Microsoft.Web.WebView2.targets" Condition="Exists('..\packages\Microsoft.Web.WebView2.1.0.1020.30\build\Microsoft.Web.WebView2.targets')" />
