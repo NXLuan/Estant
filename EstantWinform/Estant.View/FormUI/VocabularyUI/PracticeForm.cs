@@ -19,12 +19,14 @@ namespace Estant.View.FormUI.VocabularyUI
         string topic;
         int currentIndex;
         bool isFinish;
-        public PracticeForm(string _topic)
+        bool isGrammar;
+        public PracticeForm(string _topic, bool _isGrammar = false)
         {
             InitializeComponent();
             topic = _topic;
-            LoadDataExercise();
             currentIndex = 0;
+            isGrammar = _isGrammar;
+            LoadDataExercise();
             pbPrevQuestion.Visible = false;
             lblQuestionCount.TextAlign = ContentAlignment.TopLeft;
             isFinish = false;
@@ -33,9 +35,15 @@ namespace Estant.View.FormUI.VocabularyUI
         {
             Loading.Show(); // show load
 
-            lstExercise = await ExerciseHandler.GetExerciseByTopic(topic);
-
-            //lstExercise = await ExerciseHandler.GetExerciseByGrammar("PresentSimpleTense");
+            if (!isGrammar)
+            {
+                lstExercise = await ExerciseHandler.GetExerciseByTopic(topic);
+            }
+            else
+            {
+                lstExercise = await ExerciseHandler.GetExerciseByGrammar(topic);
+            }
+            //
             Loading.End(); // end load
             ShowQuestion();
         }
@@ -110,10 +118,33 @@ namespace Estant.View.FormUI.VocabularyUI
             pnMissingWord.Visible = false;
             pnResult.Visible = false;
             SetFontSize(lstExercise[currentIndex].type);
-            btnA.Text = lstExercise[currentIndex].choices[0];
-            btnB.Text = lstExercise[currentIndex].choices[1];
-            btnC.Text = lstExercise[currentIndex].choices[2];
-            btnD.Text = lstExercise[currentIndex].choices[3];
+            btnA.Visible = btnB.Visible = btnC.Visible = btnD.Visible = false;
+            for(int i = 0; i < lstExercise[currentIndex].choices.Count; i++)
+            { 
+                switch(i)
+                {
+                    case 0:
+                        btnA.Text = lstExercise[currentIndex].choices[0];
+                        btnA.Visible = true;
+                        break;
+                    case 1:
+                        btnB.Text = lstExercise[currentIndex].choices[1];
+                        btnB.Visible = true;
+                        break;
+                    case 2:
+                        btnC.Text = lstExercise[currentIndex].choices[2];
+                        btnC.Visible = true;
+                        break;
+                    case 3:
+                        btnD.Text = lstExercise[currentIndex].choices[3];
+                        btnD.Visible = true;
+                        break;
+                }
+            }
+            //btnA.Text = lstExercise[currentIndex].choices[0];
+            //btnB.Text = lstExercise[currentIndex].choices[1];
+            //btnC.Text = lstExercise[currentIndex].choices[2];
+            //btnD.Text = lstExercise[currentIndex].choices[3];
 
             btnA.BackColor = btnB.BackColor = btnC.BackColor = btnD.BackColor = Color.LightSalmon;
 

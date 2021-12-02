@@ -1,6 +1,7 @@
 ﻿using Estant.Material.Utilities;
 using Estant.View.Extensions;
 using Estant.View.FormUI.PopupUI;
+using Estant.View.FormUI.VocabularyUI;
 using EstantNF.Core.Handlers;
 using EstantWF.Material.Model;
 using System;
@@ -60,6 +61,9 @@ namespace Estant.View.FormUI.GrammarUI
             {
                 case GrammarPageForm.LESSON:
                     form = new LessonForm(data as string);
+                    break;
+                case GrammarPageForm.PRACTICE:
+                    form = new PracticeForm(data as string, true);
                     break;
             }
             ControlExtension.ShowFormInControl(tabForm.TabPages[tabForm.TabCount - 1], form);

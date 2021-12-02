@@ -24,6 +24,7 @@ import CreateAccountScreen from '../screens/CreateAccountScreen';
 import ResetPasswordScreen from '../screens/ResetPasswordScreen';
 
 import PodcastScreen from '../screens/PodcastScreen';
+import PronounceScreen from '../screens/PronounceScreen';
 
 import { AuthContext } from './context';
 const Tab = createBottomTabNavigator();
@@ -213,6 +214,14 @@ const AppNavigator = () => {
             component={PodcastScreen}
             options={{
               headerTintColor: Colors.primary,
+            }}
+          />
+          <Stack.Screen
+            name="Pronounce"
+            component={PronounceScreen}
+            options={{
+              headerTintColor: 'white',
+              headerStyle: { backgroundColor: Colors.primary },
             }}
           />
         </Stack.Navigator>

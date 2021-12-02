@@ -96,6 +96,13 @@ const WordScreen = ({ route, navigation }) => {
           onPress={showSaveWordAlert}
         />
       )}
+      <IconButton
+        icon="microphone"
+        color="white"
+        size={30}
+        style={styles.microBtn}
+        onPress={() => navigation.navigate('Pronounce', { dataWord })}
+      />
       <ScrollView style={styles.container}>
         <View style={styles.header}>
           <IconButton
@@ -130,7 +137,6 @@ const styles = StyleSheet.create({
   header: {
     flexDirection: 'row',
     alignItems: 'center',
-    flex: 1,
     paddingBottom: 15,
     borderBottomWidth: 0.2,
     marginBottom: 15,
@@ -147,6 +153,12 @@ const styles = StyleSheet.create({
     position: 'absolute',
     top: -55,
     right: 10,
+    zIndex: 100,
+  },
+  microBtn: {
+    position: 'absolute',
+    top: -55,
+    right: 60,
     zIndex: 100,
   },
 });

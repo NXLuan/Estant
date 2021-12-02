@@ -27,13 +27,19 @@ const TopicScreen = ({ route, navigation }) => {
   function handleOnPressMore({ item }) {
     navigation.navigate('Meanings', { dataWord: item });
   }
+
+  function handleOnPressPronounce({ item }) {
+    navigation.navigate('Pronounce', { dataWord: item });
+  }
   const handleSearchWord = query => {
     setKeyword(query);
     if (query === '') {
       setFilterData(data);
     } else {
       let newData = [...data];
-      setFilterData(newData.filter(item => item.word.includes(query)));
+      setFilterData(
+        newData.filter(item => item.word.includes(query.toLowerCase())),
+      );
     }
   };
   const handleOpenFlashCard = () => {
@@ -42,6 +48,7 @@ const TopicScreen = ({ route, navigation }) => {
   const handleOpenPractice = () => {
     navigation.navigate('Practice', { topic: name });
   };
+
   return (
     <>
       {isLoading ? (
@@ -60,7 +67,6 @@ const TopicScreen = ({ route, navigation }) => {
               handleOnPress={handleOpenPractice}
               style={{ marginHorizontal: 10 }}
             />
-            <SquareButton iconName="clipboard-list" text="Result" />
           </View>
           <Searchbar
             placeholder="Search"

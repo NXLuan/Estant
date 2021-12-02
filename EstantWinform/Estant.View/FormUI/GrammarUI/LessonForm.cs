@@ -14,10 +14,12 @@ namespace Estant.View.FormUI.GrammarUI
 {
     public partial class LessonForm : Form
     {
+        string _code;
         public LessonForm(string code)
         {
             InitializeComponent();
             LoadLessonHandle(code);
+            _code = code;
         }
 
         public async void LoadLessonHandle(string code)
@@ -32,9 +34,9 @@ namespace Estant.View.FormUI.GrammarUI
             Loading.End(); // end load
         }
 
-        private void btnPractice_Load(object sender, EventArgs e)
+        private void btnPractice_UserClick(object sender, EventArgs e)
         {
-
+            GrammarForm.Instance.ShowNewTab(EstantWF.Material.Model.GrammarPageForm.PRACTICE, "Practice", data: _code);
         }
     }
 }

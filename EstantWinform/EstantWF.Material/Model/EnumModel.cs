@@ -18,7 +18,7 @@ namespace EstantWF.Material.Model
 
     public enum GrammarPageForm
     {
-        LESSON = 1
+        LESSON = 1, PRACTICE = 2,
     }
     public enum NewsPageForm
     {
