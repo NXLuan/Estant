@@ -105,7 +105,10 @@ namespace Estant.View.FormUI.VocabularyUI
                     break;
                 case VocabForm.PRONOUNCE:
                     form = new PronounceForm(data as Vocabulary);
-                    break;                  
+                    break;
+                case VocabForm.FACEBOOKSHARE:
+                    form = new FacebookViewForm();
+                    break;
             }
             ControlExtension.ShowFormInControl(tabForm.TabPages[tabForm.TabCount - 1], form);
 

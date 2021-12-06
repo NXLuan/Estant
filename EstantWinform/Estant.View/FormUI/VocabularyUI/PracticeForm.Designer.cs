@@ -51,17 +51,18 @@ namespace Estant.View.FormUI.VocabularyUI
             this.lblMCQuestion = new System.Windows.Forms.Label();
             this.pbNextQuestion = new System.Windows.Forms.PictureBox();
             this.pnResult = new System.Windows.Forms.Panel();
-            this.lbl1 = new System.Windows.Forms.Label();
-            this.lbl2 = new System.Windows.Forms.Label();
-            this.lbl3 = new System.Windows.Forms.Label();
-            this.lbl4 = new System.Windows.Forms.Label();
-            this.lbl5 = new System.Windows.Forms.Label();
             this.lbl10 = new System.Windows.Forms.Label();
             this.lbl9 = new System.Windows.Forms.Label();
             this.lbl8 = new System.Windows.Forms.Label();
             this.lbl7 = new System.Windows.Forms.Label();
             this.lbl6 = new System.Windows.Forms.Label();
+            this.lbl5 = new System.Windows.Forms.Label();
+            this.lbl4 = new System.Windows.Forms.Label();
+            this.lbl3 = new System.Windows.Forms.Label();
+            this.lbl2 = new System.Windows.Forms.Label();
+            this.lbl1 = new System.Windows.Forms.Label();
             this.pbPrevQuestion = new System.Windows.Forms.PictureBox();
+            this.btnShareFaceBook = new Estant.View.CustomControl.ButtonFlatImage();
             this.pnMissingWord.SuspendLayout();
             this.pnListenTest.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbAudio)).BeginInit();
@@ -78,18 +79,20 @@ namespace Estant.View.FormUI.VocabularyUI
             this.pnMissingWord.Controls.Add(this.txtMWAnswer);
             this.pnMissingWord.Controls.Add(this.lblMWDefinition);
             this.pnMissingWord.Controls.Add(this.lblMissingWord);
-            this.pnMissingWord.Location = new System.Drawing.Point(17, 125);
+            this.pnMissingWord.Location = new System.Drawing.Point(23, 154);
+            this.pnMissingWord.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pnMissingWord.Name = "pnMissingWord";
-            this.pnMissingWord.Size = new System.Drawing.Size(560, 296);
+            this.pnMissingWord.Size = new System.Drawing.Size(747, 364);
             this.pnMissingWord.TabIndex = 0;
             // 
             // label2
             // 
             this.label2.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Bold);
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(106)))), ((int)(((byte)(77)))));
-            this.label2.Location = new System.Drawing.Point(0, 205);
+            this.label2.Location = new System.Drawing.Point(0, 252);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(560, 26);
+            this.label2.Size = new System.Drawing.Size(747, 32);
             this.label2.TabIndex = 6;
             this.label2.Text = "Your answer";
             this.label2.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -98,9 +101,10 @@ namespace Estant.View.FormUI.VocabularyUI
             // 
             this.lblMWAnswer.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold);
             this.lblMWAnswer.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(71)))), ((int)(((byte)(173)))));
-            this.lblMWAnswer.Location = new System.Drawing.Point(62, 57);
+            this.lblMWAnswer.Location = new System.Drawing.Point(83, 70);
+            this.lblMWAnswer.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblMWAnswer.Name = "lblMWAnswer";
-            this.lblMWAnswer.Size = new System.Drawing.Size(440, 52);
+            this.lblMWAnswer.Size = new System.Drawing.Size(587, 64);
             this.lblMWAnswer.TabIndex = 5;
             this.lblMWAnswer.Text = "airplane";
             this.lblMWAnswer.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -109,9 +113,10 @@ namespace Estant.View.FormUI.VocabularyUI
             // 
             this.txtMWAnswer.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtMWAnswer.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold);
-            this.txtMWAnswer.Location = new System.Drawing.Point(160, 235);
+            this.txtMWAnswer.Location = new System.Drawing.Point(213, 289);
+            this.txtMWAnswer.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtMWAnswer.Name = "txtMWAnswer";
-            this.txtMWAnswer.Size = new System.Drawing.Size(236, 43);
+            this.txtMWAnswer.Size = new System.Drawing.Size(314, 52);
             this.txtMWAnswer.TabIndex = 4;
             this.txtMWAnswer.Text = "airplane";
             this.txtMWAnswer.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -120,9 +125,10 @@ namespace Estant.View.FormUI.VocabularyUI
             // lblMWDefinition
             // 
             this.lblMWDefinition.Font = new System.Drawing.Font("Segoe UI", 13F);
-            this.lblMWDefinition.Location = new System.Drawing.Point(47, 109);
+            this.lblMWDefinition.Location = new System.Drawing.Point(63, 134);
+            this.lblMWDefinition.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblMWDefinition.Name = "lblMWDefinition";
-            this.lblMWDefinition.Size = new System.Drawing.Size(468, 90);
+            this.lblMWDefinition.Size = new System.Drawing.Size(624, 111);
             this.lblMWDefinition.TabIndex = 3;
             this.lblMWDefinition.Text = "a powered flying vehicle with fixed wings and a weight greater than that of the a" +
     "ir it displaces; an aeroplane.";
@@ -131,9 +137,10 @@ namespace Estant.View.FormUI.VocabularyUI
             // lblMissingWord
             // 
             this.lblMissingWord.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold);
-            this.lblMissingWord.Location = new System.Drawing.Point(5, 5);
+            this.lblMissingWord.Location = new System.Drawing.Point(7, 6);
+            this.lblMissingWord.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblMissingWord.Name = "lblMissingWord";
-            this.lblMissingWord.Size = new System.Drawing.Size(550, 52);
+            this.lblMissingWord.Size = new System.Drawing.Size(733, 64);
             this.lblMissingWord.TabIndex = 0;
             this.lblMissingWord.Text = "_ i r_ _ a _ e";
             this.lblMissingWord.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -142,9 +149,10 @@ namespace Estant.View.FormUI.VocabularyUI
             // 
             this.lblQuestionCount.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold);
             this.lblQuestionCount.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(106)))), ((int)(((byte)(77)))));
-            this.lblQuestionCount.Location = new System.Drawing.Point(17, 22);
+            this.lblQuestionCount.Location = new System.Drawing.Point(23, 27);
+            this.lblQuestionCount.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblQuestionCount.Name = "lblQuestionCount";
-            this.lblQuestionCount.Size = new System.Drawing.Size(560, 33);
+            this.lblQuestionCount.Size = new System.Drawing.Size(747, 41);
             this.lblQuestionCount.TabIndex = 1;
             this.lblQuestionCount.Text = "Result";
             // 
@@ -152,9 +160,10 @@ namespace Estant.View.FormUI.VocabularyUI
             // 
             this.lblQuestion.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold);
             this.lblQuestion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(106)))), ((int)(((byte)(77)))));
-            this.lblQuestion.Location = new System.Drawing.Point(12, 66);
+            this.lblQuestion.Location = new System.Drawing.Point(16, 81);
+            this.lblQuestion.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblQuestion.Name = "lblQuestion";
-            this.lblQuestion.Size = new System.Drawing.Size(560, 37);
+            this.lblQuestion.Size = new System.Drawing.Size(747, 46);
             this.lblQuestion.TabIndex = 2;
             this.lblQuestion.Text = "Your score is 8/10";
             this.lblQuestion.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -165,17 +174,19 @@ namespace Estant.View.FormUI.VocabularyUI
             this.pnListenTest.Controls.Add(this.label1);
             this.pnListenTest.Controls.Add(this.lblLTAnswer);
             this.pnListenTest.Controls.Add(this.txtLTAnswer);
-            this.pnListenTest.Location = new System.Drawing.Point(618, 435);
+            this.pnListenTest.Location = new System.Drawing.Point(824, 535);
+            this.pnListenTest.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pnListenTest.Name = "pnListenTest";
-            this.pnListenTest.Size = new System.Drawing.Size(560, 296);
+            this.pnListenTest.Size = new System.Drawing.Size(747, 364);
             this.pnListenTest.TabIndex = 4;
             // 
             // pbAudio
             // 
             this.pbAudio.Image = ((System.Drawing.Image)(resources.GetObject("pbAudio.Image")));
-            this.pbAudio.Location = new System.Drawing.Point(252, 59);
+            this.pbAudio.Location = new System.Drawing.Point(336, 73);
+            this.pbAudio.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pbAudio.Name = "pbAudio";
-            this.pbAudio.Size = new System.Drawing.Size(56, 50);
+            this.pbAudio.Size = new System.Drawing.Size(75, 62);
             this.pbAudio.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbAudio.TabIndex = 7;
             this.pbAudio.TabStop = false;
@@ -185,9 +196,10 @@ namespace Estant.View.FormUI.VocabularyUI
             // 
             this.label1.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Bold);
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(106)))), ((int)(((byte)(77)))));
-            this.label1.Location = new System.Drawing.Point(0, 205);
+            this.label1.Location = new System.Drawing.Point(0, 252);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(560, 26);
+            this.label1.Size = new System.Drawing.Size(747, 32);
             this.label1.TabIndex = 6;
             this.label1.Text = "Your answer";
             this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -196,9 +208,10 @@ namespace Estant.View.FormUI.VocabularyUI
             // 
             this.lblLTAnswer.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold);
             this.lblLTAnswer.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(71)))), ((int)(((byte)(173)))));
-            this.lblLTAnswer.Location = new System.Drawing.Point(62, 143);
+            this.lblLTAnswer.Location = new System.Drawing.Point(83, 176);
+            this.lblLTAnswer.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblLTAnswer.Name = "lblLTAnswer";
-            this.lblLTAnswer.Size = new System.Drawing.Size(440, 52);
+            this.lblLTAnswer.Size = new System.Drawing.Size(587, 64);
             this.lblLTAnswer.TabIndex = 5;
             this.lblLTAnswer.Text = "airplane";
             this.lblLTAnswer.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -207,10 +220,11 @@ namespace Estant.View.FormUI.VocabularyUI
             // 
             this.txtLTAnswer.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtLTAnswer.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold);
-            this.txtLTAnswer.Location = new System.Drawing.Point(160, 235);
+            this.txtLTAnswer.Location = new System.Drawing.Point(213, 289);
+            this.txtLTAnswer.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtLTAnswer.MaxLength = 15;
             this.txtLTAnswer.Name = "txtLTAnswer";
-            this.txtLTAnswer.Size = new System.Drawing.Size(236, 43);
+            this.txtLTAnswer.Size = new System.Drawing.Size(314, 52);
             this.txtLTAnswer.TabIndex = 4;
             this.txtLTAnswer.Text = "airplane";
             this.txtLTAnswer.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -223,9 +237,10 @@ namespace Estant.View.FormUI.VocabularyUI
             this.pnMultipleChoice.Controls.Add(this.btnB);
             this.pnMultipleChoice.Controls.Add(this.btnA);
             this.pnMultipleChoice.Controls.Add(this.lblMCQuestion);
-            this.pnMultipleChoice.Location = new System.Drawing.Point(615, 107);
+            this.pnMultipleChoice.Location = new System.Drawing.Point(820, 132);
+            this.pnMultipleChoice.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pnMultipleChoice.Name = "pnMultipleChoice";
-            this.pnMultipleChoice.Size = new System.Drawing.Size(560, 296);
+            this.pnMultipleChoice.Size = new System.Drawing.Size(747, 364);
             this.pnMultipleChoice.TabIndex = 5;
             // 
             // btnD
@@ -235,9 +250,10 @@ namespace Estant.View.FormUI.VocabularyUI
             this.btnD.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnD.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.btnD.ForeColor = System.Drawing.Color.White;
-            this.btnD.Location = new System.Drawing.Point(286, 198);
+            this.btnD.Location = new System.Drawing.Point(381, 244);
+            this.btnD.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnD.Name = "btnD";
-            this.btnD.Size = new System.Drawing.Size(269, 95);
+            this.btnD.Size = new System.Drawing.Size(359, 117);
             this.btnD.TabIndex = 11;
             this.btnD.Text = "a complex of runways and buildings for the take-off, landing, and maintenance of " +
     "civil aircraft, with facilities for passengers.";
@@ -251,9 +267,10 @@ namespace Estant.View.FormUI.VocabularyUI
             this.btnC.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnC.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.btnC.ForeColor = System.Drawing.Color.White;
-            this.btnC.Location = new System.Drawing.Point(3, 198);
+            this.btnC.Location = new System.Drawing.Point(4, 244);
+            this.btnC.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnC.Name = "btnC";
-            this.btnC.Size = new System.Drawing.Size(269, 95);
+            this.btnC.Size = new System.Drawing.Size(359, 117);
             this.btnC.TabIndex = 10;
             this.btnC.Text = "a complex of runways and buildings for the take-off, landing, and maintenance of " +
     "civil aircraft, with facilities for passengers.";
@@ -267,9 +284,10 @@ namespace Estant.View.FormUI.VocabularyUI
             this.btnB.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnB.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.btnB.ForeColor = System.Drawing.Color.White;
-            this.btnB.Location = new System.Drawing.Point(286, 96);
+            this.btnB.Location = new System.Drawing.Point(381, 118);
+            this.btnB.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnB.Name = "btnB";
-            this.btnB.Size = new System.Drawing.Size(269, 95);
+            this.btnB.Size = new System.Drawing.Size(359, 117);
             this.btnB.TabIndex = 9;
             this.btnB.Text = "plane";
             this.btnB.UseVisualStyleBackColor = false;
@@ -282,9 +300,10 @@ namespace Estant.View.FormUI.VocabularyUI
             this.btnA.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnA.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold);
             this.btnA.ForeColor = System.Drawing.Color.White;
-            this.btnA.Location = new System.Drawing.Point(3, 96);
+            this.btnA.Location = new System.Drawing.Point(4, 118);
+            this.btnA.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnA.Name = "btnA";
-            this.btnA.Size = new System.Drawing.Size(269, 95);
+            this.btnA.Size = new System.Drawing.Size(359, 117);
             this.btnA.TabIndex = 8;
             this.btnA.Text = "aircraft";
             this.btnA.UseVisualStyleBackColor = false;
@@ -294,9 +313,10 @@ namespace Estant.View.FormUI.VocabularyUI
             // 
             this.lblMCQuestion.Font = new System.Drawing.Font("Segoe UI", 13F);
             this.lblMCQuestion.ForeColor = System.Drawing.Color.Black;
-            this.lblMCQuestion.Location = new System.Drawing.Point(5, 3);
+            this.lblMCQuestion.Location = new System.Drawing.Point(7, 4);
+            this.lblMCQuestion.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblMCQuestion.Name = "lblMCQuestion";
-            this.lblMCQuestion.Size = new System.Drawing.Size(550, 90);
+            this.lblMCQuestion.Size = new System.Drawing.Size(733, 111);
             this.lblMCQuestion.TabIndex = 7;
             this.lblMCQuestion.Text = "a powered flying vehicle with fixed wings and a weight greater than that of the a" +
     "ir it displaces; an aeroplane.";
@@ -305,9 +325,10 @@ namespace Estant.View.FormUI.VocabularyUI
             // pbNextQuestion
             // 
             this.pbNextQuestion.Image = ((System.Drawing.Image)(resources.GetObject("pbNextQuestion.Image")));
-            this.pbNextQuestion.Location = new System.Drawing.Point(545, 21);
+            this.pbNextQuestion.Location = new System.Drawing.Point(727, 26);
+            this.pbNextQuestion.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pbNextQuestion.Name = "pbNextQuestion";
-            this.pbNextQuestion.Size = new System.Drawing.Size(32, 32);
+            this.pbNextQuestion.Size = new System.Drawing.Size(43, 39);
             this.pbNextQuestion.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbNextQuestion.TabIndex = 6;
             this.pbNextQuestion.TabStop = false;
@@ -315,6 +336,7 @@ namespace Estant.View.FormUI.VocabularyUI
             // 
             // pnResult
             // 
+            this.pnResult.Controls.Add(this.btnShareFaceBook);
             this.pnResult.Controls.Add(this.lbl10);
             this.pnResult.Controls.Add(this.lbl9);
             this.pnResult.Controls.Add(this.lbl8);
@@ -325,79 +347,21 @@ namespace Estant.View.FormUI.VocabularyUI
             this.pnResult.Controls.Add(this.lbl3);
             this.pnResult.Controls.Add(this.lbl2);
             this.pnResult.Controls.Add(this.lbl1);
-            this.pnResult.Location = new System.Drawing.Point(33, 450);
+            this.pnResult.Location = new System.Drawing.Point(44, 554);
+            this.pnResult.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pnResult.Name = "pnResult";
-            this.pnResult.Size = new System.Drawing.Size(560, 296);
+            this.pnResult.Size = new System.Drawing.Size(747, 364);
             this.pnResult.TabIndex = 7;
-            // 
-            // lbl1
-            // 
-            this.lbl1.BackColor = System.Drawing.Color.Green;
-            this.lbl1.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold);
-            this.lbl1.ForeColor = System.Drawing.Color.White;
-            this.lbl1.Location = new System.Drawing.Point(53, 74);
-            this.lbl1.Name = "lbl1";
-            this.lbl1.Size = new System.Drawing.Size(62, 62);
-            this.lbl1.TabIndex = 7;
-            this.lbl1.Text = "1";
-            this.lbl1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lbl2
-            // 
-            this.lbl2.BackColor = System.Drawing.Color.Red;
-            this.lbl2.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold);
-            this.lbl2.ForeColor = System.Drawing.Color.White;
-            this.lbl2.Location = new System.Drawing.Point(153, 74);
-            this.lbl2.Name = "lbl2";
-            this.lbl2.Size = new System.Drawing.Size(62, 62);
-            this.lbl2.TabIndex = 8;
-            this.lbl2.Text = "2";
-            this.lbl2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lbl3
-            // 
-            this.lbl3.BackColor = System.Drawing.Color.Green;
-            this.lbl3.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold);
-            this.lbl3.ForeColor = System.Drawing.Color.White;
-            this.lbl3.Location = new System.Drawing.Point(253, 74);
-            this.lbl3.Name = "lbl3";
-            this.lbl3.Size = new System.Drawing.Size(62, 62);
-            this.lbl3.TabIndex = 9;
-            this.lbl3.Text = "3";
-            this.lbl3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lbl4
-            // 
-            this.lbl4.BackColor = System.Drawing.Color.Green;
-            this.lbl4.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold);
-            this.lbl4.ForeColor = System.Drawing.Color.White;
-            this.lbl4.Location = new System.Drawing.Point(353, 74);
-            this.lbl4.Name = "lbl4";
-            this.lbl4.Size = new System.Drawing.Size(62, 62);
-            this.lbl4.TabIndex = 10;
-            this.lbl4.Text = "4";
-            this.lbl4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lbl5
-            // 
-            this.lbl5.BackColor = System.Drawing.Color.Green;
-            this.lbl5.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold);
-            this.lbl5.ForeColor = System.Drawing.Color.White;
-            this.lbl5.Location = new System.Drawing.Point(453, 74);
-            this.lbl5.Name = "lbl5";
-            this.lbl5.Size = new System.Drawing.Size(62, 62);
-            this.lbl5.TabIndex = 11;
-            this.lbl5.Text = "5";
-            this.lbl5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lbl10
             // 
             this.lbl10.BackColor = System.Drawing.Color.Green;
             this.lbl10.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold);
             this.lbl10.ForeColor = System.Drawing.Color.White;
-            this.lbl10.Location = new System.Drawing.Point(453, 169);
+            this.lbl10.Location = new System.Drawing.Point(604, 208);
+            this.lbl10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl10.Name = "lbl10";
-            this.lbl10.Size = new System.Drawing.Size(62, 62);
+            this.lbl10.Size = new System.Drawing.Size(83, 76);
             this.lbl10.TabIndex = 16;
             this.lbl10.Text = "10";
             this.lbl10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -407,9 +371,10 @@ namespace Estant.View.FormUI.VocabularyUI
             this.lbl9.BackColor = System.Drawing.Color.Green;
             this.lbl9.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold);
             this.lbl9.ForeColor = System.Drawing.Color.White;
-            this.lbl9.Location = new System.Drawing.Point(353, 169);
+            this.lbl9.Location = new System.Drawing.Point(471, 208);
+            this.lbl9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl9.Name = "lbl9";
-            this.lbl9.Size = new System.Drawing.Size(62, 62);
+            this.lbl9.Size = new System.Drawing.Size(83, 76);
             this.lbl9.TabIndex = 15;
             this.lbl9.Text = "9";
             this.lbl9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -419,9 +384,10 @@ namespace Estant.View.FormUI.VocabularyUI
             this.lbl8.BackColor = System.Drawing.Color.Green;
             this.lbl8.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold);
             this.lbl8.ForeColor = System.Drawing.Color.White;
-            this.lbl8.Location = new System.Drawing.Point(253, 169);
+            this.lbl8.Location = new System.Drawing.Point(337, 208);
+            this.lbl8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl8.Name = "lbl8";
-            this.lbl8.Size = new System.Drawing.Size(62, 62);
+            this.lbl8.Size = new System.Drawing.Size(83, 76);
             this.lbl8.TabIndex = 14;
             this.lbl8.Text = "8";
             this.lbl8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -431,9 +397,10 @@ namespace Estant.View.FormUI.VocabularyUI
             this.lbl7.BackColor = System.Drawing.Color.Red;
             this.lbl7.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold);
             this.lbl7.ForeColor = System.Drawing.Color.White;
-            this.lbl7.Location = new System.Drawing.Point(153, 169);
+            this.lbl7.Location = new System.Drawing.Point(204, 208);
+            this.lbl7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl7.Name = "lbl7";
-            this.lbl7.Size = new System.Drawing.Size(62, 62);
+            this.lbl7.Size = new System.Drawing.Size(83, 76);
             this.lbl7.TabIndex = 13;
             this.lbl7.Text = "7";
             this.lbl7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -443,31 +410,115 @@ namespace Estant.View.FormUI.VocabularyUI
             this.lbl6.BackColor = System.Drawing.Color.Green;
             this.lbl6.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold);
             this.lbl6.ForeColor = System.Drawing.Color.White;
-            this.lbl6.Location = new System.Drawing.Point(53, 169);
+            this.lbl6.Location = new System.Drawing.Point(71, 208);
+            this.lbl6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl6.Name = "lbl6";
-            this.lbl6.Size = new System.Drawing.Size(62, 62);
+            this.lbl6.Size = new System.Drawing.Size(83, 76);
             this.lbl6.TabIndex = 12;
             this.lbl6.Text = "6";
             this.lbl6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // lbl5
+            // 
+            this.lbl5.BackColor = System.Drawing.Color.Green;
+            this.lbl5.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold);
+            this.lbl5.ForeColor = System.Drawing.Color.White;
+            this.lbl5.Location = new System.Drawing.Point(604, 91);
+            this.lbl5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbl5.Name = "lbl5";
+            this.lbl5.Size = new System.Drawing.Size(83, 76);
+            this.lbl5.TabIndex = 11;
+            this.lbl5.Text = "5";
+            this.lbl5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lbl4
+            // 
+            this.lbl4.BackColor = System.Drawing.Color.Green;
+            this.lbl4.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold);
+            this.lbl4.ForeColor = System.Drawing.Color.White;
+            this.lbl4.Location = new System.Drawing.Point(471, 91);
+            this.lbl4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbl4.Name = "lbl4";
+            this.lbl4.Size = new System.Drawing.Size(83, 76);
+            this.lbl4.TabIndex = 10;
+            this.lbl4.Text = "4";
+            this.lbl4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lbl3
+            // 
+            this.lbl3.BackColor = System.Drawing.Color.Green;
+            this.lbl3.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold);
+            this.lbl3.ForeColor = System.Drawing.Color.White;
+            this.lbl3.Location = new System.Drawing.Point(337, 91);
+            this.lbl3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbl3.Name = "lbl3";
+            this.lbl3.Size = new System.Drawing.Size(83, 76);
+            this.lbl3.TabIndex = 9;
+            this.lbl3.Text = "3";
+            this.lbl3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lbl2
+            // 
+            this.lbl2.BackColor = System.Drawing.Color.Red;
+            this.lbl2.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold);
+            this.lbl2.ForeColor = System.Drawing.Color.White;
+            this.lbl2.Location = new System.Drawing.Point(204, 91);
+            this.lbl2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbl2.Name = "lbl2";
+            this.lbl2.Size = new System.Drawing.Size(83, 76);
+            this.lbl2.TabIndex = 8;
+            this.lbl2.Text = "2";
+            this.lbl2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lbl1
+            // 
+            this.lbl1.BackColor = System.Drawing.Color.Green;
+            this.lbl1.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold);
+            this.lbl1.ForeColor = System.Drawing.Color.White;
+            this.lbl1.Location = new System.Drawing.Point(71, 91);
+            this.lbl1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbl1.Name = "lbl1";
+            this.lbl1.Size = new System.Drawing.Size(83, 76);
+            this.lbl1.TabIndex = 7;
+            this.lbl1.Text = "1";
+            this.lbl1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // pbPrevQuestion
             // 
             this.pbPrevQuestion.Image = ((System.Drawing.Image)(resources.GetObject("pbPrevQuestion.Image")));
-            this.pbPrevQuestion.Location = new System.Drawing.Point(17, 21);
+            this.pbPrevQuestion.Location = new System.Drawing.Point(23, 26);
+            this.pbPrevQuestion.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pbPrevQuestion.Name = "pbPrevQuestion";
-            this.pbPrevQuestion.Size = new System.Drawing.Size(32, 32);
+            this.pbPrevQuestion.Size = new System.Drawing.Size(43, 39);
             this.pbPrevQuestion.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbPrevQuestion.TabIndex = 8;
             this.pbPrevQuestion.TabStop = false;
             this.pbPrevQuestion.Visible = false;
             this.pbPrevQuestion.Click += new System.EventHandler(this.pbPrevQuestion_Click);
             // 
+            // btnShareFaceBook
+            // 
+            this.btnShareFaceBook.ActiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(116)))), ((int)(((byte)(228)))));
+            this.btnShareFaceBook.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(116)))), ((int)(((byte)(228)))));
+            this.btnShareFaceBook.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnShareFaceBook.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(116)))), ((int)(((byte)(228)))));
+            this.btnShareFaceBook.IconButton = null;
+            this.btnShareFaceBook.Location = new System.Drawing.Point(245, 303);
+            this.btnShareFaceBook.Name = "btnShareFaceBook";
+            this.btnShareFaceBook.NormalColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(116)))), ((int)(((byte)(228)))));
+            this.btnShareFaceBook.Padding = new System.Windows.Forms.Padding(10);
+            this.btnShareFaceBook.Size = new System.Drawing.Size(269, 47);
+            this.btnShareFaceBook.TabIndex = 17;
+            this.btnShareFaceBook.TextButton = "Share Facebook";
+            this.btnShareFaceBook.TextColor = System.Drawing.Color.White;
+            this.btnShareFaceBook.UserClick += new System.EventHandler(this.btnShareFaceBook_UserClick);
+            // 
             // PracticeForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1177, 758);
+            this.ClientSize = new System.Drawing.Size(1569, 933);
             this.Controls.Add(this.pbPrevQuestion);
             this.Controls.Add(this.pnResult);
             this.Controls.Add(this.pbNextQuestion);
@@ -477,6 +528,7 @@ namespace Estant.View.FormUI.VocabularyUI
             this.Controls.Add(this.lblQuestionCount);
             this.Controls.Add(this.pnMissingWord);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "PracticeForm";
             this.Text = "PracticeForm";
             this.pnMissingWord.ResumeLayout(false);
@@ -526,5 +578,6 @@ namespace Estant.View.FormUI.VocabularyUI
         private System.Windows.Forms.Label lbl2;
         private System.Windows.Forms.Label lbl1;
         private System.Windows.Forms.PictureBox pbPrevQuestion;
+        private CustomControl.ButtonFlatImage btnShareFaceBook;
     }
 }

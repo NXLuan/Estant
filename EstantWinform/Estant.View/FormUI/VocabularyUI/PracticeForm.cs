@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Imaging;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -338,6 +339,19 @@ namespace Estant.View.FormUI.VocabularyUI
             currentIndex--;
             if (currentIndex < 0) currentIndex = 9;
             ShowQuestion();
+        }
+
+        private void btnShareFaceBook_UserClick(object sender, EventArgs e)
+        {
+            Bitmap bitmap = new Bitmap(MainForm.Instance.Size.Width, MainForm.Instance.Size.Height);
+            Graphics g = Graphics.FromImage(bitmap);
+            g.CopyFromScreen(MainForm.Instance.Location.X + 30, MainForm.Instance.Location.Y + 30, 0, 0, bitmap.Size);
+            SaveFileDialog dialog = new SaveFileDialog();
+            if (dialog.ShowDialog() == DialogResult.OK)
+            {
+                bitmap.Save(dialog.FileName, ImageFormat.Png);
+                VocabularyForm.Instance.ShowNewTab(VocabForm.FACEBOOKSHARE, "Share Facebook");
+            }
         }
     }
 }

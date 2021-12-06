@@ -381,9 +381,9 @@ namespace Estant.View.FormUI.VocabularyUI
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(116)))), ((int)(((byte)(116)))));
             this.label3.Location = new System.Drawing.Point(315, 23);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(185, 28);
+            this.label3.Size = new System.Drawing.Size(180, 28);
             this.label3.TabIndex = 1;
-            this.label3.Text = "Accent predicitions";
+            this.label3.Text = "Accent predictions";
             // 
             // pnScore
             // 
