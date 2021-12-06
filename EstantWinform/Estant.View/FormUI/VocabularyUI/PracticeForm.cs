@@ -347,6 +347,7 @@ namespace Estant.View.FormUI.VocabularyUI
             Graphics g = Graphics.FromImage(bitmap);
             g.CopyFromScreen(MainForm.Instance.Location.X + 30, MainForm.Instance.Location.Y + 30, 0, 0, bitmap.Size);
             SaveFileDialog dialog = new SaveFileDialog();
+            dialog.Filter = "Image files (*.png)| *.png";
             if (dialog.ShowDialog() == DialogResult.OK)
             {
                 bitmap.Save(dialog.FileName, ImageFormat.Png);
