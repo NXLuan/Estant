@@ -51,6 +51,7 @@ namespace Estant.View.FormUI.VocabularyUI
             this.lblMCQuestion = new System.Windows.Forms.Label();
             this.pbNextQuestion = new System.Windows.Forms.PictureBox();
             this.pnResult = new System.Windows.Forms.Panel();
+            this.btnShareFaceBook = new Estant.View.CustomControl.ButtonFlatImage();
             this.lbl10 = new System.Windows.Forms.Label();
             this.lbl9 = new System.Windows.Forms.Label();
             this.lbl8 = new System.Windows.Forms.Label();
@@ -62,7 +63,6 @@ namespace Estant.View.FormUI.VocabularyUI
             this.lbl2 = new System.Windows.Forms.Label();
             this.lbl1 = new System.Windows.Forms.Label();
             this.pbPrevQuestion = new System.Windows.Forms.PictureBox();
-            this.btnShareFaceBook = new Estant.View.CustomControl.ButtonFlatImage();
             this.pnMissingWord.SuspendLayout();
             this.pnListenTest.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbAudio)).BeginInit();
@@ -80,7 +80,7 @@ namespace Estant.View.FormUI.VocabularyUI
             this.pnMissingWord.Controls.Add(this.lblMWDefinition);
             this.pnMissingWord.Controls.Add(this.lblMissingWord);
             this.pnMissingWord.Location = new System.Drawing.Point(23, 154);
-            this.pnMissingWord.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnMissingWord.Margin = new System.Windows.Forms.Padding(4);
             this.pnMissingWord.Name = "pnMissingWord";
             this.pnMissingWord.Size = new System.Drawing.Size(747, 364);
             this.pnMissingWord.TabIndex = 0;
@@ -114,7 +114,7 @@ namespace Estant.View.FormUI.VocabularyUI
             this.txtMWAnswer.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtMWAnswer.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold);
             this.txtMWAnswer.Location = new System.Drawing.Point(213, 289);
-            this.txtMWAnswer.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtMWAnswer.Margin = new System.Windows.Forms.Padding(4);
             this.txtMWAnswer.Name = "txtMWAnswer";
             this.txtMWAnswer.Size = new System.Drawing.Size(314, 52);
             this.txtMWAnswer.TabIndex = 4;
@@ -175,7 +175,7 @@ namespace Estant.View.FormUI.VocabularyUI
             this.pnListenTest.Controls.Add(this.lblLTAnswer);
             this.pnListenTest.Controls.Add(this.txtLTAnswer);
             this.pnListenTest.Location = new System.Drawing.Point(824, 535);
-            this.pnListenTest.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnListenTest.Margin = new System.Windows.Forms.Padding(4);
             this.pnListenTest.Name = "pnListenTest";
             this.pnListenTest.Size = new System.Drawing.Size(747, 364);
             this.pnListenTest.TabIndex = 4;
@@ -184,7 +184,7 @@ namespace Estant.View.FormUI.VocabularyUI
             // 
             this.pbAudio.Image = ((System.Drawing.Image)(resources.GetObject("pbAudio.Image")));
             this.pbAudio.Location = new System.Drawing.Point(336, 73);
-            this.pbAudio.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pbAudio.Margin = new System.Windows.Forms.Padding(4);
             this.pbAudio.Name = "pbAudio";
             this.pbAudio.Size = new System.Drawing.Size(75, 62);
             this.pbAudio.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -221,7 +221,7 @@ namespace Estant.View.FormUI.VocabularyUI
             this.txtLTAnswer.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtLTAnswer.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold);
             this.txtLTAnswer.Location = new System.Drawing.Point(213, 289);
-            this.txtLTAnswer.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtLTAnswer.Margin = new System.Windows.Forms.Padding(4);
             this.txtLTAnswer.MaxLength = 15;
             this.txtLTAnswer.Name = "txtLTAnswer";
             this.txtLTAnswer.Size = new System.Drawing.Size(314, 52);
@@ -238,7 +238,7 @@ namespace Estant.View.FormUI.VocabularyUI
             this.pnMultipleChoice.Controls.Add(this.btnA);
             this.pnMultipleChoice.Controls.Add(this.lblMCQuestion);
             this.pnMultipleChoice.Location = new System.Drawing.Point(820, 132);
-            this.pnMultipleChoice.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnMultipleChoice.Margin = new System.Windows.Forms.Padding(4);
             this.pnMultipleChoice.Name = "pnMultipleChoice";
             this.pnMultipleChoice.Size = new System.Drawing.Size(747, 364);
             this.pnMultipleChoice.TabIndex = 5;
@@ -251,7 +251,7 @@ namespace Estant.View.FormUI.VocabularyUI
             this.btnD.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.btnD.ForeColor = System.Drawing.Color.White;
             this.btnD.Location = new System.Drawing.Point(381, 244);
-            this.btnD.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnD.Margin = new System.Windows.Forms.Padding(4);
             this.btnD.Name = "btnD";
             this.btnD.Size = new System.Drawing.Size(359, 117);
             this.btnD.TabIndex = 11;
@@ -268,7 +268,7 @@ namespace Estant.View.FormUI.VocabularyUI
             this.btnC.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.btnC.ForeColor = System.Drawing.Color.White;
             this.btnC.Location = new System.Drawing.Point(4, 244);
-            this.btnC.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnC.Margin = new System.Windows.Forms.Padding(4);
             this.btnC.Name = "btnC";
             this.btnC.Size = new System.Drawing.Size(359, 117);
             this.btnC.TabIndex = 10;
@@ -285,7 +285,7 @@ namespace Estant.View.FormUI.VocabularyUI
             this.btnB.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.btnB.ForeColor = System.Drawing.Color.White;
             this.btnB.Location = new System.Drawing.Point(381, 118);
-            this.btnB.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnB.Margin = new System.Windows.Forms.Padding(4);
             this.btnB.Name = "btnB";
             this.btnB.Size = new System.Drawing.Size(359, 117);
             this.btnB.TabIndex = 9;
@@ -301,7 +301,7 @@ namespace Estant.View.FormUI.VocabularyUI
             this.btnA.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold);
             this.btnA.ForeColor = System.Drawing.Color.White;
             this.btnA.Location = new System.Drawing.Point(4, 118);
-            this.btnA.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnA.Margin = new System.Windows.Forms.Padding(4);
             this.btnA.Name = "btnA";
             this.btnA.Size = new System.Drawing.Size(359, 117);
             this.btnA.TabIndex = 8;
@@ -326,7 +326,7 @@ namespace Estant.View.FormUI.VocabularyUI
             // 
             this.pbNextQuestion.Image = ((System.Drawing.Image)(resources.GetObject("pbNextQuestion.Image")));
             this.pbNextQuestion.Location = new System.Drawing.Point(727, 26);
-            this.pbNextQuestion.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pbNextQuestion.Margin = new System.Windows.Forms.Padding(4);
             this.pbNextQuestion.Name = "pbNextQuestion";
             this.pbNextQuestion.Size = new System.Drawing.Size(43, 39);
             this.pbNextQuestion.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -348,10 +348,27 @@ namespace Estant.View.FormUI.VocabularyUI
             this.pnResult.Controls.Add(this.lbl2);
             this.pnResult.Controls.Add(this.lbl1);
             this.pnResult.Location = new System.Drawing.Point(44, 554);
-            this.pnResult.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnResult.Margin = new System.Windows.Forms.Padding(4);
             this.pnResult.Name = "pnResult";
             this.pnResult.Size = new System.Drawing.Size(747, 364);
             this.pnResult.TabIndex = 7;
+            // 
+            // btnShareFaceBook
+            // 
+            this.btnShareFaceBook.ActiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(116)))), ((int)(((byte)(228)))));
+            this.btnShareFaceBook.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(116)))), ((int)(((byte)(228)))));
+            this.btnShareFaceBook.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnShareFaceBook.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(116)))), ((int)(((byte)(228)))));
+            this.btnShareFaceBook.IconButton = ((System.Drawing.Image)(resources.GetObject("btnShareFaceBook.IconButton")));
+            this.btnShareFaceBook.Location = new System.Drawing.Point(244, 17);
+            this.btnShareFaceBook.Name = "btnShareFaceBook";
+            this.btnShareFaceBook.NormalColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(116)))), ((int)(((byte)(228)))));
+            this.btnShareFaceBook.Padding = new System.Windows.Forms.Padding(10);
+            this.btnShareFaceBook.Size = new System.Drawing.Size(262, 53);
+            this.btnShareFaceBook.TabIndex = 17;
+            this.btnShareFaceBook.TextButton = "      Share on facebook";
+            this.btnShareFaceBook.TextColor = System.Drawing.Color.White;
+            this.btnShareFaceBook.UserClick += new System.EventHandler(this.btnShareFaceBook_UserClick);
             // 
             // lbl10
             // 
@@ -487,7 +504,7 @@ namespace Estant.View.FormUI.VocabularyUI
             // 
             this.pbPrevQuestion.Image = ((System.Drawing.Image)(resources.GetObject("pbPrevQuestion.Image")));
             this.pbPrevQuestion.Location = new System.Drawing.Point(23, 26);
-            this.pbPrevQuestion.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pbPrevQuestion.Margin = new System.Windows.Forms.Padding(4);
             this.pbPrevQuestion.Name = "pbPrevQuestion";
             this.pbPrevQuestion.Size = new System.Drawing.Size(43, 39);
             this.pbPrevQuestion.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -495,23 +512,6 @@ namespace Estant.View.FormUI.VocabularyUI
             this.pbPrevQuestion.TabStop = false;
             this.pbPrevQuestion.Visible = false;
             this.pbPrevQuestion.Click += new System.EventHandler(this.pbPrevQuestion_Click);
-            // 
-            // btnShareFaceBook
-            // 
-            this.btnShareFaceBook.ActiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(116)))), ((int)(((byte)(228)))));
-            this.btnShareFaceBook.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(116)))), ((int)(((byte)(228)))));
-            this.btnShareFaceBook.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnShareFaceBook.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(116)))), ((int)(((byte)(228)))));
-            this.btnShareFaceBook.IconButton = null;
-            this.btnShareFaceBook.Location = new System.Drawing.Point(245, 303);
-            this.btnShareFaceBook.Name = "btnShareFaceBook";
-            this.btnShareFaceBook.NormalColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(116)))), ((int)(((byte)(228)))));
-            this.btnShareFaceBook.Padding = new System.Windows.Forms.Padding(10);
-            this.btnShareFaceBook.Size = new System.Drawing.Size(269, 47);
-            this.btnShareFaceBook.TabIndex = 17;
-            this.btnShareFaceBook.TextButton = "Share Facebook";
-            this.btnShareFaceBook.TextColor = System.Drawing.Color.White;
-            this.btnShareFaceBook.UserClick += new System.EventHandler(this.btnShareFaceBook_UserClick);
             // 
             // PracticeForm
             // 
@@ -528,7 +528,7 @@ namespace Estant.View.FormUI.VocabularyUI
             this.Controls.Add(this.lblQuestionCount);
             this.Controls.Add(this.pnMissingWord);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "PracticeForm";
             this.Text = "PracticeForm";
             this.pnMissingWord.ResumeLayout(false);

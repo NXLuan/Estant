@@ -50,17 +50,17 @@ namespace Estant.View.FormUI.VocabularyUI
             // btnPractice
             // 
             this.btnPractice.ActiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(146)))), ((int)(((byte)(11)))), ((int)(((byte)(3)))));
-            this.btnPractice.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btnPractice.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnPractice.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(106)))), ((int)(((byte)(77)))));
             this.btnPractice.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnPractice.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(119)))), ((int)(((byte)(88)))));
             this.btnPractice.IconButton = ((System.Drawing.Image)(resources.GetObject("btnPractice.IconButton")));
-            this.btnPractice.Location = new System.Drawing.Point(333, 11);
+            this.btnPractice.Location = new System.Drawing.Point(423, 11);
             this.btnPractice.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnPractice.Name = "btnPractice";
             this.btnPractice.NormalColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(106)))), ((int)(((byte)(77)))));
             this.btnPractice.Padding = new System.Windows.Forms.Padding(11, 10, 11, 10);
-            this.btnPractice.Size = new System.Drawing.Size(277, 59);
+            this.btnPractice.Size = new System.Drawing.Size(370, 59);
             this.btnPractice.TabIndex = 1;
             this.btnPractice.TextButton = "   Practice";
             this.btnPractice.TextColor = System.Drawing.Color.White;
@@ -69,17 +69,16 @@ namespace Estant.View.FormUI.VocabularyUI
             // btnFlashCard
             // 
             this.btnFlashCard.ActiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(146)))), ((int)(((byte)(11)))), ((int)(((byte)(3)))));
-            this.btnFlashCard.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btnFlashCard.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(106)))), ((int)(((byte)(77)))));
             this.btnFlashCard.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnFlashCard.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(119)))), ((int)(((byte)(88)))));
             this.btnFlashCard.IconButton = ((System.Drawing.Image)(resources.GetObject("btnFlashCard.IconButton")));
-            this.btnFlashCard.Location = new System.Drawing.Point(27, 10);
+            this.btnFlashCard.Location = new System.Drawing.Point(23, 10);
             this.btnFlashCard.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnFlashCard.Name = "btnFlashCard";
             this.btnFlashCard.NormalColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(106)))), ((int)(((byte)(77)))));
             this.btnFlashCard.Padding = new System.Windows.Forms.Padding(11, 10, 11, 10);
-            this.btnFlashCard.Size = new System.Drawing.Size(274, 60);
+            this.btnFlashCard.Size = new System.Drawing.Size(367, 60);
             this.btnFlashCard.TabIndex = 0;
             this.btnFlashCard.TextButton = "   Flashcards";
             this.btnFlashCard.TextColor = System.Drawing.Color.White;
